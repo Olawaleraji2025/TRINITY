@@ -1,0 +1,416 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  /* Header Styles */
+  header nav {
+    background-color: white;
+    color: black;
+    /* height: 100%; */
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .logo-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.25rem;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .logo-img {
+    width: 5rem;
+    height: auto;
+  }
+
+  .nav-search {
+    display: none;
+    text-align: center;
+    border-color: #065f46;
+  }
+
+  .search-block {
+    display: block;
+    margin: 1rem 0;
+  }
+
+  .search-input {
+    border-radius: 0.75rem;
+    width: 100%;
+    border: 2px solid #ccc;
+  }
+
+  .nav-icons {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .material-symbols-outlined {
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+
+  .material-symbols-outlined:hover {
+    color: #10b981;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    width: 100%;
+    margin-top: 3.5rem;
+    height: 12rem;
+    background-image: url('Hero7.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    padding: 1rem;
+    position: relative;
+  }
+
+  .hero-content {
+    margin-top: 0.75rem;
+  }
+
+  .hero-title {
+    color: white;
+    font-size: 1.25rem;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+    font-weight: bold;
+    font-style: italic;
+  }
+
+  .hero-button {
+    background-color: #166534;
+    color: white;
+    font-weight: bold;
+    font-size: 0.875rem;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .hero-button:hover {
+    background-color: #4ade80;
+  }
+
+  /* Why Choose Trinity Section */
+  .why-choose-section {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 1rem 1rem;
+  }
+
+  .section-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #15803d;
+    text-align: center;
+    margin-bottom: 1rem;
+    text-decoration: underline;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+
+
+
+  .feature-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .feature-icon {
+    color: #16a34a;
+    font-size: 3rem;
+    margin: 0 auto;
+  }
+
+  .feature-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #111827;
+  }
+
+  .feature-description {
+    color: #4b5563;
+  }
+
+  /* Categories Section */
+  .categories-section {
+    padding: 1rem;
+  }
+
+  .categories-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .category-item {
+    width: 7.5rem;
+    height: auto;
+    border: 2px solid #fefdf8;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, border-color 0.3s;
+    cursor: pointer;
+  }
+
+  .category-item:hover {
+    transform: scale(1.05);
+    border-color: #10b981;
+  }
+
+  .category-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.25rem;
+  }
+
+  .category-item p {
+    text-align: center;
+  }
+
+  /* Popular Products Section */
+  .popular-products-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #15803d;
+    margin-bottom: 1rem;
+    text-decoration: underline;
+    text-align: center;
+  }
+
+  .products-container {
+    padding: 1rem;
+    margin: 0 auto;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .product-item {
+    width: 8.5rem;
+    height: auto;
+    border: 2px solid #fefdf8;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, border-color 0.3s;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+
+  .product-item:hover {
+    transform: scale(1.05);
+    border-color: #10b981;
+  }
+
+  .product-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.25rem;
+  }
+
+  .product-name {
+    text-align: center;
+    margin: 0.5rem 0;
+  }
+
+  .product-details {
+    margin-top: 0.5rem;
+  }
+
+  .product-price {
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+
+  .add-to-cart-btn {
+    background-color: #16a34a;
+    color: white;
+    margin: auto;
+    display: block;
+    font-size: 0.875rem;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .add-to-cart-btn:hover {
+    background-color: #4ade80;
+  }
+
+small{
+    font-size: 0.75rem;
+    color: #6b7280;
+    text-align: center;
+    display: block;
+    margin-top: 0.5rem;
+  }
+
+.testimonial-item img{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+  }
+
+  .testimonial-item {
+    text-align: center;
+    padding: 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    background-color: #f9fafb;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-item p {
+    font-style: italic;
+    color: #374151;
+}
+
+.footer-container{
+  background-color: #22543d;
+    padding: 1rem;
+    text-align: center;
+    margin-top: 2rem;
+    text-align: left;
+}
+
+.footer-container p {
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+
+.footer-container a{
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-container a:hover {
+    color: #065f46;
+}
+
+.footer-container ul{
+    list-style-type: none;
+}
+
+.footer-container ul li {
+    margin: 0.5rem 0;
+}
+
+.footer-container a{
+   color: #065f46;
+}
+
+.footer-container a:hover {
+    text-decoration: underline;
+
+}
+
+.footer-container h3{
+    font-weight: bold;
+    color: #fff;
+    margin: 1rem auto;
+    border-bottom: 2px solid #10b981;
+}
+
+.footer-container a{
+  color: #68d391;
+}
+
+.footer-container a:hover{
+  color: #fff;
+}
+
+.Contact a{
+  color: #fff;
+  margin: 1rem;
+  font-size: 1rem;
+}
+
+.Contact li{
+ list-style-type: none;
+ color: #68d391;
+  margin: 0.5rem 0;
+}
+
+.fa-phone, .fa-envelope, .fa-clock, .fa-map-marker-alt {
+    margin-right: 0.5rem;
+   
+}
+
+.footer-bottom{
+  text-align: center;
+}
+
+.line{
+  width: 100%;
+  height: 2px;
+  background-color: #10b981;
+  margin-top: 5rem;
+}
+
+.footer-bottom p{
+  color: #fff;
+  margin-top: 1.5rem;
+}
+
+
+/* .footer-logo img{
+    width: 6rem;
+    height: auto;
+    margin-bottom: 0.5rem;
+}
+
+.footer-logo {
+    text-align: center;
+    margin-bottom: 1rem;
+} */
+

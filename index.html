@@ -1,228 +1,282 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Trinity Supermarket</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+          <div class="container nav-container"> 
+            <a href="#" class="logo-link">
+              <img src="TRINITY LOGO.svg" alt="" class="logo-img">
+            </a>
   
-    
-        <title>Trinity Supermarket</title>
-    </head>
-    <body>
-        <header>
-            <nav class="bg-white text-black h-full sticky top z-10 w-full shadow-md">
-    
-                <div class="container mx-auto px-4 py-3 pb-4 flex items-center justify-between"> 
-                    
-                    <a href="#" class="flex items-center gap-2 text-xl">
-                        <img src="TRINITY LOGO.svg" alt="" class="w-20 h-auto">
-                    </a>
-    
-                    <nav class="hidden text-center border-emerald-800">
-                    <div class="block my-4">
-                        <input class="rounded-xl w-100 border-2 md:w-100" type="text" placeholder="Search for Products">
-    
-    
-                    </div>
-    
-                        <!-- <ul class="flex items-center space-x-8">
-                            <li class="font-cursive"><a href="#">Categories</a></li>
-                            <li><a href="#">Shop Locator</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Account</a></li>
-                        </ul>  -->
-                    </nav>
-    
-    
-                    <div class="flex space-x-4">
-                        <span class="material-symbols-outlined hover:text-green-500">
-                            search
-                        </span>
-                        <span class="material-symbols-outlined hover:text-green-500">
-                            person
-                            </span><a href="#" class="hidden">Account</a>
-                        <span class="material-symbols-outlined hover:text-green-500">
-                            shopping_cart
-                        </span><a href="#" class="hidden">Cart</a>
-                        <span class="material-symbols-outlined hover:text-green-500">menu</span>
-                    </div>
-                </div>
-    
-               <div>
-                <div>
-                   
-                </div>
-               </div>
+            <nav class="nav-search">
+              <div class="search-block">
+                <input class="search-input" type="text" placeholder="Search for Products">
+              </div>
             </nav>
-        </header>
-    
-        <main>
-            <section>
-                <div class="container mx-auto px-4 w-full h-48 bg-[url('Hero7.png')] bg-cover bg-no-repeat block p-4 relative bg-center olawale">
-                    <div class=" mt-3">
-                        <h1 class="text-white text-xl inline-block pb-2 font-bold italic">
-                            Shop Smarter,<br><span class="">Easier,</span><br>Faster.
-                        </h1><br>
-    
-    
-                        <button class="bg-green-800 text-white font-bold text-sm hover:bg-green-400 rounded-lg p-1">
-                            Shop Now
-                        </button>
-                    </div>
-                </div>
-            </section>
-        </main>                
-    
-
-        <section class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <h2 class="text-xl font-bold text-green-700 text-center mb-4 underline">
-             Why Choose Trinity?
-            </h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 text-center">
-                <div class="space-y-4">
-                    <i class="fas fa-boxes fa-2x
-                    text-green-600 text-5xl mx-auto">
-                    </i>
-                  
-                   <h3 class="text-xl font-semibold text-green-900">
-                    Wide Variety
-                   </h3>
-                   <p class="text-gray-600 max-w-xs">
-                    Access to beverages, drugs, wines, wears, and more – all in one place.
-                   </p>
-                </div>
-             <div class="space-y-4">
-              <i class="fas fa-shield-alt text-green-600 text-5xl mx-auto">
-              </i>
-              <h3 class="text-xl font-semibold text-gray-900">
-               Quality Assurance
-              </h3>
-              <p class="text-gray-600">
-               All products are carefully selected and certified to ensure the highest quality.
-              </p>
-             </div>
-             <div class="space-y-4">
-              <i class="fas fa-truck text-green-600 text-5xl mx-auto">
-              </i>
-              <h3 class="text-xl font-semibold text-gray-900">
-               Fast &amp; Reliable Shipping
-              </h3>
-              <p class="text-gray-600">
-               Quick delivery to your doorstep with secure packaging.
-              </p>
-             </div>
-             <div class="space-y-4">
-              <i class="fas fa-headset text-green-600 text-5xl mx-auto">
-              </i>
-              <h3 class="text-xl font-semibold text-gray-900">
-               24/7 Customer Support
-              </h3>
-              <p class="text-gray-600">
-               Our friendly support team is always ready to assist you.
-              </p>
-             </div>
+  
+            <div class="nav-icons">
+              <span class="material-symbols-outlined">search</span>
+              <span class="material-symbols-outlined">person</span>
+              <a href="#" class="hidden">Account</a>
+              <span class="material-symbols-outlined">shopping_cart</span>
+              <a href="#" class="hidden">Cart</a>
+              <span class="material-symbols-outlined">menu</span>
             </div>
-           </section>
-
-
-        <section class="container mx-auto p-4">
-         
-          <h2 class="text-xl font-bold text-green-700 mb-4 underline text-center">
-            Explore Our Categories
-           </h2>
-
-
-          <div class="container flex items-center justify-center flex-wrap gap-2 mt-4 ">
-
-            <div class="w-30 h-auto border-2 border-amber-50 hover:scale-105 transition-transform duration-300 hover:border-green-500 shadow-xl rounded-lg">
-                <img src="Provision1" alt="">
-                <p class="text-center">Provisions</p>
-               </div>
-
-    
-            <div  class="w-30 h-auto border-2 border-amber-50 hover:scale-105 transition-transform duration-300 hover:border-green-500 shadow-xl rounded-lg">
-                <img src="Sooft.jpg" alt="">
-                <p class="text-center">Beverages</p>
-                </div>
-    
-    
-            <div class="w-30 h-auto border-2 border-amber-50 hover:scale-105 transition-transform duration-300 hover:border-green-500 shadow-xl rounded-lg">
-                <img src="Exoticc.jpg" alt=""  >
-                <p class="text-center">Exotic Wines</p>
-            </div>
-    
-            
-    
-            <div class="w-30 h-auto border-2 border-amber-50 hover:scale-105 transition-transform duration-300 hover:border-green-500 shadow-xl rounded-lg">
-                <img src="Cosmeetics.jpg" alt="">
-                <p class="text-center">Cosmetics</p>
-            </div>
-
-            <div class="w-30 h-auto border-2 border-amber-50 hover:scale-105 transition-transform duration-300 hover:border-green-500 shadow-xl rounded-lg">
-                <img src="Toiletries" alt="">
-                <p class="text-center">Toiletries</p>
-               </div>
-    
-           <div class="w-30 h-auto border-2 border-amber-50 hover:scale-105 transition-transform duration-300 hover:border-green-500 shadow-xl rounded-lg">
-            <img src="Wears.jpg" alt="">
-            <p class="text-center">Wears</p>
-           </div>
-    
-           <div class="w-30 h-auto border-2 border-amber-50 hover:scale-105 transition-transform duration-300 hover:border-green-500 shadow-xl rounded-lg">
-            <img src="Gifts.jpg" alt="">
-            <p class="text-center">Gift Items</p>
-           </div>
-    
-           <div class="w-30 h-auto border-2 border-amber-50 hover:scale-105 transition-transform duration-300 hover:border-green-500 shadow-xl rounded-lg">
-            <img src="Drugs2.jpg" alt="">
-            <p class="text-center">Quality Drugs</p>
-           </div>
-
-           
-
-           <!-- <div class="w-30 h-auto border-2 border-amber-50 hover:scale-105 transition-transform duration-300 hover:border-green-500 shadow-xl rounded-lg">
-            <img src="Snacks4" alt="">
-            <p class="text-center">Snacks</p>
-           </div> -->
-    
           </div>
-    
+        </nav>
+      </header>
+  
+      <main>
+        <section>
+          <div class="container hero-section">
+            <div class="hero-content">
+              <h1 class="hero-title">
+                Shop Smarter,<br><span>Easier,</span><br>Faster.
+              </h1><br>
+              <button class="hero-button">Shop Now</button>
+            </div>
+          </div>
         </section>
-
-    
-    <section>
-        <h4 class="text-center text-2xl font-bold mt-4">Popular Products</h4>
-    
-        <div  class="container p-4 mx-auto flex">
-        <div class="w-30 h-auto border-2 border-amber-50 hover:scale-105 transition-transform duration-300 hover:border-green-500 shadow-xl rounded-lg">
-            <img src="Coke.jpg" alt="">
-            <p class="text-center">Coke 75cl</p>
-           </div>
-    
-           <div class="w-30 h-auto border-2 border-amber-50 hover:scale-105 transition-transform duration-300 hover:border-green-500 shadow-xl rounded-lg">
-            <img src="Coke.jpg" alt="">
-            <p class="text-center">Coke 75cl</p>
-           </div>
-    
-           <div class="w-30 h-auto border-2 border-amber-50 hover:scale-105 transition-transform duration-300 hover:border-green-500 shadow-xl rounded-lg">
-            <img src="Coke.jpg" alt="">
-            <p class="text-center">Coke 75cl</p>
-           </div>
-    
-           <div class="w-30 h-auto border-2 border-amber-50 hover:scale-105 transition-transform duration-300 hover:border-green-500 shadow-xl rounded-lg">
-            <img src="Coke.jpg" alt="">
-            <p class="text-center">Coke 75cl</p>
-           </div>
-    
-    
-    
+      </main>                
+  
+      <section class="why-choose-section">
+        <h2 class="section-title">Why Choose Trinity?</h2>
+        <div class="features-grid">
+          <div class="feature-item">
+            <i class="fas fa-boxes feature-icon"></i>
+            <h3 class="feature-title">Wide Variety</h3>
+            <p class="feature-description">
+              Access to beverages, drugs, wines, wears, and more – all in one place.
+            </p>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-shield-alt feature-icon"></i>
+            <h3 class="feature-title">Quality Assurance</h3>
+            <p class="feature-description">
+              All products are carefully selected and certified to ensure the highest quality.
+            </p>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-truck feature-icon"></i>
+            <h3 class="feature-title">Fast &amp; Reliable Shipping</h3>
+            <p class="feature-description">
+              Quick delivery to your doorstep with secure packaging.
+            </p>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-headset feature-icon"></i>
+            <h3 class="feature-title">24/7 Customer Support</h3>
+            <p class="feature-description">
+              Our friendly support team is always ready to assist you.
+            </p>
+          </div>
         </div>
-    
-    </section>
-    
-    <script type="module" src="/src/main.ts"></script>
-  </body>
-</html>
+      </section>
+  
+      <section class="container categories-section">
+        <h2 class="section-title">Explore Our Categories</h2>
+        <div class="categories-container">
+          <div class="category-item">
+            <img src="Provision1" alt="">
+            <p>Provisions</p>
+            <small>Wide range of food items and essentials</small>
+          </div>
+          <div class="category-item">
+            <img src="Sooft.jpg" alt="">
+            <p>Beverages</p>
+            <small>Refreshing and diverse selection of drinks </small>
+          </div>
+          <div class="category-item">
+            <img src="Exoticc.jpg" alt="">
+            <p>Exotic Wines</p>
+            <small>Premium wines from around the world</small>
+          </div>
+          <div class="category-item">
+            <img src="Cosmeetics.jpg" alt="">
+            <p>Cosmetics</p>
+            <small>High-quality beauty and skincare products</small>
+          </div>
+          <div class="category-item">
+            <img src="Toiletries" alt="">
+            <p>Toiletries</p>
+            <small>Essential personal care items</small>
+          </div>
+          <div class="category-item">
+            <img src="Wears.jpg" alt="">
+            <p>Wears</p>
+            <small>Fashionable clothing and accessories</small>
+          </div>
+          <div class="category-item">
+            <img src="Gifts.jpg" alt="">
+            <p>Gift Items</p>
+            <small>Unique gifts for every occasion</small>
+          </div>
+          <div class="category-item">
+            <img src="Drugs2.jpg" alt="">
+            <p>Quality Drugs</p>
+            <small>Trusted medications and health products</small>
+          </div>
+        </div>
+      </section>
+  
+      <section>
+        <h4 class="popular-products-title">Popular Products</h4>
+        <div class="container products-container">
+          <div class="product-item">
+            <img src="Peak Milk 900g.webp" alt="">
+            <p class="product-name">Peak Milk 900g</p>
+            <div class="product-details">
+              <p class="product-price">₦1,500</p>
+              <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+          </div>
+          <div class="product-item">
+            <img src="Moisturisers & Lotions\spasho1467_1ccfda31-5388-4f55-a6f0-861d8e2240e8.jpg" alt="">
+            <p class="product-name">Extract Lotion</p>
+            <div class="product-details">
+              <p class="product-price">₦1,500</p>
+              <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+          </div>
+          <div class="product-item">
+            <img src="ANDRE-ROSE-CALIFONIA-SPARKLNG.WINE-750ML.png" alt="">
+            <p class="product-name">ANDRE ROSE CALIFONIA SPARKLNG WINE 750ML</p>
+            <div class="product-details">
+              <p class="product-price">₦1,500</p>
+              <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+          </div>
+          <div class="product-item">
+            <img src="Nestle Golden Morn Maize 800g.webp" alt="">
+            <p class="product-name">Nestle Golden Morn Maize & Soya 800 g</p>
+            <div class="product-details">
+              <p class="product-price">₦1,500</p>
+              <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+          </div>
+          <div class="product-item">
+            <img src="Bacchus.png" alt="">
+            <p class="product-name">Bacchus 750ml</p>
+            <div class="product-details">
+              <p class="product-price">₦1,500</p>
+              <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+          </div>
+          <div class="product-item">
+            <img src="Oral Care\1463671438550_spar4059_dabur_herbal_toothpaste_mint___lemon_fresh_gel_140_g.jpg" alt="">
+            <p class="product-name">Dabur Herbal Toothpaste 140g</p>
+            <div class="product-details">
+              <p class="product-price">₦1,500</p>
+              <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </section>
 
+      <section class="container testimonials-section">
+        <h2 class="section-title">What Our Customers Say</h2>
+        <div class="testimonials-container">
+          <div class="testimonial-item">
+            <img alt="Portrait of Sarah K, a satisfied customer with curly hair and a bright smile" src="https://storage.googleapis.com/a1aa/image/419c692c-f185-4c15-8c13-ad2f37aec6cd.jpg"/>
+            <p>"I love the variety of products available. My go-to supermarket!"</p>
+            <span>- Raji Olawale.</span>
+          </div>
+          <div class="testimonial-item">
+            <img alt="Portrait of John Doe, a happy customer with short brown hair and glasses smiling" src="https://storage.googleapis.com/a1aa/image/419c692c-f185-4c15-8c13-ad2f37aec6cd.jpg" width="64"/>
+            <p>"Trinity Supermarket has everything I need, and the quality is top-notch!"</p>
+            <span>- Sarah K.</span>
+          </div>
+          <div class="testimonial-item">
+            <img alt="Portrait of Emily Rose, a satisfied customer with long blonde hair and a friendly smile" src="https://storage.googleapis.com/a1aa/image/419c692c-f185-4c15-8c13-ad2f37aec6cd.jpg" width="64"/>
+            <p>"Fast delivery and great customer service. Highly recommend!"</p>
+            <span>- John D.</span>
+          </div>
+          
+        </div>
+      </section>
+
+<footer>
+  <div class="container footer-container">
+ <!-- <div class="footer-logo">
+      <img src="TRINITY LOGO.svg" alt="Trinity Supermarket Logo" class="footer-logo-img">
+      <h3>Trinity Supermarket</h3>
+      <p>Your one-stop shop for all your needs.</p> 
+</div> -->
+
+    <div class="Accont-section">
+      <h3>Account</h3>
+      <ul>
+        <li><a href="#">Login</a></li>
+        <li><a href="#">Register</a></li>
+        <li><a href="#">Order History</a></li>
+        <li><a href="#">Wishlist</a></li>
+      </ul>
+    </div>
+
+
+
+    <div class="Customer-service-section">
+      <h3>Customer Service</h3>
+      <ul>
+        <li><a href="#">Help Center</a></li>
+        <li><a href="#">Shipping & Returns</a></li>
+        <li><a href="#">FAQs</a></li>
+        <li><a href="#">Tract Order</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+
+      </ul>
+
+<!-- <div class="social-media-section">
+      <h3>Follow Us</h3>
+      <ul>
+        
+      </ul>
+    </div> -->
+
+<div class="Contact">
+  <h3 class="contact-header">Contact Us</h3>
+  <li><i class="fas fa-map-marker-alt"></i>Opposite Central Mosque, Market Square, Ipetumodu, Osun State, Nigeria.</li>
+  <li><i class="fas fa-phone"></i> +2348034479217</li>
+  <li><i class="fas fa-envelope"></i> olawalesodiq988@gmail.com</li>
+  <li><i class="fas fa-clock"></i> Mon - Fri: 8am - 6pm</li>
+  <!-- <a href="#"><i class="fab fa-facebook-f"></i></a>
+  <a href="#"><i class="fab fa-twitter"></i></a>
+  <a href="#"><i class="fab fa-whatsapp"></i></a>
+  <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
+</div>
+
+<!-- <div class="News">
+  <h3>Newsletter</h3>
+<p>Subscribe to get updates on our latest Products.</p>
+<input type="text" placeholder="Enter your email">
+</div> -->
+
+
+</div>
+
+
+
+<div class="footer-bottom"> 
+  <div class="line"></div>
+  <p>&copy; 2025 Trinity Supermarket. All rights reserved.</p>
+  <!-- <p>For more inquiries</p>
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-whatsapp"></i></a>
+    <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
+</div>
+</footer>
+
+
+
+</body>
+</html>
