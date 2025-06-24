@@ -273,7 +273,7 @@
   .add-to-cart-btn {
     background-color: #16a34a;
     color: white;
-    margin: auto;
+    margin: 1rem auto auto auto;
     display: block;
     font-size: 0.875rem;
     border: none;
@@ -406,14 +406,60 @@ small{
 }
 
 
-/* .footer-logo img{
+.footer-logo img{
     width: 6rem;
     height: auto;
-    margin-bottom: 0.5rem;
+}
+
+.footer-logo a {
+    color: #fff;
+    margin: 0.5rem;
+    font-size: 1.3rem;
 }
 
 .footer-logo {
     text-align: center;
-    margin-bottom: 1rem;
-} */
+    margin-bottom: 3rem;
+}
+
+.footer-logo h4{
+    font-size: 1.5rem;
+    color: #10b981;
+}
+
+.footer-logo p{
+    font-size: 0.875rem;
+    color: #fefdf8;
+}
+
+.footer-logo a:hover {
+    color: #10b981;
+}
+.back-to-top{
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: #10b981;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.back-to-top:hover {
+    background-color: #065f46;
+    transform: scale(1.05);
+}
+
+.back-to-top a{
+    color: white;
+   
+}
+
+.back-to-top i {
+  margin-right: 0.4rem;
+}
+
+
 
