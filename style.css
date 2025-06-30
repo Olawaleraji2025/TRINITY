@@ -125,11 +125,7 @@
     width: 100%;
     margin-top: 3.5rem;
     height: 13rem;
-<<<<<<< HEAD
-    background-image: url('/Homepage/Hero7.png');
-=======
-    background-image: url('Hero7.png');
->>>>>>> 763eebb9358815a694465ea3ed1df4e0ff3ec08e
+    background-image: url('Homepage/Hero7.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
