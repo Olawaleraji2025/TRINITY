@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: springgreen;
+    /* background: linear-gradient(rgba(34, 49, 63, 0.7), rgba(44, 62, 80, 0.7)),
+        url('https://images.unsplash.com/photo-1515169067865-5387a5b7bde5?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed; */
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed */
+
+.Account-container{
+    width: 300px;
+    margin: 5rem auto;
+    padding: 1.5rem;
+    background: black;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.Account-container p{
+    text-align: center;
+    color: #ffffff7a;
+}
+
+.Account-container h3{
+    text-align: center;
+    margin: 0.8rem auto;
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.Account-container a{
+    color: rgb(202, 21, 21);
+    font-weight: bold;
+}
+
+.account-details{
+    margin: 1.5rem auto;
+    display: block;
+    width: 250px;
+}
+
+.account-details label{
+    font-size: small;
+    color: #ffffffec;
+}
+
+.account-details input{
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.603);
+    border-bottom: 2px solid green;
+    /* border-radius: 4px; */
+    outline: none;
+}
+
+.account-details input:focus{
+    background-color: #fff;
+}
+
+.account-details button{
+    width: 100%;
+    padding: 0.5rem;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.account-details button:focus{
+    background-color: darkgreen;
+}
+
+
+.account-footer{
+    text-align: center;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.account-footer div{
+    background-color: gray;
+    height: 2px;
+    width: 90px;
+    margin: auto 5px;
+}
+
+.social-icons{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.social-icons img{
+    margin: 0.7rem auto;
+    width: 30px;
+    height: 30px;
+}
