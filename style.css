@@ -122,7 +122,7 @@
 .hidden-search {
   border: none;
   padding: 4px;
-  border: 1px solid rgb(78, 160, 78);
+  border: 1px solid forestgreen;
   background-color: white;
   border-left: none;
   cursor: pointer;
