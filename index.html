@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    
+         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap&text=searchpersonshopping_cartmenuclose" />
+    
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" /> -->
     <title>Trinity Supermarket</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -18,11 +21,11 @@
              
             </a>
   
-            <nav class="nav-search">
+            <div class="nav-search">
               <div class="search-block">
                 <input class="search-input" type="text" placeholder="Search for Products">
               </div>
-            </nav>
+            </div>
   
             <div class="nav-icons">
               <span class="search-icon material-symbols-outlined">search</span>
@@ -36,15 +39,37 @@
               <a href="cart.html" class="cart"><span class="material-symbols-outlined">shopping_cart</span></a>
               
               <a href="#" class="hidden">Cart</a>
-              <span class="material-symbols-outlined">menu</span>
+              <!-- <span class="close-menu material-symbols-outlined" style="display:none;">close</span> -->
+              <span class="menu material-symbols-outlined">menu</span>
+              
+              <span class="hidden-close material-symbols-outlined">close</span>
             </div>
           </div>
 
           
             <div class="search-container">
-              <input type="text" placeholder="Search for Products" class="search-input"><span class="hidden-search material-symbols-outlined">search</span>
-              <button class="search-button"></button>
+              <input type="text" placeholder="Search for Products" class="search-input">
+              <span class="hidden-search material-symbols-outlined">search</span>
+              <span class="close-menu material-symbols-outlined">close</span>
             </div>
+        </nav>
+
+        <nav>
+          
+          
+            <div class="mobile-menu">
+              <!-- <div class="cancel-icon">
+                
+              </div> -->
+              
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#categories-section">Categories</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+          </div>
         </nav>
       </header>
   
