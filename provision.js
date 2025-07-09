@@ -29,8 +29,13 @@ closeIcon.addEventListener("click", function () {
 let menuBtn = document.querySelector(".menu");
 let hiddenMenu = document.querySelector(".mobile-menu");
 let hiddenClose = document.querySelector(".hidden-close");
-
-
+let numberOne = document.querySelector(".page-number1"); 
+let numberTwo = document.querySelector(".page-number2"); 
+let numberThree = document.querySelector(".page-number3"); 
+let numberFour = document.querySelector(".page-number4"); 
+let numberFive = document.querySelector(".page-number5"); 
+let secondContainer = document.querySelector(".second-container");
+let firstContainer = document.querySelector(".filter-options");
 
 menuBtn.addEventListener("click", function () {
     menuBtn.style.display = "none";
@@ -49,3 +54,12 @@ hiddenClose.addEventListener("click", function () {
 });
 
 
+numberTwo.addEventListener("click", function () {
+    secondContainer.style.display = "grid";
+    firstContainer.style.display = "none";
+});
+
+numberOne.addEventListener("click", function () {
+    secondContainer.style.display = "none";
+    firstContainer.style.display = "grid";
+});
