@@ -4,5 +4,6 @@
     "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
     "workbench.colorCustomizations": {
         "[Red]": {}
-    }
+    },
+    "github.copilot.nextEditSuggestions.enabled": true
 }

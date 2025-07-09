@@ -331,17 +331,25 @@ display: none;
 .product-item {
   width: 8.5rem;
   height: auto;
-  /* border: 2px solid #fefdf8;
+  border: 2px solid #fefdf8;
   border-radius: 0.5rem;
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, border-color 0.3s; */
+  transition: transform 0.3s, border-color 0.3s; 
   cursor: pointer;
   padding: 0.5rem;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
 
 .product-item:hover {
   transform: scale(1.05);
   border-color: #10b981;
+}
+
+.product-image{
+  width: 100px;
+  height: auto;
+  border-radius: 0.25rem;
+  display: block;
+  margin: 0 auto;
 }
 
 .product-item img {
