@@ -35,7 +35,9 @@ let numberThree = document.querySelector(".page-number3");
 let numberFour = document.querySelector(".page-number4"); 
 let numberFive = document.querySelector(".page-number5"); 
 let secondContainer = document.querySelector(".second-container");
+let thirdContainer = document.querySelector(".third-container");
 let firstContainer = document.querySelector(".filter-options");
+let fourthContainer = document.querySelector(".fourth-container");
 
 menuBtn.addEventListener("click", function () {
     menuBtn.style.display = "none";
@@ -55,11 +57,31 @@ hiddenClose.addEventListener("click", function () {
 
 
 numberTwo.addEventListener("click", function () {
-    secondContainer.style.display = "grid";
+    secondContainer.style.display = "flex";
     firstContainer.style.display = "none";
+    fourthContainer.style.display = "none"
+    thirdContainer.style.display = "none";
 });
 
 numberOne.addEventListener("click", function () {
     secondContainer.style.display = "none";
-    firstContainer.style.display = "grid";
+    firstContainer.style.display = "flex";
+    fourthContainer.style.display = "none"
+    thirdContainer.style.display = "none";
+});
+
+numberThree.addEventListener("click", function () {
+    secondContainer.style.display = "none";
+    firstContainer.style.display = "none";
+    fourthContainer.style.display = "none"
+    thirdContainer.style.display = "flex";
+    
+});
+
+numberFour.addEventListener("click", function () {
+    secondContainer.style.display = "none";
+    firstContainer.style.display = "none";
+    fourthContainer.style.display = "flex"
+    thirdContainer.style.display = "none";
+    
 });

@@ -92,13 +92,14 @@
   
   .search-container{
   display: none;
-  justify-content: center;
-  align-items: center;
-  margin: 5px auto;
-  width: 250px;
-  border-radius: 10px;
-  border: 1px solid forestgreen;
-  padding: 0;
+justify-content: center;
+align-items: center;
+margin: 5px 100px;
+max-width: 250px;
+width: 250px;
+border-radius: 10px;
+border: 2px solid forestgreen;
+padding: 0;
   /* position: relative; */
   }
   
@@ -112,12 +113,13 @@
   
   .search-input{
     border: none;
-    outline: none;
-    padding: 0.5rem;
-    transition: .3s ease-in-out;
-    font-size: 14px;
-    border-right: none;
-    font-weight: 500;
+  outline: none;
+  width: 180px;
+  padding: 0.5rem;
+  transition: .3s ease-in-out;
+  font-size: 14px;
+  /* border-right: none; */
+  font-weight: 500;
   }
   
   
@@ -189,6 +191,7 @@
         align-items: center;
         overflow-x: auto;
         margin: 0.5rem 0;
+        gap: 1rem;
     }
 
     .filter-header::-webkit-scrollbar{
@@ -198,6 +201,7 @@
     .filter-header p{
       white-space: nowrap;
         padding: 0.5rem;
+        font-size: 16px;
         border-radius: 0.5rem;
         margin: 0.4rem 0;
         box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
@@ -214,12 +218,13 @@
     }
 
     .product-item {
-        width: 9rem;
+        width: 140px;
         height: auto;
         /* border: 2px solid #fefdf8;
         border-radius: 0.5rem;
         box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s, border-color 0.3s; */
+        margin: 1.5rem auto;
         cursor: pointer;
         padding: 0.5rem;
       }
@@ -229,19 +234,27 @@
         border-color: #10b981;
       }
       
-      .product-item img {
+      .product-image{
+  width: 120px;
+  height: auto;
+  margin: 0 auto;
+  /* border-radius: 0.25rem; */
+ /* border: solid black; */
+}
+      
+      .product-image img {
         width: 100%;
-        height: auto;
+        height: 150px;
         border-radius: 0.25rem;
       }
       
       .product-name {
-        text-align: center;
+        text-align: left;
         margin: 0.5rem 0;
       }
       
       .product-details {
-        margin-top: 0.5rem;
+        margin-top: 1.5rem;
       }
       
       .product-price {
@@ -253,7 +266,7 @@
       .add-to-cart-btn {
         background-color: #16a34a;
         color: white;
-        margin: 1rem auto auto auto;
+        margin: 2rem auto auto auto;
         display: block;
         font-size: 0.875rem;
         border: none;
@@ -268,35 +281,65 @@
       }
       
       .filter-options{
-        justify-content: center;
-        padding: 1rem;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 150px 150px;
-        grid-template-rows: 322px;
-        align-items: end;
-        /* display: flex; */
-        /* flex-wrap: wrap; */
-        gap: 1rem;
+        justify-content: space-around;
+ /* margin-top: 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-rows: 350px; 
+  gap: 1rem; */
+  align-items: flex-end;
+   
+  flex-wrap: wrap; 
+  display: flex; 
+  padding: 1rem;
 
       }
 
 
 .second-container{
-        justify-content: center;
-        padding: 1rem;
-        margin: 0 auto;
-        display: none;
-        grid-template-columns: 150px 150px;
-        grid-template-rows: 322px;
-        align-items: baseline;
-        /* display: flex; */
-        /* flex-wrap: wrap; */
-        gap: 1rem;
+  justify-content: space-around;
+ /* margin-top: 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-rows: 350px; 
+  gap: 1rem; */
+  align-items: flex-end;
+   
+  flex-wrap: wrap; 
+  display: none; 
+  padding: 1rem;
 
 }
 
 
+.third-container{
+  justify-content: space-around;
+ /* margin-top: 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-rows: 350px; 
+  gap: 1rem; */
+  align-items: flex-end;
+   
+  flex-wrap: wrap; 
+  display: none; 
+  padding: 1rem;
+}
+
+
+.fourth-container{
+  justify-content: space-around;
+ /* margin-top: 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-rows: 350px; 
+  gap: 1rem; */
+  align-items: flex-end;
+   
+  flex-wrap: wrap; 
+  display: none; 
+  padding: 1rem;
+}
 
       .pagination-container{
         display: flex;
