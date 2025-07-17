@@ -91,17 +91,18 @@
   
   
   .search-container{
-  display: none;
-justify-content: center;
-align-items: center;
-margin: 5px 100px;
-max-width: 250px;
-width: 250px;
-border-radius: 10px;
-border: 2px solid forestgreen;
-padding: 0;
-  /* position: relative; */
-  }
+    display: none;
+    justify-content: center;
+    align-items: center;
+    margin-inline: auto;
+    margin-bottom: 5px;
+    max-width: 250px;
+    width: 250px;
+    border-radius: 10px;
+    border: 2px solid forestgreen;
+    padding: 0;
+    /* position: relative; */
+    }
   
   .cart{
   display: flex;
