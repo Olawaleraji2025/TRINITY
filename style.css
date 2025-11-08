@@ -338,7 +338,7 @@ display: none;
   display: flex; 
   padding: 1rem;
   position: relative;
-        
+        z-index: -10;
 }
 
 .product-item {
@@ -605,6 +605,7 @@ margin-top: 1.5rem;
   border-radius: 0.5rem;
   padding: 0.5rem;
   cursor: pointer;
+  z-index: 10;
   transition: background-color 0.3s, transform 0.3s;
 }
 
@@ -786,7 +787,7 @@ padding: 6px;
   border: none;
   padding: 10px;
   cursor: pointer;
-  z-index: 10;
+  z-index: 1;
 }
 
 .prev-btn2, .next-btn2 {
@@ -798,7 +799,7 @@ padding: 6px;
   border: none;
   padding: 10px;
   cursor: pointer;
-  z-index: 10;
+  z-index: 1;
 }
 
 .prev-btn {
