@@ -304,10 +304,10 @@ display: none;
 
 /* Popular Products Section */
 .popular-products-section{
-  overflow-x: auto;  
-  /* border: solid red; */
+  overflow: hidden;  
   width: 100%;
-  
+  max-width: 900px;
+
 }
 
 #big{
@@ -321,10 +321,10 @@ display: none;
   margin-bottom: 1.5rem;
   text-decoration: underline;
   text-align: center;
-      margin-top: 2rem;
+  margin-top: 2rem;
 }
 
-.products-container {
+.products-container, .products-container2 {
   justify-content: normal;
  /* margin-top: 60px;
   display: grid;
@@ -337,6 +337,8 @@ display: none;
   flex-wrap: nowrap; 
   display: flex; 
   padding: 1rem;
+  position: relative;
+        
 }
 
 .product-item {
@@ -348,14 +350,29 @@ display: none;
   cursor: pointer;
   padding: 0.5rem;
   height: auto;
-  
+  position: relative;
+  z-index: 1;
   /* display: block; */
-  /* box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); */
+}
+
+.product-item2 {
+  width: 200px;
+  /* border: 2px solid #10b981;  
+  border-radius: 0.5rem;
+  transition: transform 0.3s, border-color 0.3s; */
+  margin: 0 5px;
+  cursor: pointer;
+  padding: 0.5rem;
+  height: auto;
+  position: relative;
+  z-index: 1;
+  /* display: block; */
 }
 
 .product-item:hover {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
   transform: scale(1.05);
-  border: 1px solid #ccc; 
+  /* border: 1px solid #ccc;  */
 }
 
 .product-image{
@@ -693,7 +710,6 @@ padding: 6px;
 
 
 }
-
 @media (min-width: 741px) and (max-width: 1400px){
 .logo-img{
   width: 5rem;
@@ -727,6 +743,78 @@ padding: 6px;
 
 
 
+}
+
+/* Slider Styles */
+.slider-container {
+  width: 100%;
+  position: relative;
+  overflow: scroll;
+}
+
+.slider-container2 {
+  position: relative;
+  overflow: hidden;
+}
+
+.slider-wrapper {
+  scroll-behavior: smooth;
+  max-width: 1400px;
+  width: 100%;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
+.slider-wrapper2 {
+  scrollbar-width: none;
+   scroll-behavior: smooth;
+  max-width: 1400px;
+  width: 100%;
+  overflow-x: scroll;
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
+.prev-btn, .next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.prev-btn2, .next-btn2 {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+.prev-btn2 {
+  left: 10px;
+}
+
+.next-btn2 {
+  right: 10px;
 }
 
 

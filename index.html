@@ -96,9 +96,12 @@
                   Shop Now
                 </a>
               </button>
-            </div>
           </div>
-        </section>
+        </div>
+     </div>
+     <!-- <button class="next-btn">></button> -->
+   </div>
+      </section>
       </main>                
   
       <section class="why-choose-section">
@@ -193,8 +196,10 @@
   <h4 class="popular-products-title">Popular Products</h4>
   
    <section class="popular-products-section">
-        
-   <div class="container products-container">
+   <div class="slider-container">
+     <button id="left" class="prev-btn" onclick="prevBtn()"><</button>
+     <div class="slider-wrapper">
+       <div class="container products-container">
           <div class="product-item">
             <div class="product-image">
                 <img src="Homepage/Peak Milk 900g.webp" alt="">
@@ -283,110 +288,222 @@
               <p class="product-price">₦3,400.00</p>
               <button class="add-to-cart-btn">Add to Cart</button>
             </div>
-          </div>        
+          </div>  
+
         </div>
+      </div>
+      <button id="right" class="next-btn" onclick="nextBtn()">></button>
+    </div>
       </section>
 
-<section class="popular-products-section">
-    <div class="products-container">
-           
-          <div class="product-item">
-            <div class="product-image">
-                <img src="Baby Wipes/aspar2085.jpg" alt="">
-            </div>
-            <p class="product-name">Cussons Baby Wipes Soft & Smooth x50</p>
-            <div class="product-details">
-              <p class="product-price">₦1,070.00</p>
-              <button class="add-to-cart-btn">Add to Cart</button>
-            </div>
-          </div>
-          
-          
-          <div class="product-item">
-              <div class="product-image">
-                  <img src="Bath Time/sprnw1407.jpg" alt="">
-              </div>
-            
-            <p class="product-name">Extract Whitening Herbal Soap 125 g</p>
-            <div class="product-details">
-              <p class="product-price">₦1,250.00</p>
-              <button class="add-to-cart-btn">Add to Cart</button>
-            </div>
-          </div>
-          
-          <div class="product-item">
-              <div class="product-image">
-                  <img src="RED WINES/4th-Street-Sweet-Red-Wine-75-cl-Supermart-ng-2542.jpg" alt="">
-              </div>
-            
-            <p class="product-name">Cerelac Wheat & Milk 6 Months 400 g</p>
-            <div class="product-details">
-              <p class="product-price">₦7,085.00</p>
-              <button class="add-to-cart-btn">Add to Cart</button>
-            </div>
-          </div>
-          
-          <div class="product-item">
-           <div class="product-image">
-             <img id="big" src="Potato & Plantain Chips/222.png" alt="">
-             </div>
-            <p class="product-name">Pringles Salt & Vinegar 165 g</p>
-            <div class="product-details">
-              <p class="product-price">₦4,015.00</p>
-              <button class="add-to-cart-btn">Add to Cart</button>
-            </div>
-          </div>
-          
-          <div class="product-item">
+ <section class="popular-products-section">
+  <div class="slider-container2">
+    <button class="prev-btn2" onclick="prevBtn2()"><</button>
+    <div class="slider-wrapper2">
+      <div class="products-container2">
+
+        <div class="product-item2">
           <div class="product-image">
-               <img src="Oral Care/1458303106553_sptomw1048_colgate_mouthwash_plax_anti-bacterial_soft_mint_500_ml.jpg" alt="">
-            </div>
-            <p class="product-name">Colgate Plax Mouthwash 500 ml</p>
-            <div class="product-details">
-              <p class="product-price">₦6,345.00</p>
-              <button class="add-to-cart-btn">Add to Cart</button>
-            </div>
+              <img src="Baby Wipes/aspar2085.jpg" alt="">
           </div>
-          
-          <div class="product-item">
-        <div class="product-image">
-             <img src="Moisturisers & Lotions/aspar050.jpg" alt="">
-             </div>
-            <p class="product-name">Vaseline Lotion Body Glow 400 ml</p>
-            <div class="product-details">
-              <p class="product-price">₦4,455.00</p>
-              <button class="add-to-cart-btn">Add to Cart</button>
-            </div>
-          </div>
-          
-          <div class="product-item">
-       <div class="product-image">
-        <img src="Air Fresheners & Fragrances/Air-Wick-Air-Freshener-Assorted-300-ml-Supermart-ng-2079.jpg" alt="">
-        </div>
-            <p class="product-name">Air Wick Air Freshener 300 ml</p>
-            <div class="product-details">
-              <p class="product-price">₦3,795.00</p>
-              <button class="add-to-cart-btn">Add to Cart</button>
-            </div>
-          </div>
-          
-          
-          <div class="product-item">
-           <div class="product-image">
-           <img id="big" src="SUGAR AND SWEETENERS/spxabc238.jpg" alt="">
-           </div>
-            <p class="product-name">Rowse Honey Glass Jar 340 g</p>
-            <div class="product-details">
-              <p class="product-price">₦5,250.00 </p>
-              <button class="add-to-cart-btn">Add to Cart</button>
-            </div>
+          <p class="product-name">Cussons Baby Wipes Soft & Smooth x50</p>
+          <div class="product-details">
+            <p class="product-price">₦1,070.00</p>
+            <button class="add-to-cart-btn">Add to Cart</button>
           </div>
         </div>
 
+
+        <div class="product-item2">
+            <div class="product-image">
+                <img src="Bath Time/sprnw1407.jpg" alt="">
+            </div>
+
+          <p class="product-name">Extract Whitening Herbal Soap 125 g</p>
+          <div class="product-details">
+            <p class="product-price">₦1,250.00</p>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-item2">
+            <div class="product-image">
+                <img src="RED WINES/4th-Street-Sweet-Red-Wine-75-cl-Supermart-ng-2542.jpg" alt="">
+            </div>
+
+          <p class="product-name">Cerelac Wheat & Milk 6 Months 400 g</p>
+          <div class="product-details">
+            <p class="product-price">₦7,085.00</p>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-item2">
+         <div class="product-image">
+           <img id="big" src="Potato & Plantain Chips/222.png" alt="">
+           </div>
+          <p class="product-name">Pringles Salt & Vinegar 165 g</p>
+          <div class="product-details">
+            <p class="product-price">₦4,015.00</p>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-item2">
+        <div class="product-image">
+             <img src="Oral Care/1458303106553_sptomw1048_colgate_mouthwash_plax_anti-bacterial_soft_mint_500_ml.jpg" alt="">
+          </div>
+          <p class="product-name">Colgate Plax Mouthwash 500 ml</p>
+          <div class="product-details">
+            <p class="product-price">₦6,345.00</p>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-item2">
+      <div class="product-image">
+           <img src="Moisturisers & Lotions/aspar050.jpg" alt="">
+           </div>
+          <p class="product-name">Vaseline Lotion Body Glow 400 ml</p>
+          <div class="product-details">
+            <p class="product-price">₦4,455.00</p>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-item2">
+     <div class="product-image">
+      <img src="Air Fresheners & Fragrances/Air-Wick-Air-Freshener-Assorted-300-ml-Supermart-ng-2079.jpg" alt="">
+      </div>
+          <p class="product-name">Air Wick Air Freshener 300 ml</p>
+          <div class="product-details">
+            <p class="product-price">₦3,795.00</p>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+
+        <div class="product-item2">
+         <div class="product-image">
+         <img id="big" src="SUGAR AND SWEETENERS/spxabc238.jpg" alt="">
+         </div>
+          <p class="product-name">Rowse Honey Glass Jar 340 g</p>
+          <div class="product-details">
+            <p class="product-price">₦5,250.00 </p>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="next-btn2" onclick="nextBtn2()">></button>
+  </div>
 </section>
 
+<!-- <section class="popular-products-section">
+<div class="slider-container">
+<button class="prev-btn2" onclick="previousSlide()">< </button>
+<div class="slider-wrapper">
+  <div class="products-container">
+<div class="product-item2">
+          <div class="product-image">
+              <img src="Baby Wipes/aspar2085.jpg" alt="">
+          </div>
+          <p class="product-name">Cussons Baby Wipes Soft & Smooth x50</p>
+          <div class="product-details">
+            <p class="product-price">₦1,070.00</p>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
 
 
+        <div class="product-item">
+            <div class="product-image">
+                <img src="Bath Time/sprnw1407.jpg" alt="">
+            </div>
+
+          <p class="product-name">Extract Whitening Herbal Soap 125 g</p>
+          <div class="product-details">
+            <p class="product-price">₦1,250.00</p>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-item">
+            <div class="product-image">
+                <img src="RED WINES/4th-Street-Sweet-Red-Wine-75-cl-Supermart-ng-2542.jpg" alt="">
+            </div>
+
+          <p class="product-name">Cerelac Wheat & Milk 6 Months 400 g</p>
+          <div class="product-details">
+            <p class="product-price">₦7,085.00</p>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-item">
+         <div class="product-image">
+           <img id="big" src="Potato & Plantain Chips/222.png" alt="">
+           </div>
+          <p class="product-name">Pringles Salt & Vinegar 165 g</p>
+          <div class="product-details">
+            <p class="product-price">₦4,015.00</p>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-item">
+        <div class="product-image">
+             <img src="Oral Care/1458303106553_sptomw1048_colgate_mouthwash_plax_anti-bacterial_soft_mint_500_ml.jpg" alt="">
+          </div>
+          <p class="product-name">Colgate Plax Mouthwash 500 ml</p>
+          <div class="product-details">
+            <p class="product-price">₦6,345.00</p>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-item">
+      <div class="product-image">
+           <img src="Moisturisers & Lotions/aspar050.jpg" alt="">
+           </div>
+          <p class="product-name">Vaseline Lotion Body Glow 400 ml</p>
+          <div class="product-details">
+            <p class="product-price">₦4,455.00</p>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-item">
+     <div class="product-image">
+      <img src="Air Fresheners & Fragrances/Air-Wick-Air-Freshener-Assorted-300-ml-Supermart-ng-2079.jpg" alt="">
+      </div>
+          <p class="product-name">Air Wick Air Freshener 300 ml</p>
+          <div class="product-details">
+            <p class="product-price">₦3,795.00</p>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+
+
+        <div class="product-item">
+         <div class="product-image">
+         <img id="big" src="SUGAR AND SWEETENERS/spxabc238.jpg" alt="">
+         </div>
+          <p class="product-name">Rowse Honey Glass Jar 340 g</p>
+          <div class="product-details">
+            <p class="product-price">₦5,250.00 </p>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+  </div>
+</div>
+
+<button class="next-btn2" onclick="nextSlide()">></button>
+</div>
+
+
+
+</section> -->
 
       <section>
         <h2 class="section-title">What Our Customers Say</h2>
@@ -501,5 +618,6 @@
 
 
 <script src="main.js"></script>
+<!-- <script src="slider.js"></script> -->
 </body>
 </html>
