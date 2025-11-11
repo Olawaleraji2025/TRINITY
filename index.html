@@ -6,83 +6,106 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap&text=searchpersonshopping_cartmenuclose" />
-    
-    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" /> -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
     <title>Trinity Supermarket</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <header id="Up">
-        <nav>
-          <div class="container nav-container"> 
-            
-          <span class="menu material-symbols-outlined">menu</span>
-          <span class="hidden-close material-symbols-outlined">close</span>
-          
+<body id="Up">
+    
+
+<header  class="header-nav-bar">
+        <nav class="container nav-container">
+          <!-- Trinity Logo container -->
+          <div class="image-container">
             <a href="index.html" class="logo-link">
 
-              <img src="Homepage/Frame 7.png" alt="" class="logo-img">
-             
-            </a>
-  
-            <div class="nav-search">
-              <div class="search-block">
-                <input class="search-input" type="text" placeholder="Search for Products">
-              </div>
-            </div>
-  
-            <div class="nav-icons">
-              <span class="search-icon material-symbols-outlined">search</span>
-              <!-- <span class="category-icon material-symbols-outlined">category</span> -->
+            <img src="Homepage/Frame 7.png" alt="" class="logo-img">
+           
+          </a>
+
+          </div>
+
+          <!-- Search Box container -->
+          <!-- This search will only appear at Large screen sizes -->
+          <div class="nav-links">
+            <div class="search-container">
+              <input type="text" placeholder="Search for Products" class="search-inputs">
               
-              <a href="Create.html" class="account"><span class="Account material-symbols-outlined">person</span></a>
-
-
-              <a href="Create.html" class="hidden">Account</a>
-
-
-              <a href="cart.html" class="cart"><span class="material-symbols-outlined">shopping_cart</span></a>
-              
-              <a href="#" class="hidden">Cart</a>
-              <!-- <span class="close-menu material-symbols-outlined" style="display:none;">close</span> -->
-              <!-- <span class="menu material-symbols-outlined">menu</span> -->
-              
+              <span class="hidden-search material-symbols-outlined">search</span>
               
             </div>
           </div>
 
-          
-            <div class="search-container">
-              <span class="hidden-search material-symbols-outlined">search</span>
+          <!-- Other Icons and elements -->
+          <div class="nav-sections">
               
+              <div class="nav-icons">
+
+                <!-- Categories Container -->
+                <div class="categories-div">
+                  <span class="material-symbols-outlined">
+keyboard_arrow_down
+</span>
+                  <a href="#categories-section">Categories</a></li>
+                </div>
+
+                <!-- Search icon -->
+                <div class="search-container-icon">
+                  <span class="search-icon material-symbols-outlined">search</span>
+              </div>
+             
+              <!-- <div class="acct-container">
+                <a href="Create.html" class="account"><span class="Account material-symbols-outlined">person</span></a>
+                <p>Account</p>
+
+              </div> -->
+
+              <!-- Whislist container -->
+              <div class="whishlist-icon">
+                <a href="wishlist.html" class="whishlist"><span class="material-symbols-outlined">
+                  favorite
+                </span></a>
+                <p class="whishlist-text">Wishlist</p>
+              </div>
+
+              <!-- Cart Container -->
+              <div class="cart-container">
+                <a href="cart.html" class="cart"><span class="material-symbols-outlined">shopping_cart</span></a>
+                <p class="cart-text">Cart</p>
+
+              </div>
+              
+              <span class="menu material-symbols-outlined">menu</span>
+              <span class="hidden-close material-symbols-outlined">close</span>
+              <div class="mobile-menu">
+                <ul>
+                  <li><a href="#categories-section">Categories</a></li>
+                  <li><a href="#">Wishlist</a></li>
+                </ul>
+            </div>
+              
+
+              <!-- Hidden Contents -->
+              
+            </div>
+          </div>
+          
+        </nav>
+        
+        <!-- This search will only appear at mobile screen sizes -->
+          <div class="nav-search">
+            <div class="search-container">
+                         <span class="hidden-search material-symbols-outlined">search</span>
               <input type="text" placeholder="Search for Products" class="search-inputs">
               
               <span class="close-menu material-symbols-outlined">close</span>
-              </div>
+              </div> 
             </div>
-            
           </div>
-        </nav>
 
-        <nav>
-          
-          
-            <div class="mobile-menu">
-              <!-- <div class="cancel-icon">
-                
-              </div> -->
-              
-              <ul>
-                <!-- <li><a href="index.html">Home</a></li> -->
-                <li><a href="#categories-section">Categories</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Shop</a></li>
-                <li><a href="#">Wishlist</a></li>
-                <!-- <li><a href="#">About Us</a></li> -->
-              </ul>
-          </div>
-        </nav>
       </header>
+      
   
       <main>
         <section>
@@ -201,7 +224,7 @@
      <div class="slider-wrapper">
        <div class="container products-container">
           <div class="product-item">
-            <div class="product-image">
+                        <div class="product-image">
                 <img src="Homepage/Peak Milk 900g.webp" alt="">
             </div>
             <p class="product-name">Peak Instant Full Cream Milk Tin 400 g</p>
@@ -210,9 +233,9 @@
               <button class="add-to-cart-btn">Add to Cart</button>
             </div>
           </div>
-          
+
           <div class="product-item">
-            <div class="product-image">
+                        <div class="product-image">
                 <img src="Homepage/medp8382_1f90ef96-1781-49c2-8066-9223f207d8bc.jpg" alt="">
             </div>
             <p class="product-name">Extract Whitening Lotion 200 ml</p>
@@ -221,22 +244,22 @@
               <button class="add-to-cart-btn">Add to Cart</button>
             </div>
           </div>
-          
+
           <div class="product-item">
-              <div class="product-image">
+                          <div class="product-image">
                 <img src="Homepage/ANDRE-ROSE-CALIFONIA-SPARKLNG.WINE-750ML.png" alt="">
             </div>
-            
+
             <p class="product-name">Andre Rose California Wine 75cl</p>
             <div class="product-details">
               <p class="product-price">₦12,330.00</p>
               <button class="add-to-cart-btn">Add to Cart</button>
             </div>
           </div>
-          
+
           <div class="product-item">
             <div class="product-image">
-              <img src="Homepage/Nestle Golden Morn Maize 800g.webp" alt="">  
+              <img src="Homepage/Nestle Golden Morn Maize 800g.webp" alt="">
             </div>
             <p class="product-name">Nestle Golden Morn Maize & Soya 800 g</p>
             <div class="product-details">
@@ -244,9 +267,9 @@
               <button class="add-to-cart-btn">Add to Cart</button>
             </div>
           </div>
-          
+
           <div class="product-item">
-            <div class="product-image">
+                        <div class="product-image">
                 <img src="Homepage/Bacchus.png" alt="">
             </div>
             <p class="product-name">Bacchus Tonic Wine 75l</p>
@@ -255,9 +278,9 @@
               <button class="add-to-cart-btn">Add to Cart</button>
             </div>
           </div>
-          
+
           <div class="product-item">
-            <div class="product-image">
+                        <div class="product-image">
             <img src="Baby Food/spbpfd2609.jpg" alt="">
             </div>
             <p class="product-name">Cerelac Wheat & Milk 6 Months</p>
@@ -266,10 +289,10 @@
               <button class="add-to-cart-btn">Add to Cart</button>
             </div>
           </div>
-          
+
           <div class="product-item">
-            <div class="product-image">
-              <img src="Toilet Tissue/aspar025.jpg" alt="">  
+                        <div class="product-image">
+              <img src="Toilet Tissue/aspar025.jpg" alt="">
             </div>
             <p class="product-name">Rose Carla Toilet Tissue 12 Rolls</p>
             <div class="product-details">
@@ -277,18 +300,18 @@
               <button class="add-to-cart-btn">Add to Cart</button>
             </div>
           </div>
-          
+
           <div class="product-item">
              <div class="product-image">
-              <img src="Sweets & Chewing Gum/aspar093.jpg" alt="">  
+              <img src="Sweets & Chewing Gum/aspar093.jpg" alt="">
             </div>
-            
+
             <p class="product-name"> Eclairs Choco 500 g</p>
             <div class="product-details">
               <p class="product-price">₦3,400.00</p>
               <button class="add-to-cart-btn">Add to Cart</button>
             </div>
-          </div>  
+          </div>
 
         </div>
       </div>
@@ -510,21 +533,31 @@
       <div class="testimonials-section">
         <div class="testimonials-container">
           <div class="testimonial-item">
-            <img alt="Portrait of Sarah K, a satisfied customer with curly hair and a bright smile" src="https://storage.googleapis.com/a1aa/image/419c692c-f185-4c15-8c13-ad2f37aec6cd.jpg"/>
+            <img alt="AI-generated portrait of Raji Olawale" src="https://randomuser.me/api/portraits/men/1.jpg" width="64" height="64"/>
             <p>"I love the variety of products available. My go-to supermarket!"</p>
             <span>- Raji Olawale.</span>
           </div>
           <div class="testimonial-item">
-            <img alt="Portrait of John Doe, a happy customer with short brown hair and glasses smiling" src="https://storage.googleapis.com/a1aa/image/419c692c-f185-4c15-8c13-ad2f37aec6cd.jpg" width="64"/>
+            <img alt="AI-generated portrait of Sarah K" src="https://randomuser.me/api/portraits/women/2.jpg" width="64" height="64"/>
             <p>"Trinity Supermarket has everything I need, and the quality is top-notch!"</p>
             <span>- Sarah K.</span>
           </div>
           <div class="testimonial-item">
-            <img alt="Portrait of Emily Rose, a satisfied customer with long blonde hair and a friendly smile" src="https://storage.googleapis.com/a1aa/image/419c692c-f185-4c15-8c13-ad2f37aec6cd.jpg" width="64"/>
+            <img alt="AI-generated portrait of John D" src="https://randomuser.me/api/portraits/men/3.jpg" width="64" height="64"/>
             <p>"Fast delivery and great customer service. Highly recommend!"</p>
             <span>- John D.</span>
           </div>
-          
+          <div class="testimonial-item">
+            <img alt="AI-generated portrait of Michael T" src="https://randomuser.me/api/portraits/men/4.jpg" width="64" height="64"/>
+            <p>"Affordable prices and excellent selection. I shop here every week!"</p>
+            <span>- Michael T.</span>
+          </div>
+          <div class="testimonial-item">
+            <img alt="AI-generated portrait of Lisa R" src="https://randomuser.me/api/portraits/women/5.jpg" width="64" height="64"/>
+            <p>"The staff is so helpful, and the products are always fresh. Five stars!"</p>
+            <span>- Lisa R.</span>
+          </div>
+
         </div>
       </div>
     </section>

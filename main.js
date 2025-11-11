@@ -2,7 +2,8 @@
 
     // This is for the search icon
     const searchIcon = document.querySelector(".search-icon");
-    const searchBar = document.querySelector(".search-container");
+    const searchBar = document.querySelector(".nav-search");
+    const headerNavBar = document.querySelector(".header-nav-bar");
 
     if (searchIcon) {
         searchIcon.addEventListener("click", function() {
@@ -11,6 +12,7 @@
             menuBtn.style.display = "flex";
             hiddenMenu.style.display = "none";
             hiddenClose.style.display = "none";
+            headerNavBar.style.height = "19%";
         });
     }
 
@@ -22,6 +24,7 @@
             menuBtn.style.display = "flex";
             hiddenMenu.style.display = "none";
             hiddenClose.style.display = "none";
+            headerNavBar.style.height = "auto";
         });
     }
 
