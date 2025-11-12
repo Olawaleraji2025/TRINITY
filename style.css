@@ -161,7 +161,7 @@ color: #000;
 .search-inputs{
   border: none;
   outline: none;
-  width: 200px;
+  width: 170px;
   padding: 0.5rem;
   transition: .3s ease-in-out;
   font-size: 14px;
@@ -866,7 +866,7 @@ padding: 6px;
       margin-bottom: 10px;
 }
 
-.menu{
+.menu-close-icon{
   display: none;
 }
 
@@ -912,7 +912,7 @@ padding: 6px;
       width: 5rem;
 }
 
-.menu, .search-container-icon{
+.menu-close-icon, .search-container-icon{
   display: none;
 }
 
@@ -985,6 +985,9 @@ padding: 6px;
   max-width: 1400px;
 }
 
+.nav-container{
+  margin: 0 30px;
+}
 
 }
 
