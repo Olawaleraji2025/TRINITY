@@ -824,6 +824,7 @@ margin-top: 15px;
 
 .nav-links{
   display: flex;
+          max-width: 220px;
 }
 
 
@@ -1008,7 +1009,7 @@ padding: 6px;
           
           
             
-            <div class="nav-links">
+    
         
 <div class="search-container">
   
