@@ -57,6 +57,8 @@ body {
   display: none;
   text-align: center;
   border-color: #065f46;
+    margin: 0 auto;
+    width: fit-content;
 }
 
 .search-block {
