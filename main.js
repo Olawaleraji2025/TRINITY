@@ -12,7 +12,7 @@
             menuBtn.style.display = "flex";
             hiddenMenu.style.display = "none";
             hiddenClose.style.display = "none";
-            headerNavBar.style.height = "19%";
+            headerNavBar.style.height = "100px";
         });
     }
 
