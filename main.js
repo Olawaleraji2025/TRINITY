@@ -40,6 +40,7 @@
             hiddenMenu.style.display = "block";
             searchBar.style.display = "none";
             searchIcon.style.display = "flex";
+            headerNavBar.style.height = "auto";
         });
     }
 
@@ -50,6 +51,7 @@
             hiddenClose.style.display = "none";
             searchBar.style.display = "none";
             searchIcon.style.display = "flex";
+            headerNavBar.style.height = "auto";
         });
 }
 

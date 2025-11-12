@@ -794,6 +794,7 @@ margin-right: 0.4rem;
 
 .search-container{
   max-width: 200px;
+      justify-content: space-around;
 }
 
 }
