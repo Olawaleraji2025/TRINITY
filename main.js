@@ -91,3 +91,38 @@ function nextBtn2() {
     getScrollPercentage();
 }
 
+
+const testimonialContainer = document.querySelector(".testimonials-section");
+
+function slideThrough() {
+    const scroll = testimonialContainer.scrollLeft;
+    const maximumScroll = testimonialContainer.scrollWidth - testimonialContainer.clientWidth;
+
+    const TheScrollWidth = testimonialContainer.scrollWidth;
+    const theCliendthWidth = testimonialContainer.clientWidth;
+    const theTotalScroll = (scroll / maximumScroll) * 100;
+
+
+    if (testimonialContainer.scrollLeft === maximumScroll) {
+        testimonialContainer.scrollLeft = 0;
+    } else {
+        return;
+    }
+    // console.log({scroll, maximumScroll, TheScrollWidth, theCliendthWidth ,theTotalScroll});
+    return maximumScroll > 0 ? (scroll / maximumScroll) * 100 : 0; 
+}
+
+
+function prevBtn3() {
+    testimonialContainer.scrollLeft -= 200;
+    slideThrough();
+
+}
+
+function nextBtn3() {
+    testimonialContainer.scrollLeft += 200;
+    slideThrough();
+}
+
+
+setInterval((nextBtn3), 3000);
