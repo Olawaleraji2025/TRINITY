@@ -89,6 +89,7 @@ body {
 .categories-div{
       display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 /* .cancel-icon{
@@ -130,6 +131,7 @@ body {
 
 .acct-container, .cart-container{
   display: flex;
+  cursor: pointer;
 }
 
 .image-container{
@@ -184,6 +186,7 @@ cursor: pointer;
   display: flex;
     gap: 6px;
     align-items: center;
+    cursor: pointer;
 }
 
 .whishlist-icon span{
@@ -993,6 +996,7 @@ padding: 6px;
 .hero-button{
 margin-top: 20px;
 padding: 6px;
+    font-size: 17px;
 }
 
 .hero-content{
@@ -1023,10 +1027,11 @@ padding: 6px;
 .hero-button{
 margin-top: 20px;
 padding: 6px;
+font-size: 17px;
 }
 
 .hero-content{
-      margin: 53px auto 10px 60px;
+      margin: 100px auto 10px 60px;
 }
 
 .hero-title{
