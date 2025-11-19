@@ -124,5 +124,3 @@ function nextBtn3() {
     slideThrough();
 }
 
-
-setInterval((nextBtn3), 3000);
