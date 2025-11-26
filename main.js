@@ -124,3 +124,185 @@ function nextBtn3() {
     slideThrough();
 }
 
+// Using Array of objects to fill the product items list
+
+const productsItems = [
+    {
+        name: "Peak Instant Full Cream Milk 400 g",
+        category: "Provisions",
+        price: "#6,000.00",
+        image: "Homepage/Peak Milk 900g.webp"
+    },
+    {
+        name: "Extract Whitening Lotion 200 ml",
+        category: "Cosmetics",
+        price: "₦6,250.00",
+        image: "Homepage/medp8382_1f90ef96-1781-49c2-8066-9223f207d8bc.jpg"
+    },
+    {
+        name: "Andre Rose California Wine 75cl",
+        category: "Exotic Wines",
+        price: "#6,000.00",
+        image: "Homepage/ANDRE-ROSE-CALIFONIA-SPARKLNG.WINE-750ML.png"
+    },
+    {
+        name: "Nestle Golden Morn Maize & Soya 800 g",
+        category: "Provisions",
+        price: "#6,000.00",
+        image: "Homepage/Nestle Golden Morn Maize 800g.webp"
+    },
+    {
+        name: "Cerelac Wheat & Milk 6 Months",
+        category: "Baby items",
+        price: "#6,000.00",
+        image: "Baby Food/spbpfd2609.jpg"
+    },
+    {
+        name: "Bacchus Tonic Wine 75l",
+        category: "Exotic Wines",
+        price: "#6,000.00",
+        image: "Homepage/Bacchus.png"
+    },
+    {
+        name: "Rose Carla Toilet Tissue 12 Rolls",
+        category: "Toiletries",
+        price: "₦11,640.00",
+        image: "Toilet Tissue/aspar025.jpg"
+    },
+    {
+        name: "Eclairs Choco 500 g",
+        category: "Provisions",
+        price: "₦3,400.00",
+        image: "Sweets & Chewing Gum/aspar093.jpg"
+    },
+];
+
+const productsItems2 = [
+    {
+        name: "Cussons Baby Wipes Soft & Smooth x50",
+        category: "Baby items",
+        price: "₦1,070.00",
+        image: "Baby Wipes/aspar2085.jpg"
+    },
+    {
+        name: "Extract Whitening Herbal Soap 125 g",
+        category: "toiletries",
+        price: "₦1,250.00",
+        image: "Bath Time/sprnw1407.jpg"
+    },
+    {
+        name: "4th street wine",
+        category: "Exotic wines",
+        price: "₦7,085.00",
+        image: "RED WINES/4th-Street-Sweet-Red-Wine-75-cl-Supermart-ng-2542.jpg"
+    },
+    {
+        name: "Pringles Salt & Vinegar 165 g",
+        category: "Provisions",
+        price: "₦4,015.00",
+        image: "Potato & Plantain Chips/222.png"
+    },
+    {
+        name: "Colgate Plax Mouthwash 500 ml",
+        category: "toiletries",
+        price: "₦6,345.00",
+        image: "Oral Care/1458303106553_sptomw1048_colgate_mouthwash_plax_anti-bacterial_soft_mint_500_ml.jpg"
+    },
+    {
+        name: "Vaseline Lotion Body Glow 400 ml",
+        category: "cosmetics",
+        price: "₦4,455.00",
+        image: "Moisturisers & Lotions/aspar050.jpg"
+    },
+    {
+        name: "Air Wick Air Freshener 300 ml",
+        category: "toiletries",
+        price: "₦3,795.00",
+        image: "Air Fresheners & Fragrances/Air-Wick-Air-Freshener-Assorted-300-ml-Supermart-ng-2079.jpg"
+    },
+    {
+        name: "Rowse Honey Glass Jar 340 g",
+        category: "Provisions",
+        price: "₦5,250.00",
+        image: "SUGAR AND SWEETENERS/spxabc238.jpg"
+    }
+]
+
+const productContainer = document.querySelector(".products-container");
+const productContainer2 = document.querySelector(".products-container2");
+
+productsItems.map((products) => {
+    const EachProductImage = products.image;
+    const EachProductName = products.name;
+    const EachProductPrice = products.price;
+
+    const productItemDiv = document.createElement('div');
+    const productImageDiv = document.createElement('div');
+    const productName = document.createElement('div');
+    const productDetails = document.createElement('div');
+
+    
+    productItemDiv.classList.add('product-item');
+    productName.classList.add('product-name');
+    productImageDiv.classList.add('product-image');
+    productDetails.classList.add('product-details');
+
+
+    // productName.className = 'product-name';
+    // productImageDiv.className = 'product-image';
+    // productDetails.className = 'product-details';
+
+    productImageDiv.innerHTML = `<img src="${EachProductImage}">`;
+    productName.innerHTML = `
+    <p> ${EachProductName} </p>
+    `;
+    productDetails.innerHTML = `
+    <p class="product-price"> ${EachProductPrice} </p>
+    <button class="add-to-cart-btn">Add to Cart</button>
+    `;
+
+    productItemDiv.appendChild(productImageDiv);
+    productItemDiv.appendChild(productName);
+    productItemDiv.appendChild(productDetails);
+
+    productContainer.appendChild(productItemDiv);
+
+})
+
+productsItems2.map((products) => {
+    const EachProductImage = products.image;
+    const EachProductName = products.name;
+    const EachProductPrice = products.price;
+
+    const productItemDiv = document.createElement('div');
+    const productImageDiv = document.createElement('div');
+    const productName = document.createElement('div');
+    const productDetails = document.createElement('div');
+
+    
+    productItemDiv.classList.add('product-item');
+    productName.classList.add('product-name');
+    productImageDiv.classList.add('product-image');
+    productDetails.classList.add('product-details');
+
+
+    // productName.className = 'product-name';
+    // productImageDiv.className = 'product-image';
+    // productDetails.className = 'product-details';
+
+    productImageDiv.innerHTML = `<img src="${EachProductImage}">`;
+    productName.innerHTML = `
+    <p> ${EachProductName} </p>
+    `;
+    productDetails.innerHTML = `
+    <p class="product-price"> ${EachProductPrice} </p>
+    <button class="add-to-cart-btn">Add to Cart</button>
+    `;
+
+    productItemDiv.appendChild(productImageDiv);
+    productItemDiv.appendChild(productName);
+    productItemDiv.appendChild(productDetails);
+
+    productContainer2.appendChild(productItemDiv);
+
+})
