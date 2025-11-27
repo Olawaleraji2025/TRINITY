@@ -98,9 +98,23 @@ body {
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     width: 150px;
     top: 60px;
-    left: 0;
+    right: 150px;
     border-radius: 0px 0px 8px 8px;
     display: none;
+    
+    animation: slider 0.5s;
+}
+
+
+@keyframes slider {
+  from{
+    opacity: 0;
+  }
+  
+  to{
+    opacity: 100%;
+    transition: all 0.3s ease-in-out;
+  }
 }
 
 .categories-div:hover + .hidden-categories {
