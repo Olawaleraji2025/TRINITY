@@ -105,6 +105,14 @@ body {
     animation: slider 0.5s;
 }
 
+.hidden-results-container{
+  width: 245px;
+  height: 100px;
+  left: 460px;
+  /* border: solid; */
+  position: absolute;
+  background: #fff;
+}
 
 @keyframes slider {
   from{
