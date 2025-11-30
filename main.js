@@ -306,3 +306,40 @@ productsItems2.map((products) => {
     productContainer2.appendChild(productItemDiv);
 
 })
+
+
+// Filtering of items
+/* <> */
+const searchBox = document.querySelector('.search-inputs');
+const inputText = document.querySelector(".hidden-results-container");
+
+searchBox.addEventListener('input', (e) => {
+    const inputedItem = e.target.value.toLowerCase().trim();
+    
+    // Clear previous results
+    inputText.innerHTML = '';
+    
+    // If search is empty, don't show anything
+    if (!inputedItem) {
+        return;
+    }
+    
+    // Filter with proper return statement
+    const filteredItems = productsItems.filter((eachProducts) => 
+        eachProducts.name.toLowerCase().includes(inputedItem) || 
+        eachProducts.category.toLowerCase().includes(inputedItem)
+    );
+    
+    // Display filtered items properly
+    if (filteredItems.length === 0) {
+        inputText.innerHTML = '<p>No results found</p>';
+    } else {
+        filteredItems.forEach(item => {
+            const newDiv = document.createElement("div");
+            newDiv.innerHTML = `<p>${item.name} - ${item.category}</p>`;
+            inputText.appendChild(newDiv);
+        });
+    }
+    
+    // console.log({filteredItems});
+});
