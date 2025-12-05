@@ -326,9 +326,14 @@ searchBox.addEventListener("input", (e) => {
   } else {
     filteredItems.forEach((item) => {
       const newDiv = document.createElement("div");
-      newDiv.innerHTML = `<div>
-        <p>${item.name}</p>
-        <p>${item.price}</p>
+      newDiv.innerHTML = `<div class="results-container">
+      <div>
+      <p>${item.name}</p>
+      <p>${item.price}</p>
+      </div>
+      <div>
+      <img width="90px" src="${item.image}">
+      </div>
         </div>
       `;
       inputText.appendChild(newDiv);
