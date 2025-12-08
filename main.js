@@ -20,6 +20,8 @@ const closeIcon = document.querySelector(".close-menu");
 if (closeIcon) {
   closeIcon.addEventListener("click", function () {
     searchBar.style.display = "none";
+    searchBox.value = "";
+    inputText.innerHTML = "";
     searchIcon.style.display = "flex";
     menuBtn.style.display = "flex";
     hiddenMenu.style.display = "none";
@@ -297,9 +299,9 @@ productsItems2.map((products) => {
   productContainer2.appendChild(productItemDiv);
 });
 
-// Filtering of items
+// Filtering of items for mobile screen
 /* <> */
-const searchBox = document.querySelector(".search-inputs2");
+const searchBox = document.querySelector(".search-inputs");
 const inputText = document.querySelector(".hidden-results-container");
 
 searchBox.addEventListener("input", (e) => {
@@ -341,4 +343,69 @@ searchBox.addEventListener("input", (e) => {
   }
 
   // console.log({filteredItems});
+});
+
+// filtering items for large screens
+const searchBox2 = document.querySelector(".search-inputs2");
+const inputText2 = document.querySelector(".hidden-results-container2");
+
+searchBox2.addEventListener("input", (e) => {
+  const inputedItem = e.target.value.toLowerCase().trim();
+
+  // Clear previous results
+  inputText2.innerHTML = "";
+  if (searchBox2.value === "") {
+    inputText2.style.display = "none";
+  } else {
+    inputText2.style.display = "block";
+  }
+
+  // If search is empty, don't show anything
+  if (!inputedItem) {
+    return;
+  }
+
+  // Filter with proper return statement
+  const filteredItems = productsItems.filter(
+    (eachProducts) =>
+      eachProducts.name.toLowerCase().includes(inputedItem) ||
+      eachProducts.category.toLowerCase().includes(inputedItem)
+  );
+
+  // Display filtered items properly
+  if (filteredItems.length === 0) {
+    inputText2.innerHTML = "<p>No results found</p>";
+  } else {
+    filteredItems.forEach((item) => {
+      const newDiv = document.createElement("div");
+      newDiv.innerHTML = `<div class="results-container">
+      <div>
+      <p style="font-size: 14px;"  >${item.name}</p>
+      <p style="font-size: 12px; font-weight: bold;">${item.price}</p>
+      </div>
+      <div>
+      <img width="70px" src="${item.image}">
+      </div>
+        </div>
+      `;
+      inputText2.appendChild(newDiv);
+    });
+  }
+
+  // console.log({filteredItems});
+});
+
+// Display the categories when clicked
+const categoryDiv = document.querySelector(".categories-div");
+// console.log(categoryDiv);
+const hiddenCategories = document.querySelector(".hidden-categories");
+let isOpen = false;
+categoryDiv.addEventListener("click", () => {
+  isOpen = !isOpen;
+
+  if (isOpen) {
+    hiddenCategories.classList.add("active");
+  } else {
+    hiddenCategories.classList.remove("active");
+  }
 });
