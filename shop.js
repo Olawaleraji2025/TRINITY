@@ -1,306 +1,7 @@
 "use strict";
 
-// This is for the search icon
-const searchIcon = document.querySelector(".search-icon");
-const searchBar = document.querySelector(".modal-search");
-const headerNavBar = document.querySelector(".header-nav-bar");
+// Grouped products by category
 
-if (searchIcon) {
-  searchIcon.addEventListener("click", function () {
-    searchBar.style.display = "block";
-    searchIcon.style.display = "none";
-    menuBtn.style.display = "flex";
-    hiddenMenu.style.display = "none";
-    hiddenClose.style.display = "none";
-    headerNavBar.style.height = "100px";
-  });
-}
-
-const closeIcon = document.querySelector(".close-menu");
-if (closeIcon) {
-  closeIcon.addEventListener("click", function () {
-    searchBar.style.display = "none";
-    searchBox.value = "";
-    inputText.innerHTML = "";
-    searchIcon.style.display = "flex";
-    menuBtn.style.display = "flex";
-    hiddenMenu.style.display = "none";
-    hiddenClose.style.display = "none";
-    headerNavBar.style.height = "auto";
-  });
-}
-
-// This is for the menu icon
-const menuBtn = document.querySelector(".menu");
-const hiddenMenu = document.querySelector(".mobile-menu");
-const hiddenClose = document.querySelector(".hidden-close");
-
-if (menuBtn) {
-  menuBtn.addEventListener("click", function () {
-    menuBtn.style.display = "none";
-    hiddenClose.style.display = "block";
-    hiddenMenu.style.display = "block";
-    searchBar.style.display = "none";
-    searchIcon.style.display = "flex";
-    headerNavBar.style.height = "auto";
-  });
-}
-
-if (hiddenClose) {
-  hiddenClose.addEventListener("click", function () {
-    menuBtn.style.display = "flex";
-    hiddenMenu.style.display = "none";
-    hiddenClose.style.display = "none";
-    searchBar.style.display = "none";
-    searchIcon.style.display = "flex";
-    headerNavBar.style.height = "auto";
-  });
-}
-
-// Slider Functionality
-
-const sliderWrapper = document.querySelector(".slider-wrapper");
-
-const sliderWrapper2 = document.querySelector(".slider-wrapper2");
-
-function getScrollPercentage() {
-  const leftToRight = sliderWrapper.scrollLeft;
-  const maxScroll = sliderWrapper.scrollWidth - sliderWrapper.clientWidth;
-  console.log({ leftToRight, maxScroll });
-  return maxScroll > 0 ? (leftToRight / maxScroll) * 100 : 0;
-}
-
-function prevBtn() {
-  sliderWrapper.scrollLeft -= 200;
-  getScrollPercentage();
-}
-
-function nextBtn() {
-  sliderWrapper.scrollLeft += 200;
-  getScrollPercentage();
-}
-
-function prevBtn2() {
-  sliderWrapper2.scrollLeft -= 200;
-  getScrollPercentage();
-}
-
-function nextBtn2() {
-  sliderWrapper2.scrollLeft += 200;
-  getScrollPercentage();
-}
-
-const testimonialContainer = document.querySelector(".testimonials-section");
-
-function slideThrough() {
-  const scroll = testimonialContainer.scrollLeft;
-  const maximumScroll =
-    testimonialContainer.scrollWidth - testimonialContainer.clientWidth;
-
-  const TheScrollWidth = testimonialContainer.scrollWidth;
-  const theCliendthWidth = testimonialContainer.clientWidth;
-  const theTotalScroll = (scroll / maximumScroll) * 100;
-
-  if (testimonialContainer.scrollLeft === maximumScroll) {
-    testimonialContainer.scrollLeft = 0;
-  } else {
-    return;
-  }
-  // console.log({scroll, maximumScroll, TheScrollWidth, theCliendthWidth ,theTotalScroll});
-  return maximumScroll > 0 ? (scroll / maximumScroll) * 100 : 0;
-}
-
-function prevBtn3() {
-  testimonialContainer.scrollLeft -= 200;
-  slideThrough();
-}
-
-function nextBtn3() {
-  testimonialContainer.scrollLeft += 200;
-  slideThrough();
-}
-
-// Using Array of objects to fill the product items list
-
-const productsItems = [
-  {
-    name: "Peak Instant Full Cream Milk 400 g",
-    category: "Provisions",
-    price: "#6,000.00",
-    image: "Homepage/Peak Milk 900g.webp",
-  },
-  {
-    name: "Extract Whitening Lotion 200 ml",
-    category: "Cosmetics",
-    price: "₦6,250.00",
-    image: "Homepage/medp8382_1f90ef96-1781-49c2-8066-9223f207d8bc.jpg",
-  },
-  {
-    name: "Andre Rose California Wine 75cl",
-    category: "Exotic Wines",
-    price: "#6,000.00",
-    image: "Homepage/ANDRE-ROSE-CALIFONIA-SPARKLNG.WINE-750ML.png",
-  },
-  {
-    name: "Nestle Golden Morn Maize & Soya 800 g",
-    category: "Provisions",
-    price: "#6,000.00",
-    image: "Homepage/Nestle Golden Morn Maize 800g.webp",
-  },
-  {
-    name: "Cerelac Wheat & Milk 6 Months",
-    category: "Baby items",
-    price: "#6,000.00",
-    image: "Baby Food/spbpfd2609.jpg",
-  },
-  {
-    name: "Bacchus Tonic Wine 75l",
-    category: "Exotic Wines",
-    price: "#6,000.00",
-    image: "Homepage/Bacchus.png",
-  },
-  {
-    name: "Rose Carla Toilet Tissue 12 Rolls",
-    category: "Toiletries",
-    price: "₦11,640.00",
-    image: "Toilet Tissue/aspar025.jpg",
-  },
-  {
-    name: "Eclairs Choco 500 g",
-    category: "Provisions",
-    price: "₦3,400.00",
-    image: "Sweets & Chewing Gum/aspar093.jpg",
-  },
-];
-
-const productsItems2 = [
-  {
-    name: "Cussons Baby Wipes Soft & Smooth x50",
-    category: "Baby items",
-    price: "₦1,070.00",
-    image: "Baby Wipes/aspar2085.jpg",
-  },
-  {
-    name: "Extract Whitening Herbal Soap 125 g",
-    category: "toiletries",
-    price: "₦1,250.00",
-    image: "Bath Time/sprnw1407.jpg",
-  },
-  {
-    name: "4th street wine",
-    category: "Exotic wines",
-    price: "₦7,085.00",
-    image: "RED WINES/4th-Street-Sweet-Red-Wine-75-cl-Supermart-ng-2542.jpg",
-  },
-  {
-    name: "Pringles Salt & Vinegar 165 g",
-    category: "Provisions",
-    price: "₦4,015.00",
-    image: "Potato & Plantain Chips/222.png",
-  },
-  {
-    name: "Colgate Plax Mouthwash 500 ml",
-    category: "toiletries",
-    price: "₦6,345.00",
-    image:
-      "Oral Care/1458303106553_sptomw1048_colgate_mouthwash_plax_anti-bacterial_soft_mint_500_ml.jpg",
-  },
-  {
-    name: "Vaseline Lotion Body Glow 400 ml",
-    category: "cosmetics",
-    price: "₦4,455.00",
-    image: "Moisturisers & Lotions/aspar050.jpg",
-  },
-  {
-    name: "Air Wick Air Freshener 300 ml",
-    category: "toiletries",
-    price: "₦3,795.00",
-    image:
-      "Air Fresheners & Fragrances/Air-Wick-Air-Freshener-Assorted-300-ml-Supermart-ng-2079.jpg",
-  },
-  {
-    name: "Rowse Honey Glass Jar 340 g",
-    category: "Provisions",
-    price: "₦5,250.00",
-    image: "SUGAR AND SWEETENERS/spxabc238.jpg",
-  },
-];
-
-const productContainer = document.querySelector(".products-container");
-const productContainer2 = document.querySelector(".products-container2");
-
-productsItems.map((products) => {
-  const EachProductImage = products.image;
-  const EachProductName = products.name;
-  const EachProductPrice = products.price;
-
-  const productItemDiv = document.createElement("div");
-  const productImageDiv = document.createElement("div");
-  const productName = document.createElement("div");
-  const productDetails = document.createElement("div");
-
-  productItemDiv.classList.add("product-item");
-  productName.classList.add("product-name");
-  productImageDiv.classList.add("product-image");
-  productDetails.classList.add("product-details");
-
-  // productName.className = 'product-name';
-  // productImageDiv.className = 'product-image';
-  // productDetails.className = 'product-details';
-
-  productImageDiv.innerHTML = `<img src="${EachProductImage}">`;
-  productName.innerHTML = `
-    <p> ${EachProductName} </p>
-    `;
-  productDetails.innerHTML = `
-    <p class="product-price"> ${EachProductPrice} </p>
-    <button class="add-to-cart-btn">Add to Cart</button>
-    `;
-
-  productItemDiv.appendChild(productImageDiv);
-  productItemDiv.appendChild(productName);
-  productItemDiv.appendChild(productDetails);
-
-  productContainer.appendChild(productItemDiv);
-});
-
-productsItems2.map((products) => {
-  const EachProductImage = products.image;
-  const EachProductName = products.name;
-  const EachProductPrice = products.price;
-
-  const productItemDiv = document.createElement("div");
-  const productImageDiv = document.createElement("div");
-  const productName = document.createElement("div");
-  const productDetails = document.createElement("div");
-
-  productItemDiv.classList.add("product-item");
-  productName.classList.add("product-name");
-  productImageDiv.classList.add("product-image");
-  productDetails.classList.add("product-details");
-
-  // productName.className = 'product-name';
-  // productImageDiv.className = 'product-image';
-  // productDetails.className = 'product-details';
-
-  productImageDiv.innerHTML = `<img src="${EachProductImage}">`;
-  productName.innerHTML = `
-    <p> ${EachProductName} </p>
-    `;
-  productDetails.innerHTML = `
-    <p class="product-price"> ${EachProductPrice} </p>
-    <button class="add-to-cart-btn">Add to Cart</button>
-    `;
-
-  productItemDiv.appendChild(productImageDiv);
-  productItemDiv.appendChild(productName);
-  productItemDiv.appendChild(productDetails);
-
-  productContainer2.appendChild(productItemDiv);
-});
-
-// Filtering of items for mobile screen
-/* <> */
 const provisions = [
   {
     name: "McVitie's Hob Nobs 200 g",
@@ -714,6 +415,54 @@ const provisions = [
   },
 ];
 
+// const provisions = [
+//   {
+//     name: "Peak Instant Full Cream Milk 400 g",
+//     category: "Provisions",
+//     price: "#6,000.00",
+//     image: "Homepage/Peak Milk 900g.webp",
+//   },
+//   {
+//     name: "Nestle Golden Morn Maize & Soya 800 g",
+//     category: "Provisions",
+//     price: "#6,000.00",
+//     image: "Homepage/Nestle Golden Morn Maize 800g.webp",
+//   },
+//   {
+//     name: "Eclairs Choco 500 g",
+//     category: "Provisions",
+//     price: "₦3,400.00",
+//     image: "Sweets & Chewing Gum/aspar093.jpg",
+//   },
+//   {
+//     name: "Pringles Salt & Vinegar 165 g",
+//     category: "Provisions",
+//     price: "₦4,015.00",
+//     image: "Potato & Plantain Chips/222.png",
+//   },
+//   {
+//     name: "Rowse Honey Glass Jar 340 g",
+//     category: "Provisions",
+//     price: "₦5,250.00",
+//     image: "SUGAR AND SWEETENERS/spxabc238.jpg",
+//   },
+// ];
+
+// const cosmetics = [
+//   {
+//     name: "Extract Whitening Lotion 200 ml",
+//     category: "Cosmetics",
+//     price: "₦6,250.00",
+//     image: "Homepage/medp8382_1f90ef96-1781-49c2-8066-9223f207d8bc.jpg",
+//   },
+//   {
+//     name: "Vaseline Lotion Body Glow 400 ml",
+//     category: "Cosmetics",
+//     price: "₦4,455.00",
+//     image: "Moisturisers & Lotions/aspar050.jpg",
+//   },
+// ];
+
 const cosmetics = [
   {
     name: "Peak Instant Full Cream Milk Tin 400 g",
@@ -990,6 +739,35 @@ const toiletries = [
   },
 ];
 
+// const toiletries = [
+//   {
+//     name: "Rose Carla Toilet Tissue 12 Rolls",
+//     category: "Toiletries",
+//     price: "₦11,640.00",
+//     image: "Toilet Tissue/aspar025.jpg",
+//   },
+//   {
+//     name: "Extract Whitening Herbal Soap 125 g",
+//     category: "Toiletries",
+//     price: "₦1,250.00",
+//     image: "Bath Time/sprnw1407.jpg",
+//   },
+//   {
+//     name: "Colgate Plax Mouthwash 500 ml",
+//     category: "Toiletries",
+//     price: "₦6,345.00",
+//     image:
+//       "Oral Care/1458303106553_sptomw1048_colgate_mouthwash_plax_anti-bacterial_soft_mint_500_ml.jpg",
+//   },
+//   {
+//     name: "Air Wick Air Freshener 300 ml",
+//     category: "Toiletries",
+//     price: "₦3,795.00",
+//     image:
+//       "Air Fresheners & Fragrances/Air-Wick-Air-Freshener-Assorted-300-ml-Supermart-ng-2079.jpg",
+//   },
+// ];
+
 const beverages = [
   {
     name: "4th Street Sweet Red Wine 75 cl",
@@ -1053,6 +831,111 @@ const beverages = [
   },
 ];
 
+// const beverages = [
+//   {
+//     image: "Soft Drinks/ALTCITD827.jpg",
+//     name: "Coca Cola Coke Can 33 cl x24",
+//     price: "₦12,840.00",
+//   },
+//   {
+//     image: "Soft Drinks/NBK158_d6f2ba5e-e528-4b73-8986-8ee009fdf31c.jpg",
+//     name: "Power Horse Energy Drink 25 cl x6",
+//     price: "₦8,940.00",
+//   },
+//   {
+//     image: "Soft Drinks/aspar2231_a082fe3a-cae6-4a7b-903b-e31b0a24dff7.jpg",
+//     name: "La Casera Apple Flavoured Drink Pet 35 cl x12",
+//     price: "₦2,950.00",
+//   },
+//   {
+//     image: "Soft Drinks/spar2617_514f0721-5c83-49e3-9f89-f9f15b0264cc.jpg",
+//     name: "Maltina Classic Malt Drink Pet Bottle 33 cl",
+//     price: "₦570.00",
+//   },
+//   {
+//     image: "Soft Drinks/spbvcd1504.jpg",
+//     name: "Teem Bitter Lemon Pet Bottle 50 cl",
+//     price: "₦500.00",
+//   },
+//   {
+//     image: "Soft Drinks/sprnw1723.png",
+//     name: "Maltina Classic Malt Drink Can 33 cl",
+//     price: "₦670.00",
+//   },
+//   {
+//     image: "Soft Drinks/sprnw1550.jpg",
+//     name: "Schweppes Virgin Mojito Can 33 cl",
+//     price: "₦565.00",
+//   },
+//   {
+//     image: "Soft Drinks/imgi_22_spbvju1608-_1.png",
+//     name: "Chi Exotic Pineapple & Coconut Nectar 100 cl",
+//     price: "₦1,770.00",
+//   },
+//   {
+//     image: "Soft Drinks/imgi_27_spbvyo2102.png",
+//     name: "Hollandia Yoghurt Drink Plain Sweetened 100 cl",
+//     price: "₦1,990.00",
+//   },
+//   {
+//     image: "Soft Drinks/imgi_31_spbvju1617.png",
+//     name: "Chivita Active Citrus Mixed Fruit Juice 100 cl",
+//     price: "₦2,210.00",
+//   },
+//   {
+//     image:
+//       "Soft Drinks/imgi_36_5-Alive-Pulpy-Orange-30-cl-Supermart-ng-1864.jpg",
+//     name: "5 Alive Pulpy Orange 30 cl",
+//     price: "₦625.00",
+//   },
+//   {
+//     image:
+//       "Soft Drinks/imgi_38_1508946327351_okea193_eva_table_water_75_cl_pack_of_12.jpg",
+//     name: "Eva Table Water 75 cl x12",
+//     price: "₦3,420.00",
+//   },
+//   {
+//     image: "Soft Drinks/imgi_39_spbvfd1518.png",
+//     name: "Capri Sun Apple 20 cl x40",
+//     price: "₦13,400.00",
+//   },
+//   {
+//     image: "Soft Drinks/imgi_40_aspar9564.jpg",
+//     name: "Chi Exotic Pineapple & Coconut Nectar 31.5 cl",
+//     price: "₦720.00",
+//   },
+//   {
+//     image: "Soft Drinks/imgi_41_spmzz1335.jpg",
+//     name: "Mr V Table Water 75 cl x12",
+//     price: "₦2,150.00",
+//   },
+//   {
+//     image: "Soft Drinks/imgi_46_23copy.jpg",
+//     name: "Peak Yoghurt Drink Plain Sweetened 100 cl",
+//     price: "₦2,165.00",
+//   },
+//   {
+//     image: "Soft Drinks/imgi_54_spmex3202.jpg",
+//     name: "Sosa Apple Fruit Drink 35 cl",
+//     price: "₦435.00",
+//   },
+//   {
+//     image: "Soft Drinks/imgi_55_spar10608.jpg",
+//     name: "Peak Yoghurt Drink Plain Sweetened 31.5 cl",
+//     price: "₦885.00",
+//   },
+//   {
+//     image: "Soft Drinks/imgi_60_sprnw1283.jfif.jpg",
+//     name: "Chi Ice Tea Lemon 100 cl",
+//     price: "₦1,325.00",
+//   },
+//   {
+//     image: "Soft Drinks/imgi_73_spmex2197.jpg",
+//     name: "Blue Boat Fresh Yo Yoghurt Plain Sweet 100 cl",
+//     price: "₦1,855.00",
+//   },
+// ];
+
 const AllProducts = [
   ...provisions,
   ...cosmetics,
@@ -1062,109 +945,113 @@ const AllProducts = [
   ...beverages,
 ];
 
-const searchBox = document.querySelector(".search-inputs");
-const inputText = document.querySelector(".hidden-results-container");
+const productContainer = document.querySelector(".all-products-container");
+const productContainer2 = document.querySelector(".all-products-container");
 
-searchBox.addEventListener("input", (e) => {
-  const inputedItem = e.target.value.toLowerCase().trim();
+AllProducts.map((products) => {
+  const EachProductImage = products.image;
+  const EachProductName = products.name;
+  const EachProductPrice = products.price;
 
-  // Clear previous results
-  inputText.innerHTML = "";
+  const productItemDiv = document.createElement("div");
+  const productImageDiv = document.createElement("div");
+  const productName = document.createElement("div");
+  const productDetails = document.createElement("div");
 
-  // If search is empty, don't show anything
-  if (!inputedItem) {
-    return;
-  }
+  productItemDiv.classList.add("product-item");
+  productName.classList.add("product-name");
+  productImageDiv.classList.add("product-image");
+  productDetails.classList.add("product-details");
 
-  // Filter with proper return statement
-  const filteredItems = AllProducts.filter((eachProducts) =>
-    eachProducts.name.toLowerCase().includes(inputedItem)
-  );
-  // eachProducts.category.toLowerCase().includes(inputedItem)
+  // productName.className = 'product-name';
+  // productImageDiv.className = 'product-image';
+  // productDetails.className = 'product-details';
 
-  // Display filtered items properly
-  if (filteredItems.length === 0) {
-    inputText.innerHTML = "<p>No results found</p>";
-  } else {
-    filteredItems.forEach((item) => {
-      const newDiv = document.createElement("div");
-      newDiv.innerHTML = `<div class="results-container">
-      <div>
-      <p>${item.name}</p>
-      <p>${item.price}</p>
-      </div>
-      <div>
-      <img width="90px" src="${item.image}">
-      </div>
-        </div>
-      `;
-      inputText.appendChild(newDiv);
-    });
-  }
+  productImageDiv.innerHTML = `<img src="${EachProductImage}">`;
+  productName.innerHTML = `
+    <p> ${EachProductName} </p>
+    `;
+  productDetails.innerHTML = `
+    <p class="product-price"> ${EachProductPrice} </p>
+    <button class="add-to-cart-btn">Add to Cart</button>
+    `;
 
-  // console.log({filteredItems});
+  productItemDiv.appendChild(productImageDiv);
+  productItemDiv.appendChild(productName);
+  productItemDiv.appendChild(productDetails);
+
+  productContainer.appendChild(productItemDiv);
 });
 
-// filtering items for large screens
-const searchBox2 = document.querySelector(".search-inputs2");
-const inputText2 = document.querySelector(".hidden-results-container2");
+// productsItems.map((products) => {
+//   const EachProductImage = products.image;
+//   const EachProductName = products.name;
+//   const EachProductPrice = products.price;
 
-searchBox2.addEventListener("input", (e) => {
-  const inputedItem = e.target.value.toLowerCase().trim();
+//   const productItemDiv = document.createElement("div");
+//   const productImageDiv = document.createElement("div");
+//   const productName = document.createElement("div");
+//   const productDetails = document.createElement("div");
 
-  // Clear previous results
-  inputText2.innerHTML = "";
-  if (searchBox2.value === "") {
-    inputText2.style.display = "none";
-  } else {
-    inputText2.style.display = "block";
-  }
+//   productItemDiv.classList.add("product-item");
+//   productName.classList.add("product-name");
+//   productImageDiv.classList.add("product-image");
+//   productDetails.classList.add("product-details");
 
-  // If search is empty, don't show anything
-  if (!inputedItem) {
-    return;
-  }
+//   // productName.className = 'product-name';
+//   // productImageDiv.className = 'product-image';
+//   // productDetails.className = 'product-details';
 
-  // Filter with proper return statement
-  const filteredItems = AllProducts.filter(
-    (eachProducts) => eachProducts.name.toLowerCase().includes(inputedItem)
-    // eachProducts.category.toLowerCase().includes(inputedItem)
-  );
+//   productImageDiv.innerHTML = `<img src="${EachProductImage}">`;
+//   productName.innerHTML = `
+//     <p> ${EachProductName} </p>
+//     `;
+//   productDetails.innerHTML = `
+//     <p class="product-price"> ${EachProductPrice} </p>
+//     <button class="add-to-cart-btn">Add to Cart</button>
+//     `;
 
-  // Display filtered items properly
-  if (filteredItems.length === 0) {
-    inputText2.innerHTML = "<p>No results found</p>";
-  } else {
-    filteredItems.forEach((item) => {
-      const newDiv = document.createElement("div");
-      newDiv.innerHTML = `<div class="results-container">
-      <div>
-      <p style="font-size: 14px;"  >${item.name}</p>
-      <p style="font-size: 12px; font-weight: bold;">${item.price}</p>
-      </div>
-      <div>
-      <img width="70px" src="${item.image}">
-      </div>
-        </div>
-      `;
-      inputText2.appendChild(newDiv);
-    });
-  }
+//   productItemDiv.appendChild(productImageDiv);
+//   productItemDiv.appendChild(productName);
+//   productItemDiv.appendChild(productDetails);
 
-  // console.log({filteredItems});
-});
+//   productContainer.appendChild(productItemDiv);
+// });
 
-// Display the categories when clicked
-const categoryDiv = document.querySelector(".categories-div");
-// console.log(categoryDiv);
-const hiddenCategories = document.querySelector(".hidden-categories");
-let isOpen = false;
-categoryDiv.addEventListener("click", () => {
-  isOpen = !isOpen;
+// productsItems2.map((products) => {
+//   const EachProductImage = products.image;
+//   const EachProductName = products.name;
+//   const EachProductPrice = products.price;
 
-  if (isOpen) {
-    hiddenCategories.classList.add("active");
-  } else {
-    hiddenCategories.classList.remove("active");
-  }
-});
+//   const productItemDiv = document.createElement("div");
+//   const productImageDiv = document.createElement("div");
+//   const productName = document.createElement("div");
+//   const productDetails = document.createElement("div");
+
+//   productItemDiv.classList.add("product-item");
+//   productName.classList.add("product-name");
+//   productImageDiv.classList.add("product-image");
+//   productDetails.classList.add("product-details");
+
+//   // productName.className = 'product-name';
+//   // productImageDiv.className = 'product-image';
+//   // productDetails.className = 'product-details';
+
+//   productImageDiv.innerHTML = `<img src="${EachProductImage}">`;
+//   productName.innerHTML = `
+//     <p> ${EachProductName} </p>
+//     `;
+//   productDetails.innerHTML = `
+//     <p class="product-price"> ${EachProductPrice} </p>
+//     <button class="add-to-cart-btn">Add to Cart</button>
+//     `;
+
+//   productItemDiv.appendChild(productImageDiv);
+//   productItemDiv.appendChild(productName);
+//   productItemDiv.appendChild(productDetails);
+
+//   productContainer2.appendChild(productItemDiv);
+// });
+
+const displayResult = document.querySelector(".results-display-text");
+displayResult.textContent = `Showing ${AllProducts.length}`;
