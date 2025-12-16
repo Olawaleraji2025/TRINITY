@@ -171,7 +171,7 @@ keyboard_arrow_down
         <div class="shop-header-container">
 
             <div class="category-name">
-                <h5>All</h5>
+                <h5 class="category-name-header">All</h5>
                 
             </div>
             
@@ -181,8 +181,21 @@ keyboard_arrow_down
             </div>
             
             <div class="sort-container">
-                <button>Sort</button>
-                <button>Filter</button>
+                <select id="sort-select" class="sort">
+                    <option value="default">Sort by: Default</option>
+                    <option value="price-low-high">Price: Low to High</option>
+                    <option value="price-high-low">Price: High to Low</option>
+                    <option value="name-a-z">Name: A to Z</option>
+                    <option value="name-z-a">Name: Z to A</option>
+                </select>
+                <select id="filter-select" class="filter">
+                    <option value="all">Filter by: All</option>
+                    <option value="Provisions">Provisions</option>
+                    <option value="Cosmetics">Cosmetics</option>
+                    <option value="Exotic Wines">Exotic Wines</option>
+                    <option value="Toiletries">Toiletries</option>
+                    <option value="Beverages">Beverages</option>
+                </select>
             </div>
         </div>
       </section>
