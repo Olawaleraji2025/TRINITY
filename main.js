@@ -1062,6 +1062,61 @@ const AllProducts = [
   ...beverages,
 ];
 
+// Function to handle displaying search results with pagination
+function handleSearchResults(filteredItems, container, imgWidth) {
+  container.innerHTML = '';
+  let displayedCount = 0;
+  const maxPerClick = 5;
+  
+  function displayMore() {
+    // Remove existing button to reposition it at the bottom
+    const existingBtn = container.querySelector('.show-more-btn');
+    if (existingBtn) {
+      existingBtn.remove();
+    }
+
+    const toDisplay = filteredItems.slice(displayedCount, displayedCount + maxPerClick);
+    toDisplay.forEach((item) => {
+      const newDiv = document.createElement("div");
+      newDiv.innerHTML = `<div class="results-container">
+      <div>
+      <p>${item.name}</p>
+      <p style="font-weight: bold;" >${item.price}</p>
+      </div>
+      <div class="img-result-container" >
+      <img width="${imgWidth}px" src="${item.image}">
+      </div>
+        </div>
+      `;
+      container.appendChild(newDiv);
+    });
+    displayedCount += toDisplay.length;
+
+    if (displayedCount >= filteredItems.length) {
+      // No more items, no button
+    } else {
+      const showMoreBtn = document.createElement('button');
+      showMoreBtn.classList.add('show-more-btn');
+      if (displayedCount >= 10) {
+        showMoreBtn.textContent = `View All ${filteredItems.length} Results`;
+        showMoreBtn.onclick = () => {
+          window.location.href = 'shop.html';
+        };
+      } else {
+        showMoreBtn.textContent = 'Show More';
+        showMoreBtn.onclick = displayMore;
+      }
+      container.appendChild(showMoreBtn);
+    }
+  }
+
+  if (filteredItems.length > 0) {
+    displayMore();
+  } else {
+    container.innerHTML = `<div class="no-results-container"> <p>No results found </p></div>`;
+  }
+}
+
 const searchBox = document.querySelector(".search-inputs");
 const inputText = document.querySelector(".hidden-results-container");
 
@@ -1082,25 +1137,8 @@ searchBox.addEventListener("input", (e) => {
   );
   // eachProducts.category.toLowerCase().includes(inputedItem)
 
-  // Display filtered items properly
-  if (filteredItems.length === 0) {
-    inputText.innerHTML = "<p>No results found</p>";
-  } else {
-    filteredItems.forEach((item) => {
-      const newDiv = document.createElement("div");
-      newDiv.innerHTML = `<div class="results-container">
-      <div>
-      <p>${item.name}</p>
-      <p>${item.price}</p>
-      </div>
-      <div>
-      <img width="90px" src="${item.image}">
-      </div>
-        </div>
-      `;
-      inputText.appendChild(newDiv);
-    });
-  }
+  // Display filtered items with pagination
+  handleSearchResults(filteredItems, inputText, 90);
 
   // console.log({filteredItems});
 });
@@ -1131,25 +1169,8 @@ searchBox2.addEventListener("input", (e) => {
     // eachProducts.category.toLowerCase().includes(inputedItem)
   );
 
-  // Display filtered items properly
-  if (filteredItems.length === 0) {
-    inputText2.innerHTML = "<p>No results found</p>";
-  } else {
-    filteredItems.forEach((item) => {
-      const newDiv = document.createElement("div");
-      newDiv.innerHTML = `<div class="results-container">
-      <div>
-      <p style="font-size: 14px;"  >${item.name}</p>
-      <p style="font-size: 12px; font-weight: bold;">${item.price}</p>
-      </div>
-      <div>
-      <img width="70px" src="${item.image}">
-      </div>
-        </div>
-      `;
-      inputText2.appendChild(newDiv);
-    });
-  }
+  // Display filtered items with pagination
+  handleSearchResults(filteredItems, inputText2, 50);
 
   // console.log({filteredItems});
 });
