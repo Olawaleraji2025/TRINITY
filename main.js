@@ -252,12 +252,12 @@ productsItems.map((products) => {
   productName.innerHTML = `<p> ${EachProductName} </p>`;
   productDetails.innerHTML = `
     <p class="product-price"> ${EachProductPrice} </p>
-    <button class="add-to-cart-btn" onClick="showCartModal('${EachProductName}', '${EachProductPrice}', '${EachProductImage}')">Add to Cart</button>
+    <button class="add-to-cart-btn" onClick="showCartModal('${EachProductName}', '${EachProductPrice}', '${EachProductImage}')">Add to Cart<i class="fa-solid fa-cart-arrow-down"></i></button>
   `;
 
   productIcons.innerHTML = `
-    <span class="wishlist-icon">❤️</span>
-    <span class="eye-icon" onClick="viewProductPage('${EachProductName}', '${EachProductPrice}', '${EachProductImage}')">👁️</span>
+    <span class="wishlist-icon"><i class="fa-regular fa-heart"></i></span>
+    <span class="eye-icon" onClick="viewProductPage('${EachProductName}', '${EachProductPrice}', '${EachProductImage}')"><i class="fa-regular fa-eye"></i></span>
   `;
 
   productItemDiv.appendChild(productImageDiv);
@@ -277,24 +277,30 @@ productsItems2.map((products) => {
   const productImageDiv = document.createElement("div");
   const productName = document.createElement("div");
   const productDetails = document.createElement("div");
+  const productIcons = document.createElement("div");
 
   productItemDiv.classList.add("product-item");
   productName.classList.add("product-name");
   productImageDiv.classList.add("product-image");
   productDetails.classList.add("product-details");
+  productIcons.classList.add("product-icons");
 
   productImageDiv.innerHTML = `<img src="${EachProductImage}">`;
-  productName.innerHTML = `
-    <p> ${EachProductName} </p>
-    `;
+  productName.innerHTML = `<p> ${EachProductName} </p>`;
   productDetails.innerHTML = `
     <p class="product-price"> ${EachProductPrice} </p>
-    <button class="add-to-cart-btn">Add to Cart</button>
-    `;
+    <button class="add-to-cart-btn" onClick="showCartModal('${EachProductName}', '${EachProductPrice}', '${EachProductImage}')">Add to Cart<i class="fa-solid fa-cart-arrow-down"></i></button>
+  `;
+
+  productIcons.innerHTML = `
+    <span class="wishlist-icon"><i class="fa-regular fa-heart"></i></span>
+    <span class="eye-icon" onClick="viewProductPage('${EachProductName}', '${EachProductPrice}', '${EachProductImage}')"><i class="fa-regular fa-eye"></i></span>
+  `;
 
   productItemDiv.appendChild(productImageDiv);
   productItemDiv.appendChild(productName);
   productItemDiv.appendChild(productDetails);
+  productItemDiv.appendChild(productIcons);
 
   productContainer2.appendChild(productItemDiv);
 });
@@ -1226,14 +1232,100 @@ categoryDiv.addEventListener("click", () => {
 
 
 // Function to show the modal
-function showCartModal(item, subtotal, totalQuantity) {
-  const modal = document.querySelector('.cart-modal');
-  modal.querySelector('.cart-item-image').src = item.image;
-  modal.querySelector('.cart-item-name').textContent = item.name;
-  modal.querySelector('.cart-item-quantity').textContent = `Quantity: ${item.quantity}`;
-  modal.querySelector('.cart-item-price').textContent = `Price: ${item.price}`;
-  modal.querySelector('.cart-subtotal').textContent = `Subtotal: ${subtotal}`;
-  modal.querySelector('.cart-total-quantity').textContent = `Total Items: ${totalQuantity}`;
+function showCartModal(name, price, image) {
+  // Get cart from localStorage
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  // Check if item already exists
+  let existingIndex = cart.findIndex(item => item.name === name);
+  let quantity = 1;
+  if (existingIndex !== -1) {
+    quantity = cart[existingIndex].quantity + 1;
+    cart[existingIndex].quantity = quantity;
+  } else {
+    cart.push({ name, price, image, quantity });
+  }
+
+  // Save cart
+  localStorage.setItem('cart', JSON.stringify(cart));
+
+  // Parse price to number
+  const priceNum = parseFloat(price.replace(/[^0-9.-]+/g, ""));
+
+  // Create modal if not exists
+  let modal = document.querySelector('.cart-modal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.classList.add('cart-modal');
+    document.body.appendChild(modal);
+  }
+
+  function updateModal() {
+    const subtotal = (priceNum * quantity).toFixed(2);
+    modal.innerHTML = `
+      <div class="cart-modal-content">
+        <div class="cart-modal-header">
+          <span class="cart-modal-icon">✔</span>
+          <span class="cart-modal-message">${name} successfully added to cart</span>
+        </div>
+        <div class="cart-modal-body">
+          <div class="cart-item-details">
+            <img class="cart-item-image" src="${image}" alt="${name} Image">
+            <div class="cart-item-info">
+              <p class="cart-item-name">${name}</p>
+              <div class="quantity-controls">
+                <button class="quantity-btn decrease">-</button>
+                <span class="cart-item-quantity">${quantity}</span>
+                <button class="quantity-btn increase">+</button>
+              </div>
+              <p class="cart-item-price">Price: ${price}</p>
+            </div>
+          </div>
+          <div class="cart-summary">
+            <p class="cart-subtotal">Subtotal: ₦${subtotal}</p>
+            <p class="cart-total-quantity">Total Items: ${quantity}</p>
+          </div>
+        </div>
+        <div class="cart-modal-footer">
+          <button class="view-cart-btn">View Cart & Checkout</button>
+          <button class="continue-shopping-btn">Continue Shopping</button>
+        </div>
+      </div>
+    `;
+
+    // Event listeners for quantity
+    modal.querySelector('.decrease').addEventListener('click', () => {
+      if (quantity > 1) {
+        quantity--;
+        if (existingIndex !== -1) {
+          cart[existingIndex].quantity = quantity;
+          localStorage.setItem('cart', JSON.stringify(cart));
+        }
+        updateModal();
+      }
+    });
+
+    modal.querySelector('.increase').addEventListener('click', () => {
+      quantity++;
+      if (existingIndex !== -1) {
+        cart[existingIndex].quantity = quantity;
+        localStorage.setItem('cart', JSON.stringify(cart));
+      }
+      updateModal();
+    });
+
+    // Other event listeners
+    modal.querySelector('.view-cart-btn').addEventListener('click', () => {
+      window.location.href = 'cart.html';
+    });
+
+    modal.querySelector('.continue-shopping-btn').addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+  }
+
+  updateModal();
+
   modal.style.display = 'flex';
 
   // Close modal after 3 seconds
@@ -1241,55 +1333,3 @@ function showCartModal(item, subtotal, totalQuantity) {
     modal.style.display = 'none';
   }, 3000);
 }
-
-// Example usage
-// showCartModal({ name: 'Sample Item', image: 'path/to/image.jpg', quantity: 1, price: '$10.00' }, '$50.00', 5);
-
-
-  // Create a modal for displaying the add-to-cart message
-  const modal = document.createElement('div');
-  modal.classList.add('cart-modal');
-  modal.innerHTML = `
-    <div class="cart-modal-content">
-      <div class="cart-modal-header">
-        <span class="cart-modal-icon">✔</span>
-        <span class="cart-modal-message">Item successfully added to cart</span>
-      </div>
-      <div class="cart-modal-body">
-        <div class="cart-item-details">
-          <img class="cart-item-image" src="" alt="Item Image">
-          <div class="cart-item-info">
-            <p class="cart-item-name">Item Name</p>
-            <p class="cart-item-quantity">Quantity: 1</p>
-            <p class="cart-item-price">Price: $0.00</p>
-          </div>
-        </div>
-        <div class="cart-summary">
-          <p class="cart-subtotal">Subtotal: $0.00</p>
-          <p class="cart-total-quantity">Total Items: 0</p>
-        </div>
-      </div>
-      <div class="cart-modal-footer">
-        <button class="view-cart-btn">View Cart & Checkout</button>
-        <button class="continue-shopping-btn">Continue Shopping</button>
-      </div>
-    </div>
-  `;
-  
-  // Append the modal to the body
-  document.body.appendChild(modal);
-  
-  // Function to close the modal
-  function closeModal() {
-    document.body.removeChild(modal);
-  }
-
-  // Event listener for "View Cart & Checkout" button
-  modal.querySelector('.view-cart-btn').addEventListener('click', () => {
-    window.location.href = 'cart.html'; // Redirect to cart page
-  });
-  
-  // Event listener for "Continue Shopping" button
-  modal.querySelector('.continue-shopping-btn').addEventListener('click', () => {
-    closeModal(); // Close the modal
-  });

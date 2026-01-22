@@ -1046,7 +1046,13 @@ const allItems = filteredProducts.map((products) => {
   // productImageDiv.className = 'product-image';
   // productDetails.className = 'product-details';
 
-  productImageDiv.innerHTML = `<img src="${EachProductImage}">`;
+  productImageDiv.innerHTML = `
+    <img src="${EachProductImage}">
+    <div class="product-icons">
+      <span class="material-symbols-outlined icon">favorite</span>
+      <span class="material-symbols-outlined icon">visibility</span>
+    </div>
+  `;
   productName.innerHTML = `
     <p> ${EachProductName} </p>
     `;
@@ -1081,7 +1087,13 @@ const allItems = filteredProducts.map((products) => {
 //   // productImageDiv.className = 'product-image';
 //   // productDetails.className = 'product-details';
 
-//   productImageDiv.innerHTML = `<img src="${EachProductImage}">`;
+//   productImageDiv.innerHTML = `
+    <img src="${EachProductImage}">
+    <div class="product-icons">
+      <span class="material-symbols-outlined icon">favorite</span>
+      <span class="material-symbols-outlined icon">visibility</span>
+    </div>
+  `;
 //   productName.innerHTML = `
 //     <p> ${EachProductName} </p>
 //     `;
@@ -1116,7 +1128,13 @@ const allItems = filteredProducts.map((products) => {
 //   // productImageDiv.className = 'product-image';
 //   // productDetails.className = 'product-details';
 
-//   productImageDiv.innerHTML = `<img src="${EachProductImage}">`;
+//   productImageDiv.innerHTML = `
+    <img src="${EachProductImage}">
+    <div class="product-icons">
+      <span class="material-symbols-outlined icon">favorite</span>
+      <span class="material-symbols-outlined icon">visibility</span>
+    </div>
+  `;
 //   productName.innerHTML = `
 //     <p> ${EachProductName} </p>
 //     `;
