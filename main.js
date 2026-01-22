@@ -57,6 +57,7 @@ if (hiddenClose) {
   });
 }
 
+
 // Slider Functionality
 
 const sliderWrapper = document.querySelector(".slider-wrapper");
@@ -229,6 +230,7 @@ const productsItems2 = [
 const productContainer = document.querySelector(".products-container");
 const productContainer2 = document.querySelector(".products-container2");
 
+// Add wishlist and eye icons to each product item
 productsItems.map((products) => {
   const EachProductImage = products.image;
   const EachProductName = products.name;
@@ -238,28 +240,30 @@ productsItems.map((products) => {
   const productImageDiv = document.createElement("div");
   const productName = document.createElement("div");
   const productDetails = document.createElement("div");
+  const productIcons = document.createElement("div");
 
   productItemDiv.classList.add("product-item");
   productName.classList.add("product-name");
   productImageDiv.classList.add("product-image");
   productDetails.classList.add("product-details");
-
-  // productName.className = 'product-name';
-  // productImageDiv.className = 'product-image';
-  // productDetails.className = 'product-details';
+  productIcons.classList.add("product-icons");
 
   productImageDiv.innerHTML = `<img src="${EachProductImage}">`;
-  productName.innerHTML = `
-    <p> ${EachProductName} </p>
-    `;
+  productName.innerHTML = `<p> ${EachProductName} </p>`;
   productDetails.innerHTML = `
     <p class="product-price"> ${EachProductPrice} </p>
-    <button class="add-to-cart-btn">Add to Cart</button>
-    `;
+    <button class="add-to-cart-btn" onClick="showCartModal('${EachProductName}', '${EachProductPrice}', '${EachProductImage}')">Add to Cart</button>
+  `;
+
+  productIcons.innerHTML = `
+    <span class="wishlist-icon">❤️</span>
+    <span class="eye-icon" onClick="viewProductPage('${EachProductName}', '${EachProductPrice}', '${EachProductImage}')">👁️</span>
+  `;
 
   productItemDiv.appendChild(productImageDiv);
   productItemDiv.appendChild(productName);
   productItemDiv.appendChild(productDetails);
+  productItemDiv.appendChild(productIcons);
 
   productContainer.appendChild(productItemDiv);
 });
@@ -279,10 +283,6 @@ productsItems2.map((products) => {
   productImageDiv.classList.add("product-image");
   productDetails.classList.add("product-details");
 
-  // productName.className = 'product-name';
-  // productImageDiv.className = 'product-image';
-  // productDetails.className = 'product-details';
-
   productImageDiv.innerHTML = `<img src="${EachProductImage}">`;
   productName.innerHTML = `
     <p> ${EachProductName} </p>
@@ -298,6 +298,33 @@ productsItems2.map((products) => {
 
   productContainer2.appendChild(productItemDiv);
 });
+
+// Function to handle viewing product page
+function viewProductPage(name, price, image) {
+  const productDetails = { name, price, image };
+  localStorage.setItem('selectedProduct', JSON.stringify(productDetails));
+  window.location.href = 'product.html';
+}
+
+// Add event listeners to product items to save product details to localStorage
+function attachProductClickListeners(container, products) {
+    const productItems = container.querySelectorAll('.product-item');
+    productItems.forEach((item, index) => {
+        // Prevent multiple listeners
+        if (item.dataset.listenerAttached) return;
+        item.dataset.listenerAttached = true;
+
+        item.addEventListener('click', () => {
+            const productIndex = Array.from(container.children).indexOf(item);
+            localStorage.setItem('selectedProduct', JSON.stringify(products[productIndex]));
+            // window.location.href = 'product.html';
+        });
+    });
+}
+
+// Attach click listeners to products in both containers
+attachProductClickListeners(productContainer, productsItems);
+attachProductClickListeners(productContainer2, productsItems2);
 
 // Filtering of items for mobile screen
 /* <> */
@@ -425,7 +452,7 @@ const provisions = [
     name: "Minimie Chin Chin 45 g",
     category: "Provisions",
     price: "₦150.00",
-    image: "Cocktail Snacks/1507734773140_okea2333_minimie_chin_chin_45_g.jpg",
+    image: "Cocktail Snacks/1487734773140_okea2333_minimie_chin_chin_45_g.jpg",
   },
   {
     name: "Mars 50 g",
@@ -490,7 +517,7 @@ const provisions = [
     image: "BREAKFAST CEREALS/spar10837.jfif.jpg",
   },
   {
-    name: "Checkers Banana Custard Powder Jar 400 g",
+    name: "Checkers Custard Powder Banana Jar 400 g",
     category: "Provisions",
     price: "₦1,435.00",
     image: "Custard & Jelly/spar10931.jpg",
@@ -1067,7 +1094,7 @@ function handleSearchResults(filteredItems, container, imgWidth) {
   container.innerHTML = '';
   let displayedCount = 0;
   const maxPerClick = 5;
-  
+
   function displayMore() {
     // Remove existing button to reposition it at the bottom
     const existingBtn = container.querySelector('.show-more-btn');
@@ -1088,6 +1115,12 @@ function handleSearchResults(filteredItems, container, imgWidth) {
       </div>
         </div>
       `;
+      const resultsContainer = newDiv.querySelector('.results-container');
+      resultsContainer.style.cursor = 'pointer';
+      resultsContainer.addEventListener('click', () => {
+        localStorage.setItem('selectedProduct', JSON.stringify(item));
+        window.location.href = `product.html`;
+      });
       container.appendChild(newDiv);
     });
     displayedCount += toDisplay.length;
@@ -1189,3 +1222,74 @@ categoryDiv.addEventListener("click", () => {
     hiddenCategories.classList.remove("active");
   }
 });
+
+
+
+// Function to show the modal
+function showCartModal(item, subtotal, totalQuantity) {
+  const modal = document.querySelector('.cart-modal');
+  modal.querySelector('.cart-item-image').src = item.image;
+  modal.querySelector('.cart-item-name').textContent = item.name;
+  modal.querySelector('.cart-item-quantity').textContent = `Quantity: ${item.quantity}`;
+  modal.querySelector('.cart-item-price').textContent = `Price: ${item.price}`;
+  modal.querySelector('.cart-subtotal').textContent = `Subtotal: ${subtotal}`;
+  modal.querySelector('.cart-total-quantity').textContent = `Total Items: ${totalQuantity}`;
+  modal.style.display = 'flex';
+
+  // Close modal after 3 seconds
+  setTimeout(() => {
+    modal.style.display = 'none';
+  }, 3000);
+}
+
+// Example usage
+// showCartModal({ name: 'Sample Item', image: 'path/to/image.jpg', quantity: 1, price: '$10.00' }, '$50.00', 5);
+
+
+  // Create a modal for displaying the add-to-cart message
+  const modal = document.createElement('div');
+  modal.classList.add('cart-modal');
+  modal.innerHTML = `
+    <div class="cart-modal-content">
+      <div class="cart-modal-header">
+        <span class="cart-modal-icon">✔</span>
+        <span class="cart-modal-message">Item successfully added to cart</span>
+      </div>
+      <div class="cart-modal-body">
+        <div class="cart-item-details">
+          <img class="cart-item-image" src="" alt="Item Image">
+          <div class="cart-item-info">
+            <p class="cart-item-name">Item Name</p>
+            <p class="cart-item-quantity">Quantity: 1</p>
+            <p class="cart-item-price">Price: $0.00</p>
+          </div>
+        </div>
+        <div class="cart-summary">
+          <p class="cart-subtotal">Subtotal: $0.00</p>
+          <p class="cart-total-quantity">Total Items: 0</p>
+        </div>
+      </div>
+      <div class="cart-modal-footer">
+        <button class="view-cart-btn">View Cart & Checkout</button>
+        <button class="continue-shopping-btn">Continue Shopping</button>
+      </div>
+    </div>
+  `;
+  
+  // Append the modal to the body
+  document.body.appendChild(modal);
+  
+  // Function to close the modal
+  function closeModal() {
+    document.body.removeChild(modal);
+  }
+
+  // Event listener for "View Cart & Checkout" button
+  modal.querySelector('.view-cart-btn').addEventListener('click', () => {
+    window.location.href = 'cart.html'; // Redirect to cart page
+  });
+  
+  // Event listener for "Continue Shopping" button
+  modal.querySelector('.continue-shopping-btn').addEventListener('click', () => {
+    closeModal(); // Close the modal
+  });

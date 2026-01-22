@@ -1017,7 +1017,17 @@ const AllProducts = [
 const productContainer = document.querySelector(".all-products-container");
 const productContainer2 = document.querySelector(".all-products-container");
 
-const allItems = AllProducts.map((products) => {
+// Check for URL parameter to filter product
+const urlParams = new URLSearchParams(window.location.search);
+const selectedProduct = urlParams.get('product');
+let filteredProducts = AllProducts;
+
+if (selectedProduct) {
+  filteredProducts = AllProducts.filter(product => product.name === selectedProduct);
+  document.querySelector(".category-name-header").textContent = `Search Results for "${selectedProduct}"`;
+}
+
+const allItems = filteredProducts.map((products) => {
   const EachProductImage = products.image;
   const EachProductName = products.name;
   const EachProductPrice = products.price;

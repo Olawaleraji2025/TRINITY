@@ -5,52 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="cart.css">
-    <title>Cart</title>
+    <title>Your Shopping Cart</title>
 </head>
 <body>
-    <!-- <header id="Up">
-        <nav>
-          <div class="container nav-container"> 
-            <a href="#" class="logo-link">
-              <img src="Cart/TRINITY LOGO.svg" alt="" class="logo-img">
-            </a>
-  
-            <nav class="nav-search">
-              <div class="search-block">
-                <input class="search-input" type="text" placeholder="Search for Products">
-              </div>
-            </nav>
-  
-            <div class="nav-icons">
-              <span class="search-icon material-symbols-outlined">search</span>
+    <header  class="header-nav-bar">
+        <nav class="container nav-container">
+          <!-- Trinity Logo container -->
+          <div class="image-container">
+            <a href="index.html" class="logo-link">
+
+            <img src="Homepage/Frame 7.png" alt="" class="logo-img">
+           
+          </a>
+
+          </div>
+
+          <!-- Other Icons and elements -->
+          <div class="nav-section">
               
-              <a href="Signuppage/signup.html" class="account"><span class="Account material-symbols-outlined">person</span></a>
+              <div class="nav-icons">
 
+                <!-- Cart Container -->
+                <div class="cart-container">
+                  <a href="cart.html" class="cart"><span class="material-symbols-outlined">shopping_cart</span></a>
+                  <p class="cart-text">Cart</p>
 
-              <a href="Account/index.html" class="hidden">Account</a>
-
-
-              <a href="Cart/cart.html" class="cart"><span class="material-symbols-outlined">shopping_cart</span></a>
+                </div>
               
-              <a href="#" class="hidden">Cart</a>
-              <span class="material-symbols-outlined">menu</span>
+                <div class="menu-close-icon">
+                  <span class="menu material-symbols-outlined">menu</span>
+                  <span class="hidden-close material-symbols-outlined">close</span>
+
+                </div>
+              
             </div>
-          </div> -->
-
+          </div>
           
-            <div class="search-container">
-              <input type="text" placeholder="Search for Products" class="search-input"><span class="hidden-search material-symbols-outlined">search</span>
-              <button class="search-button"></button>
-            </div>
         </nav>
       </header>
-    <div class="cart-empty-container">
-        <div class="cart-icon">&#128722;</div>
-        <h1>Your Cart is Empty</h1>
-        <p>Looks like you haven't added anything to your cart yet.</p>
-        <a href="index.html" class="shop-btn">Continue Shopping</a>
-    </div>
+    
+    <main>
+        <section class="cart-section">
+            <h1>Your Cart</h1>
+            <div id="cartItemsContainer">
+                <!-- Cart items will be injected here by cart.js -->
+            </div>
+            <div class="cart-summary">
+                <p>Total: <span id="cartTotal"></span></p>
+                <button class="checkout-btn">Proceed to Checkout</button>
+            </div>
+        </section>
+    </main>
 
     <script src="cart.js"></script>
 </body>
