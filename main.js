@@ -1,68 +1,68 @@
 "use strict";
 
-// This is for the search icon
+// DOM Elements
 const searchIcon = document.querySelector(".search-icon");
 const searchBar = document.querySelector(".modal-search");
 const headerNavBar = document.querySelector(".header-nav-bar");
-
-if (searchIcon) {
-  searchIcon.addEventListener("click", function () {
-    searchBar.style.display = "block";
-    searchIcon.style.display = "none";
-    menuBtn.style.display = "flex";
-    hiddenMenu.style.display = "none";
-    hiddenClose.style.display = "none";
-    headerNavBar.style.height = "100px";
-  });
-}
-
 const closeIcon = document.querySelector(".close-menu");
-if (closeIcon) {
-  closeIcon.addEventListener("click", function () {
-    searchBar.style.display = "none";
-    searchBox.value = "";
-    inputText.innerHTML = "";
-    searchIcon.style.display = "flex";
-    menuBtn.style.display = "flex";
-    hiddenMenu.style.display = "none";
-    hiddenClose.style.display = "none";
-    headerNavBar.style.height = "auto";
-  });
-}
-
-// This is for the menu icon
 const menuBtn = document.querySelector(".menu");
 const hiddenMenu = document.querySelector(".mobile-menu");
 const hiddenClose = document.querySelector(".hidden-close");
+const sliderWrapper = document.querySelector(".slider-wrapper");
+const sliderWrapper2 = document.querySelector(".slider-wrapper2");
+const testimonialContainer = document.querySelector(".testimonials-section");
+const productContainer = document.querySelector(".products-container");
+const productContainer2 = document.querySelector(".products-container2");
+const searchBox = document.querySelector(".search-inputs");
+const inputText = document.querySelector(".hidden-results-container");
+const searchBox2 = document.querySelector(".search-inputs2");
+const inputText2 = document.querySelector(".hidden-results-container2");
+const categoryDiv = document.querySelector(".categories-div");
+const hiddenCategories = document.querySelector(".hidden-categories");
 
-if (menuBtn) {
-  menuBtn.addEventListener("click", function () {
-    menuBtn.style.display = "none";
-    hiddenClose.style.display = "block";
-    hiddenMenu.style.display = "block";
-    searchBar.style.display = "none";
-    searchIcon.style.display = "flex";
-    headerNavBar.style.height = "auto";
+
+
+// UI Toggle Functions
+function toggleSearchBar(show) {
+  searchBar.style.display = show ? "block" : "none";
+  searchIcon.style.display = show ? "none" : "flex";
+  menuBtn.style.display = show ? "flex" : "flex";
+  hiddenMenu.style.display = "none";
+  hiddenClose.style.display = "none";
+  headerNavBar.style.height = show ? "100px" : "auto";
+}
+
+function toggleMenu(show) {
+  menuBtn.style.display = show ? "none" : "flex";
+  hiddenClose.style.display = show ? "block" : "none";
+  hiddenMenu.style.display = show ? "block" : "none";
+  searchBar.style.display = "none";
+  searchIcon.style.display = "flex";
+  headerNavBar.style.height = "auto";
+}
+
+if (searchIcon) {
+  searchIcon.addEventListener("click", () => toggleSearchBar(true));
+}
+
+if (closeIcon) {
+  closeIcon.addEventListener("click", function () {
+    toggleSearchBar(false);
+    searchBox.value = "";
+    inputText.innerHTML = "";
   });
 }
 
+if (menuBtn) {
+  menuBtn.addEventListener("click", () => toggleMenu(true));
+}
+
 if (hiddenClose) {
-  hiddenClose.addEventListener("click", function () {
-    menuBtn.style.display = "flex";
-    hiddenMenu.style.display = "none";
-    hiddenClose.style.display = "none";
-    searchBar.style.display = "none";
-    searchIcon.style.display = "flex";
-    headerNavBar.style.height = "auto";
-  });
+  hiddenClose.addEventListener("click", () => toggleMenu(false));
 }
 
 
 // Slider Functionality
-
-const sliderWrapper = document.querySelector(".slider-wrapper");
-
-const sliderWrapper2 = document.querySelector(".slider-wrapper2");
 
 function getScrollPercentage() {
   const leftToRight = sliderWrapper.scrollLeft;
@@ -91,8 +91,7 @@ function nextBtn2() {
   getScrollPercentage();
 }
 
-const testimonialContainer = document.querySelector(".testimonials-section");
-
+// Slider Functionality for testimonials
 function slideThrough() {
   const scroll = testimonialContainer.scrollLeft;
   const maximumScroll =
@@ -227,9 +226,6 @@ const productsItems2 = [
   },
 ];
 
-const productContainer = document.querySelector(".products-container");
-const productContainer2 = document.querySelector(".products-container2");
-
 // Add wishlist and eye icons to each product item
 productsItems.map((products) => {
   const EachProductImage = products.image;
@@ -248,11 +244,18 @@ productsItems.map((products) => {
   productDetails.classList.add("product-details");
   productIcons.classList.add("product-icons");
 
+ 
+
   productImageDiv.innerHTML = `<img src="${EachProductImage}">`;
   productName.innerHTML = `<p> ${EachProductName} </p>`;
   productDetails.innerHTML = `
     <p class="product-price"> ${EachProductPrice} </p>
-    <button class="add-to-cart-btn" onClick="showCartModal('${EachProductName}', '${EachProductPrice}', '${EachProductImage}')">Add to Cart<i class="fa-solid fa-cart-arrow-down"></i></button>
+    <div class="quantity-controls">
+      <button class="quantity-btn decrease">-</button>
+      <span class="quantity-display">1</span>
+      <button class="quantity-btn increase" >+</button>
+    </div>
+    <button class="add-to-cart-btn" onClick="showCartModal('${EachProductName}', '${EachProductPrice}', '${EachProductImage}', this.parentElement.querySelector('.quantity-display').textContent)">Add to Cart<i class="fa-solid fa-cart-arrow-down"></i></button>
   `;
 
   productIcons.innerHTML = `
@@ -260,12 +263,35 @@ productsItems.map((products) => {
     <span class="eye-icon" onClick="viewProductPage('${EachProductName}', '${EachProductPrice}', '${EachProductImage}')"><i class="fa-regular fa-eye"></i></span>
   `;
 
+  
+
   productItemDiv.appendChild(productImageDiv);
   productItemDiv.appendChild(productName);
   productItemDiv.appendChild(productDetails);
   productItemDiv.appendChild(productIcons);
 
   productContainer.appendChild(productItemDiv);
+
+   // Add event listeners for quantity buttons
+   const decreaseBtn = productItemDiv.querySelector('.decrease');
+   const increaseBtn = productItemDiv.querySelector('.increase');
+   const quantityDisplay = productItemDiv.querySelector('.quantity-display');
+ 
+   decreaseBtn.addEventListener('click', () => {
+    let qty = parseInt(quantityDisplay.textContent);
+    if (qty > 1) {
+      qty--;
+      quantityDisplay.textContent = qty;
+    }
+  });
+
+  increaseBtn.addEventListener('click', () => {
+    let qty = parseInt(quantityDisplay.textContent);
+    qty++;
+    quantityDisplay.textContent = qty;
+  });
+    
+  
 });
 
 productsItems2.map((products) => {
@@ -289,7 +315,12 @@ productsItems2.map((products) => {
   productName.innerHTML = `<p> ${EachProductName} </p>`;
   productDetails.innerHTML = `
     <p class="product-price"> ${EachProductPrice} </p>
-    <button class="add-to-cart-btn" onClick="showCartModal('${EachProductName}', '${EachProductPrice}', '${EachProductImage}')">Add to Cart<i class="fa-solid fa-cart-arrow-down"></i></button>
+    <div class="quantity-controls">
+      <button class="quantity-btn decrease">-</button>
+      <span class="quantity-display">1</span>
+      <button class="quantity-btn increase">+</button>
+    </div>
+    <button class="add-to-cart-btn" onClick="showCartModal('${EachProductName}', '${EachProductPrice}', '${EachProductImage}', this.parentElement.querySelector('.quantity-display').textContent)">Add to Cart<i class="fa-solid fa-cart-arrow-down"></i></button>
   `;
 
   productIcons.innerHTML = `
@@ -301,6 +332,25 @@ productsItems2.map((products) => {
   productItemDiv.appendChild(productName);
   productItemDiv.appendChild(productDetails);
   productItemDiv.appendChild(productIcons);
+
+  // Add event listeners for quantity buttons
+  const decreaseBtn = productItemDiv.querySelector('.decrease');
+  const increaseBtn = productItemDiv.querySelector('.increase');
+  const quantityDisplay = productItemDiv.querySelector('.quantity-display');
+
+  decreaseBtn.addEventListener('click', () => {
+    let qty = parseInt(quantityDisplay.textContent);
+    if (qty > 1) {
+      qty--;
+      quantityDisplay.textContent = qty;
+    }
+  });
+
+  increaseBtn.addEventListener('click', () => {
+    let qty = parseInt(quantityDisplay.textContent);
+    qty++;
+    quantityDisplay.textContent = qty;
+  });
 
   productContainer2.appendChild(productItemDiv);
 });
@@ -1094,6 +1144,7 @@ const AllProducts = [
   ...toiletries,
   ...beverages,
 ];
+// Utility Functions
 
 // Function to handle displaying search results with pagination
 function handleSearchResults(filteredItems, container, imgWidth) {
@@ -1156,9 +1207,7 @@ function handleSearchResults(filteredItems, container, imgWidth) {
   }
 }
 
-const searchBox = document.querySelector(".search-inputs");
-const inputText = document.querySelector(".hidden-results-container");
-
+// Search functionality for mobile screen
 searchBox.addEventListener("input", (e) => {
   const inputedItem = e.target.value.toLowerCase().trim();
 
@@ -1183,9 +1232,6 @@ searchBox.addEventListener("input", (e) => {
 });
 
 // filtering items for large screens
-const searchBox2 = document.querySelector(".search-inputs2");
-const inputText2 = document.querySelector(".hidden-results-container2");
-
 searchBox2.addEventListener("input", (e) => {
   const inputedItem = e.target.value.toLowerCase().trim();
 
@@ -1215,9 +1261,6 @@ searchBox2.addEventListener("input", (e) => {
 });
 
 // Display the categories when clicked
-const categoryDiv = document.querySelector(".categories-div");
-// console.log(categoryDiv);
-const hiddenCategories = document.querySelector(".hidden-categories");
 let isOpen = false;
 categoryDiv.addEventListener("click", () => {
   isOpen = !isOpen;
@@ -1232,18 +1275,16 @@ categoryDiv.addEventListener("click", () => {
 
 
 // Function to show the modal
-function showCartModal(name, price, image) {
+function showCartModal(name, price, image, quantity) {
   // Get cart from localStorage
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
   // Check if item already exists
   let existingIndex = cart.findIndex(item => item.name === name);
-  let quantity = 1;
   if (existingIndex !== -1) {
-    quantity = cart[existingIndex].quantity + 1;
-    cart[existingIndex].quantity = quantity;
+    cart[existingIndex].quantity += parseInt(quantity);
   } else {
-    cart.push({ name, price, image, quantity });
+    cart.push({ name, price, image, quantity: parseInt(quantity) });
   }
 
   // Save cart
@@ -1260,71 +1301,42 @@ function showCartModal(name, price, image) {
     document.body.appendChild(modal);
   }
 
-  function updateModal() {
-    const subtotal = (priceNum * quantity).toFixed(2);
-    modal.innerHTML = `
-      <div class="cart-modal-content">
-        <div class="cart-modal-header">
-          <span class="cart-modal-icon">✔</span>
-          <span class="cart-modal-message">${name} successfully added to cart</span>
-        </div>
-        <div class="cart-modal-body">
-          <div class="cart-item-details">
-            <img class="cart-item-image" src="${image}" alt="${name} Image">
-            <div class="cart-item-info">
-              <p class="cart-item-name">${name}</p>
-              <div class="quantity-controls">
-                <button class="quantity-btn decrease">-</button>
-                <span class="cart-item-quantity">${quantity}</span>
-                <button class="quantity-btn increase">+</button>
-              </div>
-              <p class="cart-item-price">Price: ${price}</p>
-            </div>
-          </div>
-          <div class="cart-summary">
-            <p class="cart-subtotal">Subtotal: ₦${subtotal}</p>
-            <p class="cart-total-quantity">Total Items: ${quantity}</p>
+  const subtotal = (priceNum * quantity).toFixed(2);
+  modal.innerHTML = `
+    <div class="cart-modal-content">
+      <div class="cart-modal-header">
+        <span class="cart-modal-icon">✔</span>
+        <span class="cart-modal-message">${name} successfully added to cart</span>
+      </div>
+      <div class="cart-modal-body">
+        <div class="cart-item-details">
+          <img class="cart-item-image" src="${image}" alt="${name} Image">
+          <div class="cart-item-info">
+            <p class="cart-item-name">${name}</p>
+            <p class="cart-item-quantity">Quantity: ${quantity}</p>
+            <p class="cart-item-price">Price: ${price}</p>
           </div>
         </div>
-        <div class="cart-modal-footer">
-          <button class="view-cart-btn">View Cart & Checkout</button>
-          <button class="continue-shopping-btn">Continue Shopping</button>
+        <div class="cart-summary">
+          <p class="cart-subtotal">Subtotal: ₦${subtotal}</p>
+          <p class="cart-total-quantity">Total Items: ${quantity}</p>
         </div>
       </div>
-    `;
+      <div class="cart-modal-footer">
+        <button class="view-cart-btn">View Cart & Checkout</button>
+        <button class="continue-shopping-btn">Continue Shopping</button>
+      </div>
+    </div>
+  `;
 
-    // Event listeners for quantity
-    modal.querySelector('.decrease').addEventListener('click', () => {
-      if (quantity > 1) {
-        quantity--;
-        if (existingIndex !== -1) {
-          cart[existingIndex].quantity = quantity;
-          localStorage.setItem('cart', JSON.stringify(cart));
-        }
-        updateModal();
-      }
-    });
+  // Event listeners
+  modal.querySelector('.view-cart-btn').addEventListener('click', () => {
+    window.location.href = 'cart.html';
+  });
 
-    modal.querySelector('.increase').addEventListener('click', () => {
-      quantity++;
-      if (existingIndex !== -1) {
-        cart[existingIndex].quantity = quantity;
-        localStorage.setItem('cart', JSON.stringify(cart));
-      }
-      updateModal();
-    });
-
-    // Other event listeners
-    modal.querySelector('.view-cart-btn').addEventListener('click', () => {
-      window.location.href = 'cart.html';
-    });
-
-    modal.querySelector('.continue-shopping-btn').addEventListener('click', () => {
-      modal.style.display = 'none';
-    });
-  }
-
-  updateModal();
+  modal.querySelector('.continue-shopping-btn').addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
 
   modal.style.display = 'flex';
 

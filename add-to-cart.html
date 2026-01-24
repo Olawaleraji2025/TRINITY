@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Add to Cart Success</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="add-to-cart.css"/>
+</head>
+<body class="bg-light-bg text-light-text">
+    <div class="relative flex min-h-screen flex-col">
+        <!-- Mock Background Shop Page (Dimmed) -->
+        <div class="layout-container flex h-full grow flex-col brightness-50 pointer-events-none overflow-hidden">
+            <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-light px-10 py-3 bg-white-dark">
+                <div class="flex items-center gap-8">
+                    <div class="flex items-center gap-4 text-light-primary">
+                        <div class="size-4">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                        <h2 class="text-light-white text-lg font-bold leading-tight tracking-tight">FreshMarket</h2>
+                    </div>
+                </div>
+                <div class="flex flex-1 justify-end gap-8 items-center">
+                    <div class="flex items-center gap-9">
+                        <a class="text-light-gray text-sm font-medium leading-normal" href="#">Groceries</a>
+                        <a class="text-light-gray text-sm font-medium leading-normal" href="#">Deals</a>
+                    </div>
+                    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="profile placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBbii0kyWu0J9kPaByWRLZxx__imNihZh5he5XGZdMv-d80L4RcVy4LMfkYSQALvDtIJhu4KPG1N626sC22Axi0gMheP2qxYOhZAYhIGHdL-t3-_TtBgJ3UvCxsQIdiaOLNmTVnv4UkIxs1xwu3_TBoBiiAoeHl2HPaA6PbDDl-sgRvRkQMYaGwdRRaz3g_IaMIrj4Emhq7SVWhvtraqGzluoEFmNpXxj8MtCvfe1tPAuJCaVgzshPgum0v1EbdmHDQSN8kdr5AsyI");'></div>
+                </div>
+            </header>
+            <main class="flex flex-col items-center p-10 gap-10">
+                <div class="grid grid-cols-4 gap-6 w-full max-w-1200">
+                    <!-- Placeholder product cards -->
+                    <div class="h-64 bg-white rounded-xl shadow-sm border border-gray-100"></div>
+                    <div class="h-64 bg-white rounded-xl shadow-sm border border-gray-100"></div>
+                    <div class="h-64 bg-white rounded-xl shadow-sm border border-gray-100"></div>
+                    <div class="h-64 bg-white rounded-xl shadow-sm border border-gray-100"></div>
+                    <div class="h-64 bg-white rounded-xl shadow-sm border border-gray-100"></div>
+                    <div class="h-64 bg-white rounded-xl shadow-sm border border-gray-100"></div>
+                </div>
+            </main>
+        </div>
+        <!-- Success Modal Overlay -->
+        <div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black-40 backdrop-blur-sm">
+            <div class="w-full max-w-480 bg-white-dark rounded-xl shadow-2xl overflow-hidden animate-in">
+                <!-- Modal Header -->
+                <div class="relative flex flex-col items-center pt-8 pb-4 border-b border-gray-50">
+                    <button class="absolute top-4 right-4 text-gray-400 hover-text-gray transition-colors">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <div class="size-12 bg-primary-20 text-primary rounded-full flex items-center justify-center mb-3">
+                        <i class="fas fa-check text-3xl font-bold"></i>
+                    </div>
+                    <h2 class="text-light-white tracking-tight text-2xl font-bold leading-tight px-4 text-center">Added to Cart!</h2>
+                    <p class="text-green-light text-sm font-normal mt-1">1 item successfully added to your cart</p>
+                </div>
+                <!-- Modal Content: Product Info -->
+                <div class="px-6 py-6">
+                    <div class="flex items-center gap-4 bg-gray-light p-3 rounded-lg border border-gray-light">
+                        <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-20 shrink-0" data-alt="close up of organic honeycrisp apples" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC_QGH3C6tJx2Wo7bxHExpEIAhoi2a_G4hCwIX2eWj6okDLthzsKBvrdfKdcoKGIdJfvdVsUYFcLYJdqjvZjPS4zYsJ3o221rUNzSlFbZquwAMv5kQHfGPEX5c9vLRuy53eI_K7s7azPX1XvoV_l_nw6OoFQz6gYG_Cxx-UU1v3NMGQGv1hbrUI25sboud-gUqP62Glr6c8msSIUz3tCsPIEIJa-rpC1upPbrsi7u54-rVtOhE-5dTutN2Y82Bq0YZmJSmumFwqqFI");'></div>
+                        <div class="flex flex-col justify-center flex-1">
+                            <p class="text-light-white2 text-base font-bold leading-normal line-clamp-1">Organic Honeycrisp Apples</p>
+                            <p class="text-green-gray text-sm font-normal leading-normal">Quantity: 1</p>
+                            <p class="text-light-primary2 text-base font-bold leading-normal mt-1">$4.99</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal Content: Summary List -->
+                <div class="px-6 pb-2">
+                    <div class="border-t border-dashed border-gray-dash py-4">
+                        <div class="flex justify-between gap-x-6 py-1-5">
+                            <p class="text-green-gray text-sm font-normal leading-normal">Cart Subtotal</p>
+                            <p class="text-light-white text-sm font-semibold leading-normal text-right">$24.50</p>
+                        </div>
+                        <div class="flex justify-between gap-x-6 py-1-5">
+                            <p class="text-green-gray text-sm font-normal leading-normal">Items in Cart</p>
+                            <p class="text-light-white text-sm font-semibold leading-normal text-right">5 items</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal Footer: Button Group -->
+                <div class="px-6 pb-8 pt-2">
+                    <div class="flex flex-col gap-3">
+                        <button class="flex min-w-84 cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-light-text text-base font-bold leading-normal tracking-wide w-full hover-bg-primary shadow-md shadow-primary">
+                            <span class="truncate">View Cart &amp; Checkout</span>
+                        </button>
+                        <button class="flex min-w-84 cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-light-gray text-light-white text-base font-bold leading-normal tracking-wide w-full border border-transparent hover-border-gray transition-all">
+                            <span class="truncate">Continue Shopping</span>
+                        </button>
+                    </div>
+                    <!-- Free Shipping Hint -->
+                    <div class="mt-4 flex items-center justify-center gap-2">
+                        <i class="fas fa-truck text-green-gray3 text-lg"></i>
+                        <p class="text-green-gray3 text-xs text-center font-medium">Add <span class="text-primary font-bold">$10.50</span> more for Free Shipping!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
