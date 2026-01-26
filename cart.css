@@ -1,3 +1,20 @@
+:root {
+  --primary: #25f478;
+  --background-light: #f5f8f7;
+  --background-dark: #102217;
+  --text-primary-light: #111814;
+  --text-primary-dark: #ffffff;
+  --text-secondary: #608a71;
+  --border-light: #dbe6df;
+  --border-dark: #2a3a30;
+  --card-bg-light: #ffffff;
+  --card-bg-dark: #1a2b21;
+  --input-bg-light: #f0f5f2;
+  --input-bg-dark: #1e2f24;
+}
+
+
+
 body {
     background: #f8f9fa;
     font-family: Arial, sans-serif;
@@ -22,6 +39,7 @@ header nav {
     align-items: center;
     justify-content: space-between;
     padding: 0.8rem;
+    margin: unset;
   }
 
   .logo-link {
@@ -58,21 +76,28 @@ header nav {
     text-decoration: none;
     color: #000;
   }
+
+  .main-content {
+    margin-top: 80px; /* Adjust based on header height */
+    padding: 20px;
+  }
   
 .cart-section {
-    width: 80%;
-    margin: 100px auto;
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  width: 100%;
+  margin: 30px auto;
 }
 
 .cart-item {
     display: flex;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #eee;
+}
+
+.cart-item-container{
+  margin: 30px auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%;
 }
 
 .cart-item-image {
@@ -82,12 +107,20 @@ header nav {
     margin-right: 20px;
 }
 
-.cart-item-details {
-    flex-grow: 1;
+.cart-item-image-container {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    margin-right: 20px;
+    border-radius: 8px;
+}
+
+.cart-item-info {
+    display: block;
 }
 
 .cart-item-name {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: bold;
 }
 
@@ -95,14 +128,19 @@ header nav {
     color: #888;
 }
 
-.remove-from-cart-btn {
-    background-color: #e74c3c;
-    color: white;
+.cart-item-actions {
+    margin-top: 5px;
+    margin-left: auto;
+}
+
+.fa-trash {
     border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
+}
+
+.fa-trash:hover {
+    color: #e74c3c;
 }
 
 .cart-summary {
@@ -118,4 +156,21 @@ header nav {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+}
+
+.line-break{
+  border-top: 1px solid #eee;
+  margin: 20px 0;
+}
+
+.sub-total{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quantity-actions{
+  display: flex;
+    align-items: center;
+    gap: 10px;
 }

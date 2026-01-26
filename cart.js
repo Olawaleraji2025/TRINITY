@@ -16,17 +16,43 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         cartItemsContainer.innerHTML = cart.map((item, index) => `
-            <div class="cart-item">
-                <img src="${item.image}" alt="${item.name}" class="cart-item-image">
-                <div class="cart-item-details">
-                    <p class="cart-item-name">${item.name}</p>
-                    <p class="cart-item-price">${item.price}</p>
-                    <div class="cart-item-quantity">
-                        <span>Quantity: ${item.quantity}</span>
-                    </div>
-                    <button class="remove-from-cart-btn" data-index="${index}">Remove</button>
-                </div>
+            <div class="cart-item-container">
+  <div class="cart-item">
+      <div class="cart-item-img-container">
+      <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+      </div>
+      <div class="cart-item-info">
+          <p class="cart-item-name">${item.name}</p>
+          <p class="cart-item-price">Unit: ${item.price}</p>
+          <div class="cart-item-quantity">
+              <span>Quantity: ${item.quantity}</span>
+          </div>
+      </div>
+      <div class="cart-item-actions">
+      <i class="fa-solid fa-trash" data-index="${index}"></i>
+      </div>
+  </div> 
+      
+      <div class="line-break">
+      </div>
+      
+
+      <div class="sub-total">
+          <div class="quantity-actions">
+          <button class="quantity-btn" data-index="${index}">-</button>
+          <span class="item-quantity">${item.quantity}</span>
+          <button class="quantity-btn" data-index="${index}">+</button>
             </div>
+
+          <div class="sub-total-Price">
+              <strong>Sub-total: </strong>
+              <span>
+                  ₦${(parseFloat(item.price.replace(/[^0-9.-]+/g,"")) * item.quantity).toFixed(2)}
+              </span>
+          </div>
+  </div>
+  </div>
+</div>
         `).join('');
 
         const total = cart.reduce((acc, item) => {
@@ -38,9 +64,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     cartItemsContainer.addEventListener('click', (e) => {
-        if (e.target.classList.contains('remove-from-cart-btn')) {
+        if (e.target.classList.contains('remove-from-cart-btn') || e.target.classList.contains('fa-trash')) {
             const index = parseInt(e.target.dataset.index, 10);
             cart.splice(index, 1);
+            updateCart();
+        } else if (e.target.classList.contains('quantity-btn')) {
+            const index = parseInt(e.target.dataset.index, 10);
+            if (e.target.textContent === '+') {
+                cart[index].quantity += 1;
+            } else if (e.target.textContent === '-' && cart[index].quantity > 1) {
+                cart[index].quantity -= 1;
+            }
             updateCart();
         }
     });

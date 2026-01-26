@@ -19,6 +19,7 @@ const searchBox2 = document.querySelector(".search-inputs2");
 const inputText2 = document.querySelector(".hidden-results-container2");
 const categoryDiv = document.querySelector(".categories-div");
 const hiddenCategories = document.querySelector(".hidden-categories");
+const hiddenSearchQuery = document.querySelector(".search-query");
 
 
 
@@ -1162,7 +1163,8 @@ function handleSearchResults(filteredItems, container, imgWidth) {
     const toDisplay = filteredItems.slice(displayedCount, displayedCount + maxPerClick);
     toDisplay.forEach((item) => {
       const newDiv = document.createElement("div");
-      newDiv.innerHTML = `<div class="results-container">
+      newDiv.innerHTML = `
+      <div class="results-container">
       <div>
       <p>${item.name}</p>
       <p style="font-weight: bold;" >${item.price}</p>
@@ -1170,7 +1172,7 @@ function handleSearchResults(filteredItems, container, imgWidth) {
       <div class="img-result-container" >
       <img width="${imgWidth}px" src="${item.image}">
       </div>
-        </div>
+      </div>
       `;
       const resultsContainer = newDiv.querySelector('.results-container');
       resultsContainer.style.cursor = 'pointer';
@@ -1272,8 +1274,6 @@ categoryDiv.addEventListener("click", () => {
   }
 });
 
-
-
 // Function to show the modal
 function showCartModal(name, price, image, quantity) {
   // Get cart from localStorage
@@ -1306,7 +1306,7 @@ function showCartModal(name, price, image, quantity) {
     <div class="cart-modal-content">
       <div class="cart-modal-header">
         <span class="cart-modal-icon">✔</span>
-        <span class="cart-modal-message">${name} successfully added to cart</span>
+        <p class="cart-modal-message">Successfully added to cart</p>
       </div>
       <div class="cart-modal-body">
         <div class="cart-item-details">
@@ -1343,5 +1343,5 @@ function showCartModal(name, price, image, quantity) {
   // Close modal after 3 seconds
   setTimeout(() => {
     modal.style.display = 'none';
-  }, 3000);
+  }, 4000);
 }
