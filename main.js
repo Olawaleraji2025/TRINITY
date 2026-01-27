@@ -260,11 +260,20 @@ productsItems.map((products) => {
   `;
 
   productIcons.innerHTML = `
-    <span class="wishlist-icon"><i class="fa-regular fa-heart"></i></span>
+    <span class="wishlist-icon" ><i class="fa-regular fa-heart" onClick="addToWishlist('${EachProductName}', '${EachProductPrice}', '${EachProductImage}', this)"></i></span>
     <span class="eye-icon" onClick="viewProductPage('${EachProductName}', '${EachProductPrice}', '${EachProductImage}')"><i class="fa-regular fa-eye"></i></span>
   `;
 
-  
+  // Restore wishlist state
+  const heartIcon = productIcons.querySelector('.fa-heart');
+  if (heartIcon) {
+    let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+    let existingIndex = wishlist.findIndex(item => item.name === EachProductName);
+    if (existingIndex !== -1) {
+      heartIcon.classList.add('fa-solid', 'added-to-wishlist');
+      heartIcon.style.color = 'red';
+    }
+  }
 
   productItemDiv.appendChild(productImageDiv);
   productItemDiv.appendChild(productName);
@@ -325,9 +334,20 @@ productsItems2.map((products) => {
   `;
 
   productIcons.innerHTML = `
-    <span class="wishlist-icon"><i class="fa-regular fa-heart"></i></span>
+    <span class="wishlist-icon" ><i class="fa-regular fa-heart" onClick="addToWishlist('${EachProductName}', '${EachProductPrice}', '${EachProductImage}', this)"></i></span>
     <span class="eye-icon" onClick="viewProductPage('${EachProductName}', '${EachProductPrice}', '${EachProductImage}')"><i class="fa-regular fa-eye"></i></span>
   `;
+
+  // Restore wishlist state
+  const heartIcon = productIcons.querySelector('.fa-heart');
+  if (heartIcon) {
+    let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+    let existingIndex = wishlist.findIndex(item => item.name === EachProductName);
+    if (existingIndex !== -1) {
+      heartIcon.classList.add('fa-solid', 'added-to-wishlist');
+      heartIcon.style.color = 'red';
+    }
+  }
 
   productItemDiv.appendChild(productImageDiv);
   productItemDiv.appendChild(productName);
@@ -1274,6 +1294,17 @@ categoryDiv.addEventListener("click", () => {
   }
 });
 
+// Function to update cart count
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const cartCountElement = document.getElementById('cart-count');
+  if (cartCountElement) {
+    cartCountElement.textContent = totalItems;
+    cartCountElement.style.display = totalItems > 0 ? 'block' : 'none';
+  }
+}
+
 // Function to show the modal
 function showCartModal(name, price, image, quantity) {
   // Get cart from localStorage
@@ -1289,6 +1320,9 @@ function showCartModal(name, price, image, quantity) {
 
   // Save cart
   localStorage.setItem('cart', JSON.stringify(cart));
+
+  // Update cart count
+  updateCartCount();
 
   // Parse price to number
   const priceNum = parseFloat(price.replace(/[^0-9.-]+/g, ""));
@@ -1345,3 +1379,69 @@ function showCartModal(name, price, image, quantity) {
     modal.style.display = 'none';
   }, 4000);
 }
+
+// Wishlist functionality
+function addToWishlist(name, price, image, heartIcon) {
+
+  // Get wishlist from localStorage
+  let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+  // Check if item already exists
+  let existingIndex = wishlist.findIndex(item => item.name === name);
+  if (existingIndex === -1) {
+    // Add to wishlist
+    wishlist.push({ name, price, image });
+    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+    // Update the UI
+    heartIcon.classList.add('fa-solid', 'added-to-wishlist');
+    heartIcon.style.color = 'red';
+    showWishlistModal(name, 'added');
+  } else {
+    // Remove from wishlist
+    wishlist.splice(existingIndex, 1);
+    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+    // Update the UI
+    heartIcon.classList.remove('fa-solid', 'added-to-wishlist');
+    heartIcon.style.color = '';
+    showWishlistModal(name, 'removed');
+  }
+}
+
+// Function to show wishlist modal
+function showWishlistModal(name, status) {
+
+  let modal = document.querySelector('.cart-modal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.classList.add('cart-modal');
+    document.body.appendChild(modal);
+  }
+
+  const message = status === 'added' ? 'Successfully added to wishlist' : status === 'removed' ? 'Successfully removed from wishlist' : 'Item already in wishlist';
+  const icon = status === 'added' ? '✔' : status === 'removed' ? '✖' : 'ℹ';
+
+  modal.innerHTML = `
+    <div class="cart-modal-content">
+      <div class="cart-modal-header">
+        <span class="cart-modal-icon">${icon}</span>
+        <p class="cart-modal-message">${message}</p>
+      </div>
+      <div class="cart-modal-body">
+        <p class="wishlist-item-name">${name}</p>
+      </div>
+      <div class="cart-modal-footer">
+        <button class="view-wishlist-btn" onclick="window.location.href='wishlist.html'">View Wishlist</button>
+        <button class="continue-shopping-btn" onclick="this.parentElement.parentElement.parentElement.style.display='none'">Continue Shopping</button>
+      </div>
+    </div>
+  `;
+
+  modal.style.display = 'flex';
+
+  // Close modal after 3 seconds
+  setTimeout(() => {
+    modal.style.display = 'none';
+  }, 3000);
+}
+
+// Update cart count on page load
+document.addEventListener('DOMContentLoaded', updateCartCount);
