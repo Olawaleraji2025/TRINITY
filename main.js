@@ -1377,7 +1377,7 @@ function showCartModal(name, price, image, quantity) {
   // Close modal after 3 seconds
   setTimeout(() => {
     modal.style.display = 'none';
-  }, 4000);
+  }, 3000);
 }
 
 // Wishlist functionality
@@ -1394,7 +1394,7 @@ function addToWishlist(name, price, image, heartIcon) {
     // Update the UI
     heartIcon.classList.add('fa-solid', 'added-to-wishlist');
     heartIcon.style.color = 'red';
-    showWishlistModal(name, 'added');
+    showWishlistModal(image, name, 'added');
   } else {
     // Remove from wishlist
     wishlist.splice(existingIndex, 1);
@@ -1402,12 +1402,12 @@ function addToWishlist(name, price, image, heartIcon) {
     // Update the UI
     heartIcon.classList.remove('fa-solid', 'added-to-wishlist');
     heartIcon.style.color = '';
-    showWishlistModal(name, 'removed');
+    showWishlistModal(image, name, 'removed');
   }
 }
 
 // Function to show wishlist modal
-function showWishlistModal(name, status) {
+function showWishlistModal(image, name, status) {
 
   let modal = document.querySelector('.cart-modal');
   if (!modal) {
@@ -1426,6 +1426,7 @@ function showWishlistModal(name, status) {
         <p class="cart-modal-message">${message}</p>
       </div>
       <div class="cart-modal-body">
+      <img class="cart-item-image" src="${image}" alt="${name} Image">
         <p class="wishlist-item-name">${name}</p>
       </div>
       <div class="cart-modal-footer">
@@ -1438,9 +1439,9 @@ function showWishlistModal(name, status) {
   modal.style.display = 'flex';
 
   // Close modal after 3 seconds
-  setTimeout(() => {
-    modal.style.display = 'none';
-  }, 3000);
+  // setTimeout(() => {
+  //   modal.style.display = 'none';
+  // }, 3000);
 }
 
 // Update cart count on page load
