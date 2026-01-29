@@ -6,13 +6,15 @@ document.addEventListener('DOMContentLoaded', function() {
         const content = section.querySelector('.section-content');
         const span = section.querySelector('.section-header span');
 
-        icon.innerHTML = '';
+        if (icon) icon.innerHTML = '';
         // Initialize non-active sections as collapsed
-        if (!content.classList.contains('active')) {
-            content.classList.add('collapsed');
-        } else {
-            // If active, add active class to span
-            if (span) span.classList.add('active');
+        if (content) {
+            if (!content.classList.contains('active')) {
+                content.classList.add('collapsed');
+            } else {
+                // If active, add active class to span
+                if (span) span.classList.add('active');
+            }
         }
 
         if (icon && content) {
