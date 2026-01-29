@@ -103,7 +103,7 @@ header nav {
 .cart-item-image {
     width: 100px;
     height: 100px;
-    object-fit: cover;
+    object-fit: contain;
     margin-right: 20px;
 }
 
@@ -113,6 +113,32 @@ header nav {
     overflow: hidden;
     margin-right: 20px;
     border-radius: 8px;
+}
+
+.breadcrumb a{
+  text-decoration: none;
+  color: black;
+}
+
+.breadcrumb a:hover{
+  color: #25f478;
+}
+
+.checkout-btn a{
+  text-decoration: none;
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.breadcrumb{
+  display: flex;
+  font-weight: 500;
+  gap: 0.5rem;
 }
 
 .cart-item-info {
@@ -144,8 +170,19 @@ header nav {
 }
 
 .cart-summary {
-    text-align: right;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
     margin-top: 20px;
+}
+
+.continue-shopping a{
+  text-decoration: none;
+  color: #608a71;
+}
+
+.continue-shopping a:hover{
+  color: #25f478;
 }
 
 .checkout-btn {

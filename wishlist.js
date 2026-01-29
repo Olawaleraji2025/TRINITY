@@ -31,8 +31,8 @@ function loadWishlist() {
         <h3 class="wishlist-item-name">${item.name}</h3>
         <p class="wishlist-item-price">${item.price}</p>
         <div class="wishlist-item-actions">
-          <button class="add-to-cart-btn" onclick="addToCartFromWishlist('${item.name}', '${item.price}', '${item.image}')">
-            Add to Cart
+          <button class="add-to-cart-btn" onclick="addToCartFromWishlist('${item.name}', '${item.price}', '${item.image}', ${index})">
+            Move to Cart
           </button>
           <button class="remove-btn" onclick="removeFromWishlist(${index})">
             Remove
@@ -54,7 +54,7 @@ function removeFromWishlist(index) {
 }
 
 // Function to add item to cart from wishlist
-function addToCartFromWishlist(name, price, image) {
+function addToCartFromWishlist(name, price, image, index) {
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
   // Check if item already exists in cart
@@ -67,8 +67,16 @@ function addToCartFromWishlist(name, price, image) {
 
   localStorage.setItem('cart', JSON.stringify(cart));
 
+  // Remove item from wishlist
+  let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+  wishlist.splice(index, 1);
+  localStorage.setItem('wishlist', JSON.stringify(wishlist));
+
+  // Reload the wishlist
+  loadWishlist();
+
   // Show success message
-  showWishlistNotification('Item added to cart!', 'success');
+  showWishlistNotification('Item moved to cart!', 'success');
 
   // Update cart count if function exists
   if (typeof updateCartCount === 'function') {

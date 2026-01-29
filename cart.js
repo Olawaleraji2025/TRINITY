@@ -80,4 +80,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     renderCart();
+
+    // Handle Proceed to Checkout button
+    const proceedToCheckoutBtn = document.getElementById('proceedToCheckout');
+    if (proceedToCheckoutBtn) {
+        proceedToCheckoutBtn.addEventListener('click', () => {
+            window.location.href = 'checkout.html';
+        });
+    }
+
 });

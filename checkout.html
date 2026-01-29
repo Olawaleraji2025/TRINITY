@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="checkout.css">
+    <title>Checkout - Trinity</title>
+</head>
+<body>
+    <header class="header-nav-bar">
+        <nav class="container nav-container">
+          <!-- Trinity Logo container -->
+          <div class="image-container">
+            <a href="index.html" class="logo-link">
+            <img src="Homepage/Frame 7.png" alt="" class="logo-img">
+          </a>
+          </div>
+
+          <!-- Other Icons and elements -->
+          <div class="nav-section">
+              <div class="nav-icons">
+                <!-- Cart Container -->
+                <div class="cart-container">
+                  <a href="cart.html" class="cart"><span class="material-symbols-outlined">shopping_cart</span></a>
+                  <p class="cart-text">Cart</p>
+                </div>
+                <div class="menu-close-icon">
+                  <span class="menu material-symbols-outlined">menu</span>
+                  <span class="hidden-close material-symbols-outlined">close</span>
+                </div>
+              </div>
+          </div>
+        </nav>
+      </header>
+
+    <main class="main-content container">
+      <section>
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span><i class="material-symbols-outlined">chevron_right</i></span>
+          <a href="cart.html">Cart</a>
+          <span><i class="material-symbols-outlined">chevron_right</i></span>
+          <span>Checkout</span>
+        </div>
+        <div>
+          <h1>Checkout</h1>
+        </div>
+      </section>
+
+        <section class="checkout-section" id="checkoutSection">
+            <form action="#" method="post" class="checkout-form">
+                <div class="section" id="shippingAddress">
+                  <div class="section-header">
+                    <div>
+                      <span>1</span>
+                      <h2>Shipping Address</h2>
+
+                    </div>
+                    <i class="fa-solid fa-chevron-up"></i>
+                  </div>
+                    <div class="section-content active">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" placeholder="John Doe" required>
+
+                        <label for="streetAddress">Street Address</label>
+                        <input type="text" id="streetAddress" name="streetAddress" placeholder="123 Main St" required>
+
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city" placeholder="Lagos" required>
+
+                        <label for="state">State</label>
+                        <input type="text" id="state" name="state" placeholder="Lagos" required>
+                    </div>
+                </div>
+
+                <div class="section">
+                  <div class="section-header">
+                    <div>
+                      <span>2</span>
+                      <h2>Delivery Method</h2>
+
+                    </div>
+                    <i class="fa-solid fa-chevron-up"></i>
+                  </div>
+                    <div class="section-content">
+                        <div class="radio-group">
+                            <input type="radio" id="standard" name="delivery" value="standard" checked>
+                            <label for="standard">Standard Delivery - Arrives in 2-3 business days. Reliable and affordable.</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="express" name="delivery" value="express">
+                            <label for="express">Express Delivery - Same day delivery if ordered before 2 PM. Fast and fresh.</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                  <div class="section-header">
+                    <div>
+                      <span>3</span>
+                      <h2>Payment Information</h2>
+
+                    </div>
+                    <i class="fa-solid fa-chevron-up"></i>
+                  </div>
+                    <div class="section-content">
+                        <label for="cardNumber">Card Number</label>
+                        <input type="text" id="cardNumber" name="cardNumber" placeholder="0000 0000 0000 0000" required>
+
+                        <label for="expiryDate">Expiry Date (MM/YY)</label>
+                        <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" required>
+
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" name="cvv" placeholder="123" required>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Order Review</h2>
+                    <div>
+                        <div id="orderItemsContainer">
+                            <!-- Order items will be injected here by checkout.js -->
+                        </div>
+                        <p>Total Amount: <strong id="orderTotal">₦0.00</strong></p>
+                        <button type="submit" class="place-order-btn">Place Order</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </main>
+    <footer>
+      <div class="container footer-container">
+     <div class="footer-logo">
+          <img src="Homepage/TRINITY LOGO.svg" alt="Trinity Supermarket Logo" class="footer-logo-img">
+          <p>Your one-stop shop for all your needs.</p>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+    </div>
+        <div class="Customer-service-section">
+    <div class="Contact">
+      <h3 class="contact-header">Contact Us</h3>
+      <li><i class="fas fa-map-marker-alt"></i>Opposite Central Mosque, Market Square, Ipetumodu, Osun State, Nigeria.</li>
+      <li><i class="fas fa-envelope"></i> olawalesodiq988@gmail.com</li>
+      <li><i class="fas fa-clock"></i> Mon - Fri: 8am - 6pm</li>
+    </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="line"></div>
+      <p>&copy; 2025 Trinity Supermarket. All rights reserved.</p>
+    </div>
+    </footer>
+
+    <script src="checkout.js"></script>
+</body>
+</html>
