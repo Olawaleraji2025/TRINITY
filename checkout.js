@@ -82,4 +82,47 @@ document.addEventListener('DOMContentLoaded', function() {
 
         orderTotalSpan.textContent = `₦${total.toFixed(2)}`;
     }
+
+    // Handle place order button click
+    const placeOrderBtn = document.querySelector('.place-order-btn');
+    placeOrderBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        // Collect shipping address
+        const fullName = document.getElementById('fullName').value;
+        const streetAddress = document.getElementById('streetAddress').value;
+        const city = document.getElementById('city').value;
+        const state = document.getElementById('state').value;
+
+        // Retrieve cart and total
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const total = cart.reduce((acc, item) => {
+            const price = parseFloat(item.price.replace(/[^0-9.-]+/g,""));
+            return acc + (price * item.quantity);
+        }, 0);
+
+        // Generate order number
+        const orderNumber = 'ORD-' + Date.now();
+
+        // Store order details in localStorage
+        const orderDetails = {
+            orderNumber: orderNumber,
+            items: cart,
+            total: total,
+            deliveryFee: 'Free',
+            address: {
+                fullName: fullName,
+                streetAddress: streetAddress,
+                city: city,
+                state: state
+            }
+        };
+        localStorage.setItem('orderDetails', JSON.stringify(orderDetails));
+
+        // Clear the cart
+        localStorage.setItem('cart', JSON.stringify([]));
+
+        // Redirect to order confirmation page
+        window.location.href = 'order-confirmation.html';
+    });
 });

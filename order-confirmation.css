@@ -1,0 +1,260 @@
+:root {
+  --primary: #25f478;
+  --background-light: #f5f8f7;
+  --background-dark: #102217;
+  --text-primary-light: #111814;
+  --text-primary-dark: #ffffff;
+  --text-secondary: #608a71;
+  --border-light: #dbe6df;
+  --border-dark: #2a3a30;
+  --card-bg-light: #ffffff;
+  --card-bg-dark: #1a2b21;
+  --input-bg-light: #f0f5f2;
+  --input-bg-dark: #1e2f24;
+}
+
+body {
+    background: #f8f9fa;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styles */
+header nav {
+    background-color: white;
+    color: black;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.8rem;
+    margin: unset;
+  }
+
+  .logo-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.25rem;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .logo-img {
+    width: 4rem;
+    height: auto;
+  }
+
+  .nav-icons {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .material-symbols-outlined {
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+
+  .material-symbols-outlined:hover {
+    color: #10b981;
+  }
+
+  .cart{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+  }
+
+  .main-content {
+    margin-top: 80px; /* Adjust based on header height */
+    padding: 20px;
+  }
+
+.breadcrumb a{
+  text-decoration: none;
+  color: black;
+}
+
+.breadcrumb a:hover{
+  color: #25f478;
+}
+
+.breadcrumb{
+  display: flex;
+  font-weight: 500;
+  gap: 0.5rem;
+}
+
+.confirmation-section {
+  width: 100%;
+  margin: 30px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.confirmation-message {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.confirmation-message h2 {
+  color: #25f478;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.confirmation-message p {
+  color: #608a71;
+  font-size: 1.1rem;
+}
+
+.order-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.order-number {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #25f478;
+}
+
+.order-number h3 {
+  margin: 0;
+  color: #111814;
+}
+
+.order-summary {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.order-summary h3 {
+  margin-top: 0;
+  color: #111814;
+}
+
+.order-item-summary {
+    display: flex;
+    text-align: center;
+    align-items: flex-start;
+    gap: 150px;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #dbe6df;
+    border-radius: 8px;
+    background-color: #ffffff;
+}
+
+.order-item-summary-image {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 15px;
+}
+
+.order-item-summary-details {
+    flex: 1;
+}
+
+.order-item-summary-name {
+    margin: 0 0 5px 0;
+    font-weight: bold;
+}
+
+.order-item-summary-quantity,
+.order-item-summary-price {
+    margin: 2px 0;
+    color: #608a71;
+    font-size: 14px;
+}
+
+.summary-total {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #dbe6df;
+}
+
+.summary-total p {
+  margin: 5px 0;
+  font-size: 1rem;
+}
+
+.summary-total strong {
+  color: #25f478;
+  font-size: 1.2rem;
+}
+
+.delivery-address {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.delivery-address h3 {
+  margin-top: 0;
+  color: #111814;
+}
+
+.delivery-address p {
+  margin: 0;
+  color: #608a71;
+  line-height: 1.5;
+}
+
+.return-home {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.return-home-btn {
+  display: inline-block;
+  background-color: #25f478;
+  color: white;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.return-home-btn:hover {
+  background-color: #1e9e6a;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .confirmation-section {
+    padding: 15px;
+  }
+
+
+  .order-item-summary {
+    text-align: center;
+  }
+
+  .order-item-summary-image {
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+
+  .order-item-summary-info{
+    text-align: left;
+    display: flex;
+  }
+}
