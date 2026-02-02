@@ -1493,7 +1493,7 @@ function hideLoader() {
     
     setTimeout(function() {
       loader.style.display = 'none';
-    }, 2000);
+    }, 3000);
   }
 }
 
