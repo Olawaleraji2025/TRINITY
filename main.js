@@ -25,21 +25,53 @@ const hiddenSearchQuery = document.querySelector(".search-query");
 
 // UI Toggle Functions
 function toggleSearchBar(show) {
-  searchBar.style.display = show ? "block" : "none";
-  searchIcon.style.display = show ? "none" : "flex";
-  menuBtn.style.display = show ? "flex" : "flex";
-  hiddenMenu.style.display = "none";
-  hiddenClose.style.display = "none";
-  headerNavBar.style.height = show ? "100px" : "auto";
+  if(show){
+    searchBar.style.display = "block";
+    searchBar.classList.add("modal-show");
+    searchBar.classList.remove("modal-hidden");
+    searchIcon.style.display = "flex";
+    menuBtn.style.display = "flex";
+    hiddenMenu.style.display = "none";
+    hiddenClose.style.display = "none";
+    headerNavBar.style.height = "auto" ;
+
+  }else{
+    // searchBar.style.display = "none";
+    searchBar.classList.remove("modal-show");
+    searchBar.classList.add("modal-hidden");
+    searchIcon.style.display = "flex";
+    menuBtn.style.display = "flex";
+    hiddenMenu.style.display = "none";
+    hiddenClose.style.display = "none";
+  }
 }
 
 function toggleMenu(show) {
-  menuBtn.style.display = show ? "none" : "flex";
-  hiddenClose.style.display = show ? "block" : "none";
-  hiddenMenu.style.display = show ? "block" : "none";
-  searchBar.style.display = "none";
-  searchIcon.style.display = "flex";
-  headerNavBar.style.height = "auto";
+  // menuBtn.style.display = show ? "none" : "flex";
+  // hiddenClose.style.display = show ? "block" : "none";
+  // hiddenMenu.style.display = show ? "block" : "none";
+  // searchBar.style.display = "none";
+  // searchIcon.style.display = "flex";
+  // headerNavBar.style.height = "auto";
+  if (show) {
+    menuBtn.style.display = "none";
+    hiddenClose.style.display = "block";
+    hiddenMenu.style.display ="block";
+    hiddenMenu.classList.remove("active");
+    searchBar.style.display = "none";
+    searchIcon.style.display = "flex";
+    headerNavBar.style.height = "auto";
+    
+  } else {
+    menuBtn.style.display = "flex";
+    hiddenClose.style.display = "none";
+    // hiddenMenu.style.display ="none";
+    hiddenMenu.classList.add("active");
+    searchBar.style.display = "none";
+    searchIcon.style.display = "flex";
+    headerNavBar.style.height = "auto";
+    
+  }
 }
 
 if (searchIcon) {
@@ -50,6 +82,7 @@ if (closeIcon) {
   closeIcon.addEventListener("click", function () {
     toggleSearchBar(false);
     searchBox.value = "";
+    
     inputText.innerHTML = "";
   });
 }
@@ -1386,7 +1419,7 @@ function showCartModal(name, price, image, quantity) {
 
 // Wishlist functionality
 function addToWishlist(name, price, image, heartIcon) {
-
+ 
   // Get wishlist from localStorage
   let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
   // Check if item already exists
@@ -1408,6 +1441,8 @@ function addToWishlist(name, price, image, heartIcon) {
     heartIcon.style.color = '';
     showWishlistModal(image, name, 'removed');
   }
+
+ 
 }
 
 // Function to show wishlist modal
@@ -1450,3 +1485,24 @@ function showWishlistModal(image, name, status) {
 
 // Update cart count on page load
 document.addEventListener('DOMContentLoaded', updateCartCount);
+
+// Loader functionality
+function hideLoader() {
+  const loader = document.getElementById('loader');
+  if (loader) {
+    
+    setTimeout(function() {
+      loader.style.display = 'none';
+    }, 2000);
+  }
+}
+
+function showLoader() {
+  const loader = document.getElementById('loader');
+  if (loader) {
+    loader.style.display = 'flex'; 
+  }
+}
+
+// Automatically hide loader on page load
+window.addEventListener('load', hideLoader);
