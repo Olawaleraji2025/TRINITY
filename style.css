@@ -251,11 +251,25 @@ body {
 }
 
 .no-results-container{
-  width: 500px;
-  height: 50vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+ height: 100%;
+ margin: 0 auto;
+}
+
+.no-result-image{
+    display: flex;
+    height: 130px;
+    margin: 0 auto;
+}
+
+.no-result-image img{
+  object-fit: contain;
+  width: 100%;
+}
+
+.searchedItem{
+  color: #16a34a;
+  font-weight: bold;
+  
 }
 
 .no-results-container p{

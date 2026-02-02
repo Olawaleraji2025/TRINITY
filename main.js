@@ -1168,11 +1168,10 @@ const AllProducts = [
 // Utility Functions
 
 // Function to handle displaying search results with pagination
-function handleSearchResults(filteredItems, container, imgWidth) {
+function handleSearchResults(filteredItems, inputedItem, container, imgWidth) {
   container.innerHTML = '';
   let displayedCount = 0;
   const maxPerClick = 5;
-
   function displayMore() {
     // Remove existing button to reposition it at the bottom
     const existingBtn = container.querySelector('.show-more-btn');
@@ -1225,7 +1224,12 @@ function handleSearchResults(filteredItems, container, imgWidth) {
   if (filteredItems.length > 0) {
     displayMore();
   } else {
-    container.innerHTML = `<div class="no-results-container"> <p>No results found </p></div>`;
+    container.innerHTML = `<div class="no-result-container" >
+    <div class="no-result-image">
+    <img src="no result-red.png" alt="no-result-image">
+    </div>
+    <div class="no-results-container"> <p>Oops! We couldn't find <span class="searchedItem">${inputedItem}</span> </p></div>
+    </div>`;
   }
 }
 
@@ -1248,7 +1252,7 @@ searchBox.addEventListener("input", (e) => {
   // eachProducts.category.toLowerCase().includes(inputedItem)
 
   // Display filtered items with pagination
-  handleSearchResults(filteredItems, inputText, 90);
+  handleSearchResults(filteredItems, inputedItem, inputText, 90);
 
   // console.log({filteredItems});
 });
@@ -1277,7 +1281,7 @@ searchBox2.addEventListener("input", (e) => {
   );
 
   // Display filtered items with pagination
-  handleSearchResults(filteredItems, inputText2, 50);
+  handleSearchResults(filteredItems, inputedItem, inputText2, 50);
 
   // console.log({filteredItems});
 });
