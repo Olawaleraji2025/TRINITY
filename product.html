@@ -11,10 +11,19 @@
     
     <title>Trinity Supermarket - Product</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cart.css">
     <link rel="stylesheet" href="product.css">
 </head>
 <body id="Up">
-    
+
+<!-- Loader -->
+<div id="loader" class="loader">
+  <!-- <div class="spinner"></div>
+  <p>Loading...</p> -->
+  <div class="loader-image">
+    <img src="Homepage/Frame 7.png" alt="">
+  </div>
+</div>
 
 <header  class="header-nav-bar">
         <nav class="container nav-container">
@@ -67,7 +76,7 @@ keyboard_arrow_down
                       <li>Toiletries</li>
                       <li>Wears</li>
                       <li>Gift Items</li>
-                      <li>Quality Drugs</li>
+                      <!-- <li>Quality Drugs</li> -->
                     </ul>
                   </div>
                 </div>
@@ -93,7 +102,7 @@ keyboard_arrow_down
 
               <!-- Cart Container -->
               <div class="cart-container">
-                <a href="cart.html" class="cart"><span class="material-symbols-outlined">shopping_cart</span></a>
+                <a href="cart.html" class="cart"><span class="material-symbols-outlined">shopping_cart</span><span id="cart-count" class="cart-count">0</span></a>
                 <p class="cart-text">Cart</p>
 
               </div>
@@ -107,8 +116,8 @@ keyboard_arrow_down
               </div>
               <div class="mobile-menu">
                 <ul>
-                  <li><a href="#categories-section">Categories</a></li>
-                  <li><a href="#">Wishlist</a></li>
+                  <li><a href="index.html">Categories</a></li>
+                  <li><a href="wishlist.html">Wishlist</a></li>
                 </ul>
             </div>
               
@@ -134,8 +143,8 @@ keyboard_arrow_down
           </div>
 
           <div class="search-container">
-              <input type="text" placeholder="Search for Products" class="search-inputs">
-              
+              <input type="search" placeholder="Search for Products" class="search-inputs">
+
               <span class="hidden-search material-symbols-outlined">search</span>
               
             </div>
@@ -161,9 +170,10 @@ keyboard_arrow_down
       </header>
         
       <section class="breadcrumb-section">
-        <div class="page-description-container">
-<a class="page-description-link" href="index.html">Home</a>/
-<span class="product-text">Product</span>
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span><i class="material-symbols-outlined">chevron_right</i></span>
+          <span>Product</span>
         </div>
       </section>
 
@@ -266,6 +276,7 @@ keyboard_arrow_down
       
       </footer>
 <script src="cart-logic.js"></script>
+<script src="main.js"></script>
 <script src="product.js"></script>
 </body>
 </html>

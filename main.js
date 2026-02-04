@@ -1259,7 +1259,7 @@ function handleSearchResults(filteredItems, inputedItem, container, imgWidth) {
   } else {
     container.innerHTML = `<div class="no-result-container" >
     <div class="no-result-image">
-    <img src="no result-red.png" alt="no-result-image">
+    <img src="search.png" alt="no-result-image">
     </div>
     <div class="no-results-container"> <p>Oops! We couldn't find <span class="searchedItem">${inputedItem}</span> </p></div>
     </div>`;
@@ -1376,12 +1376,14 @@ function showCartModal(name, price, image, quantity) {
   modal.innerHTML = `
     <div class="cart-modal-content">
       <div class="cart-modal-header">
-        <span class="cart-modal-icon">✔</span>
+        <img src="check.png" class="cart-modal-icon" alt="Success Icon">
         <p class="cart-modal-message">Successfully added to cart</p>
       </div>
       <div class="cart-modal-body">
         <div class="cart-item-details">
-          <img class="cart-item-image" src="${image}" alt="${name} Image">
+        <div class="cart-image-container">
+        <img class="cart-item-image" src="${image}" alt="${name} Image">
+        </div>
           <div class="cart-item-info">
             <p class="cart-item-name">${name}</p>
             <p class="cart-item-quantity">Quantity: ${quantity}</p>
@@ -1414,7 +1416,7 @@ function showCartModal(name, price, image, quantity) {
   // Close modal after 3 seconds
   setTimeout(() => {
     modal.style.display = 'none';
-  }, 3000);
+  }, 2000);
 }
 
 // Wishlist functionality
@@ -1457,11 +1459,12 @@ function showWishlistModal(image, name, status) {
 
   const message = status === 'added' ? 'Successfully added to wishlist' : status === 'removed' ? 'Successfully removed from wishlist' : 'Item already in wishlist';
   const icon = status === 'added' ? '✔' : status === 'removed' ? '✖' : 'ℹ';
+  const imageIcon = status === 'added' ? 'check.png' : status === 'removed' ? 'multiply.png' : 'multiply.png';
 
   modal.innerHTML = `
     <div class="cart-modal-content">
       <div class="cart-modal-header">
-        <span class="cart-modal-icon">${icon}</span>
+        <img src="${imageIcon}" class="cart-modal-icon" alt="Success Icon">
         <p class="cart-modal-message">${message}</p>
       </div>
       <div class="cart-modal-body">
@@ -1478,14 +1481,15 @@ function showWishlistModal(image, name, status) {
   modal.style.display = 'flex';
 
   // Close modal after 3 seconds
-  // setTimeout(() => {
-  //   modal.style.display = 'none';
-  // }, 3000);
+  setTimeout(() => {
+    modal.style.display = 'none';
+  }, 2000);
 }
 
 // Update cart count on page load
 document.addEventListener('DOMContentLoaded', updateCartCount);
 
+// 
 // Loader functionality
 function hideLoader() {
   const loader = document.getElementById('loader');

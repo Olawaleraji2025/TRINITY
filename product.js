@@ -1,6 +1,10 @@
 
 // Function to load and display product details in product.html
 document.addEventListener('DOMContentLoaded', () => {
+
+  showLoader();
+  updateCartCount();
+
     const provisions = [
         {
           name: "McVitie's Hob Nobs 200 g",
@@ -811,7 +815,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         addToCartButton.addEventListener('click', () => {
-            addToCart(product, quantity);
+            showCartModal(product.name, product.price, product.image, quantity);
         });
 
         // Load similar products
@@ -878,4 +882,26 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         productDetailContainer.innerHTML = '<p>No product details available.</p>';
     }
+
+
+
+    function hideLoader() {
+    const loader = document.getElementById('loader');
+    if (loader) {
+      
+      setTimeout(function() {
+        loader.style.display = 'none';
+      }, 4000);
+    }
+  }
+  
+  function showLoader() {
+    const loader = document.getElementById('loader');
+    if (loader) {
+      loader.style.display = 'flex'; 
+    }
+  }
+
+  hideLoader(); 
+
 });
