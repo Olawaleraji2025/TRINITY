@@ -904,4 +904,93 @@ document.addEventListener('DOMContentLoaded', () => {
 
   hideLoader(); 
 
+  function handleSearchResults(filteredItems, inputedItem, container, imgWidth) {
+    container.innerHTML = '';
+    let displayedCount = 0;
+    const maxPerClick = 5;
+    function displayMore() {
+      // Remove existing button to reposition it at the bottom
+      const existingBtn = container.querySelector('.show-more-btn');
+      if (existingBtn) {
+        existingBtn.remove();
+      }
+  
+      const toDisplay = filteredItems.slice(displayedCount, displayedCount + maxPerClick);
+      toDisplay.forEach((item) => {
+        const newDiv = document.createElement("div");
+        newDiv.innerHTML = `
+        <div class="results-container">
+        <div>
+        <p>${item.name}</p>
+        <p style="font-weight: bold;" >${item.price}</p>
+        </div>
+        <div class="img-result-container" >
+        <img width="${imgWidth}px" src="${item.image}">
+        </div>
+        </div>
+        `;
+        const resultsContainer = newDiv.querySelector('.results-container');
+        resultsContainer.style.cursor = 'pointer';
+        resultsContainer.addEventListener('click', () => {
+          localStorage.setItem('selectedProduct', JSON.stringify(item));
+          window.location.href = `product.html`;
+        });
+        container.appendChild(newDiv);
+      });
+      displayedCount += toDisplay.length;
+  
+      if (displayedCount >= filteredItems.length) {
+        // No more items, no button
+      } else {
+        const showMoreBtn = document.createElement('button');
+        showMoreBtn.classList.add('show-more-btn');
+        if (displayedCount >= 10) {
+          showMoreBtn.textContent = `View All ${filteredItems.length} Results`;
+          showMoreBtn.onclick = () => {
+            window.location.href = 'shop.html';
+          };
+        } else {
+          showMoreBtn.textContent = 'Show More';
+          showMoreBtn.onclick = displayMore;
+        }
+        container.appendChild(showMoreBtn);
+      }
+    }
+  
+    if (filteredItems.length > 0) {
+      displayMore();
+    } else {
+      container.innerHTML = `<div class="no-result-container" >
+      <div class="no-result-image">
+      <img src="search.png" alt="no-result-image">
+      </div>
+      <div class="no-results-container"> <p>Oops! We couldn't find <span class="searchedItem">${inputedItem}</span> </p></div>
+      </div>`;
+    }
+  }
+  
+  // Search functionality for mobile screen
+  searchBox.addEventListener("input", (e) => {
+    const inputedItem = e.target.value.toLowerCase().trim();
+  
+    // Clear previous results
+    inputText.innerHTML = "";
+  
+    // If search is empty, don't show anything
+    if (!inputedItem) {
+      return;
+    }
+  
+    // Filter with proper return statement
+    const filteredItems = AllProducts.filter((eachProducts) =>
+      eachProducts.name.toLowerCase().includes(inputedItem)
+    );
+    // eachProducts.category.toLowerCase().includes(inputedItem)
+  
+    // Display filtered items with pagination
+    handleSearchResults(filteredItems, inputedItem, inputText, 90);
+  
+    // console.log({filteredItems});
+  });
+
 });
