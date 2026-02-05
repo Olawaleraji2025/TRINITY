@@ -17,33 +17,141 @@
             <a href="index.html" class="logo-link">
 
             <img src="Homepage/Frame 7.png" alt="" class="logo-img">
-           
+
           </a>
 
           </div>
 
-          <!-- Other Icons and elements -->
-          <div class="nav-section">
-              
-              <div class="nav-icons">
+          <!-- Search Box container -->
+          <!-- This search will only appear at Large screen sizes -->
+          <div class="nav-links">
+            <div class="search-container">
+              <input type="text" placeholder="Search for Products" class="search-inputs2">
 
-                <!-- Cart Container -->
-                <div class="cart-container">
-                  <a href="cart.html" class="cart"><span class="material-symbols-outlined">shopping_cart</span></a>
-                  <p class="cart-text">Cart</p>
+              <span class="hidden-search material-symbols-outlined">search</span>
 
-                </div>
-              
-                <div class="menu-close-icon">
-                  <span class="menu material-symbols-outlined">menu</span>
-                  <span class="hidden-close material-symbols-outlined">close</span>
+            </div>
 
-                </div>
-              
+             <div class="hidden-results-container2 " id="hiddenContainer">
+            <!-- <div class="results-list" id="resultList"> -->
+
             </div>
           </div>
-          
+
+          <!-- Other Icons and elements -->
+          <div class="nav-section">
+
+              <div class="nav-icons">
+
+                <!-- Categories Container -->
+                <div class="categories-div" >
+                  <span class="material-symbols-outlined">
+keyboard_arrow_down
+</span>
+                  <a class="category-link" id="categoryDiv" >Categories</a></li>
+                </div>
+
+                <div class="hidden-categories" id="hiddenCategories">
+                  <div class="category-list">
+                    <ul>
+                      <li>Provisions</li>
+                      <li>Drinks</li>
+                      <li>Exotic Wines</li>
+                      <li>Cosmetics</li>
+                      <li>Toiletries</li>
+                      <li>Wears</li>
+                      <li>Gift Items</li>
+                      <!-- <li>Quality Drugs</li> -->
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Search icon -->
+                <div class="search-container-icon">
+                  <span class="search-icon material-symbols-outlined">search</span>
+              </div>
+
+              <!-- <div class="acct-container">
+                <a href="Create.html" class="account"><span class="Account material-symbols-outlined">person</span></a>
+                <p>Account</p>
+
+              </div> -->
+
+              <!-- Whislist container -->
+              <div class="whishlist-icon">
+                <a href="wishlist.html" class="whishlist"><span class="material-symbols-outlined">
+                  favorite
+                </span></a>
+                <p class="whishlist-text">Wishlist</p>
+              </div>
+
+              <!-- Cart Container -->
+              <div class="cart-container">
+                <a href="cart.html" class="cart"><span class="material-symbols-outlined">shopping_cart</span><span id="cart-count" class="cart-count">0</span></a>
+                <p class="cart-text">Cart</p>
+
+              </div>
+
+
+
+              <div class="menu-close-icon">
+                <span class="menu material-symbols-outlined">menu</span>
+                <span class="hidden-close material-symbols-outlined">close</span>
+
+              </div>
+              <div class="mobile-menu">
+                <ul>
+                  <li><a href="#categories-section">Categories</a></li>
+                  <li><a href="wishlist.html">Wishlist</a></li>
+                </ul>
+            </div>
+
+
+              <!-- Hidden Contents -->
+
+            </div>
+          </div>
+
         </nav>
+
+
+        <!-- A modal for search items -->
+
+        <div class="modal-search ">
+<div class="close-container">
+  <span class="close-menu material-symbols-outlined">close</span>
+</div>
+
+
+          <div class="search-message">
+            <p>What are you searching for?</p>
+          </div>
+
+          <div class="search-container">
+            <span class="hidden-search material-symbols-outlined">search</span>
+              <input type="search" placeholder="Search for Products" class="search-inputs">
+
+
+            </div>
+            <!-- <h6>Showing results for<span class="search-query"></span></h6> -->
+            <div class="hidden-results-container " id="hiddenContainer2">
+            <!-- <div class="results-list" id="resultList"> -->
+
+            </div>
+        </div>
+
+        <!-- This search will only appear at mobile screen sizes -->
+          <div class="nav-search">
+            <div class="search-container">
+                         <!-- <span class="hidden-search material-symbols-outlined">search</span> -->
+              <input type="text" placeholder="Search for Products" class="search-inputs">
+
+              <span class="close-menu material-symbols-outlined">close</span>
+              </div>
+            </div>
+
+
+
       </header>
     
     <main class="main-content container">
