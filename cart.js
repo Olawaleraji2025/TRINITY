@@ -1113,5 +1113,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Loader functionality
+    function hideLoader() {
+      const loader = document.getElementById('loader');
+      if (loader) {
+
+        setTimeout(function() {
+          loader.style.display = 'none';
+        }, 3000);
+      }
+    }
+
+    function showLoader() {
+      const loader = document.getElementById('loader');
+      if (loader) {
+        loader.style.display = 'flex';
+      }
+    }
+
+    // Automatically hide loader on page load
+    window.addEventListener('load', hideLoader);
+
 });
 

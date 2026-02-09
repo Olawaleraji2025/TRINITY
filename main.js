@@ -284,12 +284,12 @@ productsItems.map((products) => {
   productName.innerHTML = `<p> ${EachProductName} </p>`;
   productDetails.innerHTML = `
     <p class="product-price"> ${EachProductPrice} </p>
-    <div class="quantity-controls">
+    <div class="quantity-controls" style="display: none;">
       <button class="quantity-btn decrease">-</button>
       <span class="quantity-display">1</span>
       <button class="quantity-btn increase" >+</button>
     </div>
-    <button class="add-to-cart-btn" onClick="showCartModal('${EachProductName}', '${EachProductPrice}', '${EachProductImage}', this.parentElement.querySelector('.quantity-display').textContent)">Add to Cart<i class="fa-solid fa-cart-arrow-down"></i></button>
+    <button class="add-to-cart-btn">Add to Cart<i class="fa-solid fa-cart-arrow-down"></i></button>
   `;
 
   productIcons.innerHTML = `
@@ -315,24 +315,8 @@ productsItems.map((products) => {
 
   productContainer.appendChild(productItemDiv);
 
-   // Add event listeners for quantity buttons
-   const decreaseBtn = productItemDiv.querySelector('.decrease');
-   const increaseBtn = productItemDiv.querySelector('.increase');
-   const quantityDisplay = productItemDiv.querySelector('.quantity-display');
- 
-   decreaseBtn.addEventListener('click', () => {
-    let qty = parseInt(quantityDisplay.textContent);
-    if (qty > 1) {
-      qty--;
-      quantityDisplay.textContent = qty;
-    }
-  });
-
-  increaseBtn.addEventListener('click', () => {
-    let qty = parseInt(quantityDisplay.textContent);
-    qty++;
-    quantityDisplay.textContent = qty;
-  });
+  // Attach add to cart behavior
+  attachAddToCartBehavior(productItemDiv, EachProductName, EachProductPrice, EachProductImage);
     
   
 });
@@ -358,12 +342,12 @@ productsItems2.map((products) => {
   productName.innerHTML = `<p> ${EachProductName} </p>`;
   productDetails.innerHTML = `
     <p class="product-price"> ${EachProductPrice} </p>
-    <div class="quantity-controls">
+    <div class="quantity-controls" style="display: none;">
       <button class="quantity-btn decrease">-</button>
       <span class="quantity-display">1</span>
       <button class="quantity-btn increase">+</button>
     </div>
-    <button class="add-to-cart-btn" onClick="showCartModal('${EachProductName}', '${EachProductPrice}', '${EachProductImage}', this.parentElement.querySelector('.quantity-display').textContent)">Add to Cart<i class="fa-solid fa-cart-arrow-down"></i></button>
+    <button class="add-to-cart-btn">Add to Cart<i class="fa-solid fa-cart-arrow-down"></i></button>
   `;
 
   productIcons.innerHTML = `
@@ -387,24 +371,8 @@ productsItems2.map((products) => {
   productItemDiv.appendChild(productDetails);
   productItemDiv.appendChild(productIcons);
 
-  // Add event listeners for quantity buttons
-  const decreaseBtn = productItemDiv.querySelector('.decrease');
-  const increaseBtn = productItemDiv.querySelector('.increase');
-  const quantityDisplay = productItemDiv.querySelector('.quantity-display');
-
-  decreaseBtn.addEventListener('click', () => {
-    let qty = parseInt(quantityDisplay.textContent);
-    if (qty > 1) {
-      qty--;
-      quantityDisplay.textContent = qty;
-    }
-  });
-
-  increaseBtn.addEventListener('click', () => {
-    let qty = parseInt(quantityDisplay.textContent);
-    qty++;
-    quantityDisplay.textContent = qty;
-  });
+  // Attach add to cart behavior
+  attachAddToCartBehavior(productItemDiv, EachProductName, EachProductPrice, EachProductImage);
 
   productContainer2.appendChild(productItemDiv);
 });
@@ -1484,6 +1452,94 @@ function showWishlistModal(image, name, status) {
   setTimeout(() => {
     modal.style.display = 'none';
   }, 2000);
+}
+
+// Function to get cart quantity for an item
+function getCartQuantity(name) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  let item = cart.find(item => item.name === name);
+  return item ? item.quantity : 0;
+}
+
+// Function to update product UI based on cart
+function updateProductUI(productItemDiv, name) {
+  const addToCartBtn = productItemDiv.querySelector('.add-to-cart-btn');
+  const quantityControls = productItemDiv.querySelector('.quantity-controls');
+  const quantityDisplay = quantityControls.querySelector('.quantity-display');
+  const qty = getCartQuantity(name);
+  if (qty > 0) {
+    addToCartBtn.style.display = 'none';
+    quantityControls.style.display = 'flex';
+    quantityDisplay.textContent = qty;
+  } else {
+    addToCartBtn.style.display = 'flex';
+    quantityControls.style.display = 'none';
+    quantityDisplay.textContent = '1';
+  }
+}
+
+// Function to update cart quantity
+function updateCartQuantity(name, newQuantity) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  let existingIndex = cart.findIndex(item => item.name === name);
+  if (existingIndex !== -1) {
+    cart[existingIndex].quantity = newQuantity;
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+  }
+}
+
+// Function to remove from cart
+function removeFromCart(name) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart = cart.filter(item => item.name !== name);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateCartCount();
+}
+
+// Function to attach add to cart behavior
+function attachAddToCartBehavior(productItemDiv, name, price, image) {
+  updateProductUI(productItemDiv, name); // Set initial state
+
+  const addToCartBtn = productItemDiv.querySelector('.add-to-cart-btn');
+  const quantityControls = productItemDiv.querySelector('.quantity-controls');
+  const decreaseBtn = quantityControls.querySelector('.decrease');
+  const increaseBtn = quantityControls.querySelector('.increase');
+  const quantityDisplay = quantityControls.querySelector('.quantity-display');
+
+  addToCartBtn.addEventListener('click', () => {
+    // Add to cart with quantity 1
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let existingIndex = cart.findIndex(item => item.name === name);
+    if (existingIndex === -1) {
+      cart.push({ name, price, image, quantity: 1 });
+    } else {
+      cart[existingIndex].quantity = 1;
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+    // Update UI
+    updateProductUI(productItemDiv, name);
+  });
+
+  decreaseBtn.addEventListener('click', () => {
+    let qty = parseInt(quantityDisplay.textContent);
+    if (qty > 1) {
+      qty--;
+      quantityDisplay.textContent = qty;
+      updateCartQuantity(name, qty);
+    } else {
+      removeFromCart(name);
+      updateProductUI(productItemDiv, name);
+    }
+  });
+
+  increaseBtn.addEventListener('click', () => {
+    let qty = parseInt(quantityDisplay.textContent);
+    qty++;
+    quantityDisplay.textContent = qty;
+    updateCartQuantity(name, qty);
+  });
 }
 
 // Update cart count on page load
