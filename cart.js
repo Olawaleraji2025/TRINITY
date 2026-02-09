@@ -1038,6 +1038,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cartItemsContainer.innerHTML = cart.map((item, index) => `
             <div class="cart-item-container">
   <div class="cart-item">
+  <div class="cart-details ">
       <div class="cart-item-img-container">
       <img src="${item.image}" alt="${item.name}" class="cart-item-image">
       </div>
@@ -1047,6 +1048,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="cart-item-quantity">
               <span>Quantity: ${item.quantity}</span>
           </div>
+      </div>
       </div>
       <div class="cart-item-actions">
       <i class="fa-solid fa-trash" data-index="${index}"></i>
