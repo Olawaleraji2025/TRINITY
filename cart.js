@@ -17,6 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const cartItemsContainer = document.getElementById('cartItemsContainer');
     const cartTotalSpan = document.getElementById('cartTotal');
     const itemCountSpan = document.getElementById('itemCount');
+    const cartMessageP = itemCountSpan ? itemCountSpan.parentElement : null;
+    const proceedToCheckoutBtn = document.getElementById('proceedToCheckout');
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
     // UI Toggle Functions
@@ -116,6 +118,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       if (itemCountSpan) {
         itemCountSpan.textContent = totalItems;
+      }
+      if (cartMessageP) {
+        cartMessageP.innerHTML = `You have <span id="itemCount">${totalItems}</span> items in your basket.${totalItems > 0 ? " Let's get you checked out." : ""}`;
+      }
+      if (proceedToCheckoutBtn) {
+        proceedToCheckoutBtn.disabled = totalItems === 0;
       }
     }
 
@@ -1106,9 +1114,12 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCartCount();
 
     // Handle Proceed to Checkout button
-    const proceedToCheckoutBtn = document.getElementById('proceedToCheckout');
     if (proceedToCheckoutBtn) {
         proceedToCheckoutBtn.addEventListener('click', () => {
+            if (cart.length === 0) {
+                alert('Your cart is empty. Please add items to proceed to checkout.');
+                return;
+            }
             window.location.href = 'checkout.html';
         });
     }

@@ -613,39 +613,51 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Automatically hide loader on page load
     window.addEventListener('load', hideLoader);
-    const sections = document.querySelectorAll('.section');
+    const icons = document.querySelectorAll('.section-header .fa-chevron-up');
 
-    sections.forEach(section => {
-        const icon = section.querySelector('.fa-chevron-up');
+    icons.forEach((icon, index) => {
+        const section = icon.closest('.section');
         const content = section.querySelector('.section-content');
         const span = section.querySelector('.section-header span');
 
-        if (icon) icon.innerHTML = '';
-        // Initialize non-active sections as collapsed
-        if (content) {
-            if (!content.classList.contains('active')) {
-                content.classList.add('collapsed');
-            } else {
-                // If active, add active class to span
-                if (span) span.classList.add('active');
-            }
+        // Initialize: first section active, others collapsed
+        if (index === 0) {
+            content.classList.add('active');
+            content.classList.remove('collapsed');
+            if (span) span.classList.add('active');
+            if (icon) icon.classList.remove('fa-chevron-down');
+            if (icon) icon.classList.add('fa-chevron-up');
+        } else {
+            content.classList.add('collapsed');
+            content.classList.remove('active');
+            if (span) span.classList.remove('active');
+            if (icon) icon.classList.remove('fa-chevron-up');
+            if (icon) icon.classList.add('fa-chevron-down');
         }
 
-        if (icon && content) {
-            icon.addEventListener('click', function() {
-                if (content.classList.contains('active')) {
-                    content.classList.remove('active');
-                    content.classList.add('collapsed');
-                    icon.style.transform = 'rotate(180deg)';
-                    if (span) span.classList.remove('active');
-                } else {
-                    content.classList.remove('collapsed');
-                    content.classList.add('active');
-                    icon.style.transform = 'rotate(0deg)';
-                    if (span) span.classList.add('active');
+        // Add click event to toggle
+        icon.addEventListener('click', () => {
+            const isActive = content.classList.contains('active');
+            if (isActive) {
+                // Collapse
+                content.classList.remove('active');
+                content.classList.add('collapsed');
+                if (span) span.classList.remove('active');
+                if (icon) {
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
                 }
-            });
-        }
+            } else {
+                // Expand
+                content.classList.add('active');
+                content.classList.remove('collapsed');
+                if (span) span.classList.add('active');
+                if (icon) {
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                }
+            }
+        });
     });
 
     // Handle radio button selection for border styling
@@ -680,7 +692,9 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         orderItemsContainer.innerHTML = cart.map(item => `
             <div class="order-item">
-                <img src="${item.image}" alt="${item.name}" class="order-item-image">
+            <div class="order-item-image-container">
+                <img src="${item.image}" alt="${item.name}" class="order-item-image" />
+                </div>
                 <div class="order-item-details">
                     <p class="order-item-name">${item.name}</p>
                     <p class="order-item-quantity">Quantity: ${item.quantity}</p>
