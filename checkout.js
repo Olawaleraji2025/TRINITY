@@ -722,6 +722,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const city = document.getElementById('city').value;
         const state = document.getElementById('state').value;
 
+        // Validate shipping address fields
+        if (!fullName.trim() || !streetAddress.trim() || !city.trim() || !state.trim()) {
+            // Show error modal
+            const errorModal = document.getElementById('errorModal');
+            errorModal.style.display = 'block';
+            return;
+        }
+
         // Retrieve cart and total
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
         const total = cart.reduce((acc, item) => {
@@ -753,4 +761,13 @@ document.addEventListener('DOMContentLoaded', function() {
         // Redirect to order confirmation page
         window.location.href = 'order-confirmation.html';
     });
+
+    // Handle error modal close
+    const closeModalBtn = document.querySelector('.close-modal');
+    if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', function() {
+            const errorModal = document.getElementById('errorModal');
+            errorModal.style.display = 'none';
+        });
+    }
 });

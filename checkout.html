@@ -215,11 +215,11 @@ keyboard_arrow_down
                   </div>
                     <div class="section-content">
                         <div class="radio-group">
-                            <input type="radio" id="standard" name="delivery" value="standard" checked>
+                            <input type="radio" id="standard" name="delivery" value="standard" checked required>
                             <label for="standard">Standard Delivery - Arrives in 2-3 business days. Reliable and affordable.</label>
                         </div>
                         <div class="radio-group">
-                            <input type="radio" id="express" name="delivery" value="express">
+                            <input type="radio" id="express" name="delivery" value="express" required>
                             <label for="express">Express Delivery - Same day delivery if ordered before 2 PM. Fast and fresh.</label>
                         </div>
                     </div>
@@ -265,6 +265,15 @@ keyboard_arrow_down
             </form>
         </section>
     </main>
+
+    <!-- Error Modal -->
+    <div id="errorModal" class="modal" style="display: none;">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <p>Please fill in all shipping address fields.</p>
+      </div>
+    </div>
+
     <footer>
       <div class="container footer-container">
      <div class="footer-logo">
