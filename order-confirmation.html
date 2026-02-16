@@ -10,6 +10,13 @@
     <title>Order Confirmation - Trinity</title>
 </head>
 <body>
+    <!-- Loader -->
+    <div id="loader" class="loader">
+        <div class="loader-image">
+            <img src="Homepage/Frame 7.png" alt="Loader">
+        </div>
+    </div>
+
     <header class="header-nav-bar">
         <nav class="container nav-container">
           <!-- Trinity Logo container -->
@@ -45,13 +52,14 @@
           <span><i class="material-symbols-outlined">chevron_right</i></span>
           <a href="checkout.html">Checkout</a>
           <span><i class="material-symbols-outlined">chevron_right</i></span>
-          <span>Order Confirmation</span>
+          <span>Order Success</span>
         </div>
       
       </section>
 
         <section class="confirmation-section">
             <div class="confirmation-message">
+              <img src="mark.png" alt="success-icon" class="success-icon">
                 <h2>Order Confirmed!</h2>
                 <p>Thank you for your order! Your order has been successfully placed.</p>
             </div>
@@ -70,7 +78,11 @@
                     </div>
                 </div>
                 <div class="delivery-address">
+                  <div class="delivery-header">
+                    <img src="location.png" alt="location-image" class="location-image">
                     <h3>Delivery Address</h3>
+
+                  </div>
                     <p id="deliveryAddress"></p>
                 </div>
                 <div class="return-home">

@@ -1508,6 +1508,7 @@ function attachAddToCartBehavior(productItemDiv, name, price, image) {
   const quantityDisplay = quantityControls.querySelector('.quantity-display');
 
   addToCartBtn.addEventListener('click', () => {
+    showCartModal(name, price, image, 1)
     // Add to cart with quantity 1
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     let existingIndex = cart.findIndex(item => item.name === name);

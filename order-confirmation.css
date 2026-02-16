@@ -109,7 +109,7 @@ header nav {
 }
 
 .confirmation-message h2 {
-  color: #25f478;
+  color: #05b14a;
   font-size: 2rem;
   margin-bottom: 10px;
 }
@@ -217,6 +217,16 @@ header nav {
   line-height: 1.5;
 }
 
+.delivery-header{
+  gap: 5px;
+    display: flex;
+    margin: 10px auto;
+}
+
+.location-image {
+  width: 30px;
+}
+
 .return-home {
   text-align: center;
   margin-top: 30px;
@@ -224,7 +234,7 @@ header nav {
 
 .return-home-btn {
   display: inline-block;
-  background-color: #25f478;
+  background-color: #065f46;
   color: white;
   padding: 12px 24px;
   text-decoration: none;
@@ -246,6 +256,7 @@ header nav {
 
   .order-item-summary {
     text-align: center;
+    display: block;
   }
 
   .order-item-summary-image {
@@ -257,4 +268,34 @@ header nav {
     text-align: left;
     display: flex;
   }
+
+  .breadcrumb{
+    white-space: nowrap;
+    gap: 0;
+    font-size: 15px;
+  }
+
+  .success-icon{
+    width: 50px;
+  }
+
+  .confirmation-message h2{
+    font-size: 1rem;
+  }
+
+
+  .confirmation-message p {
+    font-size: 15px;
+  }
+
+  .order-number h3{
+    font-size: 16px;
+  }
+
+  .order-summary{
+    font-size: 16px;
+  }
+
+
+
 }
