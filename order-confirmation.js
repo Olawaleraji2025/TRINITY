@@ -35,11 +35,11 @@ document.addEventListener('DOMContentLoaded', function() {
             <div>
             <p class="order-item-summary-name">${item.name}</p>
             <p class="order-item-summary-quantity">Quantity: ${item.quantity}</p>
+            <p class="order-item-summary-price">${item.price}</p>
             </div>
             </div>
             
             <div class="order-item-summary-details">
-                <p class="order-item-summary-price">${item.price}</p>
             </div>
 
             </div>

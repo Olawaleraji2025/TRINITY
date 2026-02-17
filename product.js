@@ -843,7 +843,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p class="similar-product-name">${p.name}</p>
                     <p class="similar-product-price">${p.price}</p>
                 `;
-                similarProductItem.addEventListener('click', () => {
+similarProductItem.addEventListener('click', () => {
                     localStorage.setItem('selectedProduct', JSON.stringify(p));
                     window.location.reload();
                 });

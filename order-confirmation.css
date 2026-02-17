@@ -74,25 +74,6 @@ header nav {
     color: #000;
   }
 
-  .main-content {
-    margin-top: 80px; /* Adjust based on header height */
-    padding: 20px;
-  }
-
-.breadcrumb a{
-  text-decoration: none;
-  color: black;
-}
-
-.breadcrumb a:hover{
-  color: #25f478;
-}
-
-.breadcrumb{
-  display: flex;
-  font-weight: 500;
-  gap: 0.5rem;
-}
 
 .confirmation-section {
   width: 100%;
@@ -257,6 +238,7 @@ header nav {
   .order-item-summary {
     text-align: center;
     display: block;
+    max-width: 500px;
   }
 
   .order-item-summary-image {
@@ -267,6 +249,7 @@ header nav {
   .order-item-summary-info{
     text-align: left;
     display: flex;
+    /* justify-content: space-around; */
   }
 
   .breadcrumb{
@@ -297,5 +280,8 @@ header nav {
   }
 
 
+  .order-item-summary-name, .delivery-address p{
+    font-size: 14px;
+  }
 
 }
