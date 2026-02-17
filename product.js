@@ -2,7 +2,14 @@
 // Function to load and display product details in product.html
 document.addEventListener('DOMContentLoaded', () => {
 
-  showLoader();
+  // Scroll to top of page when loaded
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: 'smooth' 
+  });
+
+  // showLoader();
   updateCartCount();
 
     const provisions = [
@@ -844,9 +851,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p class="similar-product-price">${p.price}</p>
                 `;
 similarProductItem.addEventListener('click', () => {
-                    localStorage.setItem('selectedProduct', JSON.stringify(p));
-                    window.location.reload();
-                });
+  localStorage.setItem('selectedProduct', JSON.stringify(p));
+  window.location.reload();
+});
+
+window.scrollTo({
+  top: 0,
+  behavior: 'smooth' 
+});
                 similarProductsContainer.appendChild(similarProductItem);
             });
 
