@@ -31,7 +31,9 @@ document.addEventListener('DOMContentLoaded', function() {
         orderItemsSummary.innerHTML = orderDetails.items.map(item => `
             <div class="order-item-summary">
             <div class="order-item-summary-info">
+            <div class="order-item-image-container">
             <img src="${item.image}" alt="${item.name}" class="order-item-summary-image">
+            </div>
             <div>
             <p class="order-item-summary-name">${item.name}</p>
             <p class="order-item-summary-quantity">Quantity: ${item.quantity}</p>

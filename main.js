@@ -1554,6 +1554,7 @@ function hideLoader() {
     
     setTimeout(function() {
       loader.style.display = 'none';
+      document.body.style.overflow = ''; // Restore scrolling
     }, 3000);
   }
 }
@@ -1562,6 +1563,7 @@ function showLoader() {
   const loader = document.getElementById('loader');
   if (loader) {
     loader.style.display = 'flex'; 
+    document.body.style.overflow = 'hidden'; // Prevent scrolling while loader is active
   }
 }
 
