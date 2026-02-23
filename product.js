@@ -1,7 +1,7 @@
 
 // Function to load and display product details in product.html
 document.addEventListener('DOMContentLoaded', () => {
-
+  showLoader()
   // Scroll to top of page when loaded
   window.scrollTo({
     top: 0,
@@ -903,6 +903,7 @@ window.scrollTo({
       
       setTimeout(function() {
         loader.style.display = 'none';
+        document.body.classList.remove("active")
       }, 4000);
     }
   }
@@ -911,6 +912,7 @@ window.scrollTo({
     const loader = document.getElementById('loader');
     if (loader) {
       loader.style.display = 'flex'; 
+      document.body.classList.add("active")
     }
   }
 

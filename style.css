@@ -16,6 +16,11 @@ body {
   line-height: 1.6;
 }
 
+body.active{
+  overflow: hidden;
+  
+}
+
 .container {
   max-width: 1400px;
   margin: 0 auto;
@@ -235,6 +240,7 @@ body {
   display: flex;
   align-items: center;
   cursor: pointer;
+  position: relative;
 }
 
 .hidden-categories.active {
@@ -243,7 +249,7 @@ body {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   width: 150px;
   top: 60px;
-  right: 150px;
+  right: 185px;
   border-radius: 0px 0px 8px 8px;
   display: block;
   animation: slider 0.5s;
@@ -261,7 +267,7 @@ body {
   display: block;
   margin: 0 auto;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  box-sizing: border-box;
+ 
 }
 
 .hidden-results-container2 {
@@ -272,6 +278,8 @@ body {
   width: 500px;
     overflow-y: auto;
     translate: -25% 6%;
+    box-sizing: border-box;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 .no-results-container{
@@ -553,7 +561,7 @@ body {
 .search-inputs2 {
   border: none;
   outline: none;
-  width: 140px;
+  /* width: 140px; */
   padding: 0.5rem;
   transition: 0.3s ease-in-out;
   font-size: 14px;
@@ -798,7 +806,6 @@ body {
 .popular-products-section {
   overflow: visible;
   width: 100%;
-  max-width: 900px;
 }
 
 #big {
@@ -1175,7 +1182,7 @@ small {
   border-radius: 0.5rem;
   padding: 0.5rem;
   cursor: pointer;
-  z-index: 10;
+  z-index: 100;
   transition: background-color 0.3s, transform 0.3s;
 }
 
@@ -1540,9 +1547,9 @@ overflow: hidden;
     width: 180px;
   }
 
-  .search-container {
+  /* .search-container {
     justify-content: space-around;
-  }
+  } */
 
   .search-container-icon {
     display: none;
@@ -1620,10 +1627,34 @@ overflow: hidden;
   }
 }
 
-@media (min-width: 1401px) and (max-width: 1900px) {
+@media (min-width: 1401px)  {
+
+  body{
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .container{
+    margin: unset;
+  }
+
+  .back-to-top{
+    right: unset;
+  }
+
   .products-container {
     max-width: 1400px;
   }
+
+.nav-section{
+  position: relative;
+}
+
+.hidden-categories.active{
+  top: 48px;
+    right: 185px;
+}
+
 
   .popular-products-section {
     max-width: 1400px;
@@ -1651,7 +1682,8 @@ overflow: hidden;
   }
 
   .prev-btn,
-  .next-btn {
+  .next-btn, .prev-btn2,
+  .next-btn2 {
     display: none;
   }
 

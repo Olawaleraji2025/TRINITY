@@ -1544,9 +1544,13 @@ function attachAddToCartBehavior(productItemDiv, name, price, image) {
 }
 
 // Update cart count on page load
-document.addEventListener('DOMContentLoaded', updateCartCount);
+document.addEventListener('DOMContentLoaded', ()=> {
+  updateCartCount();
+  showLoader()
+});
 
-// 
+
+// const pageBody = document.getElementById('Up');
 // Loader functionality
 function hideLoader() {
   const loader = document.getElementById('loader');
@@ -1554,7 +1558,7 @@ function hideLoader() {
     
     setTimeout(function() {
       loader.style.display = 'none';
-      document.body.style.overflow = ''; // Restore scrolling
+      document.body.classList.remove("active"); // Restore scrolling
     }, 3000);
   }
 }
@@ -1563,7 +1567,7 @@ function showLoader() {
   const loader = document.getElementById('loader');
   if (loader) {
     loader.style.display = 'flex'; 
-    document.body.style.overflow = 'hidden'; // Prevent scrolling while loader is active
+    document.body.classList.add("active") // Prevent scrolling while loader is active
   }
 }
 

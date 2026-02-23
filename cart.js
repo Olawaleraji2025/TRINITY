@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+showLoader();
+
     // DOM Elements
     const searchIcon = document.querySelector(".search-icon");
     const searchBar = document.querySelector(".modal-search");
@@ -1131,6 +1133,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setTimeout(function() {
           loader.style.display = 'none';
+           document.body.classList.remove("active")
         }, 3000);
       }
     }
@@ -1139,6 +1142,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const loader = document.getElementById('loader');
       if (loader) {
         loader.style.display = 'flex';
+         document.body.classList.add("active")
       }
     }
 

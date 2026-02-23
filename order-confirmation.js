@@ -4,6 +4,7 @@ function hideLoader() {
   if (loader) {
     setTimeout(function() {
       loader.style.display = 'none';
+      document.body.classList.remove("active")
     }, 3000);
   }
 }
@@ -12,6 +13,7 @@ function showLoader() {
   const loader = document.getElementById('loader');
   if (loader) {
     loader.style.display = 'flex'; 
+    document.body.classList.add("active")
   }
 }
 
@@ -19,6 +21,7 @@ function showLoader() {
 window.addEventListener('load', hideLoader);
 
 document.addEventListener('DOMContentLoaded', function() {
+  showLoader()
     // Retrieve order details from localStorage
     const orderDetails = JSON.parse(localStorage.getItem('orderDetails'));
 
