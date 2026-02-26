@@ -1,3 +1,21 @@
+// DOM Elements
+const searchIcon = document.querySelector(".search-icon");
+const searchBar = document.querySelector(".modal-search");
+const headerNavBar = document.querySelector(".header-nav-bar");
+const closeIcon = document.querySelector(".close-menu");
+const menuBtn = document.querySelector(".menu");
+const hiddenMenu = document.querySelector(".mobile-menu");
+const hiddenClose = document.querySelector(".hidden-close");
+const productContainer = document.querySelector(".products-container");
+const productContainer2 = document.querySelector(".products-container2");
+const searchBox = document.querySelector(".search-inputs");
+const inputText = document.querySelector("#hiddenContainer2");
+const searchBox2 = document.querySelector(".search-inputs2");
+const inputText2 = document.querySelector(".hidden-results-container2");
+const hiddenCategories = document.querySelector(".hidden-categories");
+const hiddenSearchQuery = document.querySelector(".search-query");
+
+
 
 // Function to load and display product details in product.html
 document.addEventListener('DOMContentLoaded', () => {
@@ -895,7 +913,82 @@ window.scrollTo({
         productDetailContainer.innerHTML = '<p>No product details available.</p>';
     }
 
+    // Function to show the modal
+function showCartModal(name, price, image, quantity) {
+  // Get cart from localStorage
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
+  // Check if item already exists
+  let existingIndex = cart.findIndex(item => item.name === name);
+  if (existingIndex !== -1) {
+    cart[existingIndex].quantity += parseInt(quantity);
+  } else {
+    cart.push({ name, price, image, quantity: parseInt(quantity) });
+  }
+
+  // Save cart
+  localStorage.setItem('cart', JSON.stringify(cart));
+
+  // Update cart count
+  updateCartCount();
+
+  // Parse price to number
+  const priceNum = parseFloat(price.replace(/[^0-9.-]+/g, ""));
+
+  // Create modal if not exists
+  let modal = document.querySelector('.cart-modal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.classList.add('cart-modal');
+    document.body.appendChild(modal);
+  }
+
+  const subtotal = (priceNum * quantity).toFixed(2);
+  modal.innerHTML = `
+    <div class="cart-modal-content">
+      <div class="cart-modal-header">
+        <img src="check.png" class="cart-modal-icon" alt="Success Icon">
+        <p class="cart-modal-message">Successfully added to cart</p>
+      </div>
+      <div class="cart-modal-body">
+        <div class="cart-item-details">
+        <div class="cart-image-container">
+        <img class="cart-item-image" src="${image}" alt="${name} Image">
+        </div>
+          <div class="cart-item-info">
+            <p class="cart-item-name">${name}</p>
+            <p class="cart-item-quantity">Quantity: ${quantity}</p>
+            <p class="cart-item-price">Price: ${price}</p>
+          </div>
+        </div>
+        <div class="cart-summary">
+          <p class="cart-subtotal">Subtotal: ₦${subtotal}</p>
+          <p class="cart-total-quantity">Total Items: ${quantity}</p>
+        </div>
+      </div>
+      <div class="cart-modal-footer">
+        <button class="view-cart-btn">View Cart & Checkout</button>
+        <button class="continue-shopping-btn">Continue Shopping</button>
+      </div>
+    </div>
+  `;
+
+  // Event listeners
+  modal.querySelector('.view-cart-btn').addEventListener('click', () => {
+    window.location.href = 'cart.html';
+  });
+
+  modal.querySelector('.continue-shopping-btn').addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  modal.style.display = 'flex';
+
+  // Close modal after 3 seconds
+  setTimeout(() => {
+    modal.style.display = 'none';
+  }, 2000);
+}
 
     function hideLoader() {
     const loader = document.getElementById('loader');
@@ -982,6 +1075,17 @@ window.scrollTo({
       </div>`;
     }
   }
+
+  // Function to update cart count
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const cartCountElement = document.getElementById('cart-count');
+  if (cartCountElement) {
+    cartCountElement.textContent = totalItems;
+    cartCountElement.style.display = totalItems > 0 ? 'block' : 'none';
+  }
+}
   
   // Search functionality for mobile screen
   searchBox.addEventListener("input", (e) => {
@@ -1006,5 +1110,118 @@ window.scrollTo({
   
     // console.log({filteredItems});
   });
+
+  // filtering items for large screens
+searchBox2.addEventListener("input", (e) => {
+  const inputedItem = e.target.value.toLowerCase().trim();
+
+  // Clear previous results
+  inputText2.innerHTML = "";
+  if (searchBox2.value === "") {
+    inputText2.style.display = "none";
+  } else {
+    inputText2.style.display = "block";
+  }
+
+  // If search is empty, don't show anything
+  if (!inputedItem) {
+    return;
+  }
+
+  // Filter with proper return statement
+  const filteredItems = AllProducts.filter(
+    (eachProducts) => eachProducts.name.toLowerCase().includes(inputedItem)
+    // eachProducts.category.toLowerCase().includes(inputedItem)
+  );
+
+  // Display filtered items with pagination
+  handleSearchResults(filteredItems, inputedItem, inputText2, 50);
+
+  // console.log({filteredItems});
+});
+
+// UI Toggle Functions
+function toggleSearchBar(show) {
+  if(show){
+    searchBar.style.display = "block";
+    searchBar.classList.add("modal-show");
+    searchBar.classList.remove("modal-hidden");
+    searchIcon.style.display = "flex";
+    menuBtn.style.display = "flex";
+    hiddenMenu.style.display = "none";
+    hiddenClose.style.display = "none";
+    headerNavBar.style.height = "auto" ;
+
+  }else{
+    // searchBar.style.display = "none";
+    searchBar.classList.remove("modal-show");
+    searchBar.classList.add("modal-hidden");
+    searchIcon.style.display = "flex";
+    menuBtn.style.display = "flex";
+    hiddenMenu.style.display = "none";
+    hiddenClose.style.display = "none";
+  }
+}
+
+function toggleMenu(show) {
+  // menuBtn.style.display = show ? "none" : "flex";
+  // hiddenClose.style.display = show ? "block" : "none";
+  // hiddenMenu.style.display = show ? "block" : "none";
+  // searchBar.style.display = "none";
+  // searchIcon.style.display = "flex";
+  // headerNavBar.style.height = "auto";
+  if (show) {
+    menuBtn.style.display = "none";
+    hiddenClose.style.display = "block";
+    hiddenMenu.style.display ="block";
+    hiddenMenu.classList.remove("active");
+    searchBar.style.display = "none";
+    searchIcon.style.display = "flex";
+    headerNavBar.style.height = "auto";
+    
+  } else {
+    menuBtn.style.display = "flex";
+    hiddenClose.style.display = "none";
+    // hiddenMenu.style.display ="none";
+    hiddenMenu.classList.add("active");
+    searchBar.style.display = "none";
+    searchIcon.style.display = "flex";
+    headerNavBar.style.height = "auto";
+    
+  }
+}
+
+if (searchIcon) {
+  searchIcon.addEventListener("click", () => toggleSearchBar(true));
+}
+
+if (closeIcon) {
+  closeIcon.addEventListener("click", function () {
+    toggleSearchBar(false);
+    searchBox.value = "";
+    
+    inputText.innerHTML = "";
+  });
+}
+
+if (menuBtn) {
+  menuBtn.addEventListener("click", () => toggleMenu(true));
+}
+
+if (hiddenClose) {
+  hiddenClose.addEventListener("click", () => toggleMenu(false));
+}
+
+// Display the categories when clicked
+let isOpen = false;
+categoryDiv.addEventListener("click", () => {
+  isOpen = !isOpen;
+
+  if (isOpen) {
+    hiddenCategories.classList.add("active");
+  } else {
+    hiddenCategories.classList.remove("active");
+  }
+});
 
 });
