@@ -1068,7 +1068,48 @@ const allItems = filteredProducts.map((products) => {
   productContainer.appendChild(productItemDiv);
 });
 
-// productsItems.map((products) => {
+AllProducts.map((products) => {
+   const EachProductImage = products.image;
+  const EachProductName = products.name;
+  const EachProductPrice = products.price;
+
+  const productItemDiv = document.createElement("div");
+  const productImageDiv = document.createElement("div");
+  const productName = document.createElement("div");
+  const productDetails = document.createElement("div");
+
+  productItemDiv.classList.add("product-item");
+  productName.classList.add("product-name");
+  productImageDiv.classList.add("product-image");
+  productDetails.classList.add("product-details");
+
+  productName.className = 'product-name';
+  productImageDiv.className = 'product-image';
+  productDetails.className = 'product-details';
+
+  productImageDiv.innerHTML = `
+    <img src="${EachProductImage}" />
+    <div class="product-icons">
+      <span class="material-symbols-outlined icon">favorite</span>
+      <span class="material-symbols-outlined icon">visibility</span>
+    </div>
+  `;
+  productName.innerHTML = `
+    <p> ${EachProductName} </p>
+    `;
+  productDetails.innerHTML = `
+    <p class="product-price"> ${EachProductPrice} </p>
+    <button class="add-to-cart-btn">Add to Cart</button>
+    `;
+
+  productItemDiv.appendChild(productImageDiv);
+  productItemDiv.appendChild(productName);
+  productItemDiv.appendChild(productDetails);
+
+  productContainer.appendChild(productItemDiv);
+});
+
+// AllProducts.map((products) => {
 //   const EachProductImage = products.image;
 //   const EachProductName = products.name;
 //   const EachProductPrice = products.price;
@@ -1083,58 +1124,17 @@ const allItems = filteredProducts.map((products) => {
 //   productImageDiv.classList.add("product-image");
 //   productDetails.classList.add("product-details");
 
-//   // productName.className = 'product-name';
-//   // productImageDiv.className = 'product-image';
-//   // productDetails.className = 'product-details';
+//   productName.className = 'product-name';
+//   productImageDiv.className = 'product-image';
+//   productDetails.className = 'product-details';
 
 //   productImageDiv.innerHTML = `
-    <img src="${EachProductImage}">
-    <div class="product-icons">
-      <span class="material-symbols-outlined icon">favorite</span>
-      <span class="material-symbols-outlined icon">visibility</span>
-    </div>
-  `;
-//   productName.innerHTML = `
-//     <p> ${EachProductName} </p>
-//     `;
-//   productDetails.innerHTML = `
-//     <p class="product-price"> ${EachProductPrice} </p>
-//     <button class="add-to-cart-btn">Add to Cart</button>
-//     `;
-
-//   productItemDiv.appendChild(productImageDiv);
-//   productItemDiv.appendChild(productName);
-//   productItemDiv.appendChild(productDetails);
-
-//   productContainer.appendChild(productItemDiv);
-// });
-
-// productsItems2.map((products) => {
-//   const EachProductImage = products.image;
-//   const EachProductName = products.name;
-//   const EachProductPrice = products.price;
-
-//   const productItemDiv = document.createElement("div");
-//   const productImageDiv = document.createElement("div");
-//   const productName = document.createElement("div");
-//   const productDetails = document.createElement("div");
-
-//   productItemDiv.classList.add("product-item");
-//   productName.classList.add("product-name");
-//   productImageDiv.classList.add("product-image");
-//   productDetails.classList.add("product-details");
-
-//   // productName.className = 'product-name';
-//   // productImageDiv.className = 'product-image';
-//   // productDetails.className = 'product-details';
-
-//   productImageDiv.innerHTML = `
-    <img src="${EachProductImage}">
-    <div class="product-icons">
-      <span class="material-symbols-outlined icon">favorite</span>
-      <span class="material-symbols-outlined icon">visibility</span>
-    </div>
-  `;
+//     <img src="${EachProductImage}" />
+//     <div class="product-icons">
+//       <span class="material-symbols-outlined icon">favorite</span>
+//       <span class="material-symbols-outlined icon">visibility</span>
+//     </div>
+//   `;
 //   productName.innerHTML = `
 //     <p> ${EachProductName} </p>
 //     `;

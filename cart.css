@@ -263,3 +263,18 @@ header nav {
 }
 
 @keyframes pulsate-bck-normal {0% { transform: scale(1); } 50% { transform: scale(0.9); } 100% { transform: scale(1);} }
+
+@media (min-width: 1401px)  {
+
+  body{
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1400px) {
+  .hidden-categories.active{
+    right: 155px;
+  }
+
+}

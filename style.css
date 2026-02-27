@@ -1674,9 +1674,9 @@ overflow: hidden;
     max-width: 100%;
   }
 
-  .search-container {
+  /* .search-container {
     justify-content: space-around;
-  }
+  } */
 
   .nav-container {
     align-items: flex-end;

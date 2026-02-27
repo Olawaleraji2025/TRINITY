@@ -133,7 +133,7 @@ header nav {
     display: flex;
     text-align: center;
     align-items: flex-start;
-    gap: 150px;
+    /* gap: 150px; */
     margin-bottom: 15px;
     padding: 10px;
     border: 1px solid #dbe6df;
@@ -284,6 +284,31 @@ header nav {
 
   .order-item-summary-name, .delivery-address p{
     font-size: 14px;
+  }
+
+}
+
+
+@media (min-width: 1401px)  {
+
+  body{
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .section{
+    margin: auto;
+    max-width: 900px;
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1400px) {
+  .hidden-categories.active{
+    right: 155px;
+  }
+
+  .section{
+    margin: auto;
+    max-width: 900px;
   }
 
 }

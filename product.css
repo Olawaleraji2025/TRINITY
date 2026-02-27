@@ -176,6 +176,10 @@ margin-top: 20px
   background-color: #4c8f61;
   color: #ffffff;
     }
+
+    .similar-products-section h2{
+        font-size: 18px;
+    }
 }
 
 @media (min-width: 1000px) and (max-width: 1400px){
