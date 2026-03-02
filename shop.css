@@ -1,3 +1,19 @@
+.breadcrumb-section{
+  margin: 100px 0 50px 0;
+  display: block;
+  margin-left: 20px;
+}
+
+.breadcrumb{
+  display: flex;
+  gap: 5px;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: black;
+}
+
 .page-description-container {
   background-color: rgb(45, 184, 45);
   width: 100%;
@@ -40,4 +56,32 @@
   justify-content: center;
   gap: 20px;
   align-items: flex-end;
+}
+
+/* Adding styles for wishlist, view, and add-to-cart functionality */
+
+.wishlist-icon {
+  cursor: pointer;
+  color: gray;
+}
+
+.wishlist-icon.added-to-wishlist {
+  color: red;
+}
+
+.view-icon {
+  cursor: pointer;
+  color: blue;
+}
+
+.add-to-cart-btn {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.add-to-cart-btn:hover {
+  background-color: darkgreen;
 }

@@ -220,6 +220,7 @@ body.active{
 .eye-icon:active {
   color: #2980b9; /* Darker blue on click for eye */
 }
+
 .search-container-icon {
   display: flex;
 }
