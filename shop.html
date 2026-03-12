@@ -1,161 +1,171 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap&text=searchpersonshopping_cartmenuclose" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
-    
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap&text=searchpersonshopping_cartmenuclose"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    />
+
     <title>Trinity Supermarket</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="shop.css">
-</head>
-<body id="Up">
-    
-
-<header class="header-nav-bar">
-  <nav class="container nav-container">
-    <div class="image-container">
-      <a href="index.html" class="logo-link">
-        <img src="Homepage/Frame 7.png" alt="" class="logo-img">
-      </a>
-    </div>
-    <div class="nav-links">
-      <div class="search-container">
-        <span class="hidden-search material-symbols-outlined">search</span>
-        <input type="text" placeholder="Search for Products" class="search-inputs2">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="shop.css" />
+  </head>
+  <body id="Up" class="">
+    <!-- Loader -->
+    <div id="loader" class="loader">
+      <!-- <div class="spinner"></div>
+  <p>Loading...</p> -->
+      <div class="loader-image">
+        <img src="Homepage/Frame 7.png" alt="" />
       </div>
-      <div class="hidden-results-container2" id="hiddenContainer"></div>
     </div>
-    <div class="nav-section">
-      <div class="nav-icons">
-        <div class="categories-div">
-          <span class="material-symbols-outlined">keyboard_arrow_down</span>
-          <a class="category-link" id="categoryDiv">Categories</a>
+
+    <header class="header-nav-bar">
+      <nav class="container nav-container">
+        <div class="image-container">
+          <a href="index.html" class="logo-link">
+            <img src="Homepage/Frame 7.png" alt="" class="logo-img" />
+          </a>
         </div>
-        <div class="hidden-categories" id="hiddenCategories">
-          <div class="category-list">
-            <ul>
-              <li>Provisions</li>
-              <li>Drinks</li>
-              <li>Exotic Wines</li>
-              <li>Cosmetics</li>
-              <li>Toiletries</li>
-              <li>Wears</li>
-              <li>Gift Items</li>
-            </ul>
+        <div class="nav-links">
+          <div class="search-container">
+            <span class="hidden-search material-symbols-outlined">search</span>
+            <input
+              type="text"
+              placeholder="Search for Products"
+              class="search-inputs2"
+            />
+          </div>
+          <div class="hidden-results-container2" id="hiddenContainer"></div>
+        </div>
+        <div class="nav-section">
+          <div class="nav-icons">
+            <div class="categories-div">
+              <span class="material-symbols-outlined">keyboard_arrow_down</span>
+              <a class="category-link" id="categoryDiv">Categories</a>
+            </div>
+            <div class="hidden-categories" id="hiddenCategories">
+              <div class="category-list">
+                <ul>
+                  <li>Provisions</li>
+                  <li>Drinks</li>
+                  <li>Exotic Wines</li>
+                  <li>Cosmetics</li>
+                  <li>Toiletries</li>
+                  <li>Wears</li>
+                  <li>Gift Items</li>
+                </ul>
+              </div>
+            </div>
+            <div class="search-container-icon">
+              <span class="search-icon material-symbols-outlined">search</span>
+            </div>
+            <div class="whishlist-icon">
+              <a href="wishlist.html" class="whishlist">
+                <span class="material-symbols-outlined">favorite</span>
+              </a>
+              <p class="whishlist-text">Wishlist</p>
+            </div>
+            <div class="cart-container">
+              <a href="cart.html" class="cart">
+                <span class="material-symbols-outlined">shopping_cart</span>
+                <span id="cart-count" class="cart-count">0</span>
+              </a>
+              <p class="cart-text">Cart</p>
+            </div>
+            <div class="menu-close-icon">
+              <span class="menu material-symbols-outlined">menu</span>
+              <span class="hidden-close material-symbols-outlined">close</span>
+            </div>
+            <div class="mobile-menu">
+              <ul>
+                <!-- <li><a href="#categories-section">Categories</a></li> -->
+                <li><a href="wishlist.html">Wishlist</a></li>
+              </ul>
+            </div>
           </div>
         </div>
-        <div class="search-container-icon">
-          <span class="search-icon material-symbols-outlined">search</span>
+      </nav>
+      <!-- This is for modal search -->
+      <div class="modal-search">
+        <div class="close-container">
+          <span class="close-menu material-symbols-outlined">close</span>
         </div>
-        <div class="whishlist-icon">
-          <a href="wishlist.html" class="whishlist">
-            <span class="material-symbols-outlined">favorite</span>
-          </a>
-          <p class="whishlist-text">Wishlist</p>
+        <div class="search-message">
+          <p>What are you searching for?</p>
         </div>
-        <div class="cart-container">
-          <a href="cart.html" class="cart">
-            <span class="material-symbols-outlined">shopping_cart</span>
-            <span id="cart-count" class="cart-count">0</span>
-          </a>
-          <p class="cart-text">Cart</p>
+        <div class="search-container">
+          <span class="hidden-search material-symbols-outlined">search</span>
+          <input
+            type="search"
+            placeholder="Search for Products"
+            class="search-inputs"
+          />
         </div>
-        <div class="menu-close-icon">
-          <span class="menu material-symbols-outlined">menu</span>
-          <span class="hidden-close material-symbols-outlined">close</span>
+        <div class="hidden-results-container" id="hiddenContainer2"></div>
+      </div>
+    </header>
+
+    <section class="breadcrumb-section">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span><i class="material-symbols-outlined">chevron_right</i></span>
+        <span>Shop</span>
+      </div>
+    </section>
+
+    <section>
+      <div class="shop-header-container">
+        <div class="category-name">
+          <h5 class="category-name-header">All</h5>
         </div>
-        <div class="mobile-menu">
-          <ul>
-            <!-- <li><a href="#categories-section">Categories</a></li> -->
-            <li><a href="wishlist.html">Wishlist</a></li>
-          </ul>
+
+        <div class="results-display">
+          <p class="results-display-text"></p>
+        </div>
+
+        <div class="sort-container">
+          <select id="sort-select" class="sort">
+            <option value="default">Sort by: Default</option>
+            <option value="price-low-high">Price: Low to High</option>
+            <option value="price-high-low">Price: High to Low</option>
+            <option value="name-a-z">Name: A to Z</option>
+            <option value="name-z-a">Name: Z to A</option>
+          </select>
+          <select id="filter-select" class="filter">
+            <option value="all">Filter by: All</option>
+            <option value="Provisions">Provisions</option>
+            <option value="Cosmetics">Cosmetics</option>
+            <option value="Exotic Wines">Exotic Wines</option>
+            <option value="Toiletries">Toiletries</option>
+            <option value="Beverages">Beverages</option>
+          </select>
         </div>
       </div>
-    </div>
-  </nav>
-  <div class="modal-search">
-    <div class="close-container">
-      <span class="close-menu material-symbols-outlined">close</span>
-    </div>
-    <div class="search-message">
-      <p>What are you searching for?</p>
-    </div>
-    <div class="search-container">
-      <span class="hidden-search material-symbols-outlined">search</span>
-      <input type="search" placeholder="Search for Products" class="search-inputs">
-    </div>
-    <div class="hidden-results-container" id="hiddenContainer2"></div>
-  </div>
-</header>
-        
-<section class="breadcrumb-section">
-  <div class="breadcrumb">
-    <a href="index.html">Home</a>
-    <span><i class="material-symbols-outlined">chevron_right</i></span>
-    <span>Product</span>
-  </div>
-</section>
+    </section>
 
-
-
-      <section>
-        <div class="shop-header-container">
-
-            <div class="category-name">
-                <h5 class="category-name-header">All</h5>
-                
-            </div>
-            
-            <div class="results-display">
-                <p class="results-display-text">
-                </p>
-            </div>
-            
-            <div class="sort-container">
-                <select id="sort-select" class="sort">
-                    <option value="default">Sort by: Default</option>
-                    <option value="price-low-high">Price: Low to High</option>
-                    <option value="price-high-low">Price: High to Low</option>
-                    <option value="name-a-z">Name: A to Z</option>
-                    <option value="name-z-a">Name: Z to A</option>
-                </select>
-                <select id="filter-select" class="filter">
-                    <option value="all">Filter by: All</option>
-                    <option value="Provisions">Provisions</option>
-                    <option value="Cosmetics">Cosmetics</option>
-                    <option value="Exotic Wines">Exotic Wines</option>
-                    <option value="Toiletries">Toiletries</option>
-                    <option value="Beverages">Beverages</option>
-                </select>
-            </div>
-        </div>
-      </section>
-
-      <section class="all-products">
-        <div class="all-products-container" id="allProductsContainer">
-            <!-- Products will be dynamically inserted here -->
-        </div>
-      </section>
-
-<h4 class="popular-products-title">Popular Products</h4>
-<section class="popular-products-section">
-  <div class="slider-container">
-    <button id="left" class="prev-btn" onclick="prevBtn()"><</button>
-    <div class="slider-wrapper">
-      <div class="container products-container">
+    <section class="all-products">
+      <div class="all-products-container" id="allProductsContainer">
         <!-- Products will be dynamically inserted here -->
       </div>
-    </div>
-    <button id="right" class="next-btn" onclick="nextBtn()">></button>
-  </div>
-</section>
+    </section>
 
-<script src="shop.js"></script>
-<!-- <script src="beverages.js"></script> -->
-      </body>
-      </html>
+    <script src="shop.js"></script>
+    <!-- <script src="shp.js"></script> -->
+  </body>
+</html>

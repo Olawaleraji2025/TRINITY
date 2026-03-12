@@ -1389,6 +1389,7 @@ function showCartModal(name, price, image, quantity) {
 
 // Wishlist functionality
 function addToWishlist(name, price, image, heartIcon) {
+ console.log("🚀 ~ addToWishlist ~ name, price, image, heartIcon:", name, price, image, heartIcon)
  
   // Get wishlist from localStorage
   let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];

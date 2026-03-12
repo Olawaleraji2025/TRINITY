@@ -1,4 +1,4 @@
-// Wishlist functionality for wishlist.html page
+showLoader();
 
 // DOM Elements
 const searchIcon = document.querySelector(".search-icon");
@@ -20,10 +20,6 @@ const inputText2 = document.querySelector(".hidden-results-container2");
 const categoryDiv = document.querySelector(".categories-div");
 const hiddenCategories = document.querySelector(".hidden-categories");
 const hiddenSearchQuery = document.querySelector(".search-query");
-
-
-
- 
 
 // Product Arrays (copied from main.js)
 const productsItems = [
@@ -891,8 +887,8 @@ const AllProducts = [
   ...beverages,
 ];
 
-  // Load wishlist items on page load
-  document.addEventListener('DOMContentLoaded', () => {
+// Load wishlist items on page load
+document.addEventListener("DOMContentLoaded", () => {
   loadWishlist();
   updateCartCount();
   hideLoader();
@@ -900,143 +896,140 @@ const AllProducts = [
 
 // Function to load and display wishlist items
 function loadWishlist() {
-  const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-  const wishlistContainer = document.getElementById('wishlistContainer');
-  const emptyWishlist = document.getElementById('emptyWishlist');
+  const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+  const wishlistContainer = document.getElementById("wishlistContainer");
+  const emptyWishlist = document.getElementById("emptyWishlist");
 
   if (wishlist.length === 0) {
-    wishlistContainer.style.display = 'none';
-    emptyWishlist.style.display = 'block';
+    wishlistContainer.style.display = "none";
+    emptyWishlist.style.display = "block";
     return;
   }
 
-  wishlistContainer.style.display = 'grid';
-  emptyWishlist.style.display = 'none';
-  wishlistContainer.innerHTML = '';
+  wishlistContainer.style.display = "grid";
+  emptyWishlist.style.display = "none";
+  wishlistContainer.innerHTML = "";
 
   wishlist.forEach((item, index) => {
-    const wishlistItem = document.createElement('div');
-    wishlistItem.classList.add('wishlist-item');
+    const wishlistItem = document.createElement("div");
+    wishlistItem.classList.add("wishlist-item");
 
-    wishlistItem.innerHTML = `
-      <button class="remove-btn" onclick="removeFromWishlist(${index})">
-        <i class="fas fa-times"></i>
-      </button>
-      <div class="wishlist-item-image">
-        <img src="${item.image}" alt="${item.name}">
-      </div>
-      <div class="wishlist-item-details">
-        <h3 class="wishlist-item-name">${item.name}</h3>
-        <p class="wishlist-item-price">${item.price}</p>
-        <div class="wishlist-item-actions">
-          <button class="add-to-cart-btn" onclick="addToCartFromWishlist('${item.name}', '${item.price}', '${item.image}', ${index})">
-            Move to Cart
-          </button>
-        </div>
-      </div>
-    `;
+    wishlistItem.innerHTML = `     <button class="remove-btn" data-index="${index}">       <i class="fas fa-times"></i>     </button>     <div class="wishlist-item-image">       <img src="${item.image}" alt="${item.name}">     </div>     <div class="wishlist-item-details">       <h3 class="wishlist-item-name">${item.name}</h3>       <p class="wishlist-item-price">${item.price}</p>       <div class="wishlist-item-actions">         <button class="add-to-cart-btn" data-name="${item.name}" data-price="${item.price}" data-image="${item.image}" data-index="${index}">           Move to Cart         </button>       </div>     </div>   `;
 
     wishlistContainer.appendChild(wishlistItem);
   });
+
+  // Add event delegation for wishlist buttons to prevent bubbling issues - use delegated event listener once
+  if (!document.wishlistClickHandler) {
+    document.wishlistClickHandler = function (e) {
+      if (e.target.matches(".wishlist-item .add-to-cart-btn")) {
+        const btn = e.target.closest(".add-to-cart-btn");
+        const name = btn.dataset.name;
+        const price = btn.dataset.price;
+        const image = btn.dataset.image;
+        const index = parseInt(btn.dataset.index);
+        const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+        addToCartFromWishlist(name, price, image, index);
+      }
+    };
+    document.addEventListener("click", document.wishlistClickHandler);
+  }
 }
 
 // Function to remove item from wishlist
 function removeFromWishlist(index) {
-  let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+  let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
   wishlist.splice(index, 1);
-  localStorage.setItem('wishlist', JSON.stringify(wishlist));
+  localStorage.setItem("wishlist", JSON.stringify(wishlist));
   loadWishlist(); // Reload the wishlist
 }
 
 // Function to add item to cart from wishlist
 function addToCartFromWishlist(name, price, image, index) {
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
   // Check if item already exists in cart
-  let existingIndex = cart.findIndex(item => item.name === name);
+  let existingIndex = cart.findIndex((item) => item.name === name);
   if (existingIndex !== -1) {
     cart[existingIndex].quantity += 1;
   } else {
     cart.push({ name, price, image, quantity: 1 });
+    console.log(cart);
   }
 
-  localStorage.setItem('cart', JSON.stringify(cart));
+  localStorage.setItem("cart", JSON.stringify(cart));
 
   // Remove item from wishlist
-  let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+  let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
   wishlist.splice(index, 1);
-  localStorage.setItem('wishlist', JSON.stringify(wishlist));
+  localStorage.setItem("wishlist", JSON.stringify(wishlist));
 
   // Reload the wishlist
   loadWishlist();
 
   // Show success message
-  showWishlistNotification('Item moved to cart!', 'success');
+  showWishlistNotification("Item moved to cart!", "success");
 
   // Update cart count if function exists
-  if (typeof updateCartCount === 'function') {
+  if (typeof updateCartCount === "function") {
     updateCartCount();
   }
 }
 
 // Function to show notification
 function showWishlistNotification(message, type) {
-  let notification = document.querySelector('.wishlist-notification');
+  let notification = document.querySelector(".wishlist-notification");
   if (!notification) {
-    notification = document.createElement('div');
-    notification.classList.add('wishlist-notification');
+    notification = document.createElement("div");
+    notification.classList.add("wishlist-notification");
     document.body.appendChild(notification);
   }
 
   notification.textContent = message;
   notification.className = `wishlist-notification ${type}`;
-  notification.style.display = 'block';
+  notification.style.display = "block";
 
   setTimeout(() => {
-    notification.style.display = 'none';
+    notification.style.display = "none";
   }, 3000);
 }
 
 // Function to update cart count
 function updateCartCount() {
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-  const cartCountElement = document.getElementById('cart-count');
+  const cartCountElement = document.getElementById("cart-count");
   if (cartCountElement) {
     cartCountElement.textContent = totalItems;
-    cartCountElement.style.display = totalItems > 0 ? 'block' : 'none';
+    cartCountElement.style.display = totalItems > 0 ? "block" : "none";
   }
 }
 
-// 
+//
 // Loader functionality
-function hideLoader() {
-  const loader = document.getElementById('loader');
+
+function showLoader() {
+  const loader = document.getElementById("loader");
   if (loader) {
-    
-    setTimeout(function() {
-      loader.style.display = 'none';
-      document.body.style.overflow = ''; // Restore scrolling
+    loader.style.display = "flex";
+    document.body.classList.add("active"); // Prevent scrolling while loader is active
+  }
+}
+
+function hideLoader() {
+  const loader = document.getElementById("loader");
+  if (loader) {
+    setTimeout(function () {
+      loader.style.display = "none";
+      document.body.classList.remove("active"); // Restore scrolling
     }, 3000);
   }
 }
 
-function showLoader() {
-  const loader = document.getElementById('loader');
-  if (loader) {
-    loader.style.display = 'flex'; 
-    document.body.style.overflow = 'hidden'; // Prevent scrolling while loader is active
-  }
-}
-
-// Automatically hide loader on page load
-window.addEventListener('load', hideLoader);
-
-
-
+hideLoader();
 // UI Toggle Functions
 function toggleSearchBar(show) {
-  if(show){
+  if (show) {
     searchBar.style.display = "block";
     searchBar.classList.add("modal-show");
     searchBar.classList.remove("modal-hidden");
@@ -1044,9 +1037,8 @@ function toggleSearchBar(show) {
     menuBtn.style.display = "flex";
     hiddenMenu.style.display = "none";
     hiddenClose.style.display = "none";
-    headerNavBar.style.height = "auto" ;
-
-  }else{
+    headerNavBar.style.height = "auto";
+  } else {
     // searchBar.style.display = "none";
     searchBar.classList.remove("modal-show");
     searchBar.classList.add("modal-hidden");
@@ -1067,12 +1059,11 @@ function toggleMenu(show) {
   if (show) {
     menuBtn.style.display = "none";
     hiddenClose.style.display = "block";
-    hiddenMenu.style.display ="block";
+    hiddenMenu.style.display = "block";
     hiddenMenu.classList.remove("active");
     searchBar.style.display = "none";
     searchIcon.style.display = "flex";
     headerNavBar.style.height = "auto";
-    
   } else {
     menuBtn.style.display = "flex";
     hiddenClose.style.display = "none";
@@ -1081,7 +1072,6 @@ function toggleMenu(show) {
     searchBar.style.display = "none";
     searchIcon.style.display = "flex";
     headerNavBar.style.height = "auto";
-    
   }
 }
 
@@ -1093,7 +1083,7 @@ if (closeIcon) {
   closeIcon.addEventListener("click", function () {
     toggleSearchBar(false);
     searchBox.value = "";
-    
+
     inputText.innerHTML = "";
   });
 }
@@ -1106,22 +1096,24 @@ if (hiddenClose) {
   hiddenClose.addEventListener("click", () => toggleMenu(false));
 }
 
-
 // Utility Functions
 
 // Function to handle displaying search results with pagination
 function handleSearchResults(filteredItems, inputedItem, container, imgWidth) {
-  container.innerHTML = '';
+  container.innerHTML = "";
   let displayedCount = 0;
   const maxPerClick = 5;
   function displayMore() {
     // Remove existing button to reposition it at the bottom
-    const existingBtn = container.querySelector('.show-more-btn');
+    const existingBtn = container.querySelector(".show-more-btn");
     if (existingBtn) {
       existingBtn.remove();
     }
 
-    const toDisplay = filteredItems.slice(displayedCount, displayedCount + maxPerClick);
+    const toDisplay = filteredItems.slice(
+      displayedCount,
+      displayedCount + maxPerClick
+    );
     toDisplay.forEach((item) => {
       const newDiv = document.createElement("div");
       newDiv.innerHTML = `
@@ -1135,10 +1127,10 @@ function handleSearchResults(filteredItems, inputedItem, container, imgWidth) {
       </div>
       </div>
       `;
-      const resultsContainer = newDiv.querySelector('.results-container');
-      resultsContainer.style.cursor = 'pointer';
-      resultsContainer.addEventListener('click', () => {
-        localStorage.setItem('selectedProduct', JSON.stringify(item));
+      const resultsContainer = newDiv.querySelector(".results-container");
+      resultsContainer.style.cursor = "pointer";
+      resultsContainer.addEventListener("click", () => {
+        localStorage.setItem("selectedProduct", JSON.stringify(item));
         window.location.href = `product.html`;
       });
       container.appendChild(newDiv);
@@ -1148,15 +1140,15 @@ function handleSearchResults(filteredItems, inputedItem, container, imgWidth) {
     if (displayedCount >= filteredItems.length) {
       // No more items, no button
     } else {
-      const showMoreBtn = document.createElement('button');
-      showMoreBtn.classList.add('show-more-btn');
+      const showMoreBtn = document.createElement("button");
+      showMoreBtn.classList.add("show-more-btn");
       if (displayedCount >= 10) {
         showMoreBtn.textContent = `View All ${filteredItems.length} Results`;
         showMoreBtn.onclick = () => {
-          window.location.href = 'shop.html';
+          window.location.href = "shop.html";
         };
       } else {
-        showMoreBtn.textContent = 'Show More';
+        showMoreBtn.textContent = "Show More";
         showMoreBtn.onclick = displayMore;
       }
       container.appendChild(showMoreBtn);
