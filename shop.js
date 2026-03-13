@@ -130,67 +130,69 @@ const provisions = [
 
 const cosmetics = [
   {
-    name: "Peak Instant Full Cream Milk Tin 400 g",
+    name: "Nivea Body Milk Nourishing Lotion 400ml",
     category: "Cosmetics",
-    price: "₦6,450.00",
+    price: "₦3,450.00",
     image: "Moisturisers & Lotions/Spmt1003.jpg",
   },
+
   {
-    name: "Peak Instant Full Cream Milk Tin 400 g",
+    name: "Vaseline Intensive Care Lotion Cocoa Glow 400ml",
     category: "Cosmetics",
-    price: "₦6,450.00",
+    price: "₦4,200.00",
     image: "Moisturisers & Lotions/Spmt520.jpg",
   },
+
   {
-    name: "Peak Instant Full Cream Milk Tin 400 g",
+    name: "Nivea Soft Moisturizing Cream 300ml",
     category: "Cosmetics",
-    price: "₦6,450.00",
+    price: "₦5,100.00",
     image: "Moisturisers & Lotions/Spmt974.jpg",
   },
   {
-    name: "Peak Instant Full Cream Milk Tin 400 g",
+    name: "Shea Butter Raw Unrefined 1kg",
     category: "Cosmetics",
-    price: "₦6,450.00",
+    price: "₦2,950.00",
     image: "Moisturisers & Lotions/aspar050.jpg",
   },
   {
-    name: "Peak Instant Full Cream Milk Tin 400 g",
+    name: "Dove Body Lotion Deeply Nourishing 400ml",
     category: "Cosmetics",
-    price: "₦6,450.00",
+    price: "₦6,200.00",
     image: "Moisturisers & Lotions/dbk4324.jpg",
   },
   {
-    name: "Peak Instant Full Cream Milk Tin 400 g",
+    name: "Palmer's Cocoa Butter Formula 250g",
     category: "Cosmetics",
-    price: "₦6,450.00",
+    price: "₦3,750.00",
     image:
       "Moisturisers & Lotions/spasho1467_1ccfda31-5388-4f55-a6f0-861d8e2240e8.jpg",
   },
   {
-    name: "Peak Instant Full Cream Milk Tin 400 g",
+    name: "Nivea Body Oil Nourishing 200ml",
     category: "Cosmetics",
-    price: "₦6,450.00",
+    price: "₦5,800.00",
     image:
       "Moisturisers & Lotions/spasho2096_deb48546-c084-4d32-a132-c5178c2471d9.jpg",
   },
   {
-    name: "Peak Instant Full Cream Milk Tin 400 g",
+    name: "Jergens Moisturizer Original Scent 750ml",
     category: "Cosmetics",
-    price: "₦6,450.00",
+    price: "₦4,500.00",
     image:
       "Moisturisers & Lotions/spasho2097_2475b5a8-535e-4ade-bad4-1b089a58848e.jpg",
   },
   {
-    name: "Peak Instant Full Cream Milk Tin 400 g",
+    name: "Cetaphil Moisturizing Lotion 473ml",
     category: "Cosmetics",
-    price: "₦6,450.00",
+    price: "₦3,200.00",
     image:
       "Moisturisers & Lotions/spaz4_859e2b48-cda9-4143-9426-5999003beabd.jpg",
   },
   {
-    name: "Peak Instant Full Cream Milk Tin 400 g",
+    name: "Aveeno Daily Moisturizing Lotion 532ml",
     category: "Cosmetics",
-    price: "₦6,450.00",
+    price: "₦6,000.00",
     image:
       "Moisturisers & Lotions/spmzz1248_f196f1fb-53aa-4937-943e-d5518dfca133.jpg",
   },
@@ -261,72 +263,72 @@ const exoticWines = [
 
 const toiletries = [
   {
-    name: "Peak Instant Full Cream Milk Tin 400 g",
+    name: "Air Wick Freshmatic Air Freshener Assorted 300ml",
     category: "Toiletries",
-    price: "₦6,450.00",
+    price: "₦3,125.00",
     image:
       "Air Fresheners & Fragrances/Air-Wick-Air-Freshener-Assorted-300-ml-Supermart-ng-2079.jpg",
   },
   {
-    name: "Peak Instant Full Cream Milk Tin 400 g",
+    name: "Air Wick Stick Up Aroma Gel Assorted 30g",
     category: "Toiletries",
-    price: "₦6,450.00",
+    price: "₦4,780.00",
     image:
       "Air Fresheners & Fragrances/Air-Wick-Air-Freshener-Stick-Up-Multi-Use-Aroma-Gel-Assorted-30-g-Supermart-ng-1317.jpg",
   },
   {
-    name: "Peak Instant Full Cream Milk Tin 400 g",
+    name: "Air Wick Stick Up Citrus Aroma Gel 30g",
     category: "Toiletries",
-    price: "₦6,450.00",
+    price: "₦2,950.00",
     image:
       "Air Fresheners & Fragrances/Air-Wick-Air-Freshener-Stick-Up-Multi-Use-Aroma-Gel-Citrus-30-g-Supermart-ng-4000.jpg",
   },
   {
-    name: "Peak Instant Full Cream Milk Tin 400 g",
+    name: "Air Wick Drummer Assorted 45g x6",
     category: "Toiletries",
-    price: "₦6,450.00",
+    price: "₦5,640.00",
     image:
       "Air Fresheners & Fragrances/Air-Wick-Drummer-Air-Freshener-Assorted-Fragrances-45-g-x6-Supermart-ng-9365.jpg",
   },
   {
-    name: "Peak Instant Full Cream Milk Tin 400 g",
+    name: "Air Wick Freshmatic Diffuser Refill Assorted 250ml",
     category: "Toiletries",
-    price: "₦6,450.00",
+    price: "₦3,890.00",
     image:
       "Air Fresheners & Fragrances/Air-Wick-Freshmatic-Diffuser-Refill-Assorted-250-ml-Supermart-ng-6930.jpg",
   },
   {
-    name: "Peak Instant Full Cream Milk Tin 400 g",
+    name: "Air Wick Freshmatic Max Refill Assorted 250ml",
     category: "Toiletries",
-    price: "₦6,450.00",
+    price: "₦3,890.00",
     image:
       "Air Fresheners & Fragrances/Air-Wick-Freshmatic-Max-Refill-Assorted-250-ml-Supermart-ng-7570.jpg",
   },
   {
-    name: "Peak Instant Full Cream Milk Tin 400 g",
+    name: "Glade Air Freshener Automatic Spray",
     category: "Toiletries",
-    price: "₦6,450.00",
+    price: "₦4,210.00",
     image:
       "Air Fresheners & Fragrances/spasho2022_5d9864c0-d12c-4662-ae10-12f3fb830386.jpg",
   },
   {
-    name: "Peak Instant Full Cream Milk Tin 400 g",
+    name: "Raid Air Freshener Tropical Mist",
     category: "Toiletries",
-    price: "₦6,450.00",
+    price: "₦5,120.00",
     image:
       "Air Fresheners & Fragrances/spasho420_cca82127-b059-4824-a8d7-48e2b76ca34f.jpg",
   },
   {
-    name: "Peak Instant Full Cream Milk Tin 400 g",
+    name: "Ambi Pur Car Air Freshener Ocean",
     category: "Toiletries",
-    price: "₦6,450.00",
+    price: "₦3,450.00",
     image:
       "Air Fresheners & Fragrances/spasho421_c652d445-5a45-4e75-b717-2bdaf3e35f58.jpg",
   },
   {
-    name: "Peak Instant Full Cream Milk Tin 400 g",
+    name: "Febreze Noticeables Air Freshener Meadow",
     category: "Toiletries",
-    price: "₦6,450.00",
+    price: "₦6,020.00",
     image: "Air Fresheners & Fragrances/spwxyz1494_2.jpg",
   },
 ];
@@ -414,7 +416,7 @@ const searchBox2 = document.querySelector(".search-inputs2");
 const searchBox = document.querySelector(".search-inputs");
 const inputText = document.querySelector("#hiddenContainer2");
 const searchedResultsContainer = document.querySelector(
-  ".hidden-results-container2"
+  ".hidden-results-container2",
 );
 const productContainer = document.querySelector(".all-products-container");
 
@@ -438,7 +440,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Filter with proper return statement
     const filteredItems = AllProducts.filter((eachProducts) =>
-      eachProducts.name.toLowerCase().includes(inputedItem)
+      eachProducts.name.toLowerCase().includes(inputedItem),
     );
 
     // Display filtered items with pagination
@@ -464,7 +466,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Filter with proper return statement
     const filteredItems = AllProducts.filter(
-      (eachProducts) => eachProducts.name.toLowerCase().includes(inputedItem)
+      (eachProducts) => eachProducts.name.toLowerCase().includes(inputedItem),
       // eachProducts.category.toLowerCase().includes(inputedItem)
     );
 
@@ -473,7 +475,7 @@ document.addEventListener("DOMContentLoaded", () => {
       filteredItems,
       inputedItem,
       searchedResultsContainer,
-      50
+      50,
     );
 
     // console.log({filteredItems});
@@ -484,7 +486,7 @@ document.addEventListener("DOMContentLoaded", () => {
     filteredItems,
     inputedItem,
     container,
-    imgWidth
+    imgWidth,
   ) {
     container.innerHTML = "";
     let displayedCount = 0;
@@ -498,7 +500,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const toDisplay = filteredItems.slice(
         displayedCount,
-        displayedCount + maxPerClick
+        displayedCount + maxPerClick,
       );
       toDisplay.forEach((item) => {
         const newDiv = document.createElement("div");
@@ -619,6 +621,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Search and Menu Toggle functionality ends here
 
   let currentProducts = [...AllProducts];
+  console.log({ currentProducts });
 
   const displayResult = document.querySelector(".results-display-text");
   displayResult.textContent = `Showing ${currentProducts.length}`;
@@ -651,10 +654,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     currentProducts = [...itemsToDisplay];
+    console.log({ currentProducts });
 
     currentProducts.forEach((products) => {
-      const productItem = eachProductContainer(products);
-      productContainer.appendChild(productItem);
+      eachProductContainer(products);
+      // productContainer.appendChild(productItem);
     });
 
     displayResult.textContent = `Showing ${currentProducts.length}`;
@@ -689,7 +693,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Use createProductItem for consistent rendering with full functionality
     sorted.forEach((products) => {
       const productItem = eachProductContainer(products);
-      productContainer.appendChild(productItem);
+      // productContainer.appendChild(productItem);
     });
 
     return sorted;
@@ -740,7 +744,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (heartIcon) {
       let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
       let existingIndex = wishlist.findIndex(
-        (item) => item.name === EachProductName
+        (item) => item.name === EachProductName,
       );
       if (existingIndex !== -1) {
         heartIcon.classList.add("fa-solid", "added-to-wishlist");
@@ -768,7 +772,7 @@ document.addEventListener("DOMContentLoaded", () => {
       productItemDiv,
       EachProductName,
       EachProductPrice,
-      EachProductImage
+      EachProductImage,
     );
   }
 
@@ -817,7 +821,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (heartIcon) {
         let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
         let existingIndex = wishlist.findIndex(
-          (item) => item.name === EachProductName
+          (item) => item.name === EachProductName,
         );
         if (existingIndex !== -1) {
           heartIcon.classList.add("fa-solid", "added-to-wishlist");
@@ -836,7 +840,7 @@ document.addEventListener("DOMContentLoaded", () => {
         productItemDiv,
         EachProductName,
         EachProductPrice,
-        EachProductImage
+        EachProductImage,
       );
 
       productContainer.appendChild(productItemDiv);
