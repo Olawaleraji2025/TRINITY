@@ -919,17 +919,20 @@ function loadWishlist() {
     wishlistContainer.appendChild(wishlistItem);
   });
 
-  // Add event delegation for wishlist buttons to prevent bubbling issues - use delegated event listener once
+  // Add event delegation for wishlist buttons including remove buttons
   if (!document.wishlistClickHandler) {
     document.wishlistClickHandler = function (e) {
-      if (e.target.matches(".wishlist-item .add-to-cart-btn")) {
+      if (e.target.closest(".wishlist-item .add-to-cart-btn")) {
         const btn = e.target.closest(".add-to-cart-btn");
         const name = btn.dataset.name;
         const price = btn.dataset.price;
         const image = btn.dataset.image;
         const index = parseInt(btn.dataset.index);
-        const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
         addToCartFromWishlist(name, price, image, index);
+      } else if (e.target.closest(".wishlist-item .remove-btn")) {
+        const btn = e.target.closest(".remove-btn");
+        const index = parseInt(btn.dataset.index);
+        removeFromWishlist(index);
       }
     };
     document.addEventListener("click", document.wishlistClickHandler);
@@ -1112,7 +1115,7 @@ function handleSearchResults(filteredItems, inputedItem, container, imgWidth) {
 
     const toDisplay = filteredItems.slice(
       displayedCount,
-      displayedCount + maxPerClick
+      displayedCount + maxPerClick,
     );
     toDisplay.forEach((item) => {
       const newDiv = document.createElement("div");
@@ -1181,7 +1184,7 @@ searchBox.addEventListener("input", (e) => {
 
   // Filter with proper return statement
   const filteredItems = AllProducts.filter((eachProducts) =>
-    eachProducts.name.toLowerCase().includes(inputedItem)
+    eachProducts.name.toLowerCase().includes(inputedItem),
   );
   // eachProducts.category.toLowerCase().includes(inputedItem)
 
@@ -1210,7 +1213,7 @@ searchBox2.addEventListener("input", (e) => {
 
   // Filter with proper return statement
   const filteredItems = AllProducts.filter(
-    (eachProducts) => eachProducts.name.toLowerCase().includes(inputedItem)
+    (eachProducts) => eachProducts.name.toLowerCase().includes(inputedItem),
     // eachProducts.category.toLowerCase().includes(inputedItem)
   );
 
