@@ -1,5 +1,68 @@
 "use strict";
 
+// const exoticWines = [
+//   {
+//     name: "4th Street Sweet Red Wine 75 cl",
+//     category: "Exotic Wines",
+//     price: "₦4,970.00",
+//     image: "RED WINES/4th-Street-Sweet-Red-Wine-75-cl-Supermart-ng-2542.jpg",
+//   },
+//   {
+//     name: "Four Cousins Natural Sweet Red Wine 75 cl",
+//     category: "Exotic Wines",
+//     price: "₦8,670.00",
+//     image: "RED WINES/mega202.jpg",
+//   },
+//   {
+//     name: "Baron Romero Spanish Red Wine 75 cl",
+//     category: "Exotic Wines",
+//     price: "₦4,475.00",
+//     image: "RED WINES/omkt062_69a1da56-14ce-4f57-b9bc-68739115e637.jpg",
+//   },
+//   {
+//     name: "Castillo De Espana Tempranillo Garnacha 75 cl",
+//     category: "Exotic Wines",
+//     price: "₦6,300.00",
+//     image: "RED WINES/spwiow187.webp",
+//   },
+//   {
+//     name: "Peak Instant Full Cream Milk Tin 400 g",
+//     category: "Exotic Wines",
+//     price: "₦6,450.00",
+//     image: "RED WINES/spwxyz1207.png",
+//   },
+//   {
+//     name: "Carlo Rossi Sweet Red Wine 75 cl",
+//     category: "Exotic Wines",
+//     price: "₦9,820.00",
+//     image: "RED WINES/spar0382_1fa6f695-bdd8-45d2-a242-b6b482f8aec1.jpg",
+//   },
+//   {
+//     name: "Castillo Grande Tempranillo Vino Tinto 75 cl",
+//     category: "Exotic Wines",
+//     price: "₦5,515.00",
+//     image: "RED WINES/sparxyz2166.jpg",
+//   },
+//   {
+//     name: "Carlo Rossi Wine Mixed Berry Flavour 75 cl",
+//     category: "Exotic Wines",
+//     price: "₦9,590.00",
+//     image: "RED WINES/sprnw1506.jpg",
+//   },
+//   {
+//     name: "Baron De Valls Vin Rouge 75 cl",
+//     category: "Exotic Wines",
+//     price: "₦4,475.00",
+//     image: "RED WINES/spwiiw40_baron-de-valls-vin-rouge.jpg",
+//   },
+//   {
+//     name: "Carlo Rossi California Red 75 cl",
+//     category: "Exotic Wines",
+//     price: "₦10,020.00",
+//     image: "RED WINES/spwiow170_carlo-rossi-california-red.jpg",
+//   },
+// ];
+
 const provisions = [
   {
     name: "McVitie's Hob Nobs 200 g",
@@ -198,69 +261,6 @@ const cosmetics = [
   },
 ];
 
-const exoticWines = [
-  {
-    name: "4th Street Sweet Red Wine 75 cl",
-    category: "Exotic Wines",
-    price: "₦4,970.00",
-    image: "RED WINES/4th-Street-Sweet-Red-Wine-75-cl-Supermart-ng-2542.jpg",
-  },
-  {
-    name: "Four Cousins Natural Sweet Red Wine 75 cl",
-    category: "Exotic Wines",
-    price: "₦8,670.00",
-    image: "RED WINES/mega202.jpg",
-  },
-  {
-    name: "Baron Romero Spanish Red Wine 75 cl",
-    category: "Exotic Wines",
-    price: "₦4,475.00",
-    image: "RED WINES/omkt062_69a1da56-14ce-4f57-b9bc-68739115e637.jpg",
-  },
-  {
-    name: "Castillo De Espana Tempranillo Garnacha 75 cl",
-    category: "Exotic Wines",
-    price: "₦6,300.00",
-    image: "RED WINES/spwiow187.webp",
-  },
-  {
-    name: "Peak Instant Full Cream Milk Tin 400 g",
-    category: "Exotic Wines",
-    price: "₦6,450.00",
-    image: "RED WINES/spwxyz1207.png",
-  },
-  {
-    name: "Carlo Rossi Sweet Red Wine 75 cl",
-    category: "Exotic Wines",
-    price: "₦9,820.00",
-    image: "RED WINES/spar0382_1fa6f695-bdd8-45d2-a242-b6b482f8aec1.jpg",
-  },
-  {
-    name: "Castillo Grande Tempranillo Vino Tinto 75 cl",
-    category: "Exotic Wines",
-    price: "₦5,515.00",
-    image: "RED WINES/sparxyz2166.jpg",
-  },
-  {
-    name: "Carlo Rossi Wine Mixed Berry Flavour 75 cl",
-    category: "Exotic Wines",
-    price: "₦9,590.00",
-    image: "RED WINES/sprnw1506.jpg",
-  },
-  {
-    name: "Baron De Valls Vin Rouge 75 cl",
-    category: "Exotic Wines",
-    price: "₦4,475.00",
-    image: "RED WINES/spwiiw40_baron-de-valls-vin-rouge.jpg",
-  },
-  {
-    name: "Carlo Rossi California Red 75 cl",
-    category: "Exotic Wines",
-    price: "₦10,020.00",
-    image: "RED WINES/spwiow170_carlo-rossi-california-red.jpg",
-  },
-];
-
 const toiletries = [
   {
     name: "Air Wick Freshmatic Air Freshener Assorted 300ml",
@@ -333,76 +333,7 @@ const toiletries = [
   },
 ];
 
-const beverages = [
-  {
-    name: "4th Street Sweet Red Wine 75 cl",
-    category: "Exotic Wines",
-    price: "₦4,970.00",
-    image: "RED WINES/4th-Street-Sweet-Red-Wine-75-cl-Supermart-ng-2542.jpg",
-  },
-  {
-    name: "Four Cousins Natural Sweet Red Wine 75 cl",
-    category: "Exotic Wines",
-    price: "₦8,670.00",
-    image: "RED WINES/mega202.jpg",
-  },
-  {
-    name: "Baron Romero Spanish Red Wine 75 cl",
-    category: "Exotic Wines",
-    price: "₦4,475.00",
-    image: "RED WINES/omkt062_69a1da56-14ce-4f57-b9bc-68739115e637.jpg",
-  },
-  {
-    name: "Castillo De Espana Tempranillo Garnacha 75 cl",
-    category: "Exotic Wines",
-    price: "₦6,300.00",
-    image: "RED WINES/spwiow187.webp",
-  },
-  {
-    name: "Peak Instant Full Cream Milk Tin 400 g",
-    category: "Exotic Wines",
-    price: "₦6,450.00",
-    image: "RED WINES/spwxyz1207.png",
-  },
-  {
-    name: "Carlo Rossi Sweet Red Wine 75 cl",
-    category: "Exotic Wines",
-    price: "₦9,820.00",
-    image: "RED WINES/spar0382_1fa6f695-bdd8-45d2-a242-b6b482f8aec1.jpg",
-  },
-  {
-    name: "Castillo Grande Tempranillo Vino Tinto 75 cl",
-    category: "Exotic Wines",
-    price: "₦5,515.00",
-    image: "RED WINES/sparxyz2166.jpg",
-  },
-  {
-    name: "Carlo Rossi Wine Mixed Berry Flavour 75 cl",
-    category: "Exotic Wines",
-    price: "₦9,590.00",
-    image: "RED WINES/sprnw1506.jpg",
-  },
-  {
-    name: "Baron De Valls Vin Rouge 75 cl",
-    category: "Exotic Wines",
-    price: "₦4,475.00",
-    image: "RED WINES/spwiiw40_baron-de-valls-vin-rouge.jpg",
-  },
-  {
-    name: "Carlo Rossi California Red 75 cl",
-    category: "Exotic Wines",
-    price: "₦10,020.00",
-    image: "RED WINES/spwiow170_carlo-rossi-california-red.jpg",
-  },
-];
-
-const AllProducts = [
-  ...provisions,
-  ...cosmetics,
-  ...exoticWines,
-  ...toiletries,
-  ...beverages,
-];
+const AllProducts = [...provisions, ...cosmetics, ...toiletries];
 
 // DOM Elements
 const searchIcon = document.querySelector(".search-icon");
@@ -548,7 +479,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       container.innerHTML = `<div class="no-result-container" >
       <div class="no-result-image">
-      <img src="search.png" alt="no-result-image">
+      <img src="Homepage/search.png" alt="no-result-image">
       </div>
       <div class="no-results-container"> <p>Oops! We couldn't find <span class="searchedItem">${inputedItem}</span> </p></div>
       </div>`;
@@ -556,16 +487,16 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Display the hidden categories when the Categories nav element is clicked in Large screen size
-  let isOpen = false;
-  categoryDiv.addEventListener("click", () => {
-    isOpen = !isOpen;
+  // let isOpen = false;
+  // categoryDiv.addEventListener("click", () => {
+  //   isOpen = !isOpen;
 
-    if (isOpen) {
-      hiddenCategories.classList.add("active");
-    } else {
-      hiddenCategories.classList.remove("active");
-    }
-  });
+  //   if (isOpen) {
+  //     hiddenCategories.classList.add("active");
+  //   } else {
+  //     hiddenCategories.classList.remove("active");
+  //   }
+  // });
 
   // Function to update cart count
   function updateCartCount() {
@@ -624,7 +555,7 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log({ currentProducts });
 
   const displayResult = document.querySelector(".results-display-text");
-  displayResult.textContent = `Showing ${currentProducts.length}`;
+  displayResult.textContent = `Showing ${currentProducts.length} results`;
 
   document.querySelector(".filter").addEventListener("change", (e) => {
     const op = e.target.value;
@@ -645,7 +576,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function filterItems(item) {
     let itemsToDisplay;
 
-    if (item === "all") {
+    if (item === "All") {
       itemsToDisplay = AllProducts;
     } else {
       itemsToDisplay = AllProducts.filter((product) => {
@@ -951,7 +882,7 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.innerHTML = `
     <div class="cart-modal-content">
       <div class="cart-modal-header">
-        <img src="check.png" class="cart-modal-icon" alt="Success Icon">
+        <img src="Homepage/check.png" class="cart-modal-icon" alt="Success Icon">
         <p class="cart-modal-message">Successfully added to cart</p>
       </div>
       <div class="cart-modal-body">
@@ -1047,7 +978,7 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.innerHTML = `
     <div class="cart-modal-content">
       <div class="cart-modal-header">
-        <img src="${imageIcon}" class="cart-modal-icon" alt="Success Icon">
+        <img src="Homepage/${imageIcon}" class="cart-modal-icon" alt="Success Icon">
         <p class="cart-modal-message">${message}</p>
       </div>
       <div class="cart-modal-body">
