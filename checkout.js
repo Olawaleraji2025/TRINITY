@@ -573,17 +573,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // console.log({filteredItems});
   });
 
-  // Display the categories when clicked
-  let isOpen = false;
-  categoryDiv.addEventListener("click", () => {
-    isOpen = !isOpen;
 
-    if (isOpen) {
-      hiddenCategories.classList.add("active");
-    } else {
-      hiddenCategories.classList.remove("active");
-    }
-  });
 
   // Function to update cart count
   function updateCartCount() {

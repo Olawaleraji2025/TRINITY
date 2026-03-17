@@ -92,19 +92,6 @@ document.addEventListener("DOMContentLoaded", () => {
     hiddenClose.addEventListener("click", () => toggleMenu(false));
   }
 
-  // Display the categories when clicked
-  let isOpen = false;
-  if (categoryDiv) {
-    categoryDiv.addEventListener("click", () => {
-      isOpen = !isOpen;
-
-      if (isOpen) {
-        hiddenCategories.classList.add("active");
-      } else {
-        hiddenCategories.classList.remove("active");
-      }
-    });
-  }
 
   // Update cart count
   function updateCartCount() {

@@ -744,15 +744,4 @@ document.addEventListener("DOMContentLoaded", () => {
     hiddenClose.addEventListener("click", () => toggleMenu(false));
   }
 
-  // Display the categories when clicked
-  let isOpen = false;
-  categoryDiv.addEventListener("click", () => {
-    isOpen = !isOpen;
-
-    if (isOpen) {
-      hiddenCategories.classList.add("active");
-    } else {
-      hiddenCategories.classList.remove("active");
-    }
-  });
 });
