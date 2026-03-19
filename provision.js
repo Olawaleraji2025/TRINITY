@@ -1,7 +1,7 @@
 "use strict";
 
 // Array of provisions products
-const provisionsProducts = [
+const provisions = [
   {
     name: "McVitie's Hob Nobs 200 g",
     category: "Provisions",
@@ -330,13 +330,13 @@ const provisionsProducts = [
   {
     name: "Pringles Salt & Vinegar 165 g",
     category: "Provisions",
-    price: "₦4,015.00 ",
+    price: "₦4,015.00",
     image: "Potato & Plantain Chips/222.png",
   },
   {
     name: "McVitie's All Butter Shortbread 100 g",
     category: "Provisions",
-    price: "₦1,505.00                          ",
+    price: "₦1,505.00",
     image: "Biscuits & Wafers/spcsbs1440.jpg",
   },
   {
@@ -414,47 +414,707 @@ const provisionsProducts = [
   },
 ];
 
-// This is for the search icon
-
+// DOM Elements
 const searchIcon = document.querySelector(".search-icon");
-const searchBar = document.querySelector(".search-container");
-// const accountCreation = document.querySelector(".Account");
+const searchBar = document.querySelector(".modal-search");
+const headerNavBar = document.querySelector(".header-nav-bar");
+const closeIcon = document.querySelector(".close-menu");
+const menuBtn = document.querySelector(".menu");
+const hiddenMenu = document.querySelector(".mobile-menu");
+const hiddenClose = document.querySelector(".hidden-close");
+const searchBox2 = document.querySelector(".search-inputs2");
+const searchBox = document.querySelector(".search-inputs");
+const inputText = document.querySelector("#hiddenContainer2");
+const searchedResultsContainer = document.querySelector(
+  ".hidden-results-container2",
+);
+const productContainer = document.querySelector(".all-products-container");
 
-searchIcon.addEventListener("click", function () {
-  searchBar.style.display = "flex";
-  searchIcon.style.display = "none";
-  menuBtn.style.display = "flex";
-  hiddenMenu.style.display = "none";
-  hiddenClose.style.display = "none";
-});
+// Update cart count on page load
+document.addEventListener("DOMContentLoaded", () => {
+  updateCartCount();
+  displayAllItems();
+  showLoader();
 
-let closeIcon = document.querySelector(".close-menu");
-closeIcon.addEventListener("click", function () {
-  searchBar.style.display = "none";
-  searchIcon.style.display = "flex";
-  menuBtn.style.display = "flex";
-  hiddenMenu.style.display = "none";
-  hiddenClose.style.display = "none";
-});
+  // Search functionality for mobile screen
+  searchBox.addEventListener("input", (e) => {
+    const inputedItem = e.target.value.toLowerCase().trim();
 
-// This is for the menu icon
+    // Clear previous results
+    inputText.innerHTML = "";
 
-let menuBtn = document.querySelector(".menu");
-let hiddenMenu = document.querySelector(".mobile-menu");
-let hiddenClose = document.querySelector(".hidden-close");
+    // If search is empty, don't show anything
+    if (!inputedItem) {
+      return;
+    }
 
-menuBtn.addEventListener("click", function () {
-  menuBtn.style.display = "none";
-  hiddenClose.style.display = "block";
-  hiddenMenu.style.display = "block";
-  searchBar.style.display = "none";
-  searchIcon.style.display = "flex";
-});
+    // Filter with proper return statement
+    const filteredItems = provisions.filter((eachProducts) =>
+      eachProducts.name.toLowerCase().includes(inputedItem),
+    );
 
-hiddenClose.addEventListener("click", function () {
-  menuBtn.style.display = "flex";
-  hiddenMenu.style.display = "none";
-  hiddenClose.style.display = "none";
-  searchBar.style.display = "none";
-  searchIcon.style.display = "flex";
+    // Display filtered items with pagination
+    handleSearchResults(filteredItems, inputedItem, inputText, 90);
+  });
+
+  // Search Functionality for large screens
+  searchBox2.addEventListener("input", (e) => {
+    const inputedItem = e.target.value.toLowerCase().trim();
+
+    // Clear previous results
+    searchedResultsContainer.innerHTML = "";
+    if (searchBox2.value === "") {
+      searchedResultsContainer.style.display = "none";
+    } else {
+      searchedResultsContainer.style.display = "block";
+    }
+
+    // If search is empty, don't show anything
+    if (!inputedItem) {
+      return;
+    }
+
+    // Filter with proper return statement
+    const filteredItems = provisions.filter((eachProducts) =>
+      eachProducts.name.toLowerCase().includes(inputedItem),
+    );
+
+    // Display filtered items with pagination
+    handleSearchResults(
+      filteredItems,
+      inputedItem,
+      searchedResultsContainer,
+      50,
+    );
+  });
+
+  // Function to handle displaying search results in the searchedResultsContainer div Element
+  function handleSearchResults(
+    filteredItems,
+    inputedItem,
+    container,
+    imgWidth,
+  ) {
+    container.innerHTML = "";
+    let displayedCount = 0;
+    const maxPerClick = 5;
+    function displayMore() {
+      // Remove existing button to reposition it at the bottom
+      const existingBtn = container.querySelector(".show-more-btn");
+      if (existingBtn) {
+        existingBtn.remove();
+      }
+
+      const toDisplay = filteredItems.slice(
+        displayedCount,
+        displayedCount + maxPerClick,
+      );
+      toDisplay.forEach((item) => {
+        const newDiv = document.createElement("div");
+        newDiv.innerHTML = `
+        <div class="results-container">
+        <div>
+        <p>${item.name}</p>
+        <p style="font-weight: bold;" >${item.price}</p>
+        </div>
+        <div class="img-result-container" >
+        <img width="${imgWidth}px" src="${item.image}">
+        </div>
+        </div>
+        `;
+        const resultsContainer = newDiv.querySelector(".results-container");
+        resultsContainer.style.cursor = "pointer";
+        resultsContainer.addEventListener("click", () => {
+          localStorage.setItem("selectedProduct", JSON.stringify(item));
+          window.location.href = `product.html`;
+        });
+        container.appendChild(newDiv);
+      });
+      displayedCount += toDisplay.length;
+
+      if (displayedCount >= filteredItems.length) {
+        // No more items, no button
+      } else {
+        const showMoreBtn = document.createElement("button");
+        showMoreBtn.classList.add("show-more-btn");
+        if (displayedCount >= 10) {
+          showMoreBtn.textContent = `View All ${filteredItems.length} Results`;
+          showMoreBtn.onclick = () => {
+            window.location.href = "provision.html";
+          };
+        } else {
+          showMoreBtn.textContent = "Show More";
+          showMoreBtn.onclick = displayMore;
+        }
+        container.appendChild(showMoreBtn);
+      }
+    }
+
+    if (filteredItems.length > 0) {
+      displayMore();
+    } else {
+      container.innerHTML = `<div class="no-result-container" >
+      <div class="no-result-image">
+      <img src="Homepage/search.png" alt="no-result-image">
+      </div>
+      <div class="no-results-container"> <p>Oops! We couldn't find <span class="searchedItem">${inputedItem}</span> </p></div>
+      </div>`;
+    }
+  }
+
+  // Function to update cart count
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const cartCountElement = document.getElementById("cart-count");
+    if (cartCountElement) {
+      cartCountElement.textContent = totalItems;
+      cartCountElement.style.display = totalItems > 0 ? "block" : "none";
+    }
+  }
+
+  // Search and Menu Toggle functionality
+  function toggleSearchBar(show) {
+    if (show) {
+      searchBar.style.display = "block";
+      searchBar.classList.add("modal-show");
+      searchBar.classList.remove("modal-hidden");
+    } else {
+      searchBar.classList.remove("modal-show");
+      searchBar.classList.add("modal-hidden");
+    }
+  }
+
+  function toggleMenu(show) {
+    if (show) {
+      menuBtn.style.display = "none";
+      hiddenClose.style.display = "block";
+      hiddenMenu.style.display = "block";
+    } else {
+      menuBtn.style.display = "flex";
+      hiddenClose.style.display = "none";
+      hiddenMenu.style.display = "none";
+    }
+  }
+
+  if (searchIcon) {
+    searchIcon.addEventListener("click", () => toggleSearchBar(true));
+  }
+
+  if (closeIcon) {
+    closeIcon.addEventListener("click", () => toggleSearchBar(false));
+  }
+
+  if (menuBtn) {
+    menuBtn.addEventListener("click", () => toggleMenu(true));
+  }
+
+  if (hiddenClose) {
+    hiddenClose.addEventListener("click", () => toggleMenu(false));
+  }
+
+  let currentProducts = [...provisions];
+
+  const displayResult = document.querySelector(".results-display-text");
+  displayResult.textContent = `Showing ${currentProducts.length} results`;
+
+  document.querySelector(".filter").addEventListener("change", (e) => {
+    const op = e.target.value;
+    productContainer.innerHTML = "";
+
+    filterItems(op);
+    document.querySelector(".category-name-header").textContent = `${op}`;
+  });
+
+  document.querySelector(".sort").addEventListener("change", (e) => {
+    const s = e.target.value;
+    productContainer.innerHTML = "";
+
+    currentProducts = sortProducts(currentProducts, s);
+    displayResult.textContent = `Showing ${currentProducts.length}`;
+  });
+
+  function filterItems(item) {
+    let itemsToDisplay = provisions;
+
+    currentProducts = [...itemsToDisplay];
+
+    currentProducts.forEach((products) => {
+      eachProductContainer(products);
+    });
+
+    displayResult.textContent = `Showing ${currentProducts.length}`;
+  }
+
+  // This is to convert the units such as ₦,$ to strings so as not to affect the results
+  function parsePrice(priceStr) {
+    return parseFloat(priceStr.replace("₦", "").replace(",", ""));
+  }
+
+  // This function is to sort the items
+  function sortProducts(products, sortBy) {
+    const sorted = [...products];
+
+    switch (sortBy) {
+      case "price-low-high":
+        sorted.sort((a, b) => parsePrice(a.price) - parsePrice(b.price));
+        break;
+      case "price-high-low":
+        sorted.sort((a, b) => parsePrice(b.price) - parsePrice(a.price));
+        break;
+      case "name-a-z":
+        sorted.sort((a, b) => a.name.localeCompare(b.name));
+        break;
+      case "name-z-a":
+        sorted.sort((a, b) => b.name.localeCompare(a.name));
+        break;
+      default:
+        break;
+    }
+
+    // Use createProductItem for consistent rendering with full functionality
+    sorted.forEach((products) => {
+      const productItem = eachProductContainer(products);
+    });
+
+    return sorted;
+  }
+
+  // This function is to ease the filtered results based on the selected value by the user
+  function eachProductContainer(theResultsItem) {
+    const EachProductImage = theResultsItem.image;
+    const EachProductName = theResultsItem.name;
+    const EachProductPrice = theResultsItem.price;
+
+    const productItemDiv = document.createElement("div");
+    const productImageDiv = document.createElement("div");
+    const productName = document.createElement("div");
+    const productDetails = document.createElement("div");
+    const productIcons = document.createElement("div");
+
+    productItemDiv.classList.add("product-item");
+    productName.classList.add("product-name");
+    productImageDiv.classList.add("product-image");
+    productDetails.classList.add("product-details");
+    productIcons.classList.add("product-icons");
+
+    productImageDiv.innerHTML = `<img src="${EachProductImage}">`;
+    productName.innerHTML = `<p> ${EachProductName} </p>`;
+    productDetails.innerHTML = `
+    <p class="product-price"> ${EachProductPrice} </p>
+    <div class="quantity-controls" style="display: none;">
+      <button class="quantity-btn decrease">-</button>
+      <span class="quantity-display">1</span>
+      <button class="quantity-btn increase" >+</button>
+    </div>
+    <button class="add-to-cart-btn">Add to Cart<i class="fa-solid fa-cart-arrow-down"></i></button>
+  `;
+
+    const EachProductCategory = theResultsItem.category;
+    productIcons.innerHTML = `
+    <span class="wishlist-icon" data-name="${EachProductName}" data-price="${EachProductPrice}" data-image="${EachProductImage}">
+      <i class="fa-regular fa-heart"></i>
+    </span>
+    <span class="eye-icon" data-name="${EachProductName}" data-price="${EachProductPrice}" data-image="${EachProductImage}">
+      <i class="fa-regular fa-eye"></i>
+    </span>
+  `;
+
+    // Restore wishlist state
+    const heartIcon = productIcons.querySelector(".fa-heart");
+    if (heartIcon) {
+      let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+      let existingIndex = wishlist.findIndex(
+        (item) => item.name === EachProductName,
+      );
+      if (existingIndex !== -1) {
+        heartIcon.classList.add("fa-solid", "added-to-wishlist");
+        heartIcon.style.color = "red";
+      }
+    }
+
+    productItemDiv.setAttribute("data-name", EachProductName);
+    productItemDiv.setAttribute("data-price", EachProductPrice);
+    productItemDiv.setAttribute("data-image", EachProductImage);
+
+    productItemDiv.appendChild(productImageDiv);
+    productItemDiv.appendChild(productName);
+    productItemDiv.appendChild(productDetails);
+    productItemDiv.appendChild(productIcons);
+
+    productContainer.appendChild(productItemDiv);
+
+    // Attach add to cart behavior
+    attachAddToCartBehavior(
+      productItemDiv,
+      EachProductName,
+      EachProductPrice,
+      EachProductImage,
+    );
+  }
+
+  // This is to make sure all items are displayed when the page loads
+  function displayAllItems() {
+    provisions.map((products) => {
+      const EachProductImage = products.image;
+      const EachProductName = products.name;
+      const EachProductPrice = products.price;
+
+      const productItemDiv = document.createElement("div");
+      const productImageDiv = document.createElement("div");
+      const productName = document.createElement("div");
+      const productDetails = document.createElement("div");
+      const productIcons = document.createElement("div");
+
+      productItemDiv.classList.add("product-item");
+      productName.classList.add("product-name");
+      productImageDiv.classList.add("product-image");
+      productDetails.classList.add("product-details");
+      productIcons.classList.add("product-icons");
+
+      productImageDiv.innerHTML = `<img src="${EachProductImage}">`;
+      productName.innerHTML = `<p> ${EachProductName} </p>`;
+      productDetails.innerHTML = `
+      <p class="product-price"> ${EachProductPrice} </p>
+      <div class="quantity-controls" style="display: none;">
+        <button class="quantity-btn decrease">-</button>
+        <span class="quantity-display">1</span>
+        <button class="quantity-btn increase">+</button>
+      </div>
+      <button class="add-to-cart-btn">Add to Cart<i class="fa-solid fa-cart-arrow-down"></i></button>
+    `;
+
+      productIcons.innerHTML = `
+      <span class="wishlist-icon" data-name="${EachProductName}" data-price="${EachProductPrice}" data-image="${EachProductImage}">
+        <i class="fa-regular fa-heart"></i>
+      </span>
+      <span class="eye-icon" data-name="${EachProductName}" data-price="${EachProductPrice}" data-image="${EachProductImage}">
+        <i class="fa-regular fa-eye"></i>
+      </span>
+    `;
+
+      // Restore wishlist state
+      const heartIcon = productIcons.querySelector(".fa-heart");
+      if (heartIcon) {
+        let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+        let existingIndex = wishlist.findIndex(
+          (item) => item.name === EachProductName,
+        );
+        if (existingIndex !== -1) {
+          heartIcon.classList.add("fa-solid", "added-to-wishlist");
+          heartIcon.style.color = "red";
+        }
+      }
+
+      productItemDiv.appendChild(productImageDiv);
+      productItemDiv.appendChild(productName);
+      productItemDiv.appendChild(productDetails);
+      productItemDiv.appendChild(productIcons);
+
+      // Attach add to cart behavior
+      attachAddToCartBehavior(
+        productItemDiv,
+        EachProductName,
+        EachProductPrice,
+        EachProductImage,
+      );
+
+      productContainer.appendChild(productItemDiv);
+    });
+  }
+
+  // Function to attach add to cart behavior
+  function attachAddToCartBehavior(productItemDiv, name, price, image) {
+    updateProductUI(productItemDiv, name); // Set initial state
+
+    const addToCartBtn = productItemDiv.querySelector(".add-to-cart-btn");
+    const quantityControls = productItemDiv.querySelector(".quantity-controls");
+    const decreaseBtn = quantityControls.querySelector(".decrease");
+    const increaseBtn = quantityControls.querySelector(".increase");
+    const quantityDisplay = quantityControls.querySelector(".quantity-display");
+
+    addToCartBtn.addEventListener("click", () => {
+      showCartModal(name, price, image, 1);
+      // Add to cart with quantity 1
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      let existingIndex = cart.findIndex((item) => item.name === name);
+      if (existingIndex === -1) {
+        cart.push({ name, price, image, quantity: 1 });
+      } else {
+        cart[existingIndex].quantity = 1;
+      }
+      localStorage.setItem("cart", JSON.stringify(cart));
+      updateCartCount();
+      // Update UI
+      updateProductUI(productItemDiv, name);
+    });
+
+    decreaseBtn.addEventListener("click", () => {
+      let qty = parseInt(quantityDisplay.textContent);
+      if (qty > 1) {
+        qty--;
+        quantityDisplay.textContent = qty;
+        updateCartQuantity(name, qty);
+      } else {
+        removeFromCart(name);
+        updateProductUI(productItemDiv, name);
+      }
+    });
+
+    increaseBtn.addEventListener("click", () => {
+      let qty = parseInt(quantityDisplay.textContent);
+      qty++;
+      quantityDisplay.textContent = qty;
+      updateCartQuantity(name, qty);
+    });
+  }
+
+  // Function to update product UI based on cart i.e Add to cart button toggle
+  function updateProductUI(productItemDiv, name) {
+    const addToCartBtn = productItemDiv.querySelector(".add-to-cart-btn");
+    const quantityControls = productItemDiv.querySelector(".quantity-controls");
+    const quantityDisplay = quantityControls.querySelector(".quantity-display");
+    const qty = getCartQuantity(name);
+    if (qty > 0) {
+      addToCartBtn.style.display = "none";
+      quantityControls.style.display = "flex";
+      quantityDisplay.textContent = qty;
+    } else {
+      addToCartBtn.style.display = "flex";
+      quantityControls.style.display = "none";
+      quantityDisplay.textContent = "1";
+    }
+  }
+
+  // Function to get cart quantity for an item incase it has been added to the cart
+  function getCartQuantity(name) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let item = cart.find((item) => item.name === name);
+    return item ? item.quantity : 0;
+  }
+
+  // Function to show the modal
+  function showCartModal(name, price, image, quantity) {
+    // Get cart from localStorage
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Check if item already exists
+    let existingIndex = cart.findIndex((item) => item.name === name);
+    if (existingIndex !== -1) {
+      cart[existingIndex].quantity += parseInt(quantity);
+    } else {
+      cart.push({ name, price, image, quantity: parseInt(quantity) });
+    }
+
+    // Save cart
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    // Update cart count
+    updateCartCount();
+
+    // Parse price to number
+    const priceNum = parseFloat(price.replace(/[^0-9.-]+/g, ""));
+
+    // Create modal if not exists
+    let modal = document.querySelector(".cart-modal");
+    if (!modal) {
+      modal = document.createElement("div");
+      modal.classList.add("cart-modal");
+      document.body.appendChild(modal);
+    }
+
+    const subtotal = (priceNum * quantity).toFixed(2);
+    modal.innerHTML = `
+    <div class="cart-modal-content">
+      <div class="cart-modal-header">
+        <img src="Homepage/check.png" class="cart-modal-icon" alt="Success Icon">
+        <p class="cart-modal-message">Successfully added to cart</p>
+      </div>
+      <div class="cart-modal-body">
+        <div class="cart-item-details">
+        <div class="cart-image-container">
+        <img class="cart-item-image" src="${image}" alt="${name} Image">
+        </div>
+          <div class="cart-item-info">
+            <p class="cart-item-name">${name}</p>
+            <p class="cart-item-quantity">Quantity: ${quantity}</p>
+            <p class="cart-item-price">Price: ${price}</p>
+          </div>
+        </div>
+        <div class="cart-summary">
+          <p class="cart-subtotal">Subtotal: ₦${subtotal}</p>
+          <p class="cart-total-quantity">Total Items: ${quantity}</p>
+        </div>
+      </div>
+      <div class="cart-modal-footer">
+        <button class="view-cart-btn">View Cart & Checkout</button>
+        <button class="continue-shopping-btn">Continue Shopping</button>
+      </div>
+    </div>
+  `;
+
+    // Event listeners
+    modal.querySelector(".view-cart-btn").addEventListener("click", () => {
+      window.location.href = "cart.html";
+    });
+
+    modal
+      .querySelector(".continue-shopping-btn")
+      .addEventListener("click", () => {
+        modal.style.display = "none";
+      });
+
+    modal.style.display = "flex";
+
+    // Close modal after 3 seconds
+    setTimeout(() => {
+      modal.style.display = "none";
+    }, 2000);
+  }
+
+  // Wishlist functionality
+  function addToWishlist(name, price, image, heartIcon) {
+    // Get wishlist from localStorage
+    let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+    // Check if item already exists
+    let existingIndex = wishlist.findIndex((item) => item.name === name);
+    if (existingIndex === -1) {
+      // Add to wishlist
+      wishlist.push({ name, price, image });
+      localStorage.setItem("wishlist", JSON.stringify(wishlist));
+      // Update the UI
+      heartIcon.classList.add("fa-solid", "added-to-wishlist");
+      heartIcon.style.color = "red";
+      showWishlistModal(image, name, "added");
+    } else {
+      // Remove from wishlist
+      wishlist.splice(existingIndex, 1);
+      localStorage.setItem("wishlist", JSON.stringify(wishlist));
+      // Update the UI
+      heartIcon.classList.remove("fa-solid", "added-to-wishlist");
+      heartIcon.style.color = "";
+      showWishlistModal(image, name, "removed");
+    }
+  }
+
+  // Function to show wishlist modal
+  function showWishlistModal(image, name, status) {
+    let modal = document.querySelector(".cart-modal");
+    if (!modal) {
+      modal = document.createElement("div");
+      modal.classList.add("cart-modal");
+      document.body.appendChild(modal);
+    }
+
+    const message =
+      status === "added"
+        ? "Successfully added to wishlist"
+        : status === "removed"
+          ? "Successfully removed from wishlist"
+          : "Item already in wishlist";
+    const icon = status === "added" ? "✔" : status === "removed" ? "✖" : "ℹ";
+    const imageIcon =
+      status === "added"
+        ? "check.png"
+        : status === "removed"
+          ? "multiply.png"
+          : "multiply.png";
+
+    modal.innerHTML = `
+    <div class="cart-modal-content">
+      <div class="cart-modal-header">
+        <img src="Homepage/${imageIcon}" class="cart-modal-icon" alt="Success Icon">
+        <p class="cart-modal-message">${message}</p>
+      </div>
+      <div class="cart-modal-body">
+      <img class="cart-item-image" src="${image}" alt="${name} Image">
+        <p class="wishlist-item-name">${name}</p>
+      </div>
+      <div class="cart-modal-footer">
+        <button class="view-wishlist-btn" onclick="window.location.href='wishlist.html'">View Wishlist</button>
+        <button class="continue-shopping-btn" onclick="this.parentElement.parentElement.parentElement.style.display='none'">Continue Shopping</button>
+      </div>
+    </div>
+  `;
+
+    modal.style.display = "flex";
+
+    // Close modal after 3 seconds
+    setTimeout(() => {
+      modal.style.display = "none";
+    }, 2000);
+  }
+
+  // Function to remove from cart
+  function removeFromCart(name) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart = cart.filter((item) => item.name !== name);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartCount();
+  }
+
+  // Function to update cart quantity
+  function updateCartQuantity(name, newQuantity) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let existingIndex = cart.findIndex((item) => item.name === name);
+    if (existingIndex !== -1) {
+      cart[existingIndex].quantity = newQuantity;
+      localStorage.setItem("cart", JSON.stringify(cart));
+      updateCartCount();
+    }
+  }
+
+  // Function to handle viewing product page
+  function viewProductPage(name, price, image, category) {
+    const productDetails = { name, price, image, category };
+    localStorage.setItem("selectedProduct", JSON.stringify(productDetails));
+
+    window.location.href = "product.html";
+  }
+
+  function showLoader() {
+    const loader = document.getElementById("loader");
+    if (loader) {
+      loader.style.display = "flex";
+      document.body.classList.add("active");
+    }
+  }
+
+  function hideLoader() {
+    const loader = document.getElementById("loader");
+    if (loader) {
+      setTimeout(function () {
+        loader.style.display = "none";
+        document.body.classList.remove("active");
+      }, 3000);
+    }
+  }
+
+  hideLoader();
+
+  // Function to handle product item clicks (wishlist/eye icons)
+  function handleProductClick(e) {
+    const wishlistIcon = e.target.closest(".wishlist-icon");
+    if (wishlistIcon) {
+      const icon = wishlistIcon.querySelector("i.fa-heart");
+      const name = wishlistIcon.dataset.name;
+      const price = wishlistIcon.dataset.price;
+      const image = wishlistIcon.dataset.image;
+      addToWishlist(name, price, image, icon);
+      return;
+    }
+
+    const eyeIcon = e.target.closest(".eye-icon");
+    if (eyeIcon) {
+      const name = eyeIcon.dataset.name;
+      const price = eyeIcon.dataset.price;
+      const image = eyeIcon.dataset.image;
+      viewProductPage(name, price, image);
+    }
+  }
+
+  // Event delegation for wishlist and eye icons
+  if (productContainer) {
+    productContainer.addEventListener("click", handleProductClick);
+  }
 });

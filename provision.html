@@ -1,882 +1,147 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap&text=searchpersonshopping_cartmenuclosearrow_forward_iosarrow_back_ios" />
-         <link rel="stylesheet" href="provision.css">
-    <title>Provisions</title>
-</head>
-<body>
-    <header id="Up">
-        
-        <nav>
-          <div class="container nav-container"> 
-            <a href="index.html" class="logo-link">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
-              <img src="TRINITY LOGO.svg" alt="" class="logo-img">
-             
-            </a>
-  
-            <div class="nav-search">
-              <div class="search-block">
-                <input class="search-input" type="text" placeholder="Search for Products">
-              </div>
-            </div>
-  
-            <div class="nav-icons">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400&display=swap&text=searchpersonshopping_cartmenuclose"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    />
+
+    <title>Trinity Supermarket - Provisions</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="provision.css" />
+  </head>
+  <body id="Up" class="">
+    <!-- Loader -->
+    <div id="loader" class="loader">
+      <div class="loader-image">
+        <img src="Homepage/Frame 7.png" alt="" />
+      </div>
+    </div>
+
+    <header class="header-nav-bar">
+      <nav class="container nav-container">
+        <div class="image-container">
+          <a href="index.html" class="logo-link">
+            <img src="Homepage/Frame 7.png" alt="" class="logo-img" />
+          </a>
+        </div>
+        <div class="nav-links">
+          <div class="search-container">
+            <span class="hidden-search material-symbols-outlined">search</span>
+            <input
+              type="search"
+              placeholder="Search for Products"
+              class="search-inputs2"
+            />
+          </div>
+          <div class="hidden-results-container2" id="hiddenContainer"></div>
+        </div>
+        <div class="nav-section">
+          <div class="nav-icons">
+            <div class="search-container-icon">
               <span class="search-icon material-symbols-outlined">search</span>
-              
-              <a href="Create.html" class="account"><span class="Account material-symbols-outlined">person</span></a>
-
-
-              <a href="Create.html" class="hidden">Account</a>
-
-
-              <a href="cart.html" class="cart"><span class="material-symbols-outlined">shopping_cart</span></a>
-              
-              <a href="#" class="hidden">Cart</a>
-              <!-- <span class="close-menu material-symbols-outlined" style="display:none;">close</span> -->
+            </div>
+            <div class="whishlist-icon">
+              <a href="wishlist.html" class="whishlist whishlist-text"
+                ><span class="material-symbols-outlined"> favorite </span>
+                <span>Wishlist</span>
+              </a>
+            </div>
+            <!-- Cart Container -->
+            <div class="cart-container">
+              <a href="cart.html" class="cart"
+                ><span class="material-symbols-outlined">shopping_cart</span
+                ><span id="cart-count" class="cart-count">0</span>
+              </a>
+              <span class="cart-text">Cart</span>
+            </div>
+            <div class="menu-close-icon">
               <span class="menu material-symbols-outlined">menu</span>
-              
               <span class="hidden-close material-symbols-outlined">close</span>
             </div>
-          </div>
-
-          
-            <div class="search-container">
-              <span class="hidden-search material-symbols-outlined">search</span>
-              
-              <input type="text" placeholder="Search for Products" class="search-input">
-              
-              <span class="close-menu material-symbols-outlined">close</span>
-            </div>
-          </div>
-        </nav>
-
-        <nav>
-          
-          
             <div class="mobile-menu">
-              <!-- <div class="cancel-icon">
-                
-              </div> -->
-              
               <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#categories-section">Categories</a></li>
-                <li><a href="#">Shop</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="wishlist.html">Wishlist</a></li>
               </ul>
-          </div>
-        </nav>
-      </header>
-        <main>
-            <section class="provisions-section">
-            <div class="container provisions-container">
-                
-               
-                <!-- Add more provision items as needed -->
-                </div>
             </div>
-            </section>
+          </div>
+        </div>
+      </nav>
+      <!-- This is for modal search -->
+      <div class="modal-search">
+        <div class="close-container">
+          <span class="close-menu material-symbols-outlined">close</span>
+        </div>
+        <div class="search-message">
+          <p>What are you searching for?</p>
+        </div>
+        <div class="search-container">
+          <span class="hidden-search material-symbols-outlined">search</span>
+          <input
+            type="search"
+            placeholder="Search for Products"
+            class="search-inputs"
+          />
+        </div>
+        <div class="hidden-results-container" id="hiddenContainer2"></div>
+      </div>
+    </header>
 
-        </main>
+    <section class="breadcrumb-section">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span><i class="material-symbols-outlined">chevron_right</i></span>
+        <span>Provisions</span>
+      </div>
+    </section>
 
-        <section>
-            <div class="container filter-container">
-                <div class="filter-header">
-                    <p id="all-items">All</p>
-                    <p>Cereals</p>
-                    <p>Biscuits</p>
-                    <p>Chocolates</p>
-                    <p>Custards</p>
-                    <p>Spreads</p>
-                    <p>Sugars</p>
-                    <p>Sweets and gums</p>
-                    <!-- <span class="close-filter material-symbols-outlined">close</span> -->
-                </div>
-            </div>
-        </section>
+    <section>
+      <div class="shop-header-container">
+        <div class="category-name">
+          <h5 class="category-name-header">Provisions</h5>
+        </div>
 
-        <section>
-                <div class="filter-options">
-                    <div class="filter-option">
-                        <div class="product-item">
-                         <div class="product-image"> <img src="Biscuits & Wafers/dbk2998.jpg" alt="">
-                         </div>
-                            <p class="product-name">McVitie's Hob Nobs 200 g</p>
-                            <div class="product-details">
-                              <p class="product-price">₦1,560.00</p>
-                              <button class="add-to-cart-btn">Add to Cart</button>
-                            </div>
-                          </div>
-                    </div>
-                    
-                    <div class="filter-option">
-                        <div class="product-item">
-                       <div class="product-image">     <img src="Sweets & Chewing Gum/Alpenliebe-Milk-Filled-Caramel-Candy-x88-Supermart-ng-1909.jpg" alt="">
-                       </div>
-                            <p class="product-name">Alpenliebe Milk Filled Caramel Candy x88</p>
-                            <div class="product-details">
-                              <p class="product-price">₦2,410.00</p>
-                              <button class="add-to-cart-btn">Add to Cart</button>
-                            </div>
-                          </div>
-                    </div>
-                    <div class="filter-option">
-                        <div class="product-item">
-                 <div class="product-image">           <img src="Jams & Spreads/spcsjm1784.webp" alt="">
-                 </div>
-                            <p class="product-name">Geurts Marmalade Orange 450 g</p>
-                            <div class="product-details">
-                              <p class="product-price">₦4,445.00</p>
-                              <button class="add-to-cart-btn">Add to Cart</button>
-                            </div>
-                          </div>
-                    </div>
-                    <div class="filter-option">
-                        <div class="product-item">
-                 <div class="product-image">           <img src="BREAKFAST CEREALS/1490789939327_spxspy758_checkers_custard_powder_vanilla_sachet_400_g-min.jpg" alt="">
-                 </div>
-                            <p class="product-name">Checkers Custard Powder Vanilla 1 kg</p>
-                            <div class="product-details">
-                              <p class="product-price">₦2,240.00</p>
-                              <button class="add-to-cart-btn">Add to Cart</button>
-                            </div>
-                          </div>
-                    </div>
-                    <div class="filter-option">
-                        <div class="product-item">
-                <div class="product-image">            <img src="Chocolates/1486570613196_spcsch775_bounty_chocolate_57_g.jpg" alt="">
-                </div>
-                            <p class="product-name">Bounty Chocolate 57 g</p>
-                            <div class="product-details">
-                              <p class="product-price">₦1,570.00</p>
-                              <button class="add-to-cart-btn">Add to Cart</button>
-                            </div>
-                          </div>
-                    </div>
-                    <div class="filter-option">
-                        <div class="product-item">
-               <div class="product-image">             <img src="SUGAR AND SWEETENERS/1516643468047_spx350_sunola_sugar_cubes_474_g_90_pieces.jpg" alt="">
-               </div>
-                            <p class="product-name">Sunola Sugar Cubes 474 g x90</p>
-                            <div class="product-details">
-                              <p class="product-price">₦1,040.00</p>
-                              <button class="add-to-cart-btn">Add to Cart</button>
-                            </div>
-                          </div>
-                    </div>
-                    <div class="filter-option">
-                        <div class="product-item">
-                  <div class="product-image">          <img src="Biscuits & Wafers/dbk2953.jpg" alt="">
-                  </div>
-                            <p class="product-name">McVitie fingers biscuit</p>
-                            <div class="product-details">
-                              <p class="product-price">₦200.00</p>
-                              <button class="add-to-cart-btn">Add to Cart</button>
-                            </div>
-                          </div>
-                    </div>
-                    <div class="filter-option">
-                        <div class="product-item">
-               <div class="product-image">             <img src="Sweets & Chewing Gum/spx02550.jpg" alt="">
-               </div>
-                            <p class="product-name">Chupa Chups Cotton Bubble Gum Tutti Frutti 11 g x20</p>
-                            <div class="product-details">
-                              <p class="product-price">₦340.00</p>
-                              <button class="add-to-cart-btn">Add to Cart</button>
-                            </div>
-                          </div>
-                    </div>
-                    <div class="filter-option">
-                        <div class="product-item">
-              <div class="product-image">              <img src="SUGAR AND SWEETENERS/spxabc238.jpg" alt="">
-              </div>
-                            <p class="product-name">Rowse Honey Glass Jar 340 g</p>
-                            <div class="product-details">
-                              <p class="product-price">₦5,250.00</p>
-                              <button class="add-to-cart-btn">Add to Cart</button>
-                            </div>
-                          </div>
-                    </div>
-                    <div class="filter-option">
-                        <div class="product-item">
-                 <div class="product-image">           <img src="Potato & Plantain Chips/sprnw1381_b9724a2b-24db-46bf-a7e5-95e57e1f617a.jpg" alt="">
-                 </div>
-                            <p class="product-name">Pringles Paprika 40 g</p>
-                            <div class="product-details">
-                              <p class="product-price">₦1,280.00</p>
-                              <button class="add-to-cart-btn">Add to Cart</button>
-                            </div>
-                          </div>
-                    </div>
-                    <div class="filter-option">
-                        <div class="product-item">
-                     <div class="product-image">       <img src="Custard & Jelly/sprnw1155.jpg" alt="">
-                     </div>
-                            <p class="product-name">Checkers Custard Powder Milk 3 in 1 Breakfast 700 g</p>
-                            <div class="product-details">
-                              <p class="product-price">₦3,335.00</p>
-                              <button class="add-to-cart-btn">Add to Cart</button>
-                            </div>
-                          </div>
-                    </div>
-                    <div class="filter-option">
-                        <div class="product-item">
-                 <div class="product-image">           <img src="Cocktail Snacks/spmex4362.jpg" alt="">
-                 </div>
-                            <p class="product-name">Blue Pearl Coloured Prawn Crackers 227 g</p>
-                            <div class="product-details">
-                              <p class="product-price">₦1,645.00</p>
-                              <button class="add-to-cart-btn">Add to Cart</button>
-                            </div>
-                          </div>
-                    </div>
-                    <div class="filter-option">
-                        <div class="product-item">
-                 <div class="product-image">           <img src="Chocolates/spcsch1086.png" alt="">
-                 </div>
-                            <p class="product-name">Snickers 50 g</p>
-                            <div class="product-details">
-                              <p class="product-price">₦1,425.00</p>
-                              <button class="add-to-cart-btn">Add to Cart</button>
-                            </div>
-                          </div>
-                    </div>
-                    <div class="filter-option">
-                        <div class="product-item">
-               <div class="product-image">             <img src="BREAKFAST CEREALS/spcgce762.jpg" alt="">
-               </div>
-                            <p class="product-name">Nasco Corn Flakes Original 350 g</p>
-                            <div class="product-details">
-                              <p class="product-price">₦2,800.00</p>
-                              <button class="add-to-cart-btn">Add to Cart</button>
-                            </div>
-                          </div>
-                    </div>
-                    <div class="filter-option">
-                        <div class="product-item">
-               <div class="product-image">             <img src="Biscuits & Wafers/sprnw1367.jpg" alt="">
-               </div>
-                            <p class="product-name">McVitie's HobNobs 40 g</p>
-                            <div class="product-details">
-                              <p class="product-price">₦345.00</p>
-                              <button class="add-to-cart-btn">Add to Cart</button>
-                            </div>
-                          </div>
-                    </div>
-                    <div class="filter-option">
-                        <div class="product-item">
-                 <div class="product-image">           <img src="Sweets & Chewing Gum/spasho2001_0dcc358f-4abc-4031-bad4-a1d721d8bd7c.jpg" alt="">
-                 </div>
-                            <p class="product-name">Mentos Pure Fresh Chewing Gum Tropical 87.5 g x50</p>
-                            <div class="product-details">
-                              <p class="product-price">₦3,385.00</p>
-                              <button class="add-to-cart-btn">Add to Cart</button>
-                            </div>
-                          </div>
-                    </div>
-                    <div class="filter-option">
-                        <div class="product-item">
-              <div class="product-image">              <img src="Potato & Plantain Chips/spcsas2203.jpg" alt="">
-              </div>
-                            <p class="product-name">Pringles Sour Cream & Onion 165 g</p>
-                            <div class="product-details">
-                              <p class="product-price">₦4,015.00</p>
-                              <button class="add-to-cart-btn">Add to Cart</button>
-                            </div>
-                          </div>
-                    </div>
-                    <div class="filter-option">
-                        <div class="product-item">
-               <div class="product-image">             <img src="Jams & Spreads/spxtyabc642.jpg" alt="">
-               </div>
-                            <p class="product-name">Nutzy Peanut Butter Creamy Smooth 510 g</p>
-                            <div class="product-details">
-                              <p class="product-price">₦3,560.00</p>
-                              <button class="add-to-cart-btn">Add to Cart</button>
-                            </div>
-                          </div>
-                    </div>
-                    <div class="filter-option">
-                        <div class="product-item">
-                <div class="product-image">            <img src="Custard & Jelly/spmex3602_cc963533-b2bf-4ef3-a697-02e1117b4fb0.jpg" alt="">
-                </div>
-                            <p class="product-name">Checkers Custard Powder 3 in 1 Milk Jar 1 kg</p>
-                            <div class="product-details">
-                              <p class="product-price">₦6,100.00</p>
-                              <button class="add-to-cart-btn">Add to Cart</button>
-                            </div>
-                          </div>
-                    </div>
-                    <div class="filter-option">
-                        <div class="product-item">
-                <div class="product-image">            <img src="Cocktail Snacks/1507734773140_okea2333_minimie_chin_chin_45_g.jpg" alt="">
-                </div>
-                            <p class="product-name">Minimie Chin Chin 45 g</p>
-                            <div class="product-details">
-                              <p class="product-price">₦150.00</p>
-                              <button class="add-to-cart-btn">Add to Cart</button>
-                            </div>
-                          </div>
-                    </div>
-                    
-                    
-                    
-                </div>
+        <div class="results-display">
+          <p class="results-display-text"></p>
+        </div>
 
-<!-- Second Container -->
-                <div class="second-container">
-                  <div class="filter-option">
-                    <div class="product-item">
-          <div class="product-image">              <img src="Chocolates/spcsch1009..jpg" alt="">
-          </div>
-                        <p class="product-name">Mars 50 g</p>
-                        <div class="product-details">
-                          <p class="product-price">₦1,425.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-            <div class="product-image">            <img src="BREAKFAST CEREALS/spcgce721.jpg" alt="">
-            </div>
-                        <p class="product-name">Kellogg's Fruit N Fibre 500 g</p>
-                        <div class="product-details">
-                          <p class="product-price">₦6,450.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-            <div class="product-image">            <img src="Biscuits & Wafers/spmex4236.jpg" alt="">
-            </div>
-                        <p class="product-name">McVitie's Dark Cookie Vanilla Flavoured Cream Biscuits 35 g</p>
-                        <div class="product-details">
-                          <p class="product-price">₦240.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-             <div class="product-image">           <img src="Sweets & Chewing Gum/spasho2000_42250687-318e-4c79-98e8-c0dd1e8c8f32.jpg" alt="">
-             </div>
-                        <p class="product-name">Mentos Pure Fresh Chewing Gum Strawberry 87.5 g x50</p>
-                        <div class="product-details">
-                          <p class="product-price">₦3,385.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-              <div class="product-image">          <img src="SUGAR AND SWEETENERS/oniru111_st-_louis_sugar_474_g_300x300_3a11d873-2a44-4fb3-82e9-fb986df46975.jpg" alt="">
-              </div>
-                        <p class="product-name">St. Louis Sugar Cubes 474 g x50</p>
-                        <div class="product-details">
-                          <p class="product-price">₦2,120.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-            <div class="product-image">            <img src="Potato & Plantain Chips/sparxyz1248.jpg" alt="">
-            </div>
-                        <p class="product-name">Pringles Texas BBQ Sauce 165 g</p>
-                        <div class="product-details">
-                          <p class="product-price">₦4,015.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-            <div class="product-image">            <img src="Jams & Spreads/spwiow652.jpg" alt="">
-            </div>
-                        <p class="product-name">Nutzy Peanut Butter Chocolate 510 g</p>
-                        <div class="product-details">
-                          <p class="product-price">₦5,590.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-           <div class="product-image">             <img src="Custard & Jelly/spmex3599_80c7da9d-29fb-49b7-9c0e-0ed1c7492de9.jpg" alt="">
-           </div>
-                        <p class="product-name">Checkers 3 in 1 Milk Custard Jar 400 g</p>
-                        <div class="product-details">
-                          <p class="product-price">₦2,995.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-          <div class="product-image">              <img src="Biscuits & Wafers/OkeA2266.png" alt="">
-          </div>
-                        <p class="product-name">Maryland Cookies Choc Chip & Hazelnut 145 g</p>
-                        <div class="product-details">
-                          <p class="product-price">₦6,450.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-         <div class="product-image">    <img src="BREAKFAST CEREALS/spar10837.jfif.jpg" alt="">
-         </div>
-                        <p class="product-name">Quaker Quick Old Fashioned Oats 1.19 kg</p>
-                        <div class="product-details">
-                          <p class="product-price">₦2,150.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-           <div class="product-image">             <img src="Custard & Jelly/spar10931.jpg" alt="">
-           </div>
-                        <p class="product-name">Checkers Banana Custard Powder Jar 400 g</p>
-                        <div class="product-details">
-                          <p class="product-price">₦1,435.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-            <div class="product-image">            <img src="Sweets & Chewing Gum/dbk3161.jpg" alt="">
-            </div>
-                        <p class="product-name">Mentos Chewy Dragees Mint 140 g</p>
-                        <div class="product-details">
-                          <p class="product-price">₦1,030.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-          <div class="product-image">              <img src="Potato & Plantain Chips/spcsas2196.jpg" alt="">
-          </div>
-                        <p class="product-name">Pringles Hot & Spicy 165 g</p>
-                        <div class="product-details">
-                          <p class="product-price">₦4,015.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-          <div class="product-image">              <img src="Biscuits & Wafers/omkt9020.jpg" alt="">
-          </div>
-                        <p class="product-name">Haansbro Noreos Chocolate Biscuit With Vanilla Cream 18 g x48</p>
-                        <div class="product-details">
-                          <p class="product-price">₦5,885.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-             <div class="product-image">           <img src="Biscuits & Wafers/spasho1685_4c4706da-da88-4b56-b705-b3e9f56db0fb.jpg" alt="">
-             </div>
-                        <p class="product-name">Pure Bliss Milk Cream Wafer 21 g</p>
-                        <div class="product-details">
-                          <p class="product-price">₦125.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-              <div class="product-image">          <img src="BREAKFAST CEREALS/sparb1063.jpg" alt="">
-              </div>
-                        <p class="product-name">Infinity Corn Flakes 350 g</p>
-                        <div class="product-details">
-                          <p class="product-price">₦2,015.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-               <div class="product-image">         <img src="Custard & Jelly/spmex3611_06b156d1-7b22-4a44-9037-df18495c8916.jpg" alt="">
-               </div>
-                        <p class="product-name">Checkers Custard Powder Vanilla Jar 1 kg</p>
-          
-                        <div class="product-details">
-                          <p class="product-price">₦3,635.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-           <div class="product-image">             <img src="Sweets & Chewing Gum/sparb1032_mentos_chewy_dragees_fruit_37-8_g.jpg" alt="">
-           </div>
-                        <p class="product-name">Mentos Chewy Dragees Fruit 37.8 g x14</p>
-                        <div class="product-details">
-                          <p class="product-price">₦385.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-            <div class="product-image">            <img src="Jams & Spreads/spx00689.jpg" alt="">
-            </div>
-                        <p class="product-name">Nutzy Peanut Butter Honey 510 g</p>
-                        <div class="product-details">
-                          <p class="product-price">₦3,685.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-             <div class="product-image">           <img src="SUGAR AND SWEETENERS/spcgsu827_33a590dc-e2ac-47d2-a3d9-da1e61476f70.jpg" alt="">
-             </div>
-                        <p class="product-name">Golden Penny White Granulated Sugar 500 g</p>
-                        <div class="product-details">
-                          <p class="product-price">₦1,225.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                </div>
-                
-                
-                
-                <!-- Third Container -->
-                
-                <div class="third-container">
-                  <div class="filter-option">
-                    <div class="product-item">
-          <div class="product-image">              <img src="BREAKFAST CEREALS/1498057279027_spxtyabc451_checkers_custard_powder_vanilla_400_g.jpg" alt="">
-          </div>
-                        <p class="product-name">Checkers Custard Powder Vanilla Jar 400 g</p>
-                        <div class="product-details">
-                          <p class="product-price">₦1,820.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-            <div class="product-image">            <img src="BREAKFAST CEREALS/dbk3968.jpg" alt="">
-            </div>
-                        <p class="product-name">Kellogg's Coco Pops 45 g</p>
-                        <div class="product-details">
-                          <p class="product-price">₦345.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-            <div class="product-image">            <img src="Biscuits & Wafers/dbk3042_5aa42565-de8d-4bef-8ef1-8fc37401494a.jpg" alt="">
-            </div>
-                        <p class="product-name">Pure Bliss Milk Cream Wafers 21 g x12</p>
-                        <div class="product-details">
-                          <p class="product-price">₦1,550.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-             <div class="product-image">           <img src="Sweets & Chewing Gum/Alpenliebe-Milk-Filled-Caramel-Flavour-Candy-36-g-Supermart-ng-5546.jpg" alt="">
-             </div>
-                        <p class="product-name">Alpenliebe Milk Filled Caramel Flavour Candy 36 g</p>
-                        <div class="product-details">
-                          <p class="product-price">₦305.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-              <div class="product-image">          <img src="Potato & Plantain Chips/1.webp" alt="">
-              </div>
-                        <p class="product-name">Pringles Original 40 g</p>
-                        <div class="product-details">
-                          <p class="product-price">₦1,900.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-            <div class="product-image">            <img src="BREAKFAST CEREALS/spcgce730.jpg" alt="">
-            </div>
-                        <p class="product-name">Kellogg's Rice Krispies 510 g</p>
-                        <div class="product-details">
-                          <p class="product-price">₦10,960.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-            <div class="product-image">            <img src="Jams & Spreads/spcssp2307_skippy-super-chunk-peanut-butter.jpg" alt="">
-            </div>
-                        <p class="product-name">Nutzy Peanut Butter Creamy Smooth 510 g</p>
-                        <div class="product-details">
-                          <p class="product-price">₦3,560.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-           <div class="product-image">             <img src="Custard & Jelly/spmex3597_5555e932-bacd-4ed8-893c-2bc9f1257aef.jpg" alt="">
-           </div>
-                        <p class="product-name">Checkers Custard Powder Banana Jar 1 kg</p>
-                        <div class="product-details">
-                          <p class="product-price">₦3,465.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-          <div class="product-image">              <img src="Biscuits & Wafers/spcsbs1434.jpg" alt="">
-          </div>
-                        <p class="product-name">McVitie's Digestive 104 g</p>
-                        <div class="product-details">
-                          <p class="product-price">₦640.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-         <div class="product-image">    <img src="BREAKFAST CEREALS/dbk3973.jpg" alt="">
-         </div>
-                        <p class="product-name">Kellogg's Corn Flakes 325 g</p>
-                        <div class="product-details">
-                          <p class="product-price">₦3,070.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-           <div class="product-image">             <img src="Cocktail Snacks/1481212361119_spxtyabc019_minimie_chin_chin_snack_jar_900_g-min.jpg" alt="">
-           </div>
-                        <p class="product-name">Minimie Chin Chin Snack Jar 900 g</p>
-                        <div class="product-details">
-                          <p class="product-price">₦3,965.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-            <div class="product-image">            <img src="Sweets & Chewing Gum/aspar093.jpg" alt="">
-            </div>
-            <p class="product-name">Micks Centre Filled Eclairs With Choco Centre Jar 500 g</p>
-            <div class="product-details">
-              <p class="product-price">₦3,350.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-          <div class="product-image">              <img src="Potato & Plantain Chips/222.png" alt="">
-          </div>
-                        <p class="product-name">Pringles Salt & Vinegar 165 g</p>
-                        <div class="product-details">
-                          <p class="product-price">₦4,015.00 </p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-          <div class="product-image">              <img src="Biscuits & Wafers/spcsbs1440.jpg" alt="">
-          </div>
-                        <p class="product-name">McVitie's All Butter Shortbread 100 g</p>
-                        <div class="product-details">
-                          <p class="product-price">₦1,505.00                          </p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-             <div class="product-image">           <img src="Biscuits & Wafers/sprnw1364.jpg" alt="">
-             </div>
-                        <p class="product-name">McVitie's Digestive 52 g</p>
-                        <div class="product-details">
-                          <p class="product-price">₦280.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-              <div class="product-image">          <img src="BREAKFAST CEREALS/dbk3981.jpg" alt="">
-              </div>
-                        <p class="product-name">Kellogg's Corn Flakes 325 g</p>
-                        <div class="product-details">
-                          <p class="product-price">₦3,070.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-               <div class="product-image">         <img src="BREAKFAST CEREALS/sparxyz744.jpg" alt="">
-               </div>
-                        <p class="product-name">Nestle Golden Morn Maize & Soya 800 g</p>
-                        <div class="product-details">
-                          <p class="product-price">₦5,120.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-           <div class="product-image">             <img src="Sweets & Chewing Gum/spar4322.png" alt="">
-           </div>
-                        <p class="product-name">Clorets Chewing Gum Original Mint x10</p>
-                        <div class="product-details">
-                          <p class="product-price">₦6,450.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-            <div class="product-image">            <img src="Jams & Spreads/spmex3624_55f8d5f7-abf6-4481-8753-55a1bf84d161.jpg" alt="">
-            </div>
-                        <p class="product-name">Blue Pearl Jam Strawberry 450 g</p>
-                        <div class="product-details">
-                          <p class="product-price">₦3,105.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-             <div class="product-image">           <img src="BREAKFAST CEREALS/spcgce785.jpg" alt="">
-             </div>
-                        <p class="product-name">Quaker White Oats Tin 420 g</p>
-                        <div class="product-details">
-                          <p class="product-price">₦3,735.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                </div>
-                
-                
-                <!-- fourth container -->
-                
-             <div class="fourth-container">
-                  <div class="filter-option">
-                    <div class="product-item">
-              <div class="product-image">              <img src="BREAKFAST CEREALS/spmex3544.jpg" alt="">
-             </div>
-                        <p class="product-name">Kellogg's Go Grains Sachet 900 g</p>
-                        <div class="product-details">
-                          <p class="product-price">₦4,190.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                
-                
-                <div class="filter-option">
-                    <div class="product-item">
-             <div class="product-image">           <img src="Sweets & Chewing Gum/sparb1033_mentos_chewy_dragees_mint_37-8_g_300x300_b33d713f-c004-42eb-80a1-bb2af38581d1.jpg" alt="">
-             </div>
-                        <p class="product-name">Mentos Chewy Dragees Mint 37.8 g</p>
-                        <div class="product-details">
-                          <p class="product-price">₦385.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-              <div class="product-image">          <img src="BREAKFAST CEREALS/spmt064.png" alt="">
-              </div>
-                        <p class="product-name">Kellogg's Coco Pops Box 375 g</p>
-                        <div class="product-details">
-                          <p class="product-price">₦3,550.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-            <div class="product-image">            <img src="BREAKFAST CEREALS/spmzz1052..jpg" alt="">
-            </div>
-                        <p class="product-name">Kellogg's Corn Flakes Sachet 32 g (NG) x8</p>
-                        <div class="product-details">
-                          <p class="product-price">₦1,650.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-            <div class="product-image">            <img src="BREAKFAST CEREALS/spx00632.jpg" alt="">
-            </div>
-                        <p class="product-name">Kellogg's Corn Flakes 550 g (UK)</p>
-                        <div class="product-details">
-                          <p class="product-price">₦7,950.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                <div class="filter-option">
-                    <div class="product-item">
-           <div class="product-image">             <img src="BREAKFAST CEREALS/spxspy757.jpg" alt="">
-           </div>
-                        <p class="product-name">Checkers Custard Powder Vanilla 2 kg</p>
-                        <div class="product-details">
-                          <p class="product-price">₦5,525.00</p>
-                          <button class="add-to-cart-btn">Add to Cart</button>
-                        </div>
-                      </div>
-                </div>
-                
-                 
-             </div>
-        </section>
-        
-<section class="pagination-container">
-    <div class="pagination">
-        <button class="prev-page"><span class="back material-symbols-outlined">
-            arrow_back_ios
-            </span></button>
-        <span class="page-number1">1</span>
-        <span class="page-number2">2</span>
-        <span class="page-number3">3</span>
-        <span class="page-number4">4</span>
-        <!-- <span class="page-number5">5</span> -->
-        <button class="next-page"><span class="forward material-symbols-outlined">
-            arrow_forward_ios
-            </span></button>
-    </div>
-</section>
+        <div class="sort-container">
+          <select id="sort-select" class="sort">
+            <option value="default">Sort by: Default</option>
+            <option value="price-low-high">Price: Low to High</option>
+            <option value="price-high-low">Price: High to Low</option>
+            <option value="name-a-z">Name: A to Z</option>
+            <option value="name-z-a">Name: Z to A</option>
+          </select>
+          <select id="filter-select" class="filter">
+            <option value="All">Filter by: All</option>
+            <option value="Provisions" selected>Provisions</option>
+          </select>
+        </div>
+      </div>
+    </section>
 
+    <section class="all-products">
+      <div class="all-products-container" id="allProductsContainer">
+        <!-- Products will be dynamically inserted here -->
+      </div>
+    </section>
 
-
-            <script src="provision.js"></script>
-</body>
+    <script src="provision.js"></script>
+  </body>
 </html>
