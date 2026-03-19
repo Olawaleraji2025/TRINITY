@@ -1,111 +1,75 @@
 "use strict";
 
-// Array of cosmetics products
-const cosmeticsProducts = [
+// Array of toiletries products
+const toiletriesProducts = [
   {
-    name: "SPMT Moisturiser 1003",
-    category: "Cosmetics",
-    price: "₦6,450.00",
-    image: "Moisturisers & Lotions/Spmt1003.jpg",
-  },
-  {
-    name: "SPMT Moisturiser 520",
-    category: "Cosmetics",
-    price: "₦6,450.00",
-    image: "Moisturisers & Lotions/Spmt520.jpg",
-  },
-  {
-    name: "SPMT Moisturiser 974",
-    category: "Cosmetics",
-    price: "₦6,450.00",
-    image: "Moisturisers & Lotions/Spmt974.jpg",
-  },
-  {
-    name: "Aspar Moisturiser 050",
-    category: "Cosmetics",
-    price: "₦6,450.00",
-    image: "Moisturisers & Lotions/aspar050.jpg",
-  },
-  {
-    name: "DBK Moisturiser 4324",
-    category: "Cosmetics",
-    price: "₦6,450.00",
-    image: "Moisturisers & Lotions/dbk4324.jpg",
-  },
-  {
-    name: "SPASHO Moisturiser 1467",
-    category: "Cosmetics",
-    price: "₦6,450.00",
+    name: "Air Wick Freshmatic Air Freshener Assorted 300ml",
+    category: "Toiletries",
+    price: "₦3,125.00",
     image:
-      "Moisturisers & Lotions/spasho1467_1ccfda31-5388-4f55-a6f0-861d8e2240e8.jpg",
+      "Air Fresheners & Fragrances/Air-Wick-Air-Freshener-Assorted-300-ml-Supermart-ng-2079.jpg",
   },
   {
-    name: "SPASHO Moisturiser 2096",
-    category: "Cosmetics",
-    price: "₦6,450.00",
+    name: "Air Wick Stick Up Aroma Gel Assorted 30g",
+    category: "Toiletries",
+    price: "₦4,780.00",
     image:
-      "Moisturisers & Lotions/spasho2096_deb48546-c084-4d32-a132-c5178c2471d9.jpg",
+      "Air Fresheners & Fragrances/Air-Wick-Air-Freshener-Stick-Up-Multi-Use-Aroma-Gel-Assorted-30-g-Supermart-ng-1317.jpg",
   },
   {
-    name: "SPASHO Moisturiser 2097",
-    category: "Cosmetics",
-    price: "₦6,450.00",
+    name: "Air Wick Stick Up Citrus Aroma Gel 30g",
+    category: "Toiletries",
+    price: "₦2,950.00",
     image:
-      "Moisturisers & Lotions/spasho2097_2475b5a8-535e-4ade-bad4-1b089a58848e.jpg",
+      "Air Fresheners & Fragrances/Air-Wick-Air-Freshener-Stick-Up-Multi-Use-Aroma-Gel-Citrus-30-g-Supermart-ng-4000.jpg",
   },
   {
-    name: "SPAZ Moisturiser 4",
-    category: "Cosmetics",
-    price: "₦6,450.00",
+    name: "Air Wick Drummer Assorted 45g x6",
+    category: "Toiletries",
+    price: "₦5,640.00",
     image:
-      "Moisturisers & Lotions/spaz4_859e2b48-cda9-4143-9426-5999003beabd.jpg",
+      "Air Fresheners & Fragrances/Air-Wick-Drummer-Air-Freshener-Assorted-Fragrances-45-g-x6-Supermart-ng-9365.jpg",
   },
   {
-    name: "SPMZZ Moisturiser 1248",
-    category: "Cosmetics",
-    price: "₦6,450.00",
+    name: "Air Wick Freshmatic Diffuser Refill Assorted 250ml",
+    category: "Toiletries",
+    price: "₦3,890.00",
     image:
-      "Moisturisers & Lotions/spmzz1248_f196f1fb-53aa-4937-943e-d5518dfca133.jpg",
+      "Air Fresheners & Fragrances/Air-Wick-Freshmatic-Diffuser-Refill-Assorted-250-ml-Supermart-ng-6930.jpg",
   },
   {
-    name: "Vaseline Blue Seal Pure Petroleum Jelly 450ml",
-    category: "Cosmetics",
-    price: "₦6,450.00",
+    name: "Air Wick Freshmatic Max Refill Assorted 250ml",
+    category: "Toiletries",
+    price: "₦3,890.00",
     image:
-      "Moisturisers & Lotions/sptocr418_vaseline-blue-seal-pure-petroleum-orginal-450ml.jpg",
+      "Air Fresheners & Fragrances/Air-Wick-Freshmatic-Max-Refill-Assorted-250-ml-Supermart-ng-7570.jpg",
   },
   {
-    name: "Enchanteur Hand Body Lotion Romantic 250ml",
-    category: "Cosmetics",
-    price: "₦6,450.00",
+    name: "Glade Air Freshener Automatic Spray",
+    category: "Toiletries",
+    price: "₦4,210.00",
     image:
-      "Moisturisers & Lotions/sptolo235_enchanteur-hand-body-lotion-romantic-250ml.jpg",
+      "Air Fresheners & Fragrances/spasho2022_5d9864c0-d12c-4662-ae10-12f3fb830386.jpg",
   },
   {
-    name: "Palmer's Cocoa Butter Formula Lotion 250ml",
-    category: "Cosmetics",
-    price: "₦6,450.00",
+    name: "Raid Air Freshener Tropical Mist",
+    category: "Toiletries",
+    price: "₦5,120.00",
     image:
-      "Moisturisers & Lotions/sptolo318_palmers-cocoa-butter-formula-lotion-250m.png",
+      "Air Fresheners & Fragrances/spasho420_cca82127-b059-4824-a8d7-48e2b76ca34f.jpg",
   },
   {
-    name: "SPTOLO Lotion 339",
-    category: "Cosmetics",
-    price: "₦6,450.00",
-    image: "Moisturisers & Lotions/sptolo339.png",
-  },
-  {
-    name: "SPWIOW Moisturiser 917",
-    category: "Cosmetics",
-    price: "₦6,450.00",
-    image: "Moisturisers & Lotions/spwiow917.jpg",
-  },
-  {
-    name: "Nivea Nourishing Body Lotion 250ml",
-    category: "Cosmetics",
-    price: "₦6,450.00",
+    name: "Ambi Pur Car Air Freshener Ocean",
+    category: "Toiletries",
+    price: "₦3,450.00",
     image:
-      "Moisturisers & Lotions/spwxyz579_nivea_nourishing_body_lotion_250_ml.jpg",
+      "Air Fresheners & Fragrances/spasho421_c652d445-5a45-4e75-b717-2bdaf3e35f58.jpg",
+  },
+  {
+    name: "Febreze Noticeables Air Freshener Meadow",
+    category: "Toiletries",
+    price: "₦6,020.00",
+    image: "Air Fresheners & Fragrances/spwxyz1494_2.jpg",
   },
 ];
 
@@ -135,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!inputedItem) {
       return;
     }
-    const filteredItems = cosmeticsProducts.filter((eachProducts) =>
+    const filteredItems = toiletriesProducts.filter((eachProducts) =>
       eachProducts.name.toLowerCase().includes(inputedItem),
     );
     handleSearchResults(filteredItems, inputedItem, inputText, 90);
@@ -152,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!inputedItem) {
       return;
     }
-    const filteredItems = cosmeticsProducts.filter((eachProducts) =>
+    const filteredItems = toiletriesProducts.filter((eachProducts) =>
       eachProducts.name.toLowerCase().includes(inputedItem),
     );
     handleSearchResults(
@@ -210,7 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (displayedCount >= 10) {
           showMoreBtn.textContent = `View All ${filteredItems.length} Results`;
           showMoreBtn.onclick = () => {
-            window.location.href = "cosmetics.html";
+            window.location.href = "toiletries.html";
           };
         } else {
           showMoreBtn.textContent = "Show More";
@@ -277,7 +241,7 @@ document.addEventListener("DOMContentLoaded", () => {
     hiddenClose.addEventListener("click", () => toggleMenu(false));
   }
 
-  let currentProducts = [...cosmeticsProducts];
+  let currentProducts = [...toiletriesProducts];
   const displayResult = document.querySelector(".results-display-text");
   displayResult.textContent = `Showing ${currentProducts.length} results`;
 
@@ -296,16 +260,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function filterItems(item) {
-    let itemsToDisplay = cosmeticsProducts;
-
-    if (item === "All") {
-      itemsToDisplay = cosmeticsProducts;
-    } else {
-      itemsToDisplay = cosmeticsProducts.filter((product) => {
-        return product.category === item;
-      });
-    }
-
+    let itemsToDisplay = toiletriesProducts;
     currentProducts = [...itemsToDisplay];
     currentProducts.forEach((products) => {
       eachProductContainer(products);
@@ -336,7 +291,7 @@ document.addEventListener("DOMContentLoaded", () => {
         break;
     }
     sorted.forEach((products) => {
-      const productItem = eachProductContainer(products);
+      eachProductContainer(products);
     });
     return sorted;
   }
@@ -411,7 +366,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function displayAllItems() {
-    cosmeticsProducts.map((products) => {
+    toiletriesProducts.map((products) => {
       const EachProductImage = products.image;
       const EachProductName = products.name;
       const EachProductPrice = products.price;
