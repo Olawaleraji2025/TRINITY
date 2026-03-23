@@ -85,6 +85,23 @@ document.addEventListener("DOMContentLoaded", function () {
     hiddenClose.addEventListener("click", () => toggleMenu(false));
   }
 
+  // Escape key listener to close modals
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      if (searchBar && searchBar.style.display !== "none") {
+        toggleSearchBar(false);
+      }
+      if (hiddenMenu && hiddenMenu.style.display !== "none") {
+        toggleMenu(false);
+      }
+      // Close error modal if it exists
+      const errorModal = document.getElementById("errorModal");
+      if (errorModal && errorModal.style.display !== "none") {
+        errorModal.style.display = "none";
+      }
+    }
+  });
+
   // Filtering of items for mobile screen
   const provisions = [
     // ... (copy the provisions array from main.js)
@@ -572,8 +589,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // console.log({filteredItems});
   });
-
-
 
   // Function to update cart count
   function updateCartCount() {

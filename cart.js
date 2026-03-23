@@ -92,6 +92,17 @@ document.addEventListener("DOMContentLoaded", () => {
     hiddenClose.addEventListener("click", () => toggleMenu(false));
   }
 
+  // Escape key listener to close modals
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      if (searchBar && searchBar.style.display !== "none") {
+        toggleSearchBar(false);
+      }
+      if (hiddenMenu && hiddenMenu.style.display !== "none") {
+        toggleMenu(false);
+      }
+    }
+  });
 
   // Update cart count
   function updateCartCount() {

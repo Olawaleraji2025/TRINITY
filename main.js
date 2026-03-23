@@ -90,6 +90,18 @@ if (hiddenClose) {
   hiddenClose.addEventListener("click", () => toggleMenu(false));
 }
 
+// Escape key listener to close modals
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    if (searchBar && searchBar.style.display !== "none") {
+      toggleSearchBar(false);
+    }
+    if (hiddenMenu && hiddenMenu.style.display !== "none") {
+      toggleMenu(false);
+    }
+  }
+});
+
 // Slider Functionality
 
 function getScrollPercentage() {
@@ -832,6 +844,23 @@ function updateCartCount() {
   }
 }
 
+// Helper function to setup modal close handlers (click outside and Escape key)
+function setupModalCloseHandlers(modal) {
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+
+  const escapeHandler = (e) => {
+    if (e.key === "Escape" && modal.style.display !== "none") {
+      modal.style.display = "none";
+      document.removeEventListener("keydown", escapeHandler);
+    }
+  };
+  document.addEventListener("keydown", escapeHandler);
+}
+
 // Function to show the modal
 function showCartModal(name, price, image, quantity) {
   // Get cart from localStorage
@@ -902,6 +931,8 @@ function showCartModal(name, price, image, quantity) {
     .addEventListener("click", () => {
       modal.style.display = "none";
     });
+
+  setupModalCloseHandlers(modal);
 
   modal.style.display = "flex";
 
@@ -984,6 +1015,7 @@ function showWishlistModal(image, name, status) {
     </div>
   `;
 
+  setupModalCloseHandlers(modal);
   modal.style.display = "flex";
 
   // Close modal after 3 seconds

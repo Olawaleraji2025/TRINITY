@@ -509,6 +509,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Helper function to setup modal close handlers (click outside and Escape key)
+  function setupModalCloseHandlers(modal) {
+    // Click outside to close
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+
+    // Escape key to close (specific to this modal)
+    const escapeHandler = (e) => {
+      if (e.key === "Escape" && modal.style.display !== "none") {
+        modal.style.display = "none";
+        document.removeEventListener("keydown", escapeHandler);
+      }
+    };
+    document.addEventListener("keydown", escapeHandler);
+  }
+
   // Search and Menu Toggle functionality
   function toggleSearchBar(show) {
     if (show) {
@@ -548,6 +567,18 @@ document.addEventListener("DOMContentLoaded", () => {
   if (hiddenClose) {
     hiddenClose.addEventListener("click", () => toggleMenu(false));
   }
+
+  // Escape key listener to close modals
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      if (searchBar && searchBar.style.display !== "none") {
+        toggleSearchBar(false);
+      }
+      if (hiddenMenu && hiddenMenu.style.display !== "none") {
+        toggleMenu(false);
+      }
+    }
+  });
 
   // Search and Menu Toggle functionality ends here
 
@@ -919,6 +950,9 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.style.display = "none";
       });
 
+    // Setup close handlers for modal (click outside and Escape key)
+    setupModalCloseHandlers(modal);
+
     modal.style.display = "flex";
 
     // Close modal after 3 seconds
@@ -991,6 +1025,9 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     </div>
   `;
+
+    // Setup close handlers for modal (click outside and Escape key)
+    setupModalCloseHandlers(modal);
 
     modal.style.display = "flex";
 
