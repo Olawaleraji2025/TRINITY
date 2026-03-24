@@ -335,6 +335,11 @@ const toiletries = [
 
 const AllProducts = [...provisions, ...cosmetics, ...toiletries];
 
+let currentPage = 1;
+const itemsPerPage = 10;
+let currentProducts = AllProducts;
+let totalProductsCount = AllProducts.length;
+
 // DOM Elements
 const searchIcon = document.querySelector(".search-icon");
 const searchBar = document.querySelector(".modal-search");
@@ -350,11 +355,13 @@ const searchedResultsContainer = document.querySelector(
   ".hidden-results-container2",
 );
 const productContainer = document.querySelector(".all-products-container");
+const paginationContainer = document.getElementById("paginationContainer");
+const displayResult = document.querySelector(".results-display-text");
 
 // Update cart count on page load
 document.addEventListener("DOMContentLoaded", () => {
   updateCartCount();
-  displayAllItems();
+  // displayAllItems();
   showLoader();
 
   // Search functionality for mobile screen
@@ -586,22 +593,17 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log({ currentProducts });
 
   const displayResult = document.querySelector(".results-display-text");
-  displayResult.textContent = `Showing ${currentProducts.length} results`;
+  displayAllItems();
 
   document.querySelector(".filter").addEventListener("change", (e) => {
     const op = e.target.value;
-    productContainer.innerHTML = "";
-
-    filterItems(op);
     document.querySelector(".category-name-header").textContent = `${op}`;
+    filterItems(op);
   });
 
   document.querySelector(".sort").addEventListener("change", (e) => {
     const s = e.target.value;
-    productContainer.innerHTML = "";
-
-    currentProducts = sortProducts(currentProducts, s);
-    displayResult.textContent = `Showing ${currentProducts.length}`;
+    sortProducts(currentProducts, s);
   });
 
   function filterItems(item) {
@@ -616,14 +618,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     currentProducts = [...itemsToDisplay];
-    console.log({ currentProducts });
-
-    currentProducts.forEach((products) => {
-      eachProductContainer(products);
-      // productContainer.appendChild(productItem);
-    });
-
-    displayResult.textContent = `Showing ${currentProducts.length}`;
+    currentPage = 1;
+    goToPage(1);
   }
 
   //   This is to convert the units such as #,$ to strings so as not to affect the results
@@ -652,11 +648,9 @@ document.addEventListener("DOMContentLoaded", () => {
         break;
     }
 
-    // Use createProductItem for consistent rendering with full functionality
-    sorted.forEach((products) => {
-      const productItem = eachProductContainer(products);
-      // productContainer.appendChild(productItem);
-    });
+    currentProducts = sorted;
+    currentPage = 1;
+    goToPage(1);
 
     return sorted;
   }
@@ -738,75 +732,84 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   }
 
+  // Function to display current page of products
+  function displayProducts(productsToDisplay) {
+    // Clear existing products
+    productContainer.innerHTML = "";
+
+    // Create and append product items for current page
+    productsToDisplay.forEach((product) => {
+      eachProductContainer(product);
+    });
+
+    // Update display text - cumulative showing (page * 10 or actual showing if less)
+    const cumulativeShowing = Math.min(
+      currentPage * itemsPerPage,
+      currentProducts.length,
+    );
+    displayResult.textContent = `Showing ${cumulativeShowing} results out of ${currentProducts.length}`;
+
+    // Generate pagination controls
+    generatePagination();
+  }
+
+  // Function to generate pagination HTML
+  function generatePagination() {
+    const totalPages = Math.ceil(currentProducts.length / itemsPerPage);
+    paginationContainer.innerHTML = "";
+
+    if (totalPages <= 1) return;
+
+    // Previous button
+    const prevBtn = document.createElement("button");
+    prevBtn.className = "pagination-btn";
+    prevBtn.textContent = "Previous";
+    prevBtn.disabled = currentPage === 1;
+    prevBtn.addEventListener("click", () => goToPage(currentPage - 1));
+    paginationContainer.appendChild(prevBtn);
+
+    // Page numbers (show 5 max, with current always visible)
+    const maxVisiblePages = 5;
+    let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+    let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+    if (endPage - startPage + 1 < maxVisiblePages) {
+      startPage = Math.max(1, endPage - maxVisiblePages + 1);
+    }
+
+    for (let i = startPage; i <= endPage; i++) {
+      const pageBtn = document.createElement("button");
+      pageBtn.className = `pagination-btn page-num ${i === currentPage ? "active" : ""}`;
+      pageBtn.textContent = i;
+      pageBtn.addEventListener("click", () => goToPage(i));
+      paginationContainer.appendChild(pageBtn);
+    }
+
+    // Next button
+    const nextBtn = document.createElement("button");
+    nextBtn.className = "pagination-btn";
+    nextBtn.textContent = "Next";
+    nextBtn.disabled = currentPage === totalPages;
+    nextBtn.addEventListener("click", () => goToPage(currentPage + 1));
+    paginationContainer.appendChild(nextBtn);
+  }
+
+  // Function to go to specific page
+  function goToPage(page) {
+    if (page < 1 || page > Math.ceil(currentProducts.length / itemsPerPage))
+      return;
+    currentPage = page;
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const pageProducts = currentProducts.slice(startIndex, endIndex);
+    displayProducts(pageProducts);
+  }
+
   // This is to make sure all items are displayed when the page loads
   function displayAllItems() {
-    AllProducts.map((products) => {
-      const EachProductImage = products.image;
-      const EachProductName = products.name;
-      const EachProductPrice = products.price;
-
-      const productItemDiv = document.createElement("div");
-      const productImageDiv = document.createElement("div");
-      const productName = document.createElement("div");
-      const productDetails = document.createElement("div");
-      const productIcons = document.createElement("div");
-
-      productItemDiv.classList.add("product-item");
-      productName.classList.add("product-name");
-      productImageDiv.classList.add("product-image");
-      productDetails.classList.add("product-details");
-      productIcons.classList.add("product-icons");
-
-      productImageDiv.innerHTML = `<img src="${EachProductImage}">`;
-      productName.innerHTML = `<p> ${EachProductName} </p>`;
-      productDetails.innerHTML = `
-      <p class="product-price"> ${EachProductPrice} </p>
-      <div class="quantity-controls" style="display: none;">
-        <button class="quantity-btn decrease">-</button>
-        <span class="quantity-display">1</span>
-        <button class="quantity-btn increase">+</button>
-      </div>
-      <button class="add-to-cart-btn">Add to Cart<i class="fa-solid fa-cart-arrow-down"></i></button>
-    `;
-
-      productIcons.innerHTML = `
-      <span class="wishlist-icon" data-name="${EachProductName}" data-price="${EachProductPrice}" data-image="${EachProductImage}">
-        <i class="fa-regular fa-heart"></i>
-      </span>
-      <span class="eye-icon" data-name="${EachProductName}" data-price="${EachProductPrice}" data-image="${EachProductImage}">
-        <i class="fa-regular fa-eye"></i>
-      </span>
-    `;
-
-      // Restore wishlist state
-      const heartIcon = productIcons.querySelector(".fa-heart");
-      if (heartIcon) {
-        let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
-        let existingIndex = wishlist.findIndex(
-          (item) => item.name === EachProductName,
-        );
-        if (existingIndex !== -1) {
-          heartIcon.classList.add("fa-solid", "added-to-wishlist");
-          heartIcon.style.color = "red";
-        }
-        // showWishlistModal(EachProductName, EachProductName);
-      }
-
-      productItemDiv.appendChild(productImageDiv);
-      productItemDiv.appendChild(productName);
-      productItemDiv.appendChild(productDetails);
-      productItemDiv.appendChild(productIcons);
-
-      // Attach add to cart behavior
-      attachAddToCartBehavior(
-        productItemDiv,
-        EachProductName,
-        EachProductPrice,
-        EachProductImage,
-      );
-
-      productContainer.appendChild(productItemDiv);
-    });
+    currentProducts = [...AllProducts];
+    currentPage = 1;
+    goToPage(1);
   }
 
   // Function to attach add to cart behavior

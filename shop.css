@@ -88,3 +88,64 @@
 .add-to-cart-btn:hover {
   background-color: darkgreen;
 }
+
+/* Pagination Styles */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pagination-btn {
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background: #e9ecef;
+  border-color: #adb5bd;
+}
+
+.pagination-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination-btn.active {
+  background: #28a745;
+  color: white;
+  border-color: #28a745;
+}
+
+.page-numbers {
+  display: flex;
+  gap: 5px;
+}
+
+.page-num {
+  min-width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .pagination-container {
+    gap: 5px;
+  }
+  .pagination-btn,
+  .page-num {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+}
