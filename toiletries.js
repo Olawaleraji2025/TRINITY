@@ -276,28 +276,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const displayResult = document.querySelector(".results-display-text");
   displayResult.textContent = `Showing ${currentProducts.length} results`;
 
-  document.querySelector(".filter").addEventListener("change", (e) => {
-    const op = e.target.value;
-    productContainer.innerHTML = "";
-    filterItems(op);
-    document.querySelector(".category-name-header").textContent = `${op}`;
-  });
-
   document.querySelector(".sort").addEventListener("change", (e) => {
     const s = e.target.value;
     productContainer.innerHTML = "";
     currentProducts = sortProducts(currentProducts, s);
     displayResult.textContent = `Showing ${currentProducts.length}`;
   });
-
-  function filterItems(item) {
-    let itemsToDisplay = toiletriesProducts;
-    currentProducts = [...itemsToDisplay];
-    currentProducts.forEach((products) => {
-      eachProductContainer(products);
-    });
-    displayResult.textContent = `Showing ${currentProducts.length}`;
-  }
 
   function parsePrice(priceStr) {
     return parseFloat(priceStr.replace("₦", "").replace(",", ""));

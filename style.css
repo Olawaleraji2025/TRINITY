@@ -254,7 +254,7 @@ body.active {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   width: 150px;
   top: 60px;
-  right: 185px;
+  right: 165px;
   border-radius: 0px 0px 8px 8px;
   display: block;
   animation: slider 0.5s;
@@ -343,6 +343,17 @@ body.active {
 .category-list li {
   list-style-type: none;
   margin-left: 10px;
+  cursor: pointer;
+}
+
+.category-list li:hover {
+  color: #16a34a;
+  font-weight: 600;
+  box-shadow:
+    0 6px 20px rgba(14, 225, 91, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 0 0 1px rgba(10, 206, 82, 0.15);
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .cart-modal {
@@ -1676,7 +1687,7 @@ small {
 
   .hidden-categories.active {
     top: 48px;
-    right: 185px;
+    right: 170px;
   }
 
   .popular-products-section {

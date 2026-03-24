@@ -3,109 +3,71 @@
 // Array of cosmetics products
 const cosmeticsProducts = [
   {
-    name: "SPMT Moisturiser 1003",
+    name: "Nivea Body Milk Nourishing Lotion 400ml",
     category: "Cosmetics",
-    price: "₦6,450.00",
+    price: "₦3,450.00",
     image: "Moisturisers & Lotions/Spmt1003.jpg",
   },
+
   {
-    name: "SPMT Moisturiser 520",
+    name: "Vaseline Intensive Care Lotion Cocoa Glow 400ml",
     category: "Cosmetics",
-    price: "₦6,450.00",
+    price: "₦4,200.00",
     image: "Moisturisers & Lotions/Spmt520.jpg",
   },
+
   {
-    name: "SPMT Moisturiser 974",
+    name: "Nivea Soft Moisturizing Cream 300ml",
     category: "Cosmetics",
-    price: "₦6,450.00",
+    price: "₦5,100.00",
     image: "Moisturisers & Lotions/Spmt974.jpg",
   },
   {
-    name: "Aspar Moisturiser 050",
+    name: "Shea Butter Raw Unrefined 1kg",
     category: "Cosmetics",
-    price: "₦6,450.00",
+    price: "₦2,950.00",
     image: "Moisturisers & Lotions/aspar050.jpg",
   },
   {
-    name: "DBK Moisturiser 4324",
+    name: "Dove Body Lotion Deeply Nourishing 400ml",
     category: "Cosmetics",
-    price: "₦6,450.00",
+    price: "₦6,200.00",
     image: "Moisturisers & Lotions/dbk4324.jpg",
   },
   {
-    name: "SPASHO Moisturiser 1467",
+    name: "Palmer's Cocoa Butter Formula 250g",
     category: "Cosmetics",
-    price: "₦6,450.00",
+    price: "₦3,750.00",
     image:
       "Moisturisers & Lotions/spasho1467_1ccfda31-5388-4f55-a6f0-861d8e2240e8.jpg",
   },
   {
-    name: "SPASHO Moisturiser 2096",
+    name: "Nivea Body Oil Nourishing 200ml",
     category: "Cosmetics",
-    price: "₦6,450.00",
+    price: "₦5,800.00",
     image:
       "Moisturisers & Lotions/spasho2096_deb48546-c084-4d32-a132-c5178c2471d9.jpg",
   },
   {
-    name: "SPASHO Moisturiser 2097",
+    name: "Jergens Moisturizer Original Scent 750ml",
     category: "Cosmetics",
-    price: "₦6,450.00",
+    price: "₦4,500.00",
     image:
       "Moisturisers & Lotions/spasho2097_2475b5a8-535e-4ade-bad4-1b089a58848e.jpg",
   },
   {
-    name: "SPAZ Moisturiser 4",
+    name: "Cetaphil Moisturizing Lotion 473ml",
     category: "Cosmetics",
-    price: "₦6,450.00",
+    price: "₦3,200.00",
     image:
       "Moisturisers & Lotions/spaz4_859e2b48-cda9-4143-9426-5999003beabd.jpg",
   },
   {
-    name: "SPMZZ Moisturiser 1248",
+    name: "Aveeno Daily Moisturizing Lotion 532ml",
     category: "Cosmetics",
-    price: "₦6,450.00",
+    price: "₦6,000.00",
     image:
       "Moisturisers & Lotions/spmzz1248_f196f1fb-53aa-4937-943e-d5518dfca133.jpg",
-  },
-  {
-    name: "Vaseline Blue Seal Pure Petroleum Jelly 450ml",
-    category: "Cosmetics",
-    price: "₦6,450.00",
-    image:
-      "Moisturisers & Lotions/sptocr418_vaseline-blue-seal-pure-petroleum-orginal-450ml.jpg",
-  },
-  {
-    name: "Enchanteur Hand Body Lotion Romantic 250ml",
-    category: "Cosmetics",
-    price: "₦6,450.00",
-    image:
-      "Moisturisers & Lotions/sptolo235_enchanteur-hand-body-lotion-romantic-250ml.jpg",
-  },
-  {
-    name: "Palmer's Cocoa Butter Formula Lotion 250ml",
-    category: "Cosmetics",
-    price: "₦6,450.00",
-    image:
-      "Moisturisers & Lotions/sptolo318_palmers-cocoa-butter-formula-lotion-250m.png",
-  },
-  {
-    name: "SPTOLO Lotion 339",
-    category: "Cosmetics",
-    price: "₦6,450.00",
-    image: "Moisturisers & Lotions/sptolo339.png",
-  },
-  {
-    name: "SPWIOW Moisturiser 917",
-    category: "Cosmetics",
-    price: "₦6,450.00",
-    image: "Moisturisers & Lotions/spwiow917.jpg",
-  },
-  {
-    name: "Nivea Nourishing Body Lotion 250ml",
-    category: "Cosmetics",
-    price: "₦6,450.00",
-    image:
-      "Moisturisers & Lotions/spwxyz579_nivea_nourishing_body_lotion_250_ml.jpg",
   },
 ];
 
@@ -312,37 +274,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const displayResult = document.querySelector(".results-display-text");
   displayResult.textContent = `Showing ${currentProducts.length} results`;
 
-  document.querySelector(".filter").addEventListener("change", (e) => {
-    const op = e.target.value;
-    productContainer.innerHTML = "";
-    filterItems(op);
-    document.querySelector(".category-name-header").textContent = `${op}`;
-  });
-
   document.querySelector(".sort").addEventListener("change", (e) => {
     const s = e.target.value;
     productContainer.innerHTML = "";
     currentProducts = sortProducts(currentProducts, s);
     displayResult.textContent = `Showing ${currentProducts.length}`;
   });
-
-  function filterItems(item) {
-    let itemsToDisplay = cosmeticsProducts;
-
-    if (item === "All") {
-      itemsToDisplay = cosmeticsProducts;
-    } else {
-      itemsToDisplay = cosmeticsProducts.filter((product) => {
-        return product.category === item;
-      });
-    }
-
-    currentProducts = [...itemsToDisplay];
-    currentProducts.forEach((products) => {
-      eachProductContainer(products);
-    });
-    displayResult.textContent = `Showing ${currentProducts.length}`;
-  }
 
   function parsePrice(priceStr) {
     return parseFloat(priceStr.replace("₦", "").replace(",", ""));
