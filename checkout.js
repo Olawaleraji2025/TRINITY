@@ -104,364 +104,278 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Filtering of items for mobile screen
   const provisions = [
-    // ... (copy the provisions array from main.js)
     {
       name: "McVitie's Hob Nobs 200 g",
       category: "Provisions",
       price: "₦1,560.00",
-
       image: "Biscuits & Wafers/dbk2998.jpg",
     },
-    // Add more as needed, but for brevity, I'll assume we copy the full array
+    {
+      name: "Alpenliebe Milk Filled Caramel Candy x88",
+      category: "Provisions",
+      price: "₦2,410.00",
+      image:
+        "Sweets & Chewing Gum/Alpenliebe-Milk-Filled-Caramel-Candy-x88-Supermart-ng-1909.jpg",
+    },
+    {
+      name: "Geurts Marmalade Orange 450 g",
+      category: "Provisions",
+      price: "₦4,445.00",
+      image: "Jams & Spreads/spcsjm1784.webp",
+    },
+    {
+      name: "Checkers Custard Powder Vanilla 1 kg",
+      category: "Provisions",
+      price: "₦2,240.00",
+      image:
+        "BREAKFAST CEREALS/1490789939327_spxspy758_checkers_custard_powder_vanilla_sachet_400_g-min.jpg",
+    },
+    {
+      name: "Bounty Chocolate 57 g",
+      category: "Provisions",
+      price: "₦1,570.00",
+      image: "Chocolates/1486570613196_spcsch775_bounty_chocolate_57_g.jpg",
+    },
+    {
+      name: "Sunola Sugar Cubes 474 g x90",
+      category: "Provisions",
+      price: "₦1,040.00",
+      image:
+        "SUGAR AND SWEETENERS/1516643468047_spx350_sunola_sugar_cubes_474_g_90_pieces.jpg",
+    },
+    {
+      name: "McVitie fingers biscuit",
+      category: "Provisions",
+      price: "₦200.00",
+      image: "Biscuits & Wafers/dbk2953.jpg",
+    },
+    {
+      name: "Chupa Chups Cotton Bubble Gum Tutti Frutti 11 g x20",
+      category: "Provisions",
+      price: "₦340.00",
+      image: "Sweets & Chewing Gum/spx02550.jpg",
+    },
+    {
+      name: "Rowse Honey Glass Jar 340 g",
+      category: "Provisions",
+      price: "₦5,250.00",
+      image: "SUGAR AND SWEETENERS/spxabc238.jpg",
+    },
+    {
+      name: "Pringles Paprika 40 g",
+      category: "Provisions",
+      price: "₦1,280.00",
+      image:
+        "Potato & Plantain Chips/sprnw1381_b9724a2b-24db-46bf-a7e5-95e57e1f617a.jpg",
+    },
+    {
+      name: "Checkers Custard Powder Milk 3 in 1 Breakfast 700 g",
+      category: "Provisions",
+      price: "₦3,335.00",
+      image: "Custard & Jelly/sprnw1155.jpg",
+    },
+    {
+      name: "Blue Pearl Coloured Prawn Crackers 227 g",
+      category: "Provisions",
+      price: "₦1,645.00",
+      image: "Cocktail Snacks/spmex4362.jpg",
+    },
+    {
+      name: "Snickers 50 g",
+      category: "Provisions",
+      price: "₦1,425.00",
+      image: "Chocolates/spcsch1086.png",
+    },
+    {
+      name: "Nasco Corn Flakes Original 350 g",
+      category: "Provisions",
+      price: "₦2,800.00",
+      image: "BREAKFAST CEREALS/spcgce762.jpg",
+    },
+    {
+      name: "McVitie's HobNobs 40 g",
+      category: "Provisions",
+      price: "₦345.00",
+      image: "Biscuits & Wafers/sprnw1367.jpg",
+    },
+    {
+      name: "Mentos Pure Fresh Chewing Gum Tropical 87.5 g x50",
+      category: "Provisions",
+      price: "₦3,385.00",
+      image:
+        "Sweets & Chewing Gum/spasho2001_0dcc358f-4abc-4031-bad4-a1d721d8bd7c.jpg",
+    },
+    {
+      name: "Pringles Sour Cream & Onion 165 g",
+      category: "Provisions",
+      price: "₦4,015.00",
+      image: "Potato & Plantain Chips/spcsas2203.jpg",
+    },
+    {
+      name: "Nutzy Peanut Butter Creamy Smooth 510 g",
+      category: "Provisions",
+      price: "₦3,560.00",
+      image: "Jams & Spreads/spxtyabc642.jpg",
+    },
+    {
+      name: "Checkers Custard Powder 3 in 1 Milk Jar 1 kg",
+      category: "Provisions",
+      price: "₦6,100.00",
+      image:
+        "Custard & Jelly/spmex3602_cc963533-b2bf-4ef3-a697-02e1117b4fb0.jpg",
+    },
+    {
+      name: "Minimie Chin Chin 45 g",
+      category: "Provisions",
+      price: "₦150.00",
+      image:
+        "Cocktail Snacks/1507734773140_okea2333_minimie_chin_chin_45_g.jpg",
+    },
   ];
 
   const cosmetics = [
     {
-      name: "Peak Instant Full Cream Milk Tin 400 g",
+      name: "Nivea Body Milk Nourishing Lotion 400ml",
       category: "Cosmetics",
-      price: "₦6,450.00",
+      price: "₦3,450.00",
       image: "Moisturisers & Lotions/Spmt1003.jpg",
     },
+
     {
-      name: "Peak Instant Full Cream Milk Tin 400 g",
+      name: "Vaseline Intensive Care Lotion Cocoa Glow 400ml",
       category: "Cosmetics",
-      price: "₦6,450.00",
+      price: "₦4,200.00",
       image: "Moisturisers & Lotions/Spmt520.jpg",
     },
+
     {
-      name: "Peak Instant Full Cream Milk Tin 400 g",
+      name: "Nivea Soft Moisturizing Cream 300ml",
       category: "Cosmetics",
-      price: "₦6,450.00",
+      price: "₦5,100.00",
       image: "Moisturisers & Lotions/Spmt974.jpg",
     },
     {
-      name: "Peak Instant Full Cream Milk Tin 400 g",
+      name: "Shea Butter Raw Unrefined 1kg",
       category: "Cosmetics",
-      price: "₦6,450.00",
+      price: "₦2,950.00",
       image: "Moisturisers & Lotions/aspar050.jpg",
     },
     {
-      name: "Peak Instant Full Cream Milk Tin 400 g",
+      name: "Dove Body Lotion Deeply Nourishing 400ml",
       category: "Cosmetics",
-      price: "₦6,450.00",
+      price: "₦6,200.00",
       image: "Moisturisers & Lotions/dbk4324.jpg",
     },
     {
-      name: "Peak Instant Full Cream Milk Tin 400 g",
+      name: "Palmer's Cocoa Butter Formula 250g",
       category: "Cosmetics",
-      price: "₦6,450.00",
+      price: "₦3,750.00",
       image:
         "Moisturisers & Lotions/spasho1467_1ccfda31-5388-4f55-a6f0-861d8e2240e8.jpg",
     },
     {
-      name: "Peak Instant Full Cream Milk Tin 400 g",
+      name: "Nivea Body Oil Nourishing 200ml",
       category: "Cosmetics",
-      price: "₦6,450.00",
+      price: "₦5,800.00",
       image:
         "Moisturisers & Lotions/spasho2096_deb48546-c084-4d32-a132-c5178c2471d9.jpg",
     },
     {
-      name: "Peak Instant Full Cream Milk Tin 400 g",
+      name: "Jergens Moisturizer Original Scent 750ml",
       category: "Cosmetics",
-      price: "₦6,450.00",
+      price: "₦4,500.00",
       image:
         "Moisturisers & Lotions/spasho2097_2475b5a8-535e-4ade-bad4-1b089a58848e.jpg",
     },
     {
-      name: "Peak Instant Full Cream Milk Tin 400 g",
+      name: "Cetaphil Moisturizing Lotion 473ml",
       category: "Cosmetics",
-      price: "₦6,450.00",
+      price: "₦3,200.00",
       image:
         "Moisturisers & Lotions/spaz4_859e2b48-cda9-4143-9426-5999003beabd.jpg",
     },
     {
-      name: "Peak Instant Full Cream Milk Tin 400 g",
+      name: "Aveeno Daily Moisturizing Lotion 532ml",
       category: "Cosmetics",
-      price: "₦6,450.00",
+      price: "₦6,000.00",
       image:
         "Moisturisers & Lotions/spmzz1248_f196f1fb-53aa-4937-943e-d5518dfca133.jpg",
-    },
-    {
-      name: "Peak Instant Full Cream Milk Tin 400 g",
-      category: "Cosmetics",
-      price: "₦6,450.00",
-      image:
-        "Moisturisers & Lotions/sptocr418_vaseline-blue-seal-pure-petroleum-orginal-450ml.jpg",
-    },
-    {
-      name: "Peak Instant Full Cream Milk Tin 400 g",
-      category: "Cosmetics",
-      price: "₦6,450.00",
-      image:
-        "Moisturisers & Lotions/sptolo235_enchanteur-hand-body-lotion-romantic-250ml.jpg",
-    },
-    {
-      name: "Peak Instant Full Cream Milk Tin 400 g",
-      category: "Cosmetics",
-      price: "₦6,450.00",
-      image:
-        "Moisturisers & Lotions/sptolo318_palmers-cocoa-butter-formula-lotion-250m.png",
-    },
-    {
-      name: "Peak Instant Full Cream Milk Tin 400 g",
-      category: "Cosmetics",
-      price: "₦6,450.00",
-      image: "Moisturisers & Lotions/sptolo339.png",
-    },
-    {
-      name: "Peak Instant Full Cream Milk Tin 400 g",
-      category: "Cosmetics",
-      price: "₦6,450.00",
-      image: "Moisturisers & Lotions/spwiow917.jpg",
-    },
-    {
-      name: "Peak Instant Full Cream Milk Tin 400 g",
-      category: "Cosmetics",
-      price: "₦6,450.00",
-      image:
-        "Moisturisers & Lotions/spwxyz579_nivea_nourishing_body_lotion_250_ml.jpg",
-    },
-  ];
-
-  const exoticWines = [
-    {
-      name: "Andre Rose California Wine 75cl",
-      category: "Exotic Wines",
-      price: "#6,000.00",
-      image: "Homepage/ANDRE-ROSE-CALIFONIA-SPARKLNG.WINE-750ML.png",
-    },
-    {
-      name: "Bacchus Tonic Wine 75l",
-      category: "Exotic Wines",
-      price: "#6,000.00",
-      image: "Homepage/Bacchus.png",
-    },
-    {
-      name: "4th street wine",
-      category: "Exotic Wines",
-      price: "₦7,085.00",
-      image: "RED WINES/4th-Street-Sweet-Red-Wine-75-cl-Supermart-ng-2542.jpg",
-    },
-  ];
-
-  const babyItems = [
-    {
-      name: "Cerelac Wheat & Milk 6 Months",
-      category: "Baby Items",
-      price: "#6,000.00",
-      image: "Baby Food/spbpfd2609.jpg",
-    },
-    {
-      name: "Cussons Baby Wipes Soft & Smooth x50",
-      category: "Baby Items",
-      price: "₦1,070.00",
-      image: "Baby Wipes/aspar2085.jpg",
     },
   ];
 
   const toiletries = [
     {
-      name: "Peak Instant Full Cream Milk Tin 400 g",
+      name: "Air Wick Freshmatic Air Freshener Assorted 300ml",
       category: "Toiletries",
-      price: "₦6,450.00",
+      price: "₦3,125.00",
       image:
         "Air Fresheners & Fragrances/Air-Wick-Air-Freshener-Assorted-300-ml-Supermart-ng-2079.jpg",
     },
     {
-      name: "Peak Instant Full Cream Milk Tin 400 g",
+      name: "Air Wick Stick Up Aroma Gel Assorted 30g",
       category: "Toiletries",
-      price: "₦6,450.00",
+      price: "₦4,780.00",
       image:
         "Air Fresheners & Fragrances/Air-Wick-Air-Freshener-Stick-Up-Multi-Use-Aroma-Gel-Assorted-30-g-Supermart-ng-1317.jpg",
     },
     {
-      name: "Peak Instant Full Cream Milk Tin 400 g",
+      name: "Air Wick Stick Up Citrus Aroma Gel 30g",
       category: "Toiletries",
-      price: "₦6,450.00",
+      price: "₦2,950.00",
       image:
         "Air Fresheners & Fragrances/Air-Wick-Air-Freshener-Stick-Up-Multi-Use-Aroma-Gel-Citrus-30-g-Supermart-ng-4000.jpg",
     },
     {
-      name: "Peak Instant Full Cream Milk Tin 400 g",
+      name: "Air Wick Drummer Assorted 45g x6",
       category: "Toiletries",
-      price: "₦6,450.00",
+      price: "₦5,640.00",
       image:
         "Air Fresheners & Fragrances/Air-Wick-Drummer-Air-Freshener-Assorted-Fragrances-45-g-x6-Supermart-ng-9365.jpg",
     },
     {
-      name: "Peak Instant Full Cream Milk Tin 400 g",
+      name: "Air Wick Freshmatic Diffuser Refill Assorted 250ml",
       category: "Toiletries",
-      price: "₦6,450.00",
+      price: "₦3,890.00",
       image:
         "Air Fresheners & Fragrances/Air-Wick-Freshmatic-Diffuser-Refill-Assorted-250-ml-Supermart-ng-6930.jpg",
     },
     {
-      name: "Peak Instant Full Cream Milk Tin 400 g",
+      name: "Air Wick Freshmatic Max Refill Assorted 250ml",
       category: "Toiletries",
-      price: "₦6,450.00",
+      price: "₦3,890.00",
       image:
         "Air Fresheners & Fragrances/Air-Wick-Freshmatic-Max-Refill-Assorted-250-ml-Supermart-ng-7570.jpg",
     },
     {
-      name: "Peak Instant Full Cream Milk Tin 400 g",
+      name: "Glade Air Freshener Automatic Spray",
       category: "Toiletries",
-      price: "₦6,450.00",
+      price: "₦4,210.00",
       image:
         "Air Fresheners & Fragrances/spasho2022_5d9864c0-d12c-4662-ae10-12f3fb830386.jpg",
     },
     {
-      name: "Peak Instant Full Cream Milk Tin 400 g",
+      name: "Raid Air Freshener Tropical Mist",
       category: "Toiletries",
-      price: "₦6,450.00",
+      price: "₦5,120.00",
       image:
         "Air Fresheners & Fragrances/spasho420_cca82127-b059-4824-a8d7-48e2b76ca34f.jpg",
     },
     {
-      name: "Peak Instant Full Cream Milk Tin 400 g",
+      name: "Ambi Pur Car Air Freshener Ocean",
       category: "Toiletries",
-      price: "₦6,450.00",
+      price: "₦3,450.00",
       image:
         "Air Fresheners & Fragrances/spasho421_c652d445-5a45-4e75-b717-2bdaf3e35f58.jpg",
     },
     {
-      name: "Peak Instant Full Cream Milk Tin 400 g",
+      name: "Febreze Noticeables Air Freshener Meadow",
       category: "Toiletries",
-      price: "₦6,450.00",
+      price: "₦6,020.00",
       image: "Air Fresheners & Fragrances/spwxyz1494_2.jpg",
     },
-    {
-      name: "Peak Instant Full Cream Milk Tin 400 g",
-      category: "Toiletries",
-      price: "₦6,450.00",
-      image: "Bathroom & Toilet Cleaners/spar00667.jpg",
-    },
-    {
-      name: "Peak Instant Full Cream Milk Tin 400 g",
-      category: "Toiletries",
-      price: "₦6,450.00",
-      image: "Bathroom & Toilet Cleaners/spmex1298.jpg",
-    },
-    {
-      name: "Peak Instant Full Cream Milk Tin 400 g",
-      category: "Toiletries",
-      price: "₦6,450.00",
-      image: "Bleach/CS073.jpg",
-    },
-    {
-      name: "Peak Instant Full Cream Milk Tin 400 g",
-      category: "Toiletries",
-      price: "₦6,450.00",
-      image: "Bleach/OkeA1860.jpg",
-    },
-    {
-      name: "Peak Instant Full Cream Milk Tin 400 g",
-      category: "Toiletries",
-      price: "₦6,450.00",
-      image: "Bleach/dbk1168.jpg",
-    },
-    {
-      name: "Peak Instant Full Cream Milk Tin 400 g",
-      category: "Toiletries",
-      price: "₦6,450.00",
-      image: "Bleach/omkt384_719cfc8e-c9b2-4004-a454-66dbc34a577d.jpg",
-    },
-    {
-      name: "Peak Instant Full Cream Milk Tin 400 g",
-      category: "Toiletries",
-      price: "₦6,450.00",
-      image: "Bleach/spar10375.jpg",
-    },
-    {
-      name: "Peak Instant Full Cream Milk Tin 400 g",
-      category: "Toiletries",
-      price: "₦6,450.00",
-      image: "Bleach/spar10376.jpg",
-    },
-    {
-      name: "Peak Instant Full Cream Milk Tin 400 g",
-      category: "Toiletries",
-      price: "₦6,450.00",
-      image: "Bleach/spar10380.jpg",
-    },
-    {
-      name: "Peak Instant Full Cream Milk Tin 400 g",
-      category: "Toiletries",
-      price: "₦6,450.00",
-      image: "Bleach/spar10382.jpg",
-    },
   ];
 
-  const beverages = [
-    {
-      name: "4th Street Sweet Red Wine 75 cl",
-      category: "Exotic Wines",
-      price: "₦4,970.00",
-      image: "RED WINES/4th-Street-Sweet-Red-Wine-75-cl-Supermart-ng-2542.jpg",
-    },
-    {
-      name: "Four Cousins Natural Sweet Red Wine 75 cl",
-      category: "Exotic Wines",
-      price: "₦8,670.00",
-      image: "RED WINES/mega202.jpg",
-    },
-    {
-      name: "Baron Romero Spanish Red Wine 75 cl",
-      category: "Exotic Wines",
-      price: "₦4,475.00",
-      image: "RED WINES/omkt062_69a1da56-14ce-4f57-b9bc-68739115e637.jpg",
-    },
-    {
-      name: "Castillo De Espana Tempranillo Garnacha 75 cl",
-      category: "Exotic Wines",
-      price: "₦6,300.00",
-      image: "RED WINES/spwiow187.webp",
-    },
-    {
-      name: "Peak Instant Full Cream Milk Tin 400 g",
-      category: "Exotic Wines",
-      price: "₦6,450.00",
-      image: "RED WINES/spwxyz1207.png",
-    },
-    {
-      name: "Carlo Rossi Sweet Red Wine 75 cl",
-      category: "Exotic Wines",
-      price: "₦9,820.00",
-      image: "RED WINES/spar0382_1fa6f695-bdd8-45d2-a242-b6b482f8aec1.jpg",
-    },
-    {
-      name: "Castillo Grande Tempranillo Vino Tinto 75 cl",
-      category: "Exotic Wines",
-      price: "₦5,515.00",
-      image: "RED WINES/sparxyz2166.jpg",
-    },
-    {
-      name: "Carlo Rossi Wine Mixed Berry Flavour 75 cl",
-      category: "Exotic Wines",
-      price: "₦9,590.00",
-      image: "RED WINES/sprnw1506.jpg",
-    },
-    {
-      name: "Baron De Valls Vin Rouge 75 cl",
-      category: "Exotic Wines",
-      price: "₦4,475.00",
-      image: "RED WINES/spwiiw40_baron-de-valls-vin-rouge.jpg",
-    },
-    {
-      name: "Carlo Rossi California Red 75 cl",
-      category: "Exotic Wines",
-      price: "₦10,020.00",
-      image: "RED WINES/spwiow170_carlo-rossi-california-red.jpg",
-    },
-  ];
-
-  const AllProducts = [
-    ...provisions,
-    ...cosmetics,
-    ...exoticWines,
-    ...babyItems,
-    ...toiletries,
-    ...beverages,
-  ];
+  const AllProducts = [...provisions, ...cosmetics, ...toiletries];
 
   // Function to handle displaying search results with pagination
   function handleSearchResults(
