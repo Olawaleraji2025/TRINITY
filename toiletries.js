@@ -45,28 +45,28 @@ const toiletriesProducts = [
       "Air Fresheners & Fragrances/Air-Wick-Freshmatic-Max-Refill-Assorted-250-ml-Supermart-ng-7570.jpg",
   },
   {
-    name: "Glade Air Freshener Automatic Spray",
+    name: "Wind Air Freshener Apple 65g",
     category: "Toiletries",
     price: "₦4,210.00",
     image:
       "Air Fresheners & Fragrances/spasho2022_5d9864c0-d12c-4662-ae10-12f3fb830386.jpg",
   },
   {
-    name: "Raid Air Freshener Tropical Mist",
+    name: "Sunshine Air Freshener Tropical Mist",
     category: "Toiletries",
     price: "₦5,120.00",
     image:
       "Air Fresheners & Fragrances/spasho420_cca82127-b059-4824-a8d7-48e2b76ca34f.jpg",
   },
   {
-    name: "Ambi Pur Car Air Freshener Ocean",
+    name: "Sunshine Car Air Freshener Ocean",
     category: "Toiletries",
     price: "₦3,450.00",
     image:
       "Air Fresheners & Fragrances/spasho421_c652d445-5a45-4e75-b717-2bdaf3e35f58.jpg",
   },
   {
-    name: "Febreze Noticeables Air Freshener Meadow",
+    name: "Sunshine Air Freshener",
     category: "Toiletries",
     price: "₦6,020.00",
     image: "Air Fresheners & Fragrances/spwxyz1494_2.jpg",

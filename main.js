@@ -107,7 +107,7 @@ document.addEventListener("keydown", (e) => {
 function getScrollPercentage() {
   const leftToRight = sliderWrapper.scrollLeft;
   const maxScroll = sliderWrapper.scrollWidth - sliderWrapper.clientWidth;
-  console.log({ leftToRight, maxScroll });
+  // console.log({ leftToRight, maxScroll });
   return maxScroll > 0 ? (leftToRight / maxScroll) * 100 : 0;
 }
 
@@ -164,16 +164,17 @@ function nextBtn3() {
 
 const productsItems = [
   {
-    name: "Peak Instant Full Cream Milk 400 g",
+    name: "McVitie's Hob Nobs 200 g",
     category: "Provisions",
-    price: "#6,000.00",
-    image: "Homepage/Peak Milk 900g.webp",
+    price: "₦1,560.00",
+    image: "Biscuits & Wafers/dbk2998.jpg",
   },
   {
-    name: "Extract Whitening Lotion 200 ml",
+    name: "Extract Whitening Lotion Papaya Calamansi 200 ml",
     category: "Cosmetics",
-    price: "₦6,250.00",
-    image: "Homepage/medp8382_1f90ef96-1781-49c2-8066-9223f207d8bc.jpg",
+    price: "₦3,750.00",
+    image:
+      "Moisturisers & Lotions/spasho1467_1ccfda31-5388-4f55-a6f0-861d8e2240e8.jpg",
   },
   {
     name: "Checkers Custard Powder 3 in 1 Milk Jar 1 kg",
@@ -188,28 +189,29 @@ const productsItems = [
     image: "Cocktail Snacks/1507734773140_okea2333_minimie_chin_chin_45_g.jpg",
   },
   {
-    name: "Nestle Golden Morn Maize & Soya 800 g",
+    name: "Nasco Corn Flakes Original 350 g",
     category: "Provisions",
-    price: "#6,000.00",
-    image: "Homepage/Nestle Golden Morn Maize 800g.webp",
+    price: "₦2,800.00",
+    image: "BREAKFAST CEREALS/spcgce762.jpg",
   },
   {
-    name: "Cerelac Wheat & Milk 6 Months",
-    category: "Baby items",
-    price: "#6,000.00",
-    image: "Baby Food/spbpfd2609.jpg",
+    name: "Blue Pearl Coloured Prawn Crackers 227 g",
+    category: "Provisions",
+    price: "₦1,645.00",
+    image: "Cocktail Snacks/spmex4362.jpg",
   },
   {
-    name: "Rose Carla Toilet Tissue 12 Rolls",
+    name: "Air Wick Freshmatic Air Freshener Assorted 300ml",
     category: "Toiletries",
-    price: "₦11,640.00",
-    image: "Toilet Tissue/aspar025.jpg",
+    price: "₦3,125.00",
+    image:
+      "Air Fresheners & Fragrances/Air-Wick-Air-Freshener-Assorted-300-ml-Supermart-ng-2079.jpg",
   },
   {
-    name: "Eclairs Choco 500 g",
+    name: "Bounty Chocolate 57 g",
     category: "Provisions",
-    price: "₦3,400.00",
-    image: "Sweets & Chewing Gum/aspar093.jpg",
+    price: "₦1,570.00",
+    image: "Chocolates/1486570613196_spcsch775_bounty_chocolate_57_g.jpg",
   },
 ];
 
@@ -221,28 +223,29 @@ const productsItems2 = [
     image: "Baby Wipes/aspar2085.jpg",
   },
   {
-    name: "Extract Whitening Herbal Soap 125 g",
-    category: "toiletries",
-    price: "₦1,250.00",
-    image: "Bath Time/sprnw1407.jpg",
+    name: "Air Wick Stick Up Citrus Aroma Gel 30g",
+    category: "Toiletries",
+    price: "₦2,950.00",
+    image:
+      "Air Fresheners & Fragrances/Air-Wick-Air-Freshener-Stick-Up-Multi-Use-Aroma-Gel-Citrus-30-g-Supermart-ng-4000.jpg",
   },
   {
-    name: "Pringles Salt & Vinegar 165 g",
+    name: "Pringles Sour Cream & Onion 165 g",
     category: "Provisions",
     price: "₦4,015.00",
-    image: "Potato & Plantain Chips/222.png",
+    image: "Potato & Plantain Chips/spcsas2203.jpg",
   },
   {
-    name: "Colgate Plax Mouthwash 500 ml",
-    category: "toiletries",
-    price: "₦6,345.00",
+    name: "Air Wick Drummer Assorted 45g x6",
+    category: "Toiletries",
+    price: "₦5,640.00",
     image:
-      "Oral Care/1458303106553_sptomw1048_colgate_mouthwash_plax_anti-bacterial_soft_mint_500_ml.jpg",
+      "Air Fresheners & Fragrances/Air-Wick-Drummer-Air-Freshener-Assorted-Fragrances-45-g-x6-Supermart-ng-9365.jpg",
   },
   {
-    name: "Vaseline Lotion Body Glow 400 ml",
-    category: "cosmetics",
-    price: "₦4,455.00",
+    name: "Vaseline Lotion Intensive Care Healthy Body Glow 400 ml",
+    category: "Cosmetics",
+    price: "₦2,950.00",
     image: "Moisturisers & Lotions/aspar050.jpg",
   },
   {
@@ -259,7 +262,7 @@ const productsItems2 = [
     image: "SUGAR AND SWEETENERS/spxabc238.jpg",
   },
   {
-    name: "Cetaphil Moisturizing Lotion 473ml",
+    name: "Nivea Lotion Nourishing Cocoa 400 ml",
     category: "Cosmetics",
     price: "₦3,200.00",
     image:
@@ -563,60 +566,60 @@ const cosmetics = [
   },
 
   {
-    name: "Vaseline Intensive Care Lotion Cocoa Glow 400ml",
+    name: "St. Ives Lotion Skin Soothing Oatmeal & Shea Butter 621 ml",
     category: "Cosmetics",
     price: "₦4,200.00",
     image: "Moisturisers & Lotions/Spmt520.jpg",
   },
 
   {
-    name: "Nivea Soft Moisturizing Cream 300ml",
+    name: "Nivea Men Lotion Revitalising 400 ml",
     category: "Cosmetics",
     price: "₦5,100.00",
     image: "Moisturisers & Lotions/Spmt974.jpg",
   },
   {
-    name: "Shea Butter Raw Unrefined 1kg",
+    name: "Vaseline Lotion Intensive Care Healthy Body Glow 400 ml",
     category: "Cosmetics",
     price: "₦2,950.00",
     image: "Moisturisers & Lotions/aspar050.jpg",
   },
   {
-    name: "Dove Body Lotion Deeply Nourishing 400ml",
+    name: "Skin White Papaya Milk Whitening Lotion 350 ml",
     category: "Cosmetics",
     price: "₦6,200.00",
     image: "Moisturisers & Lotions/dbk4324.jpg",
   },
   {
-    name: "Palmer's Cocoa Butter Formula 250g",
+    name: "Extract Whitening Lotion Papaya Calamansi 200 ml",
     category: "Cosmetics",
     price: "₦3,750.00",
     image:
       "Moisturisers & Lotions/spasho1467_1ccfda31-5388-4f55-a6f0-861d8e2240e8.jpg",
   },
   {
-    name: "Nivea Body Oil Nourishing 200ml",
+    name: "Nivea Radiant & Beauty Advanced Care Body Lotion 400ml",
     category: "Cosmetics",
     price: "₦5,800.00",
     image:
       "Moisturisers & Lotions/spasho2096_deb48546-c084-4d32-a132-c5178c2471d9.jpg",
   },
   {
-    name: "Jergens Moisturizer Original Scent 750ml",
+    name: "Nivea Radiant & Beauty Even Glow Body Lotion 400 ml",
     category: "Cosmetics",
     price: "₦4,500.00",
     image:
       "Moisturisers & Lotions/spasho2097_2475b5a8-535e-4ade-bad4-1b089a58848e.jpg",
   },
   {
-    name: "Cetaphil Moisturizing Lotion 473ml",
+    name: "Nivea Lotion Nourishing Cocoa 400 ml",
     category: "Cosmetics",
     price: "₦3,200.00",
     image:
       "Moisturisers & Lotions/spaz4_859e2b48-cda9-4143-9426-5999003beabd.jpg",
   },
   {
-    name: "Aveeno Daily Moisturizing Lotion 532ml",
+    name: "Dr Rashel Vitamin C Brightening Cream",
     category: "Cosmetics",
     price: "₦6,000.00",
     image:
@@ -668,28 +671,28 @@ const toiletries = [
       "Air Fresheners & Fragrances/Air-Wick-Freshmatic-Max-Refill-Assorted-250-ml-Supermart-ng-7570.jpg",
   },
   {
-    name: "Glade Air Freshener Automatic Spray",
+    name: "Wind Air Freshener Apple 65g",
     category: "Toiletries",
     price: "₦4,210.00",
     image:
       "Air Fresheners & Fragrances/spasho2022_5d9864c0-d12c-4662-ae10-12f3fb830386.jpg",
   },
   {
-    name: "Raid Air Freshener Tropical Mist",
+    name: "Sunshine Air Freshener Tropical Mist",
     category: "Toiletries",
     price: "₦5,120.00",
     image:
       "Air Fresheners & Fragrances/spasho420_cca82127-b059-4824-a8d7-48e2b76ca34f.jpg",
   },
   {
-    name: "Ambi Pur Car Air Freshener Ocean",
+    name: "Sunshine Car Air Freshener Ocean",
     category: "Toiletries",
     price: "₦3,450.00",
     image:
       "Air Fresheners & Fragrances/spasho421_c652d445-5a45-4e75-b717-2bdaf3e35f58.jpg",
   },
   {
-    name: "Febreze Noticeables Air Freshener Meadow",
+    name: "Sunshine Air Freshener",
     category: "Toiletries",
     price: "₦6,020.00",
     image: "Air Fresheners & Fragrances/spwxyz1494_2.jpg",
@@ -944,13 +947,13 @@ function showCartModal(name, price, image, quantity) {
 
 // Wishlist functionality
 function addToWishlist(name, price, image, heartIcon) {
-  console.log(
-    "🚀 ~ addToWishlist ~ name, price, image, heartIcon:",
-    name,
-    price,
-    image,
-    heartIcon,
-  );
+  // console.log(
+  //   "🚀 ~ addToWishlist ~ name, price, image, heartIcon:",
+  //   name,
+  //   price,
+  //   image,
+  //   heartIcon,
+  // );
 
   // Get wishlist from localStorage
   let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];

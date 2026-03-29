@@ -160,60 +160,60 @@ const cosmetics = [
   },
 
   {
-    name: "Vaseline Intensive Care Lotion Cocoa Glow 400ml",
+    name: "St. Ives Lotion Skin Soothing Oatmeal & Shea Butter 621 ml",
     category: "Cosmetics",
     price: "₦4,200.00",
     image: "Moisturisers & Lotions/Spmt520.jpg",
   },
 
   {
-    name: "Nivea Soft Moisturizing Cream 300ml",
+    name: "Nivea Men Lotion Revitalising 400 ml",
     category: "Cosmetics",
     price: "₦5,100.00",
     image: "Moisturisers & Lotions/Spmt974.jpg",
   },
   {
-    name: "Shea Butter Raw Unrefined 1kg",
+    name: "Vaseline Lotion Intensive Care Healthy Body Glow 400 ml",
     category: "Cosmetics",
     price: "₦2,950.00",
     image: "Moisturisers & Lotions/aspar050.jpg",
   },
   {
-    name: "Dove Body Lotion Deeply Nourishing 400ml",
+    name: "Skin White Papaya Milk Whitening Lotion 350 ml",
     category: "Cosmetics",
     price: "₦6,200.00",
     image: "Moisturisers & Lotions/dbk4324.jpg",
   },
   {
-    name: "Palmer's Cocoa Butter Formula 250g",
+    name: "Extract Whitening Lotion Papaya Calamansi 200 ml",
     category: "Cosmetics",
     price: "₦3,750.00",
     image:
       "Moisturisers & Lotions/spasho1467_1ccfda31-5388-4f55-a6f0-861d8e2240e8.jpg",
   },
   {
-    name: "Nivea Body Oil Nourishing 200ml",
+    name: "Nivea Radiant & Beauty Advanced Care Body Lotion 400ml",
     category: "Cosmetics",
     price: "₦5,800.00",
     image:
       "Moisturisers & Lotions/spasho2096_deb48546-c084-4d32-a132-c5178c2471d9.jpg",
   },
   {
-    name: "Jergens Moisturizer Original Scent 750ml",
+    name: "Nivea Radiant & Beauty Even Glow Body Lotion 400 ml",
     category: "Cosmetics",
     price: "₦4,500.00",
     image:
       "Moisturisers & Lotions/spasho2097_2475b5a8-535e-4ade-bad4-1b089a58848e.jpg",
   },
   {
-    name: "Cetaphil Moisturizing Lotion 473ml",
+    name: "Nivea Lotion Nourishing Cocoa 400 ml",
     category: "Cosmetics",
     price: "₦3,200.00",
     image:
       "Moisturisers & Lotions/spaz4_859e2b48-cda9-4143-9426-5999003beabd.jpg",
   },
   {
-    name: "Aveeno Daily Moisturizing Lotion 532ml",
+    name: "Dr Rashel Vitamin C Brightening Cream",
     category: "Cosmetics",
     price: "₦6,000.00",
     image:
@@ -265,28 +265,28 @@ const toiletries = [
       "Air Fresheners & Fragrances/Air-Wick-Freshmatic-Max-Refill-Assorted-250-ml-Supermart-ng-7570.jpg",
   },
   {
-    name: "Glade Air Freshener Automatic Spray",
+    name: "Wind Air Freshener Apple 65g",
     category: "Toiletries",
     price: "₦4,210.00",
     image:
       "Air Fresheners & Fragrances/spasho2022_5d9864c0-d12c-4662-ae10-12f3fb830386.jpg",
   },
   {
-    name: "Raid Air Freshener Tropical Mist",
+    name: "Sunshine Air Freshener Tropical Mist",
     category: "Toiletries",
     price: "₦5,120.00",
     image:
       "Air Fresheners & Fragrances/spasho420_cca82127-b059-4824-a8d7-48e2b76ca34f.jpg",
   },
   {
-    name: "Ambi Pur Car Air Freshener Ocean",
+    name: "Sunshine Car Air Freshener Ocean",
     category: "Toiletries",
     price: "₦3,450.00",
     image:
       "Air Fresheners & Fragrances/spasho421_c652d445-5a45-4e75-b717-2bdaf3e35f58.jpg",
   },
   {
-    name: "Febreze Noticeables Air Freshener Meadow",
+    name: "Sunshine Air Freshener",
     category: "Toiletries",
     price: "₦6,020.00",
     image: "Air Fresheners & Fragrances/spwxyz1494_2.jpg",
@@ -365,7 +365,7 @@ function addToCartFromWishlist(name, price, image, index) {
     cart[existingIndex].quantity += 1;
   } else {
     cart.push({ name, price, image, quantity: 1 });
-    console.log(cart);
+    // console.log(cart);
   }
 
   localStorage.setItem("cart", JSON.stringify(cart));

@@ -1,6 +1,7 @@
 "use strict";
 
 // Array of cosmetics products
+
 const cosmeticsProducts = [
   {
     name: "Nivea Body Milk Nourishing Lotion 400ml",
@@ -10,60 +11,60 @@ const cosmeticsProducts = [
   },
 
   {
-    name: "Vaseline Intensive Care Lotion Cocoa Glow 400ml",
+    name: "St. Ives Lotion Skin Soothing Oatmeal & Shea Butter 621 ml",
     category: "Cosmetics",
     price: "₦4,200.00",
     image: "Moisturisers & Lotions/Spmt520.jpg",
   },
 
   {
-    name: "Nivea Soft Moisturizing Cream 300ml",
+    name: "Nivea Men Lotion Revitalising 400 ml",
     category: "Cosmetics",
     price: "₦5,100.00",
     image: "Moisturisers & Lotions/Spmt974.jpg",
   },
   {
-    name: "Shea Butter Raw Unrefined 1kg",
+    name: "Vaseline Lotion Intensive Care Healthy Body Glow 400 ml",
     category: "Cosmetics",
     price: "₦2,950.00",
     image: "Moisturisers & Lotions/aspar050.jpg",
   },
   {
-    name: "Dove Body Lotion Deeply Nourishing 400ml",
+    name: "Skin White Papaya Milk Whitening Lotion 350 ml",
     category: "Cosmetics",
     price: "₦6,200.00",
     image: "Moisturisers & Lotions/dbk4324.jpg",
   },
   {
-    name: "Palmer's Cocoa Butter Formula 250g",
+    name: "Extract Whitening Lotion Papaya Calamansi 200 ml",
     category: "Cosmetics",
     price: "₦3,750.00",
     image:
       "Moisturisers & Lotions/spasho1467_1ccfda31-5388-4f55-a6f0-861d8e2240e8.jpg",
   },
   {
-    name: "Nivea Body Oil Nourishing 200ml",
+    name: "Nivea Radiant & Beauty Advanced Care Body Lotion 400ml",
     category: "Cosmetics",
     price: "₦5,800.00",
     image:
       "Moisturisers & Lotions/spasho2096_deb48546-c084-4d32-a132-c5178c2471d9.jpg",
   },
   {
-    name: "Jergens Moisturizer Original Scent 750ml",
+    name: "Nivea Radiant & Beauty Even Glow Body Lotion 400 ml",
     category: "Cosmetics",
     price: "₦4,500.00",
     image:
       "Moisturisers & Lotions/spasho2097_2475b5a8-535e-4ade-bad4-1b089a58848e.jpg",
   },
   {
-    name: "Cetaphil Moisturizing Lotion 473ml",
+    name: "Nivea Lotion Nourishing Cocoa 400 ml",
     category: "Cosmetics",
     price: "₦3,200.00",
     image:
       "Moisturisers & Lotions/spaz4_859e2b48-cda9-4143-9426-5999003beabd.jpg",
   },
   {
-    name: "Aveeno Daily Moisturizing Lotion 532ml",
+    name: "Dr Rashel Vitamin C Brightening Cream",
     category: "Cosmetics",
     price: "₦6,000.00",
     image:
