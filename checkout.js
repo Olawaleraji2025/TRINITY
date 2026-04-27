@@ -708,3 +708,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+window.addEventListener("click", (event) => {
+  const errorModal = document.getElementById("errorModal");
+  if (errorModal && event.target === errorModal) {
+    errorModal.style.display = "none";
+  }
+});
