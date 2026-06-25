@@ -21,6 +21,17 @@ const categoryDiv = document.querySelector(".categories-div");
 const hiddenCategories = document.querySelector(".hidden-categories");
 const hiddenSearchQuery = document.querySelector(".search-query");
 
+// Scroll Reveal Script
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
 // UI Toggle Functions
 function toggleSearchBar(show) {
   if (show) {

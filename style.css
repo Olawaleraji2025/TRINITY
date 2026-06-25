@@ -1561,7 +1561,8 @@ small {
   .whishlist-icon,
   .categories-div,
   .cart-text,
-  .whishlist-text {
+  .whishlist-text,
+  .about-container {
     display: none;
   }
 
@@ -1661,6 +1662,18 @@ small {
   .menu-close-icon {
     display: none;
   }
+}
+
+/* Scroll Reveal (used by main.js) */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media (min-width: 1401px) {
