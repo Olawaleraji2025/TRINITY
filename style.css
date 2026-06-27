@@ -113,6 +113,7 @@ body.active {
 }
 
 .nav-container {
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1387,7 +1388,8 @@ small {
   }
 
   .nav-container {
-    align-items: flex-end;
+    height: 70px;
+    align-items: center;
   }
   .search-inputs {
     padding: 5px;
@@ -1424,6 +1426,10 @@ small {
   .view-cart-btn,
   .continue-shopping-btn {
     padding: 5px 10px;
+  }
+
+  .about-container {
+    display: none;
   }
 }
 
@@ -1561,8 +1567,7 @@ small {
   .whishlist-icon,
   .categories-div,
   .cart-text,
-  .whishlist-text,
-  .about-container {
+  .whishlist-text, {
     display: none;
   }
 
