@@ -282,7 +282,25 @@ const productsItems2 = [
 ];
 
 // Add wishlist and eye icons to each product item
+function handleWishlistIconClick(event) {
+  const heartIcon = event.currentTarget;
+  const card = heartIcon.closest(".product-item");
+  if (!card) return;
+
+  // Retrieve data from the icon (stored at render time)
+  const name = heartIcon.dataset.wishlistName;
+  const price = heartIcon.dataset.wishlistPrice;
+  const image = heartIcon.dataset.wishlistImage;
+
+  if (!name || !price || !image) return;
+
+  addToWishlist(name, price, image, heartIcon);
+}
+
 productsItems.map((products) => {
+  // (No inline onClick for wishlist; click is wired via handleWishlistIconClick)
+
+
   const EachProductImage = products.image;
   const EachProductName = products.name;
   const EachProductPrice = products.price;
@@ -312,8 +330,11 @@ productsItems.map((products) => {
   `;
 
   productIcons.innerHTML = `
-    <span class="wishlist-icon" ><i class="fa-regular fa-heart" onClick="addToWishlist('${EachProductName}', '${EachProductPrice}', '${EachProductImage}', this)"></i></span>
-    <span class="eye-icon" onClick="viewProductPage('${EachProductName}', '${EachProductPrice}', '${EachProductImage}')"><i class="fa-regular fa-eye"></i></span>
+    <span class="wishlist-icon" ><i class="fa-regular fa-heart" 
+      data-wishlist-name="${EachProductName}" 
+      data-wishlist-price="${EachProductPrice}" 
+      data-wishlist-image="${EachProductImage}"></i></span>
+    <span class="eye-icon" ><i class="fa-regular fa-eye" data-view-name="${EachProductName}" data-view-price="${EachProductPrice}" data-view-image="${EachProductImage}"></i></span>
   `;
 
   // Restore wishlist state
@@ -334,7 +355,13 @@ productsItems.map((products) => {
   productItemDiv.appendChild(productDetails);
   productItemDiv.appendChild(productIcons);
 
+  productIcons.addEventListener("click", handleViewProductIconClick);
   productContainer.appendChild(productItemDiv);
+
+  // Wire wishlist heart click (no inline onClick)
+  if (heartIcon) {
+    heartIcon.addEventListener("click", handleWishlistIconClick);
+  }
 
   // Attach add to cart behavior
   attachAddToCartBehavior(
@@ -344,6 +371,33 @@ productsItems.map((products) => {
     EachProductImage,
   );
 });
+
+function handleViewProductIconClick(event) {
+  const eyeIcon = event.target.closest(".eye-icon");
+  if (!eyeIcon) return;
+
+  const icon = eyeIcon.querySelector("i.fa-eye") || eyeIcon;
+  const name =
+    eyeIcon.dataset.viewName ||
+    icon.dataset.viewName ||
+    eyeIcon.dataset.name ||
+    icon.dataset.name;
+  const price =
+    eyeIcon.dataset.viewPrice ||
+    icon.dataset.viewPrice ||
+    eyeIcon.dataset.price ||
+    icon.dataset.price;
+  const image =
+    eyeIcon.dataset.viewImage ||
+    icon.dataset.viewImage ||
+    eyeIcon.dataset.image ||
+    icon.dataset.image;
+
+  if (!name || !price || !image) return;
+
+  event.stopPropagation();
+  viewProductPage(name, price, image);
+}
 
 productsItems2.map((products) => {
   const EachProductImage = products.image;
@@ -375,8 +429,14 @@ productsItems2.map((products) => {
   `;
 
   productIcons.innerHTML = `
-    <span class="wishlist-icon" ><i class="fa-regular fa-heart" onClick="addToWishlist('${EachProductName}', '${EachProductPrice}', '${EachProductImage}', this)"></i></span>
-    <span class="eye-icon" onClick="viewProductPage('${EachProductName}', '${EachProductPrice}', '${EachProductImage}')"><i class="fa-regular fa-eye"></i></span>
+    <span class="wishlist-icon"><i class="fa-regular fa-heart"
+      data-wishlist-name="${EachProductName}" 
+      data-wishlist-price="${EachProductPrice}" 
+      data-wishlist-image="${EachProductImage}"></i></span>
+    <span class="eye-icon"><i class="fa-regular fa-eye"
+      data-view-name="${EachProductName}" 
+      data-view-price="${EachProductPrice}" 
+      data-view-image="${EachProductImage}"></i></span>
   `;
 
   // Restore wishlist state
@@ -396,6 +456,12 @@ productsItems2.map((products) => {
   productItemDiv.appendChild(productName);
   productItemDiv.appendChild(productDetails);
   productItemDiv.appendChild(productIcons);
+
+  productIcons.addEventListener("click", handleViewProductIconClick);
+
+  if (heartIcon) {
+    heartIcon.addEventListener("click", handleWishlistIconClick);
+  }
 
   // Attach add to cart behavior
   attachAddToCartBehavior(
@@ -958,14 +1024,6 @@ function showCartModal(name, price, image, quantity) {
 
 // Wishlist functionality
 function addToWishlist(name, price, image, heartIcon) {
-  // console.log(
-  //   "🚀 ~ addToWishlist ~ name, price, image, heartIcon:",
-  //   name,
-  //   price,
-  //   image,
-  //   heartIcon,
-  // );
-
   // Get wishlist from localStorage
   let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
   // Check if item already exists

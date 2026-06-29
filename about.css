@@ -244,7 +244,7 @@ h1, h2, h3 {
 }
 
 .box-primary {
-    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    background: #22543d;
     color: white;
     padding: 60px;
 }
