@@ -27,6 +27,7 @@ body.active {
 
 /* Header Styles */
 .header-nav-bar {
+  max-width: 1400px;
   background-color: white;
   color: black;
   /* height: 19%; */
@@ -155,7 +156,7 @@ body.active {
 }
 
 .menu-close-icon {
-  display: flex;
+  display: none;
 }
 
 .search-container-icon span:hover {
@@ -255,7 +256,7 @@ body.active {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   width: 150px;
   top: 60px;
-  right: 165px;
+  right: 270px;
   border-radius: 0px 0px 8px 8px;
   display: block;
   animation: slider 0.5s;
@@ -1369,15 +1370,7 @@ small {
     display: none;
   }
 
-  .categories-div {
-    display: none;
-  }
-
-  .cart-text,
-  .whishlist-text,
-  .whishlist-icon {
-    display: none;
-  }
+ 
 
   .image-container {
     margin-left: 0;
@@ -1428,9 +1421,29 @@ small {
     padding: 5px 10px;
   }
 
-  .about-container {
+  
+}
+
+@media (min-width: 320px) and (max-width: 880px){
+  
+ .categories-div {
     display: none;
   }
+
+  .cart-text,
+  .whishlist-text,
+  .whishlist-icon {
+    display: none;
+  }
+
+.about-container {
+    display: none;
+  }
+
+   .menu-close-icon{
+    display: flex;
+   }
+
 }
 
 @media (min-width: 420px) and (max-width: 768px) {
@@ -1452,7 +1465,7 @@ small {
   }
 
   .nav-container {
-    align-items: flex-end;
+    align-items: center;
   }
 
   /* .search-container-icon {
@@ -1515,12 +1528,22 @@ small {
   .nav-icons {
     margin-top: 0;
   }
+
+ 
 }
+
+@media (min-width: 605px){
+   .shop-header-section{
+        display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+}
+
 
 @media (min-width: 614px) and (max-width: 768px) {
   .nav-section {
     display: flex;
-    margin-bottom: 10px;
   }
 }
 
@@ -1554,12 +1577,12 @@ small {
 }
 
 @media (min-width: 741px) and (max-width: 1400px) {
-  .logo-img {
+  /* .logo-img {
     margin-bottom: 10px;
     width: 5rem;
-  }
+  } */
 
-  .menu-close-icon,
+ 
   .search-container-icon {
     display: flex;
   }
@@ -1595,6 +1618,16 @@ small {
 
   .search-container-icon {
     display: none;
+  }
+
+  .whishlist-icon span{
+    margin-top: 0;
+  }
+
+  .nav-icons a{
+    display: flex;
+    gap: 5px;
+            align-items: center;
   }
 }
 
@@ -1705,7 +1738,7 @@ small {
 
   .hidden-categories.active {
     top: 48px;
-    right: 170px;
+    right: 270px;
   }
 
   .popular-products-section {
@@ -1730,7 +1763,7 @@ small {
   } */
 
   .nav-container {
-    align-items: flex-end;
+    align-items: center;
   }
 
   .prev-btn,
@@ -1751,5 +1784,10 @@ small {
 
   .hero-content {
     margin: 100px auto auto 80px;
+  }
+
+  .nav-icons a{
+    display: flex;
+    align-items: center;
   }
 }
