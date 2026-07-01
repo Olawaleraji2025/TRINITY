@@ -808,7 +808,7 @@ body.active {
 
 .category-item img {
   width: 100%;
-  height: auto;
+  height: 85px;
   border-radius: 0.25rem;
 }
 
