@@ -808,7 +808,7 @@ body.active {
 
 .category-item img {
   width: 100%;
-  height: auto;
+  height: 85px;
   border-radius: 0.25rem;
 }
 
@@ -1720,9 +1720,7 @@ small {
     margin: 0 auto;
   }
 
-  .container {
-    margin: unset;
-  }
+
 
   .back-to-top {
     right: unset;
