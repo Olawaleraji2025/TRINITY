@@ -300,7 +300,126 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   ];
 
-  const AllProducts = [...provisions, ...cosmetics, ...toiletries];
+  const babycareProducts = [
+  {
+    name: "All-Day Sensitive Baby Wet Towel Blue x90",
+    category: "Babycare",
+    price: "₦3,500",
+    image: "Baby Wipes/All-Day-Sensitive-Baby-Wet-Towel-Blue-x90-Supermart-ng-9570.jpg",
+  },
+  {
+    name: "Charles Baby Wipes Aloe Vera 100 pieces",
+    category: "Babycare",
+    price: "₦7,000",
+    image: "Baby Wipes/mega1040_st-_charles_baby_wipes_aloe_vera_100_pieces.jpg",
+  },
+  {
+    name: "Cussons Baby Wipes Soft & Smooth 50 pieces",
+    category: "Babycare",
+    price: "₦4,200",
+    image: "Baby Wipes/mult102_cussons_baby_wipes_soft___smooth_50_pieces.jpg",
+  },
+  {
+    name: "Molfix Newborn Isotonic Wet Wipes x60",
+    category: "Babycare",
+    price: "₦2,500",
+    image: "Baby Wipes/aspar10290.jpg",
+  },
+  {
+    name: "Cussons Baby Wipes Soft & Smooth x50",
+    category: "Baby items",
+    price: "₦1,070.00",
+    image: "Baby Wipes/aspar2085.jpg",
+  },
+
+  // Baby Food
+  {
+    name: "aspar9038",
+    category: "Babycare",
+    price: "₦5,000",
+    image: "Baby Food/aspar9038.jpg",
+  },
+  {
+    name: "SMA Gold 3 Toddler Milk 1-3 Years 400 g",
+    category: "Babycare",
+    price: "₦30,000",
+    image: "Baby Food/aspar9560.jpg",
+  },
+  {
+    name: "Peak Baby Step 1 Infant Formula 0-12 Months Tin 400 g",
+    category: "Babycare",
+    price: "₦9,900",
+    image: "Baby Food/megapla871.jpg",
+  },
+  {
+    name: "Nutribom Infant Cereal Maize 6 Months+ 350 g",
+    category: "Babycare",
+    price: "₦3,200",
+    image: "Baby Food/spar0938.jpg",
+  },
+  {
+    name: "Nutribom Infant Cereal Rice 6 Months+ 350 g",
+    category: "Babycare",
+    price: "₦3,000",
+    image: "Baby Food/spar0939_9b908311-8b66-4e1d-8deb-6596a6e12fbc.jpg",
+  },
+  // {
+  //   name: "spar0941",
+  //   category: "Babycare",
+  //   price: "₦4,900",
+  //   image: "Baby Food/spar0941.webp",
+  // },
+  // {
+  //   name: "spar10275_",
+  //   category: "Babycare",
+  //   price: "₦6,200",
+  //   image: "Baby Food/spar10275..jpg",
+  // },
+  // {
+  //   name: "spbpfd2609",
+  //   category: "Babycare",
+  //   price: "₦2,800",
+  //   image: "Baby Food/spbpfd2609.jpg",
+  // },
+  // {
+  //   name: "spbpfd2620",
+  //   category: "Babycare",
+  //   price: "₦7,600",
+  //   image: "Baby Food/spbpfd2620.jpg",
+  // },
+  // {
+  //   name: "spbpfd2621",
+  //   category: "Babycare",
+  //   price: "₦1,950",
+  //   image: "Baby Food/spbpfd2621.jpg",
+  // },
+  // {
+  //   name: "spbpfd2624",
+  //   category: "Babycare",
+  //   price: "₦5,750",
+  //   image: "Baby Food/spbpfd2624.jpg",
+  // },
+  // {
+  //   name: "spbpfd2661_2_ad3dd3f7_e1d4_4e5d_a051_6b6c570ca405",
+  //   category: "Babycare",
+  //   price: "₦8,200",
+  //   image: "Baby Food/spbpfd2661_2_ad3dd3f7-e1d4-4e5d-a051-6b6c570ca405.jpg",
+  // },
+  // {
+  //   name: "spbpfd2661_2",
+  //   category: "Babycare",
+  //   price: "₦3,900",
+  //   image: "Baby Food/spbpfd2661_2.jpg",
+  // },
+  // {
+  //   name: "spxty3189",
+  //   category: "Babycare",
+  //   price: "₦9,250",
+  //   image: "Baby Food/spxty3189.jpg",
+  // },
+];
+
+  const AllProducts = [...provisions, ...cosmetics, ...toiletries, ...babycareProducts];
 
   const productDetailContainer = document.getElementById(
     "productDetailContainer",

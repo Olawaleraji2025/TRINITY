@@ -1,6 +1,204 @@
 "use strict";
 
 // Array of toiletries products
+const provisions = [
+  {
+    name: "McVitie's Hob Nobs 200 g",
+    category: "Provisions",
+    price: "₦1,560.00",
+    image: "Biscuits & Wafers/dbk2998.jpg",
+  },
+  {
+    name: "Alpenliebe Milk Filled Caramel Candy x88",
+    category: "Provisions",
+    price: "₦2,410.00",
+    image:
+      "Sweets & Chewing Gum/Alpenliebe-Milk-Filled-Caramel-Candy-x88-Supermart-ng-1909.jpg",
+  },
+  {
+    name: "Geurts Marmalade Orange 450 g",
+    category: "Provisions",
+    price: "₦4,445.00",
+    image: "Jams & Spreads/spcsjm1784.webp",
+  },
+  {
+    name: "Checkers Custard Powder Vanilla 1 kg",
+    category: "Provisions",
+    price: "₦2,240.00",
+    image:
+      "BREAKFAST CEREALS/1490789939327_spxspy758_checkers_custard_powder_vanilla_sachet_400_g-min.jpg",
+  },
+  {
+    name: "Bounty Chocolate 57 g",
+    category: "Provisions",
+    price: "₦1,570.00",
+    image: "Chocolates/1486570613196_spcsch775_bounty_chocolate_57_g.jpg",
+  },
+  {
+    name: "Sunola Sugar Cubes 474 g x90",
+    category: "Provisions",
+    price: "₦1,040.00",
+    image:
+      "SUGAR AND SWEETENERS/1516643468047_spx350_sunola_sugar_cubes_474_g_90_pieces.jpg",
+  },
+  {
+    name: "McVitie fingers biscuit",
+    category: "Provisions",
+    price: "₦200.00",
+    image: "Biscuits & Wafers/dbk2953.jpg",
+  },
+  {
+    name: "Chupa Chups Cotton Bubble Gum Tutti Frutti 11 g x20",
+    category: "Provisions",
+    price: "₦340.00",
+    image: "Sweets & Chewing Gum/spx02550.jpg",
+  },
+  {
+    name: "Rowse Honey Glass Jar 340 g",
+    category: "Provisions",
+    price: "₦5,250.00",
+    image: "SUGAR AND SWEETENERS/spxabc238.jpg",
+  },
+  {
+    name: "Pringles Paprika 40 g",
+    category: "Provisions",
+    price: "₦1,280.00",
+    image:
+      "Potato & Plantain Chips/sprnw1381_b9724a2b-24db-46bf-a7e5-95e57e1f617a.jpg",
+  },
+  {
+    name: "Checkers Custard Powder Milk 3 in 1 Breakfast 700 g",
+    category: "Provisions",
+    price: "₦3,335.00",
+    image: "Custard & Jelly/sprnw1155.jpg",
+  },
+  {
+    name: "Blue Pearl Coloured Prawn Crackers 227 g",
+    category: "Provisions",
+    price: "₦1,645.00",
+    image: "Cocktail Snacks/spmex4362.jpg",
+  },
+  {
+    name: "Snickers 50 g",
+    category: "Provisions",
+    price: "₦1,425.00",
+    image: "Chocolates/spcsch1086.png",
+  },
+  {
+    name: "Nasco Corn Flakes Original 350 g",
+    category: "Provisions",
+    price: "₦2,800.00",
+    image: "BREAKFAST CEREALS/spcgce762.jpg",
+  },
+  {
+    name: "McVitie's HobNobs 40 g",
+    category: "Provisions",
+    price: "₦345.00",
+    image: "Biscuits & Wafers/sprnw1367.jpg",
+  },
+  {
+    name: "Mentos Pure Fresh Chewing Gum Tropical 87.5 g x50",
+    category: "Provisions",
+    price: "₦3,385.00",
+    image:
+      "Sweets & Chewing Gum/spasho2001_0dcc358f-4abc-4031-bad4-a1d721d8bd7c.jpg",
+  },
+  {
+    name: "Pringles Sour Cream & Onion 165 g",
+    category: "Provisions",
+    price: "₦4,015.00",
+    image: "Potato & Plantain Chips/spcsas2203.jpg",
+  },
+  {
+    name: "Nutzy Peanut Butter Creamy Smooth 510 g",
+    category: "Provisions",
+    price: "₦3,560.00",
+    image: "Jams & Spreads/spxtyabc642.jpg",
+  },
+  {
+    name: "Checkers Custard Powder 3 in 1 Milk Jar 1 kg",
+    category: "Provisions",
+    price: "₦6,100.00",
+    image: "Custard & Jelly/spmex3602_cc963533-b2bf-4ef3-a697-02e1117b4fb0.jpg",
+  },
+  {
+    name: "Minimie Chin Chin 45 g",
+    category: "Provisions",
+    price: "₦150.00",
+    image: "Cocktail Snacks/1507734773140_okea2333_minimie_chin_chin_45_g.jpg",
+  },
+];
+
+const cosmetics = [
+  {
+    name: "Nivea Body Milk Nourishing Lotion 400ml",
+    category: "Cosmetics",
+    price: "₦3,450.00",
+    image: "Moisturisers & Lotions/Spmt1003.jpg",
+  },
+
+  {
+    name: "St. Ives Lotion Skin Soothing Oatmeal & Shea Butter 621 ml",
+    category: "Cosmetics",
+    price: "₦4,200.00",
+    image: "Moisturisers & Lotions/Spmt520.jpg",
+  },
+
+  {
+    name: "Nivea Men Lotion Revitalising 400 ml",
+    category: "Cosmetics",
+    price: "₦5,100.00",
+    image: "Moisturisers & Lotions/Spmt974.jpg",
+  },
+  {
+    name: "Vaseline Lotion Intensive Care Healthy Body Glow 400 ml",
+    category: "Cosmetics",
+    price: "₦2,950.00",
+    image: "Moisturisers & Lotions/aspar050.jpg",
+  },
+  {
+    name: "Skin White Papaya Milk Whitening Lotion 350 ml",
+    category: "Cosmetics",
+    price: "₦6,200.00",
+    image: "Moisturisers & Lotions/dbk4324.jpg",
+  },
+  {
+    name: "Extract Whitening Lotion Papaya Calamansi 200 ml",
+    category: "Cosmetics",
+    price: "₦3,750.00",
+    image:
+      "Moisturisers & Lotions/spasho1467_1ccfda31-5388-4f55-a6f0-861d8e2240e8.jpg",
+  },
+  {
+    name: "Nivea Radiant & Beauty Advanced Care Body Lotion 400ml",
+    category: "Cosmetics",
+    price: "₦5,800.00",
+    image:
+      "Moisturisers & Lotions/spasho2096_deb48546-c084-4d32-a132-c5178c2471d9.jpg",
+  },
+  {
+    name: "Nivea Radiant & Beauty Even Glow Body Lotion 400 ml",
+    category: "Cosmetics",
+    price: "₦4,500.00",
+    image:
+      "Moisturisers & Lotions/spasho2097_2475b5a8-535e-4ade-bad4-1b089a58848e.jpg",
+  },
+  {
+    name: "Nivea Lotion Nourishing Cocoa 400 ml",
+    category: "Cosmetics",
+    price: "₦3,200.00",
+    image:
+      "Moisturisers & Lotions/spaz4_859e2b48-cda9-4143-9426-5999003beabd.jpg",
+  },
+  {
+    name: "Dr Rashel Vitamin C Brightening Cream",
+    category: "Cosmetics",
+    price: "₦6,000.00",
+    image:
+      "Moisturisers & Lotions/spmzz1248_f196f1fb-53aa-4937-943e-d5518dfca133.jpg",
+  },
+];
+
 const toiletriesProducts = [
   {
     name: "Air Wick Freshmatic Air Freshener Assorted 300ml",
@@ -73,6 +271,128 @@ const toiletriesProducts = [
   },
 ];
 
+const babycareProducts = [
+  {
+    name: "All-Day Sensitive Baby Wet Towel Blue x90",
+    category: "Babycare",
+    price: "₦3,500",
+    image: "Baby Wipes/All-Day-Sensitive-Baby-Wet-Towel-Blue-x90-Supermart-ng-9570.jpg",
+  },
+  {
+    name: "Charles Baby Wipes Aloe Vera 100 pieces",
+    category: "Babycare",
+    price: "₦7,000",
+    image: "Baby Wipes/mega1040_st-_charles_baby_wipes_aloe_vera_100_pieces.jpg",
+  },
+  {
+    name: "Cussons Baby Wipes Soft & Smooth 50 pieces",
+    category: "Babycare",
+    price: "₦4,200",
+    image: "Baby Wipes/mult102_cussons_baby_wipes_soft___smooth_50_pieces.jpg",
+  },
+  {
+    name: "Molfix Newborn Isotonic Wet Wipes x60",
+    category: "Babycare",
+    price: "₦2,500",
+    image: "Baby Wipes/aspar10290.jpg",
+  },
+  {
+    name: "Cussons Baby Wipes Soft & Smooth x50",
+    category: "Baby items",
+    price: "₦1,070.00",
+    image: "Baby Wipes/aspar2085.jpg",
+  },
+
+  // Baby Food
+  {
+    name: "aspar9038",
+    category: "Babycare",
+    price: "₦5,000",
+    image: "Baby Food/aspar9038.jpg",
+  },
+  {
+    name: "SMA Gold 3 Toddler Milk 1-3 Years 400 g",
+    category: "Babycare",
+    price: "₦30,000",
+    image: "Baby Food/aspar9560.jpg",
+  },
+  {
+    name: "Peak Baby Step 1 Infant Formula 0-12 Months Tin 400 g",
+    category: "Babycare",
+    price: "₦9,900",
+    image: "Baby Food/megapla871.jpg",
+  },
+  {
+    name: "Nutribom Infant Cereal Maize 6 Months+ 350 g",
+    category: "Babycare",
+    price: "₦3,200",
+    image: "Baby Food/spar0938.jpg",
+  },
+  {
+    name: "Nutribom Infant Cereal Rice 6 Months+ 350 g",
+    category: "Babycare",
+    price: "₦3,000",
+    image: "Baby Food/spar0939_9b908311-8b66-4e1d-8deb-6596a6e12fbc.jpg",
+  },
+  // {
+  //   name: "spar0941",
+  //   category: "Babycare",
+  //   price: "₦4,900",
+  //   image: "Baby Food/spar0941.webp",
+  // },
+  // {
+  //   name: "spar10275_",
+  //   category: "Babycare",
+  //   price: "₦6,200",
+  //   image: "Baby Food/spar10275..jpg",
+  // },
+  // {
+  //   name: "spbpfd2609",
+  //   category: "Babycare",
+  //   price: "₦2,800",
+  //   image: "Baby Food/spbpfd2609.jpg",
+  // },
+  // {
+  //   name: "spbpfd2620",
+  //   category: "Babycare",
+  //   price: "₦7,600",
+  //   image: "Baby Food/spbpfd2620.jpg",
+  // },
+  // {
+  //   name: "spbpfd2621",
+  //   category: "Babycare",
+  //   price: "₦1,950",
+  //   image: "Baby Food/spbpfd2621.jpg",
+  // },
+  // {
+  //   name: "spbpfd2624",
+  //   category: "Babycare",
+  //   price: "₦5,750",
+  //   image: "Baby Food/spbpfd2624.jpg",
+  // },
+  // {
+  //   name: "spbpfd2661_2_ad3dd3f7_e1d4_4e5d_a051_6b6c570ca405",
+  //   category: "Babycare",
+  //   price: "₦8,200",
+  //   image: "Baby Food/spbpfd2661_2_ad3dd3f7-e1d4-4e5d-a051-6b6c570ca405.jpg",
+  // },
+  // {
+  //   name: "spbpfd2661_2",
+  //   category: "Babycare",
+  //   price: "₦3,900",
+  //   image: "Baby Food/spbpfd2661_2.jpg",
+  // },
+  // {
+  //   name: "spxty3189",
+  //   category: "Babycare",
+  //   price: "₦9,250",
+  //   image: "Baby Food/spxty3189.jpg",
+  // },
+];
+
+const AllProducts = [...provisions, ...cosmetics, ...toiletriesProducts, ...babycareProducts];
+
+
 // DOM Elements
 const searchIcon = document.querySelector(".search-icon");
 const searchBar = document.querySelector(".modal-search");
@@ -99,7 +419,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!inputedItem) {
       return;
     }
-    const filteredItems = toiletriesProducts.filter((eachProducts) =>
+    const filteredItems = AllProducts.filter((eachProducts) =>
       eachProducts.name.toLowerCase().includes(inputedItem),
     );
     handleSearchResults(filteredItems, inputedItem, inputText, 90);
@@ -116,7 +436,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!inputedItem) {
       return;
     }
-    const filteredItems = toiletriesProducts.filter((eachProducts) =>
+    const filteredItems = AllProducts.filter((eachProducts) =>
       eachProducts.name.toLowerCase().includes(inputedItem),
     );
     handleSearchResults(

@@ -1,4 +1,4 @@
-<!doctype html>
+<!Doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -21,15 +21,14 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
     />
 
-    <title>Trinity Supermarket</title>
+    <title>Babycare | Femforth Pharmacy LTD</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="shop.css" />
+    <link rel="stylesheet" href="babycare.css" />
   </head>
   <body id="Up" class="">
     <!-- Loader -->
     <div id="loader" class="loader">
-      <!-- <div class="spinner"></div>
-  <p>Loading...</p> -->
       <div class="loader-image">
         <img src="Homepage/Femforth-2.png" alt="" />
       </div>
@@ -61,31 +60,32 @@
             <div class="whishlist-icon">
               <a href="wishlist.html" class="whishlist whishlist-text"
                 ><span class="material-symbols-outlined"> favorite </span>
-                <span>Wishlist</span>
-              </a>
+                <span>Wishlist</span></a
+              >
             </div>
-            <!-- Cart Container -->
             <div class="cart-container">
               <a href="cart.html" class="cart"
                 ><span class="material-symbols-outlined">shopping_cart</span
-                ><span id="cart-count" class="cart-count">0</span>
-              </a>
+                ><span id="cart-count" class="cart-count">0</span></a
+              >
               <span class="cart-text">Cart</span>
             </div>
+
             <!-- About Us Container -->
-              <div class="about-container">
-                <a href="about.html" class="about-link">
-                  <i class="fa-solid fa-circle-info about-icon" aria-hidden="true"></i>
-                  <span class="about-text">About Us</span>
-                </a>
-              </div>
+            <div class="about-container">
+              <a href="about.html" class="about-link">
+                <i class="fa-solid fa-circle-info about-icon" aria-hidden="true"></i>
+                <span class="about-text">About Us</span>
+              </a>
+            </div>
+
             <div class="menu-close-icon">
               <span class="menu material-symbols-outlined">menu</span>
               <span class="hidden-close material-symbols-outlined">close</span>
             </div>
+
             <div class="mobile-menu">
               <ul>
-                <!-- <li><a href="#categories-section">Categories</a></li> -->
                 <li><a href="wishlist.html">Wishlist</a></li>
                 <li><a href="about.html">About Us</a></li>
               </ul>
@@ -93,6 +93,7 @@
           </div>
         </div>
       </nav>
+
       <!-- This is for modal search -->
       <div class="modal-search">
         <div class="close-container">
@@ -117,20 +118,23 @@
       <div class="breadcrumb">
         <a href="index.html">Home</a>
         <span><i class="material-symbols-outlined">chevron_right</i></span>
-        <span>Shop</span>
+        <span>Babycare</span>
       </div>
     </section>
 
+    <!-- Matches shop.html structure -->
     <section class="shop-header-section">
       <div class="category-name">
         <h5 class="category-name-header">All</h5>
       </div>
+
       <div class="shop-header-container">
         <div class="header-left">
           <div class="results-display">
             <p class="results-display-text"></p>
           </div>
         </div>
+
         <button id="filter-toggle-btn" class="filter-toggle-btn">
           <span>Filter</span>
           <i class="fas fa-filter"></i>
@@ -150,6 +154,7 @@
       <div class="right-sidebar" id="rightSidebar">
         <button id="sidebar-close" class="sidebar-close">&times;</button>
         <h3>Filters &amp; Sort</h3>
+
         <div class="sort-container">
           <select id="sort-select" class="sort">
             <option value="default">Sort by: Default</option>
@@ -158,18 +163,17 @@
             <option value="name-a-z">Name: A to Z</option>
             <option value="name-z-a">Name: Z to A</option>
           </select>
+
           <select id="filter-select" class="filter">
             <option value="All">Filter by: All</option>
-            <option value="Provisions">Provisions</option>
-            <option value="Cosmetics">Cosmetics</option>
-            <option value="Toiletries">Toiletries</option>
-            <option value="Babycare">Baby Care</option>
+            <option value="Baby Wipes">Filter by: Baby Wipes</option>
+            <option value="Baby Food">Filter by: Baby Food</option>
           </select>
         </div>
       </div>
     </div>
 
-    <script src="shop.js"></script>
-    <!-- <script src="shp.js"></script> -->
+    <script src="babycare.js"></script>
   </body>
 </html>
+

@@ -413,7 +413,6 @@
 //     image: "BREAKFAST CEREALS/spxspy757.jpg",
 //   },
 // ];
-
 const provisions = [
   {
     name: "McVitie's Hob Nobs 200 g",
@@ -542,6 +541,271 @@ const provisions = [
   },
 ];
 
+const cosmetics = [
+  {
+    name: "Nivea Body Milk Nourishing Lotion 400ml",
+    category: "Cosmetics",
+    price: "₦3,450.00",
+    image: "Moisturisers & Lotions/Spmt1003.jpg",
+  },
+
+  {
+    name: "St. Ives Lotion Skin Soothing Oatmeal & Shea Butter 621 ml",
+    category: "Cosmetics",
+    price: "₦4,200.00",
+    image: "Moisturisers & Lotions/Spmt520.jpg",
+  },
+
+  {
+    name: "Nivea Men Lotion Revitalising 400 ml",
+    category: "Cosmetics",
+    price: "₦5,100.00",
+    image: "Moisturisers & Lotions/Spmt974.jpg",
+  },
+  {
+    name: "Vaseline Lotion Intensive Care Healthy Body Glow 400 ml",
+    category: "Cosmetics",
+    price: "₦2,950.00",
+    image: "Moisturisers & Lotions/aspar050.jpg",
+  },
+  {
+    name: "Skin White Papaya Milk Whitening Lotion 350 ml",
+    category: "Cosmetics",
+    price: "₦6,200.00",
+    image: "Moisturisers & Lotions/dbk4324.jpg",
+  },
+  {
+    name: "Extract Whitening Lotion Papaya Calamansi 200 ml",
+    category: "Cosmetics",
+    price: "₦3,750.00",
+    image:
+      "Moisturisers & Lotions/spasho1467_1ccfda31-5388-4f55-a6f0-861d8e2240e8.jpg",
+  },
+  {
+    name: "Nivea Radiant & Beauty Advanced Care Body Lotion 400ml",
+    category: "Cosmetics",
+    price: "₦5,800.00",
+    image:
+      "Moisturisers & Lotions/spasho2096_deb48546-c084-4d32-a132-c5178c2471d9.jpg",
+  },
+  {
+    name: "Nivea Radiant & Beauty Even Glow Body Lotion 400 ml",
+    category: "Cosmetics",
+    price: "₦4,500.00",
+    image:
+      "Moisturisers & Lotions/spasho2097_2475b5a8-535e-4ade-bad4-1b089a58848e.jpg",
+  },
+  {
+    name: "Nivea Lotion Nourishing Cocoa 400 ml",
+    category: "Cosmetics",
+    price: "₦3,200.00",
+    image:
+      "Moisturisers & Lotions/spaz4_859e2b48-cda9-4143-9426-5999003beabd.jpg",
+  },
+  {
+    name: "Dr Rashel Vitamin C Brightening Cream",
+    category: "Cosmetics",
+    price: "₦6,000.00",
+    image:
+      "Moisturisers & Lotions/spmzz1248_f196f1fb-53aa-4937-943e-d5518dfca133.jpg",
+  },
+];
+
+const toiletries = [
+  {
+    name: "Air Wick Freshmatic Air Freshener Assorted 300ml",
+    category: "Toiletries",
+    price: "₦3,125.00",
+    image:
+      "Air Fresheners & Fragrances/Air-Wick-Air-Freshener-Assorted-300-ml-Supermart-ng-2079.jpg",
+  },
+  {
+    name: "Air Wick Stick Up Aroma Gel Assorted 30g",
+    category: "Toiletries",
+    price: "₦4,780.00",
+    image:
+      "Air Fresheners & Fragrances/Air-Wick-Air-Freshener-Stick-Up-Multi-Use-Aroma-Gel-Assorted-30-g-Supermart-ng-1317.jpg",
+  },
+  {
+    name: "Air Wick Stick Up Citrus Aroma Gel 30g",
+    category: "Toiletries",
+    price: "₦2,950.00",
+    image:
+      "Air Fresheners & Fragrances/Air-Wick-Air-Freshener-Stick-Up-Multi-Use-Aroma-Gel-Citrus-30-g-Supermart-ng-4000.jpg",
+  },
+  {
+    name: "Air Wick Drummer Assorted 45g x6",
+    category: "Toiletries",
+    price: "₦5,640.00",
+    image:
+      "Air Fresheners & Fragrances/Air-Wick-Drummer-Air-Freshener-Assorted-Fragrances-45-g-x6-Supermart-ng-9365.jpg",
+  },
+  {
+    name: "Air Wick Freshmatic Diffuser Refill Assorted 250ml",
+    category: "Toiletries",
+    price: "₦3,890.00",
+    image:
+      "Air Fresheners & Fragrances/Air-Wick-Freshmatic-Diffuser-Refill-Assorted-250-ml-Supermart-ng-6930.jpg",
+  },
+  {
+    name: "Air Wick Freshmatic Max Refill Assorted 250ml",
+    category: "Toiletries",
+    price: "₦3,890.00",
+    image:
+      "Air Fresheners & Fragrances/Air-Wick-Freshmatic-Max-Refill-Assorted-250-ml-Supermart-ng-7570.jpg",
+  },
+  {
+    name: "Wind Air Freshener Apple 65g",
+    category: "Toiletries",
+    price: "₦4,210.00",
+    image:
+      "Air Fresheners & Fragrances/spasho2022_5d9864c0-d12c-4662-ae10-12f3fb830386.jpg",
+  },
+  {
+    name: "Sunshine Air Freshener Tropical Mist",
+    category: "Toiletries",
+    price: "₦5,120.00",
+    image:
+      "Air Fresheners & Fragrances/spasho420_cca82127-b059-4824-a8d7-48e2b76ca34f.jpg",
+  },
+  {
+    name: "Sunshine Car Air Freshener Ocean",
+    category: "Toiletries",
+    price: "₦3,450.00",
+    image:
+      "Air Fresheners & Fragrances/spasho421_c652d445-5a45-4e75-b717-2bdaf3e35f58.jpg",
+  },
+  {
+    name: "Sunshine Air Freshener",
+    category: "Toiletries",
+    price: "₦6,020.00",
+    image: "Air Fresheners & Fragrances/spwxyz1494_2.jpg",
+  },
+];
+
+const babycareProducts = [
+  {
+    name: "All-Day Sensitive Baby Wet Towel Blue x90",
+    category: "Babycare",
+    price: "₦3,500",
+    image: "Baby Wipes/All-Day-Sensitive-Baby-Wet-Towel-Blue-x90-Supermart-ng-9570.jpg",
+  },
+  {
+    name: "Charles Baby Wipes Aloe Vera 100 pieces",
+    category: "Babycare",
+    price: "₦7,000",
+    image: "Baby Wipes/mega1040_st-_charles_baby_wipes_aloe_vera_100_pieces.jpg",
+  },
+  {
+    name: "Cussons Baby Wipes Soft & Smooth 50 pieces",
+    category: "Babycare",
+    price: "₦4,200",
+    image: "Baby Wipes/mult102_cussons_baby_wipes_soft___smooth_50_pieces.jpg",
+  },
+  {
+    name: "Molfix Newborn Isotonic Wet Wipes x60",
+    category: "Babycare",
+    price: "₦2,500",
+    image: "Baby Wipes/aspar10290.jpg",
+  },
+  {
+    name: "Cussons Baby Wipes Soft & Smooth x50",
+    category: "Baby items",
+    price: "₦1,070.00",
+    image: "Baby Wipes/aspar2085.jpg",
+  },
+
+  // Baby Food
+  {
+    name: "aspar9038",
+    category: "Babycare",
+    price: "₦5,000",
+    image: "Baby Food/aspar9038.jpg",
+  },
+  {
+    name: "SMA Gold 3 Toddler Milk 1-3 Years 400 g",
+    category: "Babycare",
+    price: "₦30,000",
+    image: "Baby Food/aspar9560.jpg",
+  },
+  {
+    name: "Peak Baby Step 1 Infant Formula 0-12 Months Tin 400 g",
+    category: "Babycare",
+    price: "₦9,900",
+    image: "Baby Food/megapla871.jpg",
+  },
+  {
+    name: "Nutribom Infant Cereal Maize 6 Months+ 350 g",
+    category: "Babycare",
+    price: "₦3,200",
+    image: "Baby Food/spar0938.jpg",
+  },
+  {
+    name: "Nutribom Infant Cereal Rice 6 Months+ 350 g",
+    category: "Babycare",
+    price: "₦3,000",
+    image: "Baby Food/spar0939_9b908311-8b66-4e1d-8deb-6596a6e12fbc.jpg",
+  },
+  // {
+  //   name: "spar0941",
+  //   category: "Babycare",
+  //   price: "₦4,900",
+  //   image: "Baby Food/spar0941.webp",
+  // },
+  // {
+  //   name: "spar10275_",
+  //   category: "Babycare",
+  //   price: "₦6,200",
+  //   image: "Baby Food/spar10275..jpg",
+  // },
+  // {
+  //   name: "spbpfd2609",
+  //   category: "Babycare",
+  //   price: "₦2,800",
+  //   image: "Baby Food/spbpfd2609.jpg",
+  // },
+  // {
+  //   name: "spbpfd2620",
+  //   category: "Babycare",
+  //   price: "₦7,600",
+  //   image: "Baby Food/spbpfd2620.jpg",
+  // },
+  // {
+  //   name: "spbpfd2621",
+  //   category: "Babycare",
+  //   price: "₦1,950",
+  //   image: "Baby Food/spbpfd2621.jpg",
+  // },
+  // {
+  //   name: "spbpfd2624",
+  //   category: "Babycare",
+  //   price: "₦5,750",
+  //   image: "Baby Food/spbpfd2624.jpg",
+  // },
+  // {
+  //   name: "spbpfd2661_2_ad3dd3f7_e1d4_4e5d_a051_6b6c570ca405",
+  //   category: "Babycare",
+  //   price: "₦8,200",
+  //   image: "Baby Food/spbpfd2661_2_ad3dd3f7-e1d4-4e5d-a051-6b6c570ca405.jpg",
+  // },
+  // {
+  //   name: "spbpfd2661_2",
+  //   category: "Babycare",
+  //   price: "₦3,900",
+  //   image: "Baby Food/spbpfd2661_2.jpg",
+  // },
+  // {
+  //   name: "spxty3189",
+  //   category: "Babycare",
+  //   price: "₦9,250",
+  //   image: "Baby Food/spxty3189.jpg",
+  // },
+];
+
+const AllProducts = [...provisions, ...cosmetics, ...toiletries, ...babycareProducts];
+
+
+
 // DOM Elements
 const searchIcon = document.querySelector(".search-icon");
 const searchBar = document.querySelector(".modal-search");
@@ -577,7 +841,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Filter with proper return statement
-    const filteredItems = provisions.filter((eachProducts) =>
+    const filteredItems = AllProducts.filter((eachProducts) =>
       eachProducts.name.toLowerCase().includes(inputedItem),
     );
 
@@ -603,7 +867,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Filter with proper return statement
-    const filteredItems = provisions.filter((eachProducts) =>
+    const filteredItems = AllProducts.filter((eachProducts) =>
       eachProducts.name.toLowerCase().includes(inputedItem),
     );
 
