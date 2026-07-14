@@ -326,12 +326,7 @@ const babycareProducts = [
   },
 
   // Baby Food
-  {
-    name: "aspar9038",
-    category: "Babycare",
-    price: "₦5,000",
-    image: "Baby Food/aspar9038.jpg",
-  },
+
   {
     name: "SMA Gold 3 Toddler Milk 1-3 Years 400 g",
     category: "Babycare",
